@@ -34,7 +34,7 @@ public class Hm_ExpertDAO {
 			pstmt.setString(2, dto.getText());
 			pstmt.setString(3, dto.getPlace());
 			pstmt.setString(4, dto.getLat());
-			pstmt.setString(5, dto.getLoc());
+			pstmt.setString(5, dto.getLon());
 			pstmt.setString(6, dto.getFile_name());
 			pstmt.setString(7, dto.getLoc());
 			pstmt.executeUpdate();
