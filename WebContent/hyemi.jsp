@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%안냐세요 %>
+안냐세요
 </body>
 </html>
