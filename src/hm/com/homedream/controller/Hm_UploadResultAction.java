@@ -20,9 +20,9 @@ public class Hm_UploadResultAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		request.setCharacterEncoding("utf-8");
 		int filesize = 1024 * 1024 * 10;
-		String uploadpath = request.getServletContext().getRealPath("upload");
+		String uploadpath = request.getServletContext().getRealPath("hm_expert");
 		System.out.println(uploadpath);
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());

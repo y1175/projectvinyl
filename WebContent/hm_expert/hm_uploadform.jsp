@@ -17,8 +17,9 @@
 	<input type ="text" name = "name" id ="name">
 	</li>
 	<li>
+	<!-- <textarea rows="10" cols="20" name ="content" id ="content" >내용</textarea> -->
 	<label for ="content">내용</label>
-	<input type ="text" name = "content" id ="content">
+	<input type ="text" name = "content" id ="content"> 
 	</li>
 	<li>
 	<label for ="place">위치</label>

@@ -20,7 +20,7 @@ public class Hm_ExpertDAO {
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
 		sql.append("  insert into expert(                            ");
-		sql.append("          ,name                                  ");
+		sql.append("          name                                  ");
 		sql.append("          ,text                                  ");
 		sql.append("          ,place                                 ");
 		sql.append("          ,lat                                   ");
