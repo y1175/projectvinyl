@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-테스트화면:회원가입완료 
+테스트화면:회원가입완료  
 </body>
 </html>
