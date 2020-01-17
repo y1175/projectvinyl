@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-안녕 나는 은지! 오늘도 파이팅!!!
+적립금: <input type="text">원
+<input type="submit" value="적립">
 </body>
 </html>
