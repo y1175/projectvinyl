@@ -17,7 +17,7 @@ public class YIAction implements Action {
 	
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/WEB-INF/yi/test.jsp");
+		f.setUrl("/yi_member/test.jsp");
 		
 		
 		return f;

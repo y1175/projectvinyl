@@ -41,6 +41,29 @@ public class MemberService {
 		}
 		
 	}
+	public String getLogin(String id, String pwd) {
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		String userId=null;
+		
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			userId=dao.getLogin(conn,id,pwd);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+		return userId;
+	}
 	
 	
 	

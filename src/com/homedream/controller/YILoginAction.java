@@ -18,7 +18,7 @@ public class YILoginAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/WEB-INF/yi/loginform.jsp");
+		f.setUrl("/yi_member/loginform.jsp");
 		return f;
 	}
 

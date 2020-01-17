@@ -17,7 +17,7 @@ public class YIJoinAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/WEB-INF/yi/joinform.jsp");
+		f.setUrl("/yi_member/joinform.jsp");
 		
 		
 		return f;

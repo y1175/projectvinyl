@@ -2,6 +2,7 @@ package yi.com.homedream.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import yi.com.homedream.dto.MemberDTO;
@@ -34,6 +35,33 @@ public class MemberDAO {
 			
 		}
 		
+	}
+	public String getLogin(Connection conn,String id, String pwd) throws SQLException{
+		StringBuilder sql=new StringBuilder();
+		ResultSet rs=null;
+		String userId=null;
+		sql.append(" select id,pwd ");
+		sql.append(" from member  ");
+		sql.append(" where id=? and pwd=?   ");
+		
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
+		{
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				userId=rs.getString(1);
+			}
+
+			
+		}
+		finally {
+			if(rs!=null) try {rs.close();}catch(SQLException e) {}
+		}
+		
+		
+		return userId;
 	}
 	
 	
