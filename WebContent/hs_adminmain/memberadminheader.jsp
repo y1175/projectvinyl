@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <!--header style-->
-<link rel="stylesheet" href="../css/adminheader.css" >
+<link rel="stylesheet" href="../css/hs_adminheader.css" >
 <!--header style-->
 
 </head>
