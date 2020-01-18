@@ -58,7 +58,7 @@ public class Hm_UploadResultAction implements Action {
 		service.dataInsert(dto);
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("/hm_list.jsp");
+		f.setUrl("hm_expert/hm_list.jsp");
 		return f;
 	}
 

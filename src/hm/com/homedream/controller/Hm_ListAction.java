@@ -20,14 +20,57 @@ public class Hm_ListAction implements Action {
 			throws ServletException, IOException {
 	
 		request.setCharacterEncoding("utf-8");
-		
+		String search = request.getParameter("hmcity");
+		if(search==null)
+		{
+			search="";
+		}
 		Hm_ExpertService service = Hm_ExpertService.getService();
-		List<Hm_ExpertDTO> list =service.getList();
+
+		
+		
+		int currpage = 1;//현재페이지
+		String curr = request.getParameter("curr");
+		if(curr!=null)
+		{
+			currpage = Integer.parseInt(curr);
+		}
+		int totalcount = service.getCount(search);
+		
+		System.out.println(totalcount);
+		int pagepercount = 3;//한 페이지 당 보여줄 자료
+		int totalpage = (int)Math.ceil((float)totalcount/pagepercount);
+		
+		int startrow = (currpage-1)*pagepercount+1;
+		int endrow = startrow+pagepercount-1;
+		if(endrow>totalcount)
+		{
+			endrow=totalcount;
+		}
+		int pageblockcount =5;
+		int startblock =((currpage-1)/pageblockcount)*pageblockcount+1;
+		int endblock = startblock+pageblockcount-1;
+		if(endblock>totalpage)
+		{
+			endblock =totalpage;
+		}
+		
+		request.setAttribute("currpage", currpage);
+		request.setAttribute("startblock", startblock);
+		request.setAttribute("endblock", endblock);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("search", search);
+		request.setAttribute("totalcount", totalcount);
+
+		List<Hm_ExpertDTO> list =service.getList(currpage,pagepercount,search);//전체리스트
+		
+		
+		
 		
 		request.setAttribute("list", list);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/WEB-INF/hm_expert/hm_list.jsp");
+		forward.setUrl("/hm_expert/hm_list.jsp");
 		
 		
 		return forward;
