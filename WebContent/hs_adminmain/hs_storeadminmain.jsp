@@ -23,10 +23,10 @@
 <body>
   <div class="container">
      <header>
-         <jsp:include page="storeadminheader.jsp"></jsp:include>
+         <jsp:include page="hs_storeadminheader.jsp"></jsp:include>
      </header>
      <footer>
-         <jsp:include page="footer.jsp"></jsp:include>
+         <jsp:include page="hs_admin_footer.jsp"></jsp:include>
      </footer>
   </div>
 </body>

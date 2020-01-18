@@ -17,9 +17,9 @@
 <body>
   <div>
     <div class="hs_header_top">
-     <a href="communitymain.jsp" id="hs_header_h1">홈드림</a>
-     <a href="communitymain.jsp" class="hs_header_hc">커뮤니티</a>
-     <a href="storemain.jsp" class="hs_header_hc"  style="color: rgb(0, 153, 255);">스토어</a>
+     <a href="hs_communitymain.jsp" id="hs_header_h1">홈드림</a>
+     <a href="hs_communitymain.jsp" class="hs_header_hc">커뮤니티</a>
+     <a href="hs_storemain.jsp" class="hs_header_hc"  style="color: rgb(0, 153, 255);">스토어</a>
      <div class="hs_header_search">
      <form>
         <label for="hs_mainsearch"></label>
@@ -36,7 +36,7 @@
     <div class="hs_header_line"></div>
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
-         <a href="">스토어홈</a>
+         <a href="" style="color: rgb(0, 153, 255);">스토어홈</a>
          <a href="">베스트</a>
          <a href="">기획전</a>
          <a href="">이벤트</a>

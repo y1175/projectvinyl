@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +24,13 @@
 <body>
   <div class="container">
      <header>
-         <jsp:include page="memberadminheader.jsp"></jsp:include>
+         <jsp:include page="hs_communityheader.jsp"></jsp:include>
      </header>
+     <section>
+         <jsp:include page="hs_communitycontent.jsp"></jsp:include>
+     </section>
      <footer>
-         <jsp:include page="footer.jsp"></jsp:include>
+         <jsp:include page="hs_user_footer.jsp"></jsp:include>
      </footer>
   </div>
 </body>

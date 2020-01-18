@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/* 스토어홈 카테고리 슬라이더 */
+body{
+    margin: 0px auto;
+}
+.hs_container_nav_cg {
+    max-width: 100%;
+}
+
+.hs_cg_g-scrolling-carousel .hs_cg_items a {
+    display: inline-block;
+    notice the comments between inline-block items margin-right: 10px;
+    width: 110px;
+    margin: 12.5px;
+    /*text-align: center;*/
+    text-decoration: none;
+}
+.hs_storecontent_cg_img{
+	width: 110px;
+    height:110px;
+}
+
+.hs_cg_g-scrolling-carousel .hs_cg_items a p {
+    margin: 0px;
+    color: #222;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+}
+
+.hs_cg_g-scrolling-carousel {
+    position: relative;
+}
+
+.hs_cg_g-scrolling-carousel .hs_cg_items {
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.hs_cg_g-scrolling-carousel .hs_cg_items::-webkit-scrollbar {
+    display: none;
+}
+
+.jc-right,
+/*동그라미*/
+.jc-left {
+    color: #757575;
+    margin-bottom: auto;
+    margin-top: auto;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0.94;
+
+}
+
+.jc-right {
+    /*위치조절*/
+    right: 0px;
+}
+
+.jc-left {
+    left: -40px;
+}
+
+.jc-right:hover,
+.jc-left:hover {
+    opacity: 0.98;
+}
+
+.jc-right svg,
+/*화살표*/
+.jc-left svg {
+    position: absolute;
+    left: 0px;
+    right: 0;
+    bottom: 10px;
+    top: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    fill: #222;
+}
+
+.jc-right:hover svg,
+.jc-left:hover svg {
+    fill: rgb(0, 153, 255);
+}
+
+@media (pointer: coarse) {
+
+    .jc-right,
+    .jc-left {
+        display: none !important;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+/* 위에 건들이면 안됨 */
