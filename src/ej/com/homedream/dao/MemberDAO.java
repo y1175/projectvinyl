@@ -19,9 +19,10 @@ public class MemberDAO {
 		return dao;
 	}//싱글톤
 	private MemberDAO() {}
-////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public int memberCount(Connection conn, String search, String txtsearch) throws SQLException {//자료수 리턴
+	public int memberCount(Connection conn, String search, String txtsearch
+			, int stxtsearch1, int stxtsearch2) throws SQLException {//자료수 리턴
 		StringBuilder sql=new StringBuilder();
 		int count=0;
 		ResultSet rs=null;
@@ -29,22 +30,36 @@ public class MemberDAO {
 		sql.append(" select count(*) ");
 		sql.append(" from member     ");
 		sql.append(" where mem_no!=1 ");
-		
+		//검색
 		if(!search.equals("")&&!txtsearch.equals(""))
 		{
 			if(search.equals("id"))
 				sql.append(" and id like ? ");
 			else if(search.equals("name"))
 				sql.append(" and name like ? ");
-			
-			
+		}
+		//금액검색 
+		if(stxtsearch1!=0&&stxtsearch2!=0)
+		{
+			sql.append(" and total between ? and ? ");
 		}
 		
+	
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
 			if(!search.equals("")&&!txtsearch.equals(""))
 			{
 			pstmt.setString(1,"%"+txtsearch+"%");//txtsearch를 포함하는
+				
+			}else//검색안할때
+			{
+				if(stxtsearch1!=0&&stxtsearch2!=0)//금액검색하면
+				{
+					pstmt.setInt(1, stxtsearch1);
+					pstmt.setInt(2, stxtsearch2);
+				}
 			}
+			
+			
 			 rs=pstmt.executeQuery();
 			 if(rs.next()) {
 					count=rs.getInt(1);//첫번째꺼가져와
@@ -56,53 +71,49 @@ public class MemberDAO {
 		}
 		return count;
 	}
-
-	public List<MemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch) throws SQLException {//리스트출력
+//////////////////////////////////////////////////////////////////////////////
+	public List<MemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch
+			, int stxtsearch1, int stxtsearch2) throws SQLException {//리스트출력
 		
 		List<MemberDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
-		sql.append(" select * 				    	");
-		sql.append(" from( 				     		");
-		sql.append("  select rownum as rnum, b.*   ");
-		sql.append("  from(                        ");
-		sql.append("        select mem_no            ");
-		sql.append("  			   ,id      ");
-		sql.append("  			   ,pwd    ");
-		sql.append(" 				,name    ");
-		sql.append("  			    ,birth ");
-		sql.append("  			    ,phone ");
-		sql.append("  			    ,addr ");
-		sql.append("  			    ,zipcode ");
-		sql.append("  				from member   ");
-		sql.append("  				where mem_no!=1   ");
+		sql.append(" select *  from member ");
 		
 		
-		if(!search.equals("")&&txtsearch.equals(""))//null이 아니면
+		
+		
+		if(!search.equals("")&&!txtsearch.equals(""))//검색을 하면
 		{	
 			if(search.equals("id"))
 				sql.append(" where id like ? ");
 			else if(search.equals("name"))
 				sql.append(" where name like ? ");
 		}
-		sql.append(" order by mem_no asc 		 ");
-		sql.append("  		 ) b 		 ");
-		sql.append("  where rownum<=?    ");
-		sql.append("   )			     ");
-		sql.append("   where rnum>=?  ");
+		if(stxtsearch1!=0&&stxtsearch2!=0)//금액검색하면
+		{
+			sql.append(" and total between ? and ? ");
+		}
 		
+	
+			sql.append(" limit ?,15 ");
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
 		
-		if(!search.equals("")&&txtsearch.equals(""))
+		if(!search.equals("")&&!txtsearch.equals(""))//검색하면
 		{
 			pstmt.setString(1, "%"+txtsearch+"%");
-			pstmt.setInt(2, endrow);
+			pstmt.setInt(2, startrow);
+			
+		}
+		else if(stxtsearch1!=0&&stxtsearch2!=0)//금액검색하면
+		{
+			pstmt.setInt(1, stxtsearch1);
+			pstmt.setInt(2, stxtsearch2);
 			pstmt.setInt(3, startrow);
 		}
-		else{
-			pstmt.setInt(1,endrow);
-			pstmt.setInt(2, startrow);
+		else{//존재하지않으면 또는 검색안하면
+			pstmt.setInt(1, startrow);
 		}
 		
 			rs=pstmt.executeQuery();
@@ -117,6 +128,7 @@ public class MemberDAO {
 				dto.setPhone(rs.getString("phone"));
 				dto.setAddr(rs.getString("addr"));
 				dto.setZipcode(rs.getInt("zipcode"));
+				dto.setTotal(rs.getInt("total"));
 				
 				list.add(dto);
 			}

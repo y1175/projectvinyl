@@ -9,14 +9,28 @@ private String birth;
 private String phone;
 private String addr;
 private int zipcode;
+private int total;
+private int point;
 public int getMemNo() {
 	return memNo;
+}
+public int getTotal() {
+	return total;
+}
+public void setTotal(int total) {
+	this.total = total;
 }
 public void setMemNo(int memNo) {
 	this.memNo = memNo;
 }
 public String getId() {
 	return id;
+}
+public int getPoint() {
+	return point;
+}
+public void setPoint(int point) {
+	this.point = point;
 }
 public void setId(String id) {
 	this.id = id;

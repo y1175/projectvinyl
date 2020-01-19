@@ -23,7 +23,7 @@ public class MemberService {
 	
 	private MemberService() {}
 	//////////////////////////////////////////////////////////////
-	public int getCount(String search, String txtsearch)
+	public int getCount(String search, String txtsearch, int txtsearch1, int txtsearch2)
 	{//connection만들어서 dao로 넘겨
 		
 		DBConnection db=DBConnection.getInstance();//dbconnection꺼 받아
@@ -33,7 +33,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();//싱글톤햇으니까 이렇게
-			count=dao.memberCount(conn, search, txtsearch);
+			count=dao.memberCount(conn, search, txtsearch, txtsearch1, txtsearch2);
 			//System.out.println("count: "+count);
 			conn.commit();
 		}catch(NamingException|SQLException e)
@@ -46,7 +46,8 @@ public class MemberService {
 		return count;
 	}//전체 자료수
 	
-	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch) {//출력
+	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch
+			, int stxtsearch1, int stxtsearch2) {//출력
 		Connection conn=null;
 		List<MemberDTO> list=null;
 				
@@ -57,7 +58,7 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			
 			MemberDAO dao=MemberDAO.getDAO();
-			list=dao.getlist(conn,startrow, endrow, search, txtsearch);
+			list=dao.getlist(conn,startrow, endrow, search, txtsearch, stxtsearch1, stxtsearch2);
 			//list를 리턴을 받아줫을때
 			
 			conn.commit();

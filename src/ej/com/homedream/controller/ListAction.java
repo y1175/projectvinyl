@@ -32,6 +32,12 @@ public class ListAction implements Action {
 				
 		MemberService service=MemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
 		
+		//구매액 상세검색
+		int stxtsearch1=Integer.parseInt(request.getParameter("stxtsearch1"));
+		int stxtsearch2=Integer.parseInt(request.getParameter("stxtsearch2"));
+		System.out.println("stxtsearch1 & stxtsearch2"+stxtsearch1+stxtsearch2);
+		
+		
 		//검색시작
 				String search=request.getParameter("search");//list.jsp에서 받아오는것
 				String txtsearch=request.getParameter("txtsearch");//list.jsp에서 받아오는것
@@ -41,7 +47,7 @@ public class ListAction implements Action {
 							txtsearch="";
 				//검색끝
 		//페이징시작
-		int totalcount=service.getCount(search, txtsearch);//전체자료
+		int totalcount=service.getCount(search, txtsearch, stxtsearch1, stxtsearch2);//전체자료
 		System.out.println("totalcount: "+totalcount);
 		int countperpage=15;//한페이지에 보여줄 자료
 		int totalpage=(int)Math.ceil((float)totalcount/countperpage);
@@ -61,11 +67,12 @@ public class ListAction implements Action {
 		
 		
 		
-		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch);//이건 걍 전체 가져오는거고(페이징으로)
+		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch, stxtsearch1, stxtsearch2);//이건 걍 전체 가져오는거고(페이징으로)
 		
 		
 		//List<MemberDTO> slist=service.getselectedList();//선택한거 리스트에 넣는건. 2순위
-		
+		String addpoint=request.getParameter("addpoint");
+		System.out.println("addpoint:"+addpoint);
 		request.setAttribute("list", list);
 		request.setAttribute("currpage", currpage);
 		request.setAttribute("totalpage", totalpage);
@@ -79,7 +86,7 @@ public class ListAction implements Action {
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
-		f.setUrl("/list2.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
+		f.setUrl("/ej_member/ej_list.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
 		
 		return f;
 		
