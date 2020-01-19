@@ -59,7 +59,7 @@
     <a href="" class="hs_footer_cc">고객센터</a> 
     <div>     
       <b class="hs_footer_tel">1588-1588</b>
-      <img alt="소셜" src="../Img/s.png"  class="hs_footer_sn">  
+      <img alt="snimg" src="../img/hs_footer_sn.png"  class="hs_footer_sn">  
     </div>
   <div class="hs_footer_content1">
     <b>브랜드 스토리</b>

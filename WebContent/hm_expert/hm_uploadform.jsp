@@ -1,49 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 
 
-<form method = "post" action="hm_uploadresult.do" enctype="multipart/form-data"><!-- ¾÷·ÎµåÇÒ¶§ enctype ²À ½áÁà¾ßÇÔ  -->
+<form method = "post" action="hm_uploadresult.do" enctype="multipart/form-data"><!-- ì—…ë¡œë“œí• ë•Œ enctype ê¼­ ì¨ì¤˜ì•¼í•¨  -->
 	<ul>
 	<li>
-	<label for ="name">»óÈ£¸í</label>
+	<label for ="name">ìƒí˜¸ëª…</label>
 	<input type ="text" name = "name" id ="name">
 	</li>
 	<li>
-	<!-- <textarea rows="10" cols="20" name ="content" id ="content" >³»¿ë</textarea> -->
-	<label for ="content">³»¿ë</label>
+	<!-- <textarea rows="10" cols="20" name ="content" id ="content" >ë‚´ìš©</textarea> -->
+	<label for ="content">ë‚´ìš©</label>
 	<input type ="text" name = "content" id ="content"> 
 	</li>
 	<li>
-	<label for ="place">À§Ä¡</label>
+	<label for ="place">ìœ„ì¹˜</label>
 	<input type ="text" name = "place" id ="place">
 	</li>
 	<li>
-	<label for ="lat">À§µµ</label>
+	<label for ="lat">ìœ„ë„</label>
 	<input type =text name = "lat" id ="lat">
 	</li>
 	<li>
-	<label for ="lon">°æµµ</label>
+	<label for ="lon">ê²½ë„</label>
 	<input type ="text" name = "lon" id ="lon">
 	</li>
 	<li>
-	<label for ="file_name">ÆÄÀÏÀÌ¸§</label>
+	<label for ="file_name">íŒŒì¼ì´ë¦„</label>
 	<input type ="text" name = "file_name" id ="file_name">
 	</li> 
 	<li>
-	<label for ="uploadfile">ÆÄÀÏ°æ·Î</label>
+	<label for ="uploadfile">íŒŒì¼ê²½ë¡œ</label>
 	<input type ="file" name = "uploadfile" id ="uploadfile">
 	</li>
 	<li>
-	<input type ="submit" value ="Àü¼Û">
-	<input type ="reset" value ="Ãë¼Ò">
+	<input type ="submit" value ="ì „ì†¡">
+	<input type ="reset" value ="ì·¨ì†Œ">
 	</li>
 	</ul>
 	</form>

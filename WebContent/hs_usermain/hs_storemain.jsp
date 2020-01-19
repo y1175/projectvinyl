@@ -24,10 +24,13 @@
 <body>
   <div class="container">
      <header>
-         <jsp:include page="storeheader.jsp"></jsp:include>
+         <jsp:include page="hs_storeheader.jsp"></jsp:include>
      </header>
+     <section>
+         <jsp:include page="hs_storecontent.jsp"></jsp:include>
+     </section>
      <footer>
-         <jsp:include page="footer.jsp"></jsp:include>
+         <jsp:include page="hs_user_footer.jsp"></jsp:include>
      </footer>
   </div>
 </body>

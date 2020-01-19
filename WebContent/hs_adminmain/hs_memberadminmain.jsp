@@ -23,10 +23,13 @@
 <body>
   <div class="container">
      <header>
-         <jsp:include page="communityadminheader.jsp"></jsp:include>
+         <jsp:include page="hs_memberadminheader.jsp"></jsp:include>
      </header>
+     <section>
+
+     </section>
      <footer>
-         <jsp:include page="footer.jsp"></jsp:include>
+         <jsp:include page="hs_admin_footer.jsp"></jsp:include>
      </footer>
   </div>
 </body>
