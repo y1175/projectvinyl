@@ -21,7 +21,7 @@
 <c:forEach var="item" items="${list }">
 <td><c:out value="${item.orderdate }"></c:out></td>
 <td><c:out value="${item.order_no }"></c:out></td>
-<td><a href="orderdetail.do?num=${item.order_no }">상세보기</a></td>
+<td><a href="yiorderdetail.do?num=${item.order_no }">상세보기</a></td>
 <td><c:out value="${item.status }"></c:out></td>
 </c:forEach>
 </tr>

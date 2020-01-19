@@ -10,6 +10,7 @@ import javax.naming.NamingException;
 import com.homedream.comm.DBConnection;
 
 import yi.com.homedream.dao.MemberDAO;
+import yi.com.homedream.dto.ItemDTO;
 import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
 
@@ -90,16 +91,16 @@ public class MemberService {
 		}
 		return list;
 	}
-	public MemberDTO orderDetailMember(int num) {
+	public List<MemberDTO> orderDetailMember(int num) {
 		// TODO Auto-generated method stub
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		MemberDTO dto=new MemberDTO();
+		List<MemberDTO> list=new ArrayList<>();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
-			dto=dao.orderDetailMember(conn,num);
+			list=dao.orderDetailMember(conn,num);
 			
 			conn.commit();
 		}
@@ -113,10 +114,10 @@ public class MemberService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 		
-		return dto;
+		return list;
 	}
-	public List<OrderlistDTO> orderDetailItem(int num) {
-		List<OrderlistDTO> list=new ArrayList<>();
+	public List<ItemDTO> orderDetailItem(int num) {
+		List<ItemDTO> list=new ArrayList<>();
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		try {
@@ -124,6 +125,30 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			list=dao.orderDetailItem(conn,num);
+			
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+		return list;
+	}
+	public List<OrderlistDTO> orderDetailOrder(int num) {
+		List<OrderlistDTO> list=new ArrayList<>();
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.orderDetailOrder(conn,num);
 			
 			conn.commit();
 		}

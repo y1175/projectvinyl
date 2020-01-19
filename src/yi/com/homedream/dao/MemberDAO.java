@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import yi.com.homedream.dto.ItemDTO;
 import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
 
@@ -96,9 +96,9 @@ public class MemberDAO {
 		}
 		return list;
 	}
-	public MemberDTO orderDetailMember(Connection conn, int num) throws SQLException {
+	public List<MemberDTO> orderDetailMember(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		MemberDTO dto=new MemberDTO();
+		List<MemberDTO> list=new ArrayList<>();
 		sql.append(" select phone,name,addr  ");
 		sql.append(" from member inner join orderlist ");
 		sql.append(" on member.mem_no=orderlist.mem_no");
@@ -109,35 +109,74 @@ public class MemberDAO {
 			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();
 			while(rs.next())
-			{				
+			{			
+				MemberDTO dto=new MemberDTO();
 				dto.setPhone(rs.getString("phone"));
 				dto.setName(rs.getString("name"));
 				dto.setAddr(rs.getString("addr"));
+				list.add(dto);
 			}
 		}
 		finally {
 			if(rs!=null) try {rs.close();}catch(SQLException e) {}
 		}
 		
-		return dto;
+		return list;
 	}
-	public List<OrderlistDTO> orderDetailItem(Connection conn, int num) throws SQLException {
+	public List<ItemDTO> orderDetailItem(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		sql.append(" select order_no,name,price,status ");
+		sql.append(" select name,price   ");
 		sql.append(" from orderlist inner join item ");
 		sql.append(" on orderlist.item_no = item.item_no  ");
 		sql.append(" where order_no=? ");
 		
 		ResultSet rs=null;
+		List<ItemDTO> list=new ArrayList<>();
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
 		{
-			
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			while(rs.next())
+			{
+				ItemDTO dto=new ItemDTO();
+				dto.setName(rs.getString("name"));
+				dto.setPrice(rs.getInt("price"));
+				list.add(dto);
+			}
 		}
 		finally {
 			if(rs!=null) try {rs.close();}catch(SQLException e) {}
 		}
 		
-		return null;
+		return list;
+	}
+	public List<OrderlistDTO> orderDetailOrder(Connection conn, int num) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		List<OrderlistDTO> list=new ArrayList<>();
+		ResultSet rs=null;
+		sql.append(" select order_no,status,cost ");
+		sql.append(" from orderlist inner join item ");
+		sql.append(" on orderlist.item_no = item.item_no  ");
+		sql.append(" where order_no=? ");
+		
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
+		{
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			while(rs.next())
+			{
+				OrderlistDTO dto=new OrderlistDTO();
+				dto.setOrder_no(rs.getInt("order_no"));
+				dto.setCost(rs.getInt("cost"));
+				dto.setStatus(rs.getInt("status"));
+				list.add(dto);
+			}
+		}
+		finally {
+			if(rs!=null) try {rs.close();}catch(SQLException e) {}
+		}
+		
+		return list;
 	}
 	
 	

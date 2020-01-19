@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
+import yi.com.homedream.dto.ItemDTO;
 import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
 import yi.com.homedream.service.MemberService;
@@ -20,20 +21,24 @@ public class YIOrderDetailAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		int num=Integer.parseInt(request.getParameter("num"));
-		List<OrderlistDTO> item=new ArrayList<OrderlistDTO>();
-		MemberDTO mdto=new MemberDTO();
+		List<ItemDTO> item=new ArrayList<>();
+		List<OrderlistDTO> order=new ArrayList<>();
+		List<MemberDTO> member=new ArrayList<>();
 		MemberService service=MemberService.getService();
-		mdto=service.orderDetailMember(num);
+		member=service.orderDetailMember(num);
 		item=service.orderDetailItem(num);
-		request.setAttribute("item", item);
-		request.setAttribute("mdto", mdto);
+		order=service.orderDetailOrder(num);
+		request.setAttribute("items", item);
+		request.setAttribute("member", member);
+		request.setAttribute("order", order);
 		
 		
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/yiorderdetail.do?num="+num);
+		f.setUrl("/yi_member/orderdetail.jsp?num="+num);
 		return f;
 	}
 
