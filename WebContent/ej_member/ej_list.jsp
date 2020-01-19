@@ -118,7 +118,7 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="list.do"><!--처음에 list.do햇음  -->
+<form method="post" action="ej_list.do"><!--처음에 list.do햇음  -->
 <div id="searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
