@@ -1,6 +1,9 @@
 package yi.com.homedream.controller;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,40 +13,39 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
+import yi.com.homedream.dto.OrderlistDTO;
 import yi.com.homedream.service.MemberService;
 
-public class YILoginResultAction implements Action {
+public class YIOrderlistAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id=request.getParameter("id");
-		String pwd=request.getParameter("pwd");
-		
-		
-		MemberService service=MemberService.getService();
-		String userId=service.getLogin(id,pwd);
-		
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("userId");
+		System.out.println("id:"+id);
 		ActionForward f=new ActionForward();
-		
-		if(userId==null)	//로그인 실패
+		if(id==null)
 		{
-			System.out.println("로그인 실패");
 			f.setForward(false);
 			f.setUrl("yilogin.do");
+			
 		}
 		else
 		{
-		HttpSession session=request.getSession();
-		session.setAttribute("userId", userId);
-		session.setMaxInactiveInterval(60*60);
-		
-		f.setForward(false);
-		f.setUrl("yi.do");
-		System.out.println("로그인 성공");
+			List<OrderlistDTO> list=new ArrayList<>();
+			MemberService service=MemberService.getService();
+			list=service.orderlist(id);
+			request.setAttribute("list", list);
+			
+			f.setForward(true);
+			f.setUrl("/yi_member/orderlist.jsp");
 		}
 		
 		return f;
 	}
 
+	
 }

@@ -8,9 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>테스트화면입니다.</h1>
-<br>  
-<a href="yiorderlist.do">주문내역</a>
-<a href="yilogout.do">로그아웃</a>
+<a href="yilogin.do">로그인하기</a>
 </body>
 </html>
