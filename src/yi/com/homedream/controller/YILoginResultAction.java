@@ -1,4 +1,4 @@
-package com.homedream.controller;
+package yi.com.homedream.controller;
 
 import java.io.IOException;
 
