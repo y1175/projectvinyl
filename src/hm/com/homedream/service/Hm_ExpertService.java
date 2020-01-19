@@ -80,6 +80,27 @@ public class Hm_ExpertService {
 		
 		return result;
 	}
+	public Hm_ExpertDTO getSelect(int no) {
+		// TODO Auto-generated method stub
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		Hm_ExpertDTO dto = new Hm_ExpertDTO();
+		try {
+			conn= db.getConnection();
+			conn.setAutoCommit(false);
+			Hm_ExpertDAO dao = Hm_ExpertDAO.getDAO();
+			dto = dao.getSelect(conn,no);
+			conn.commit();
+		}catch(SQLException | NamingException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(SQLException e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+		return dto;
+	}
 	
 	
 }

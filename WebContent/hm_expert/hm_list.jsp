@@ -1,21 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-#table1{
- border: 1px solid pink;
-}
-table tr td img{
-	width:200px;
-	height:200px;
-}
-</style>
 
+.hm_expertmain{
+	background-color:pink;
+	border : 1px solid black;
+	width:65%;
+	height:300px;
+	margin : 40px auto 20px;
+}
+.hm_expertmain img{
+	display:inline-block;
+	float: left;
+	width:85%;
+	height:300px;
+} 
+.hm_expertmain_1{
+	display:inline-block;
+	float:left;
+	width:30%;
+	height : 300px;
+}
+.hm_expertmain_1 hm_expertcontent{
+	vertical-align: middle;
+	text-align: center;
+} 
+</style>
 </head>
 <body>
 <form method="post" action="hm_list.do">
@@ -23,7 +39,8 @@ table tr td img{
 							<!-- select name값을 넘겨서 검색처리하기 -->
 							<!-- onchange="hmtownSelect(this.value);" -->
 							<option value ="">선택하세요</option>
-							<option value="강남"<c:if test="${Name eq '강남'}">selected=selected</c:if>>서울특별시 강남구</option>
+							<option value="강남">서울특별시 강남구</option>
+							<%-- <c:if test="${Name eq '강남'}">selected=selected</c:if> --%>
 							<option value="동작" >서울특별시 동작구 </option>
 							<option value="강북">서울특별시 강북구</option>
 							<option value="강서">서울특별시 강서구</option>
@@ -48,31 +65,29 @@ table tr td img{
 				<input type = "submit" value ="검색" id ="hm_search">
 			</form>
 			
-	<%-- <c:set var="currpage" value="${requestScope.currpage}"></c:set>
-	<c:set var="startblock" value="${requestScope.startblock}"></c:set>
-	<c:set var="endblock" value="${requestScope.endblock}"></c:set>
-	<c:set var="totalpage" value="${requestScope.totalpage}"></c:set>
-	<c:set var="search" value="${requestScope.search}"></c:set> --%>
+
 	<c:set var="totalcount" value="${requestScope.totalcount}"></c:set>		
-			
 			<c:set var = "list" value ="${requestScope.list}"></c:set>
+				
+			<div>
+			전체결과 : <c:out value="${totalcount}"></c:out>
+			</div>
 			
-			<table id ="table1">
-			<thead><tr><th>전체결과 : <c:out value="${totalcount}"/></th></tr></thead>
-			
-			<tbody>
-			<c:forEach var ="item" items ="${list}">
-			
-			<tr><td><img src="hm_expert/${item.loc}" alt="${item.file_name}"/></td>
-			<td><c:out value="${item.name}"></c:out></td>
-			<td><c:out value="${item.text}"></c:out></td></tr>
+ 		    <c:forEach var ="item" items ="${list}">
+			<div class="hm_expertmain" onclick="location.href='hm_detail.do';"><!-- 여기다가 detail주소 달기 -->
+			<div class="hm_expertmain_1">
+			<img src="hm_expert/${item.loc}" alt="${item.file_name}"/>
+			</div>
+			<div class="hm_expertmain_1">
+			<p class ="hm_expertcontent"><c:out value="${item.name}"/></p>
+			</div>
+			<div class="hm_expertmain_1">
+			<p class ="hm_expertcontent"><c:out value="${item.text}"/></p>
+			</div>
+			</div>
 			</c:forEach>
-			</tbody>
-			</table>
-
-	
-
-
+		
+			
 <%
 int currpage = (Integer)request.getAttribute("currpage");
 int startblock = (Integer)request.getAttribute("startblock");
@@ -80,7 +95,6 @@ int endblock = (Integer)request.getAttribute("endblock");
 int totalpage =(Integer)request.getAttribute("totalpage");
 String search = request.getParameter("search");
 %> 
-
 
 <%
 	if(startblock>1)
@@ -110,18 +124,6 @@ String search = request.getParameter("search");
 		<%
 	}
 %>
-<%-- <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
-	<c:if test="${currpage ==i }">
-		<!-- 같으면 그냥 출력 -->
-		<c:out value="${i}"/>
-	</c:if>
-	<c:if test="${currpage != i }">
-		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="list.do?curr=${i}&search=${search}">${i}</a>
-	
-	</c:if>
-</c:forEach> 
- --%>
 
 
 <%
@@ -134,27 +136,19 @@ String search = request.getParameter("search");
 	}
 %> 
 
-<%-- 
-
-     <c:if test="${startblock>1}">
-	<a href="hm_list.do?curr=${currpage-1}&search=${search}">이전</a>
-	</c:if>
-	
-	<c:forEach var ="i" begin ="${startblock}" end="${endblock}" step ="1"> 
-	<c:if test="${currpage==i}">
-	<!-- 같으면 그냥 출력하기 -->
-	<c:out value="${i}"></c:out>
-	</c:if>
-	<c:if test="${currpage!=i}">
-	<a href="hm_list.do?curr=${i}&search=${search}"></a>
-	</c:if>
-	</c:forEach>
-
-	<c:if test="${endblock<totalpage}">
-	<a href="hm_list.do?curr=${currpage+1}">다음</a>
-	</c:if>
- --%>
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5dfae15243be710e1d22bb34/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 	
 </body>
 </html>

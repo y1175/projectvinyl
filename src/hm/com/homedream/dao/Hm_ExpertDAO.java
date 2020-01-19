@@ -146,6 +146,42 @@ public class Hm_ExpertDAO {
 		}
 		return count;
 	}
+	public Hm_ExpertDTO getSelect(Connection conn, int no) throws SQLException {
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("   select                                               ");
+		sql.append("                             no                         ");
+		sql.append("                             ,name                      ");
+		sql.append("                             ,text                      ");
+		sql.append("                             ,place                     ");
+		sql.append("                             ,lat                       ");
+		sql.append("                             ,lon                       ");
+		sql.append("                             ,file_name                 ");
+		sql.append("                             ,loc                       ");
+		sql.append("   from  expert                                         ");
+		sql.append("   where  no = ?                                        ");
+		ResultSet rs =null;
+		Hm_ExpertDTO dto = new Hm_ExpertDTO();
+		try {
+		pstmt = conn.prepareStatement(sql.toString());	
+		pstmt.setInt(1, no);
+		rs = pstmt.executeQuery();
+		if(rs!=null)
+		{
+			dto.setNo(rs.getInt("no"));
+			dto.setName(rs.getNString("name"));
+			dto.setText(rs.getString("text"));
+			dto.setPlace(rs.getString("place"));
+			dto.setLat(rs.getString("lat"));
+			dto.setLon(rs.getString("lon"));
+			dto.setFile_name(rs.getString("file_name"));
+			dto.setLoc(rs.getString("loc"));
+		}
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
+		}
+		return dto;
+	}
 	
 	
 	
