@@ -25,7 +25,7 @@
 </td>
 
 <td>
-<a href = "detail.do?num=${item.bno }">
+<a href = "jy_detail.do?num=${item.bno }">
 <c:out value="${item.btitle }"/>
 </a>
 </td>
@@ -69,7 +69,7 @@
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "jy_list.do?curr=${currpage }&search=${search }&searchtxt=${searchtxt}">이전</a>
+	<a href = "jy_list.do?curr=${currpage -1 }&search=${search }&searchtxt=${searchtxt}">이전</a>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
