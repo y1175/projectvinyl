@@ -67,7 +67,7 @@ public class JY_JN_UpdateResultAction implements Action {
 	
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("detail.do?num="+bno);
+		forward.setUrl("jy_detail.do?num="+bno);
 		
 		return forward;
 	}

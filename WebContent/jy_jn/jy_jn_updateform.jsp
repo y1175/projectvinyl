@@ -15,7 +15,7 @@ function send(){
 </script>
 </head>
 <body>
-<form method="post" action="updateresult.do" enctype="multipart/form-data" name="frm">
+<form method="post" action="jy_updateresult.do" enctype="multipart/form-data" name="frm">
 <c:set var="dto" value="${requestScope.dto}"/>
 <ul>
 <li>

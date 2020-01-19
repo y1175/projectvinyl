@@ -32,7 +32,7 @@ public class JY_JN_DeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("list.do");
+		forward.setUrl("jy_list.do");
 		
 		return forward;
 	}

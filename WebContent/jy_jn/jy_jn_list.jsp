@@ -54,7 +54,7 @@
 
 </table>
 
-<a href="upload.do">새글쓰기</a>
+<a href="jy_upload.do">새글쓰기</a>
 <br>
 
 <c:set var ="currpage" value = "${requestScope.currpage }"/>
@@ -65,11 +65,11 @@
 <c:set var ="searchtxt" value="${requestScope.searchtxt}"/>
 
 <c:if test="${startblock > 1 }">
-	<a href="list.do?curr=${startblock-1 }&search=${search }&searchtxt=${searchtxt }">이전 블럭으로</a>
+	<a href="jy_list.do?curr=${startblock-1 }&search=${search }&searchtxt=${searchtxt }">이전 블럭으로</a>
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "list.do?curr=${currpage }&search=${search }&searchtxt=${searchtxt}">이전</a>
+	<a href = "jy_list.do?curr=${currpage }&search=${search }&searchtxt=${searchtxt}">이전</a>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
@@ -79,7 +79,7 @@
 	</c:if>
 	<c:if test="${currpage != i }">
 		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="list.do?curr=${i}&search=${search}&searchtxt=${searchtxt}">${i}</a>
+		<a href="jy_list.do?curr=${i}&search=${search}&searchtxt=${searchtxt}">${i}</a>
 	
 	</c:if>
 
@@ -87,16 +87,16 @@
 </c:forEach>
 
 <c:if test="${currpage < totalpage }">
-	<a href = "list.do?curr=${currpage +1 }&search=${search }&searchtxt=${searchtxt}">다음</a>
+	<a href = "jy_list.do?curr=${currpage +1 }&search=${search }&searchtxt=${searchtxt}">다음</a>
 </c:if>
 
 <c:if test="${endblock < totalpage }">
-	<a href = "list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}">다음블럭으로</a>
+	<a href = "jy_list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}">다음블럭으로</a>
 </c:if>
 
 
 
-<form method="post" action="list.do">
+<form method="post" action="jy_list.do">
 <select name="search">
 <option value="btitle">제목</option>
 <option value="bcontent">내용</option>

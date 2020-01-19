@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="uploadresult.do" enctype="multipart/form-data">
+	<form method="post" action="jy_uploadresult.do" enctype="multipart/form-data">
 		<ul>
 			<li>
 			<label for="btitle">제목</label> 

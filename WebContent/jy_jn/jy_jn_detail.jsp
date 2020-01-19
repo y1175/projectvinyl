@@ -50,8 +50,8 @@ $(document).ready(function(){
 <button name="like" id="like">좋아요</button>
 </li>
 </ul>
-<a href="list.do">목록으로</a>
-<a href="update.do?num=${dto.bno }">수정</a>
-<a href="delete.do?num=${dto.bno }">삭제</a>
+<a href="jy_list.do">목록으로</a>
+<a href="jy_update.do?num=${dto.bno }">수정</a>
+<a href="jy_delete.do?num=${dto.bno }">삭제</a>
 </body>
 </html>
