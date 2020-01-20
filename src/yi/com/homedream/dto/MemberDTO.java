@@ -9,6 +9,12 @@ private String birth;
 private String phone;
 private String addr;
 private int zipcode;
+private int bno;
+private String btitle;
+private int like;
+private String writedate;
+private int total;
+
 public int getMemNo() {
 	return memNo;
 }
@@ -57,4 +63,36 @@ public int getZipcode() {
 public void setZipcode(int zipcode) {
 	this.zipcode = zipcode;
 }
+public int getBno() {
+	return bno;
+}
+public void setBno(int bno) {
+	this.bno = bno;
+}
+public String getBtitle() {
+	return btitle;
+}
+public void setBtitle(String btitle) {
+	this.btitle = btitle;
+}
+public int getLike() {
+	return like;
+}
+public void setLike(int like) {
+	this.like = like;
+}
+public String getWritedate() {
+	return writedate;
+}
+public void setWritedate(String writedate) {
+	this.writedate = writedate;
+}
+public int getTotal() {
+	return total;
+}
+public void setTotal(int total) {
+	this.total = total;
+}
+
+
 }

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.dto.MemberDTO;
-import ej.com.homedream.service.MemberService;
+import yi.com.homedream.dto.MemberDTO;
+import yi.com.homedream.service.MemberService;
 
 public class YIAdminBoardAction implements Action {
 
@@ -31,8 +31,18 @@ request.setCharacterEncoding("utf-8");
 		MemberService service=MemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
 		
 		//구매액 상세검색
-		int stxtsearch1=Integer.parseInt(request.getParameter("stxtsearch1"));
-		int stxtsearch2=Integer.parseInt(request.getParameter("stxtsearch2"));
+		int stxtsearch1=0;
+		int stxtsearch2=0;
+		
+		String s1=request.getParameter("stxtsearch1");
+		String s2=request.getParameter("stxtsearch2");
+	
+		if(s1!=null&&!"".equals(s1))
+			stxtsearch1=Integer.parseInt(s1);
+		
+		if(s2!=null&&!"".equals(s2))
+			stxtsearch2=Integer.parseInt(s2);
+		
 		System.out.println("stxtsearch1 & stxtsearch2"+stxtsearch1+stxtsearch2);
 		
 		
@@ -45,7 +55,7 @@ request.setCharacterEncoding("utf-8");
 							txtsearch="";
 				//검색끝
 		//페이징시작
-		int totalcount=service.getCount(search, txtsearch, stxtsearch1, stxtsearch2);//전체자료
+		int totalcount=service.getCount(search, txtsearch);//전체자료
 		System.out.println("totalcount: "+totalcount);
 		int countperpage=15;//한페이지에 보여줄 자료
 		int totalpage=(int)Math.ceil((float)totalcount/countperpage);
@@ -65,12 +75,9 @@ request.setCharacterEncoding("utf-8");
 		
 		
 		
-		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch, stxtsearch1, stxtsearch2);//이건 걍 전체 가져오는거고(페이징으로)
+		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch);//이건 걍 전체 가져오는거고(페이징으로)
 		
 		
-		//List<MemberDTO> slist=service.getselectedList();//선택한거 리스트에 넣는건. 2순위
-		String addpoint=request.getParameter("addpoint");
-		System.out.println("addpoint:"+addpoint);
 		request.setAttribute("list", list);
 		request.setAttribute("currpage", currpage);
 		request.setAttribute("totalpage", totalpage);

@@ -253,6 +253,108 @@ public class MemberDAO {
 		
 	}
 	
+	public int memberCount(Connection conn, String search, String txtsearch) throws SQLException {//자료수 리턴
+		StringBuilder sql=new StringBuilder();
+		int count=0;
+		ResultSet rs=null;
+		
+		sql.append(" select count(*) ");
+		sql.append(" from member     ");
+		sql.append(" where mem_no!=1 ");
+		//검색
+		if(!search.equals("")&&!txtsearch.equals(""))
+		{
+			if(search.equals("id"))
+				sql.append(" and id like ? ");
+			else if(search.equals("name"))
+				sql.append(" and name like ? ");
+			else if(search.equals("btitle"))
+				sql.append(" and btitle like ? ");
+		}
+
+		
+	
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+			if(!search.equals("")&&!txtsearch.equals(""))
+			{
+			pstmt.setString(1,"%"+txtsearch+"%");//txtsearch를 포함하는
+				
+			}//else//검색안할때
+
+			
+			
+			 rs=pstmt.executeQuery();
+			 if(rs.next()) {
+					count=rs.getInt(1);//첫번째꺼가져와
+			 }
+		
+		}
+		finally {
+			if(rs!=null)try {rs.close();}catch(SQLException e) {}
+		}
+		return count;
+	}
+	public List<MemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch) throws SQLException{
+		List<MemberDTO> list=new ArrayList<>();
+		StringBuilder sql=new StringBuilder();
+		ResultSet rs=null;
+		
+		sql.append(" select  member.mem_no, name, id, bno, btitle, likeno,writedate ");
+		sql.append(" from member  ");
+		sql.append(" left outer join mboard ");
+		sql.append(" on member.mem_no=mboard.mem_no ");
+		
+		
+		
+		if(!search.equals("")&&!txtsearch.equals(""))//검색을 하면
+		{	
+			if(search.equals("id"))
+				sql.append(" where id like ? ");
+			else if(search.equals("name"))
+				sql.append(" where name like ? ");
+			else if(search.equals("btitle"))
+			sql.append(" where btitle like ? ");
+		}
+		
+			sql.append(" group by mem_no,bno   ");
+			sql.append(" limit ?,15 ");
+			
+			//System.out.println("sql2:"+sql);
+			
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+		
+		if(!search.equals("")&&!txtsearch.equals(""))//검색하면
+		{
+			pstmt.setString(1, "%"+txtsearch+"%");
+			pstmt.setInt(2, startrow);
+			
+		}
+		else{//존재하지않으면 또는 검색안하면
+			pstmt.setInt(1, startrow);
+		}
+		
+			rs=pstmt.executeQuery();
+			while(rs.next())
+			{
+				MemberDTO dto=new MemberDTO();
+				dto.setMemNo(rs.getInt("mem_no"));
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				dto.setBtitle(rs.getString("btitle"));
+				dto.setLike(rs.getInt("likeno"));
+				dto.setWritedate(rs.getString("writedate"));
+				dto.setBno(rs.getInt("bno"));
+				
+				
+				
+				list.add(dto);
+			}
+	}finally {
+			if(rs!=null) try {rs.close();}catch(SQLException e) {}
+		}
+		return list;
+	}
+	
 	
 	
 }
