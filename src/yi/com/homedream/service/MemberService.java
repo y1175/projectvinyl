@@ -164,6 +164,28 @@ public class MemberService {
 		
 		return list;
 	}
+	public void orderCancel(int num) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.orderCancel(conn,num);
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try { conn.close();}catch(SQLException e) {}
+		}
+		
+	}
 
 	
 	

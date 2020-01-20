@@ -10,6 +10,7 @@
 </head>
 <body>
 <c:set var="list" value="${requestScope.list}"></c:set>
+
 <h1>마이페이지-주문관리</h1>
 <table>
 <thead>
@@ -17,14 +18,37 @@
 </tr>
 </thead>
 <tbody>
+
+<c:forEach var="item" items="${list }" varStatus="stat">
 <tr>
-<c:forEach var="item" items="${list }">
+
+<c:choose> 
+<c:when test="${list[stat.index].status == 0 }">
+<c:set var="orderst" value="주문취소"></c:set>
+</c:when>
+<c:when test="${list[stat.index].status== 1 }">
+<c:set var="orderst" value="결제확인"></c:set>
+</c:when>
+<c:when test="${list[stat.index].status == 2 }">
+<c:set var="orderst" value="배송준비중"></c:set>
+</c:when>
+<c:when test="${list[stat.index].status == 3 }">
+<c:set var="orderst" value="배송중"></c:set>
+</c:when>
+<c:when test="${list[stat.index].status == 4 }">
+<c:set var="orderst" value="배송완료"></c:set>
+</c:when>
+</c:choose>
+
+
 <td><c:out value="${item.orderdate }"></c:out></td>
 <td><c:out value="${item.order_no }"></c:out></td>
 <td><a href="yiorderdetail.do?num=${item.order_no }">상세보기</a></td>
-<td><c:out value="${item.status }"></c:out></td>
-</c:forEach>
+
+<td><c:out value="${orderst }"></c:out></td>
 </tr>
+</c:forEach>
+
 </tbody>
 </table>
 <c:set var="num" value="${item.order_no }"></c:set>

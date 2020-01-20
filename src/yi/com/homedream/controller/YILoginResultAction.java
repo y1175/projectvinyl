@@ -36,11 +36,12 @@ public class YILoginResultAction implements Action {
 		{
 		HttpSession session=request.getSession();
 		session.setAttribute("userId", userId);
-		session.setMaxInactiveInterval(60*60);
+		session.setMaxInactiveInterval(60*5);
 		
 		f.setForward(false);
 		f.setUrl("yi.do");
 		System.out.println("로그인 성공");
+		System.out.println("userId:"+userId);
 		}
 		
 		return f;

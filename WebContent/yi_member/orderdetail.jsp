@@ -33,18 +33,38 @@
 
 </thead>
 <tbody>
-<c:forEach items="${items }" varStatus="status">
-<tr><td></td>
-<td><c:out value="${items[status.index].name }"/></td>
-<td><c:out value="${items[status.index].price }"/>원</td>
-<td><c:out value="${order[status.index].status }"/></td>
+<c:forEach items="${items }" varStatus="stat">
+
+<c:choose> 
+<c:when test="${order[stat.index].status == 0 }">
+<c:set var="orderst" value="주문취소"></c:set>
+</c:when>
+<c:when test="${order[stat.index].status== 1 }">
+<c:set var="orderst" value="결제확인"></c:set>
+</c:when>
+<c:when test="${order[stat.index].status == 2 }">
+<c:set var="orderst" value="배송준비중"></c:set>
+</c:when>
+<c:when test="${order[stat.index].status == 3 }">
+<c:set var="orderst" value="배송중"></c:set>
+</c:when>
+<c:when test="${order[stat.index].status == 4 }">
+<c:set var="orderst" value="배송완료"></c:set>
+</c:when>
+</c:choose>
+
+<tr>
+<td><img src="img/${items[stat.index].loc}" alt="${items[status.index].file_name}"/></td>
+<td><c:out value="${items[stat.index].name }"/></td>
+<td><c:out value="${items[stat.index].price }"/>원</td>
+<td><c:out value="${orderst }"/></td>
 </tr>
 </c:forEach>
 </tbody>
 
 </table>
-<a href="">주문취소하기</a><br>
-<a href="yiorderlist.do">주문내역으로 돌아가기</a><br>
+<a href="yiordercancel.do?num=${order[0].order_no }">주문취소하기</a><br>
+<a href="yiorderdetail.do?num=${order[0].order_no }">주문내역으로 돌아가기</a><br>
 <a href="yi.do">메인페이지로 돌아가기</a><br>
 </body>
 </html>

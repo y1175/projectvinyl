@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="yilogin.do">로그인하기</a>
-<a href="yijoin.do">회원가입</a>
+<h1>admin page test</h1>
+<a href="hm_upload.do">전문가 업로드</a><br>
+<a href="yilogout.do">로그아웃</a>
+
 </body>
 </html>

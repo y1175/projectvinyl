@@ -18,12 +18,19 @@ public class YILoginAction implements Action {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		ActionForward f=new ActionForward();
-		if(session.getAttribute("userId")==null)
+		String id=(String)session.getAttribute("userId");
+		if(session.getAttribute("userId")==null)	//로그인 상태가 아닐때
 		{			
 		f.setForward(true);
 		f.setUrl("/yi_member/loginform.jsp");
 		}
-		else
+		else if(id.equals("1"))	//admin으로 로그인할때
+		{
+			f.setForward(true);
+			f.setUrl("/yi_member/admin.jsp");
+		}
+		
+		else	//회원로그인 할때
 		{
 			f.setForward(false);
 			f.setUrl("yi.do");

@@ -44,7 +44,7 @@ public class MemberDAO {
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		String userId=null;
-		sql.append(" select id,pwd ");
+		sql.append(" select mem_no,id,pwd ");
 		sql.append(" from member  ");
 		sql.append(" where id= ? and pwd= ?   ");
 		
@@ -55,7 +55,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			if(rs.next())
 			{
-				userId=rs.getString(1);
+				userId=rs.getString("mem_no");
 			}
 
 			
@@ -74,9 +74,9 @@ public class MemberDAO {
 		sql.append(" select orderdate,order_no,status  ");
 		sql.append(" from member inner join orderlist  ");
 		sql.append(" on member.mem_no = orderlist.mem_no  ");
-		sql.append(" where id= ? ");
+		sql.append(" where orderlist.mem_no= ? ");
 		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
-			pstmt.setString(1, id);
+			pstmt.setInt(1, Integer.parseInt(id));
 			rs=pstmt.executeQuery();
 			
 			
@@ -125,7 +125,7 @@ public class MemberDAO {
 	}
 	public List<ItemDTO> orderDetailItem(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		sql.append(" select name,price   ");
+		sql.append(" select name,price,img_no,file_name,loc   ");
 		sql.append(" from orderlist inner join item ");
 		sql.append(" on orderlist.item_no = item.item_no  ");
 		sql.append(" where order_no=? ");
@@ -141,6 +141,9 @@ public class MemberDAO {
 				ItemDTO dto=new ItemDTO();
 				dto.setName(rs.getString("name"));
 				dto.setPrice(rs.getInt("price"));
+				dto.setImg_no(rs.getInt("img_no"));
+				dto.setFile_name(rs.getString("file_name"));
+				dto.setLoc(rs.getString("loc"));
 				list.add(dto);
 			}
 		}
@@ -177,6 +180,22 @@ public class MemberDAO {
 		}
 		
 		return list;
+	}
+	public void orderCancel(Connection conn, int num) throws SQLException{
+		StringBuilder sql=new StringBuilder();
+		sql.append(" update orderlist  ");
+		sql.append(" set status=0   ");
+		sql.append(" where order_no=? ");
+		
+		
+		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
+		{
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+			
+		
+		}
+		
 	}
 	
 	
