@@ -18,9 +18,8 @@
 	<input type ="text" name = "name" id ="name">
 	</li>
 	<li>
-	<!-- <textarea rows="10" cols="20" name ="content" id ="content" >내용</textarea> -->
 	<label for ="content">내용</label>
-	<input type ="text" name = "content" id ="content"> 
+	<textarea rows="4" cols="20" name ="content" id="content"></textarea>
 	</li>
 	<li>
 	<label for ="place">위치</label>
@@ -35,8 +34,8 @@
 	<input type ="text" name = "lon" id ="lon">
 	</li>
 	<li>
-	<label for ="file_name">파일이름</label>
-	<input type ="text" name = "file_name" id ="file_name">
+	<label for ="addr">상세주소</label>
+	<textarea rows="1" cols="20" name ="addr" id="addr"></textarea>
 	</li> 
 	<li>
 	<label for ="uploadfile">파일경로</label>

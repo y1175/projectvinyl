@@ -20,8 +20,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link rel="stylesheet" href="hm_expert/hm_list.css">
+<!--
 <style>
-
+ 
 .hm_expertmain {
 	background-color: white;
 	border: 1px solid black;
@@ -64,31 +66,12 @@
 	color: #fff;
 	border-radius: 50px;
 }
-/* 
-.modal a {
-	color: grey;
-	text-decoration: none;
-} */
-</style>
-<!-- <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
-<!-- <script>
-	$(document).ready(function(){
-		$('a[href="#ex7"]').click(function(event) {
-			event.preventDefault();
+.hm_search{
+	margin : 20px;
+}
 
-			$(this).modal({
-				fadeDuration : 250
-			});
-		});
-		
-	});
-	
-</script> -->
+</style>
+ -->
 
 
 
@@ -98,10 +81,16 @@
      <header>
          <jsp:include page="/hs_communityheader.jsp"></jsp:include>
      </header>
+     <c:set var="totalcount" value="${requestScope.totalcount}"></c:set>
+	
+     <h1 class="hm_h1">
+     <c:out value="${totalcount}" />  전문가 in 대한민국 서울
+     </h1>
 	<form method="post" action="hm_list.do">
 		<select class="form-control" id="hmcity" name="hmcity">
 			<!-- select name값을 넘겨서 검색처리하기 -->
-			<option value="">선택하세요</option>
+			<option value="전체">선택하세요</option>
+			<!-- 전체부분 데이터 페이징처리하기 -->
 			<option value="강남">서울특별시 강남구</option>
 			<option value="동작">서울특별시 동작구</option>
 			<option value="강북">서울특별시 강북구</option>
@@ -123,16 +112,11 @@
 			<option value="양천구">서울특별시 양천구</option>
 			<option value="영등포">서울특별시 영등포구</option>
 			<option value="용산">서울특별시 용산구</option>
-		</select> <input type="submit" value="검색" id="hm_search">
+		</select> <input type="submit" value="검색" class="hm_search">
 	</form>
 
 
-
-	<c:set var="totalcount" value="${requestScope.totalcount}"></c:set>
-	<div>
-		전체결과 :
-		<c:out value="${totalcount}" />
-	</div>
+	
 
 
 	<%
@@ -140,7 +124,7 @@
 
 		for (Hm_ExpertDTO dto : list) {
 
-			String loc = dto.getLoc();
+			String addr = dto.getAddr();
 			String file_name = dto.getFile_name();
 			String name = dto.getName();
 			Float lat = dto.getFlat();//위도
@@ -149,16 +133,16 @@
 			int no = dto.getNo();
 	%>
 	
-	
+	    
+			<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>
+		
 	<div class="hm_expertmain">
-		<div class="hm_expertmain_1">
-			<img src="hm_expert/<%=loc%>" alt="<%=file_name%>" />
-		</div>
+		
 
 		<div class="hm_expertmain_1">
-			<p>
+			<h2>
 				<%=name%>
-			</p>
+				</h2>
 		</div>
 
 		<div class="hm_expertmain_1">
@@ -166,39 +150,11 @@
 				<%=text%>
 			</p>
 			<p>
-				<a href="hm_detail.do?no=<%=dto.getNo()%>" class="hm_btn">지도보기</a>
+				<a href="hm_detail.do?no=<%=dto.getNo()%>" class="hm_btn">상세보기</a>
 			</p>
 		</div>
 	</div> 
    
-
-<%-- 
-rel="modal:open"
-	<div id="ex1" class="modal" style="width: 500px; height: 500px;">
-	<div id="map" style="width:450px;height:470px;"></div> </div>
-	 
-	
-	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59dddf1cdbdb52873a5751f3a3c7eea5"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-			center : new kakao.maps.LatLng(<%=lat%>,<%=lon%>), // 지도의 중심좌표
-		        level: 3, // 지도의 확대 레벨
-		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-		    }; 
-		// 지도를 생성한다 
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-		// 지도에 마커를 생성하고 표시한다
-		var marker = new kakao.maps.Marker({
-		    position: new kakao.maps.LatLng(<%=lat%>,<%=lon%>), // 마커의 좌표
-		    map: map // 마커를 표시할 지도 객체
-		});
-		
-	
-	</script> --%>
-
-
 
 	<%
 		}

@@ -16,7 +16,16 @@
 <%
 	Hm_ExpertDTO dto = (Hm_ExpertDTO) request.getAttribute("dto");
 
+	
+	String name = dto.getName();
+	String addr = dto.getAddr();
+	String text = dto.getText();
+	String file_name = dto.getFile_name();
 %>
+
+
+
+
 <div id="map" style="width:500px;height:500px;"></div>
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59dddf1cdbdb52873a5751f3a3c7eea5"></script>
 	<script>

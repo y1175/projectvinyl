@@ -31,7 +31,7 @@ public class Hm_ExpertDAO {
 		sql.append("          ,lat                                   ");
 		sql.append("          ,lon                                   ");
 		sql.append("          ,file_name                             ");
-		sql.append("          ,loc      )                            ");
+		sql.append("          ,addr      )                            ");
 		sql.append("         values(?,?,?,?,?,?,?)                   ");
 		try {
 			pstmt = conn.prepareStatement(sql.toString());	
@@ -41,7 +41,7 @@ public class Hm_ExpertDAO {
 			pstmt.setString(4, dto.getLat());
 			pstmt.setString(5, dto.getLon());
 			pstmt.setString(6, dto.getFile_name());
-			pstmt.setString(7, dto.getLoc());
+			pstmt.setString(7, dto.getAddr());
 			pstmt.executeUpdate();
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
@@ -60,7 +60,7 @@ public class Hm_ExpertDAO {
 		sql.append("                             ,lat                       ");
 		sql.append("                             ,lon                       ");
 		sql.append("                             ,file_name                 ");
-		sql.append("                             ,loc                       ");
+		sql.append("                             ,addr                       ");
 		sql.append("   from  expert                                         ");
 		if(!search.equals(""))
 		{
@@ -82,10 +82,10 @@ public class Hm_ExpertDAO {
 			if(!search.equals(""))
 			{
 				pstmt.setString(1, search);
-				pstmt.setInt(2, (currpage-1)*pagepercount+1);
+				pstmt.setInt(2, (currpage-1)*pagepercount);
 				pstmt.setInt(3, pagepercount);
 			}else {
-				pstmt.setInt(1, (currpage-1)*pagepercount+1);
+				pstmt.setInt(1, (currpage-1)*pagepercount);
 				pstmt.setInt(2, pagepercount);
 			}
 			rs = pstmt.executeQuery();
@@ -99,7 +99,7 @@ public class Hm_ExpertDAO {
 				dto.setFlat(Float.parseFloat(rs.getString("lat")));
 				dto.setFlon(Float.parseFloat(rs.getString("lon")));
 				dto.setFile_name(rs.getString("file_name"));
-				dto.setLoc(rs.getString("loc"));
+				dto.setAddr(rs.getString("addr"));
 				list.add(dto);
 			}
 		}finally {
@@ -157,7 +157,7 @@ public class Hm_ExpertDAO {
 		sql.append("                             ,lat                       ");
 		sql.append("                             ,lon                       ");
 		sql.append("                             ,file_name                 ");
-		sql.append("                             ,loc                       ");
+		sql.append("                             ,addr                      ");
 		sql.append("   from  expert                                         ");
 		sql.append("   where  no = ?                                        ");
 		ResultSet rs =null;
@@ -175,7 +175,7 @@ public class Hm_ExpertDAO {
 			dto.setFlat(Float.parseFloat(rs.getString("lat")));
 			dto.setFlon(Float.parseFloat(rs.getString("lon")));
 			dto.setFile_name(rs.getString("file_name"));
-			dto.setLoc(rs.getString("loc"));
+			dto.setAddr(rs.getString("addr"));
 		}
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}

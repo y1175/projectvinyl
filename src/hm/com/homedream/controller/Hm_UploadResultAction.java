@@ -35,6 +35,8 @@ public class Hm_UploadResultAction implements Action {
 		String place = multi.getParameter("place");
 		String lat = multi.getParameter("lat");
 		String lon = multi.getParameter("lon");
+		String addr = multi.getParameter("addr");
+		
 		
 		Hm_ExpertDTO dto = new Hm_ExpertDTO();
 		dto.setName(name);
@@ -42,8 +44,9 @@ public class Hm_UploadResultAction implements Action {
 		dto.setPlace(place);
 		dto.setLat(lat);
 		dto.setLon(lon);
-		dto.setFile_name(file_name);
-		dto.setLoc(file);
+		dto.setFile_name(file);
+		dto.setAddr(addr);
+	
 		
 		System.out.println(name);
 		System.out.println(file_name);
