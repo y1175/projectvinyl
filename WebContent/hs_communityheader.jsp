@@ -38,7 +38,7 @@
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
          <a href="" style="color: rgb(0, 153, 255);">홈</a>
-         <a href="">집들이&노하우</a>
+         <a href="jy_list.do">집들이&노하우</a>
          <a href="hm_list.do">전문가찾기</a>
          <a href="">질문과답변</a>
          <a href="">이벤트</a>
