@@ -4,5 +4,18 @@ body{
 }
 .hs_question_titlediv{
 	width: 100%;
-	background-color: #
+	background-color: rgb(224,224,224);
+	padding: 50px;
+}
+.hs_question_titlediv h1{
+	font-size: 25px;
+	font-weight: 700;
+	text-align: center;
+	color: #222;
+}
+.hs_question_titlediv p{
+	font-size: 12px;
+	font-weight: 600;
+	text-align: center;
+	color: #222;
 }

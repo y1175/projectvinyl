@@ -39,7 +39,7 @@
            <option value="content">내용순</option>
         </select>
         <i class='fas fa-search' style=""></i>
-        <input type="text" id="hs_questionsearchtxt" name="hs_questionsearchtxt" value="궁금한 것을 검색해보세요">
+        <input type="text" id="hs_questionsearchtxt" name="hs_questionsearchtxt" placeholder="궁금한 것을 검색해보세요">
     </form>
   </div>
   <div>

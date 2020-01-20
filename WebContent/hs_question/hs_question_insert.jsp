@@ -19,7 +19,7 @@
   <form method="post" action="hs_questioninsertresult.do" enctype="multipart/form-data">
     <ul>
       <li>
-          <input type="text" name="title" id="hs_question_insert_title" value="제목을 적어주세요.">
+          <input type="text" name="title" id="hs_question_insert_title" placeholder="제목을 적어주세요.">
       </li>    
       <li>
           <textarea rows="30" cols="50" name="content">
