@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
 <form method = "post" action="hm_uploadresult.do" enctype="multipart/form-data"><!-- 업로드할때 enctype 꼭 써줘야함  -->
 	<ul>
 	<li>

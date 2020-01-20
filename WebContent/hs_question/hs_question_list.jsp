@@ -27,66 +27,61 @@
 </head>
 <body>
 <div class="container">
-     <header>
-         <jsp:include page="/hs_communityheader.jsp"></jsp:include>
-     </header>
+ <header>
+  <jsp:include page="/hs_communityheader.jsp"></jsp:include>
+ </header>
   <div class="hs_question_titlediv">
     <h1>질문과 답변</h1>
     <p>홈드림 인테리어 고수들과 전문가들에게 조언을 받으세요.
-    <form>
-        <select name="hs_questionsearch">
+    <form >
+       <div class="hs_questionsearch_searchbox">
+        <select name="hs_questionsearch" class="hs_questionsearch_searchop">
            <option value="title">제목</option>
            <option value="content">내용순</option>
-        </select>
-        <i class='fas fa-search' style=""></i>
+        </select> 
+        <i class='fas fa-search' style="padding: 5px;"></i>
         <input type="text" id="hs_questionsearchtxt" name="hs_questionsearchtxt" placeholder="궁금한 것을 검색해보세요">
+       </div>
     </form>
   </div>
-  <div>
+  <div class="hs_question_opdiv">
     <form action="">
-        <select name="">
+        <select name="" class="hs_question_op">
            <option value="qdate">최신순</option>
            <option value="readno">인기순</option>
         </select>
     </form>
-    <a href="hs_questioninsert.do"><button>질문하기</button></a>
+    <a href="hs_questioninsert.do"><button class="hs_question_btn">질문하기</button></a>
   </div>
   <c:set var="list" value="${requestScope.list}"></c:set>
   <c:forEach var="item" items="${list}">
-  <div>
-    <ul>
-      <li>
-                 제목
+  <div class="hs_question_divline"></div>
+  <div class="hs_question_ul_li">
+    <ul class="hs_question_ul">
+      <li class="hs_question_ul_li_title">
           <a href="hs_questiondetail.do?no=${item.q_no}"><c:out value="${item.title}"/></a>               
       </li>
-      <li>
-                 내용
+      <li class="hs_question_ul_li_content">
           <a href="hs_questiondetail.do?no=${item.q_no}"><c:out value="${item.content}"/></a>       
       </li>
-      <li>
-                 작성자
-          <c:out value="${item.mem_name}"/>       
-      </li>
-      <li>
-                 올린시간
-         <c:out value="${item.qdate}"/>        
-      </li>
-      <li>
-                 댓글수      
-      </li>
-      <li>
-                 조회수
-                 
+      <li class="hs_question_ul_li_member">
+          <i class='fas fa-user-circle'></i>
+          <c:out value="${item.mem_name}"/>   
+          <c:out value="${item.qdate}"/>  
+          <c:out value="${item.qdate}"/>
+          <span>댓글수</span>
           <c:out value="${item.readno}"/>       
       </li>
-      <li>
+      </ul>
+      <div class="hs_question_ul_li_img">
                  이미지
          <c:out value="${item.filename}"></c:out>
          <img src="upload/${item.filename}" alt="${item.filename}">      
-      </li>
-    </ul>
+      </div>
   </div>
   </c:forEach>
+  <div class="hs_question_divline"></div>
+ <div class="hs_question_paging">
   <c:set var="startblock" value="${requestScope.startblock}"/>
   <c:set var="endblock" value="${requestScope.endblock}"/>
   <c:set var="currpage" value="${requestScope.currpage}"/>
@@ -95,7 +90,7 @@
   <c:set var="hs_questionsearch" value="${requestScope.hs_questionsearch}"/>
   
   <c:if test="${startblock>1}">
-     <a href="hs_questionlist.do?curr=${currpage-1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i>이전</a>
+     <a href="hs_questionlist.do?curr=${startblock-1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i>이전</a>
   </c:if>
   
   <c:forEach var="i" begin="${startblock}" end="${endblock}" step="1">
@@ -103,16 +98,17 @@
         <c:out value="${i}"></c:out>
      </c:if>
      <c:if test="${currpage!=i}"> <!--다르면 넘어갈수있게-->
-        <a href="hs_questionlist.do?curr=${i}&search=${hs_questionsearchtxt}&searchtxt=${hs_questionsearchtxt}">${i}</a>
+        <a href="hs_questionlist.do?curr=${i}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}">${i}</a>
      </c:if>
   </c:forEach>
-  
+  <i class='fas fa-angle-right' style='font-size:24px'></i>
   <c:if test="${endblcok<totalpage}">
-     <a href="hs_questionlist.do?curr=${currpage+1}&search=${hs_questionsearchtxt}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-right' style='font-size:24px'></i>다음</a>
+     <a href="hs_questionlist.do?curr=${endblcok+1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}">다음</a>
   </c:if>
-   <footer>
-         <jsp:include page="/hs_user_footer.jsp"></jsp:include>
-   </footer>
+ </div>
+ <footer>
+   <jsp:include page="/hs_user_footer.jsp"></jsp:include>
+ </footer>
 </div>  
 </body>
 </html>
