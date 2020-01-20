@@ -96,8 +96,8 @@ public class Hm_ExpertDAO {
 				dto.setName(rs.getString("name"));
 				dto.setText(rs.getString("text"));
 				dto.setPlace(rs.getString("place"));
-				dto.setLat(rs.getString("lat"));
-				dto.setLon(rs.getString("lon"));
+				dto.setFlat(Float.parseFloat(rs.getString("lat")));
+				dto.setFlon(Float.parseFloat(rs.getString("lon")));
 				dto.setFile_name(rs.getString("file_name"));
 				dto.setLoc(rs.getString("loc"));
 				list.add(dto);
@@ -166,14 +166,14 @@ public class Hm_ExpertDAO {
 		pstmt = conn.prepareStatement(sql.toString());	
 		pstmt.setInt(1, no);
 		rs = pstmt.executeQuery();
-		if(rs!=null)
+		if(rs.next())
 		{
 			dto.setNo(rs.getInt("no"));
 			dto.setName(rs.getNString("name"));
 			dto.setText(rs.getString("text"));
 			dto.setPlace(rs.getString("place"));
-			dto.setLat(rs.getString("lat"));
-			dto.setLon(rs.getString("lon"));
+			dto.setFlat(Float.parseFloat(rs.getString("lat")));
+			dto.setFlon(Float.parseFloat(rs.getString("lon")));
 			dto.setFile_name(rs.getString("file_name"));
 			dto.setLoc(rs.getString("loc"));
 		}
