@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 
-<link rel="stylesheet" href="../css/hs_storecontent.css">
+<link rel="stylesheet" href="css/hs_storecontent.css">
 </head>
 <body>
 <!--category start-->

@@ -14,7 +14,7 @@
 <style>
   
 </style>
-<link rel="stylesheet" href="../css/hs_communitycontent.css">
+<link rel="stylesheet" href="css/hs_communitycontent.css">
 </head>
 <body>
  <div id="hs_community_aside">
