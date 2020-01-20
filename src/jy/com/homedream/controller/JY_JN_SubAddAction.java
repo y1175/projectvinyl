@@ -9,31 +9,32 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import jy.com.homedream.DTO.JY_JN_BoardDTO;
+import jy.com.homedream.DTO.JY_JN_SubBoardDTO;
 import jy.com.homedream.service.JY_JN_Service;
 
-public class JY_JN_DetailAction implements Action {
+public class JY_JN_SubAddAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String num = request.getParameter("num");
+		int num = Integer.parseInt(request.getParameter("num"));
+		String subcontent = request.getParameter("subcontent");
 		
-		int bno = 1;
+		JY_JN_SubBoardDTO subdto = new JY_JN_SubBoardDTO();
 		
-		if(num!=null &&!("".equals(num))) {
-			bno = Integer.parseInt(num);
-		}
-		
+		subdto.setBno(num);
+		subdto.setMem_no(58);
+		subdto.setSubcontent(subcontent);
 		
 		JY_JN_Service service = JY_JN_Service.getService();
-		JY_JN_BoardDTO dto = service.jn_getSelect(bno);
-		request.setAttribute("dto", dto);
+		String subid = service.jn_getAddSubBoard(subdto);
 		
-		ActionForward forward = new ActionForward();
+		request.setAttribute("subid", subid);
+		
+		ActionForward forward =	new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/jy_jn/jy_jn_detail.jsp");
+		forward.setUrl("jy_detail.do?num="+num);
 		
 		return forward;
 	}

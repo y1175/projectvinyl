@@ -7,9 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
+
+import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import jy.com.homedream.service.JY_JN_Service;
 
 public class JY_JN_ListAction implements Action {
