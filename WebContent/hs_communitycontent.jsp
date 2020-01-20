@@ -14,7 +14,7 @@
 <style>
   
 </style>
-<link rel="stylesheet" href="css/hs_communitycontent.css">
+<link rel="stylesheet" href="css/hs_communitycontent.css?ver=1">
 </head>
 <body>
  <div id="hs_community_aside">
@@ -114,6 +114,7 @@
      <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
      <br>
      <b style="color: red;">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span>리뷰 11,815</span></p>
    </div>
   <!-- thumbnail_deal 2 -->
    <div class="hs_thumbnail_deal">
@@ -122,6 +123,7 @@
      <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
      <br>
      <b style="color: red;">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span>리뷰 11,815</span></p>
    </div>
   <!-- thumbnail_deal 3 -->
    <div class="hs_thumbnail_deal">
@@ -130,6 +132,7 @@
      <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
      <br>
      <b style="color: red;">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span>리뷰 11,815</span></p>
    </div>
    <!-- 오늘의 이벤트 -->
     <div class="hs_content_title_div">

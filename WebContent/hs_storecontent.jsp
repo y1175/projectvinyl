@@ -8,8 +8,7 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-
-<link rel="stylesheet" href="css/hs_storecontent.css">
+<link rel="stylesheet" href="css/hs_storecontent.css?ver=1">
 </head>
 <body>
 <!--category start-->
@@ -86,10 +85,200 @@
       </div>
     </div>
   </nav>
-                      
-            
+   <!-- 카테고리 썸네일 -->
+   <div class="hs_storecontent_line"></div>
+   <h6 style="font-weight: 800;">전체보기</h6>
+  <!-- store_thumbnail 1 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 2 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 3 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+   <!-- store_thumbnail 4 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 5 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 6 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>             
+    <!-- store_thumbnail 7 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 8 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 9 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>   
+   <!-- store_thumbnail 10 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 11 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+  <!-- store_thumbnail 12 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+   <!-- store_thumbnail 13 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>  
+   <!-- store_thumbnail 14 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>   
+   <!-- store_thumbnail 15 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>   
+   <!-- store_thumbnail 16 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+   <!-- store_thumbnail 17 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div> 
+   <!-- store_thumbnail 18 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div> 
+   <!-- store_thumbnail 19 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div>
+   <!-- store_thumbnail 20 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div> 
+   <!-- store_thumbnail 21 -->
+   <div class="hs_thumbnail_store">
+     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <p class="hs_thumbnail_store_title">네이처리빙</p>
+     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <br>
+     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+   </div> 
     <!--카테고리 스크립트-->
-    <script src="../js/hs_storecontent.js"></script>
+    <script src="js/hs_storecontent.js"></script>
     <script>
         $(document).ready(function() {
             $(".hs_cg_g-scrolling-carousel .hs_cg_items").gScrollingCarousel();
