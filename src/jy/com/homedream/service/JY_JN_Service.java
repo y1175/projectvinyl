@@ -7,9 +7,12 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
-import jy.com.homedream.DAO.JY_JN_BoardDAO;
-import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import com.homedream.comm.DBConnection;
+
+import jy.com.homedream.DAO.JY_JN_BoardDAO;
+import jy.com.homedream.DAO.JY_JN_SubBoardDAO;
+import jy.com.homedream.DTO.JY_JN_BoardDTO;
+import jy.com.homedream.DTO.JY_JN_SubBoardDTO;
 
 public class JY_JN_Service {
 
@@ -141,6 +144,50 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 }
 
 
+
+	public String jn_getAddSubBoard(JY_JN_SubBoardDTO subdto) {
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		String subid = new String();
+		int memno = subdto.getMem_no();
+		try {
+			conn= db.getConnection();
+			conn.setAutoCommit(false);
+			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
+			dao.jn_SubBoardAdd(conn,subdto);
+			subid = dao.jn_SubBoardSubID(conn,memno);
+			conn.commit();
+		} catch(SQLException | NamingException e) {
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		} finally {
+			if(conn!=null) try {conn.close();} catch(SQLException e) {}
+		}
+		return subid;
+	}
+
+	public List<JY_JN_SubBoardDTO> jn_getDetailSubBoard(int num) {
+		
+		DBConnection db = DBConnection.getInstance();
+		String subid = new String();
+		Connection conn = null;
+		List<JY_JN_SubBoardDTO> list = new ArrayList<>();
+		try {
+			conn = db.getConnection();
+			conn.setAutoCommit(false);
+			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
+			
+			list = dao.jn_SubBoardDetail(conn, num);
+			conn.commit();
+		}catch(SQLException | NamingException e) {
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		} finally {
+			if(conn!=null) try {conn.close();} catch(SQLException e) {}
+		}
+		
+		return list;
+	}
 
 	
 }

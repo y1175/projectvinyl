@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-테스트화면:회원가입완료  
+<h1>admin page test</h1>
+<a href="hm_upload.do">전문가 업로드</a><br>
+<a href="yilogout.do">로그아웃</a>
+
 </body>
 </html>

@@ -31,16 +31,15 @@
 	vertical-align: middle;
 	text-align: center;
 } 
+
 </style>
 </head>
 <body>
 <form method="post" action="hm_list.do">
 					<select class="form-control" id="hmcity" name="hmcity">
 							<!-- select name값을 넘겨서 검색처리하기 -->
-							<!-- onchange="hmtownSelect(this.value);" -->
 							<option value ="">선택하세요</option>
 							<option value="강남">서울특별시 강남구</option>
-							<%-- <c:if test="${Name eq '강남'}">selected=selected</c:if> --%>
 							<option value="동작" >서울특별시 동작구 </option>
 							<option value="강북">서울특별시 강북구</option>
 							<option value="강서">서울특별시 강서구</option>
@@ -66,15 +65,14 @@
 			</form>
 			
 
-	<c:set var="totalcount" value="${requestScope.totalcount}"></c:set>		
+	        <c:set var="totalcount" value="${requestScope.totalcount}"></c:set>		
 			<c:set var = "list" value ="${requestScope.list}"></c:set>
-				
 			<div>
 			전체결과 : <c:out value="${totalcount}"></c:out>
 			</div>
 			
  		    <c:forEach var ="item" items ="${list}">
-			<div class="hm_expertmain" onclick="location.href='hm_detail.do';"><!-- 여기다가 detail주소 달기 -->
+			<div class="hm_expertmain" onclick="location.href='hm_upload.do';"><!-- 여기다가 detail주소 달기 -->
 			<div class="hm_expertmain_1">
 			<img src="hm_expert/${item.loc}" alt="${item.file_name}"/>
 			</div>
@@ -86,6 +84,8 @@
 			</div>
 			</div>
 			</c:forEach>
+
+			
 		
 			
 <%
@@ -93,14 +93,12 @@ int currpage = (Integer)request.getAttribute("currpage");
 int startblock = (Integer)request.getAttribute("startblock");
 int endblock = (Integer)request.getAttribute("endblock");
 int totalpage =(Integer)request.getAttribute("totalpage");
-String search = request.getParameter("search");
-%> 
+String hmcity = request.getParameter("hmcity");
 
-<%
 	if(startblock>1)
 	{
 		%>
-		<a href="hm_list.do?curr=<%=currpage-1%>&search=<%=search%>">이전</a>
+		<a href="hm_list.do?curr=<%=currpage-1%>&hmcity=<%=hmcity%>">이전</a>
 		<% 
 		//currpage -> startblock-1 = 블럭단위로 넘어감	
 	}
@@ -117,20 +115,18 @@ String search = request.getParameter("search");
 		}else
 		{
 			%>
-			<a href = "hm_list.do?curr=<%=i%>&search=<%=search%>"><%=i%></a>
+			<a href = "hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
 			<% 
 		}
 		%>
 		<%
 	}
 %>
-
-
 <%
 	if(endblock<totalpage)
 	{
 		%>
-		<a href = "hm_list.do?curr=<%=currpage+1%>&search=<%=search%>">다음</a>
+		<a href = "hm_list.do?curr=<%=currpage+1%>&hmcity=<%=hmcity%>">다음</a>
 		<% 
 		//endblock+1로 할수도있음 -> block단위로 다음
 	}

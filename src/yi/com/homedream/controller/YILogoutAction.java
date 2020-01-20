@@ -10,31 +10,23 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-public class YILoginAction implements Action {
+public class YILogoutAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		HttpSession session=request.getSession();
-		ActionForward f=new ActionForward();
-		String id=(String)session.getAttribute("userId");
-		if(session.getAttribute("userId")==null)	//로그인 상태가 아닐때
-		{			
-		f.setForward(true);
-		f.setUrl("/yi_member/loginform.jsp");
-		}
-		else if(id.equals("1"))	//admin으로 로그인할때
+		if(session.getAttribute("userId")!=null && session!=null)
 		{
-			f.setForward(true);
-			f.setUrl("/yi_member/admin.jsp");
+			session.invalidate();
+			System.out.println("로그아웃 성공");
 		}
 		
-		else	//회원로그인 할때
-		{
-			f.setForward(false);
-			f.setUrl("yi.do");
-		}
+		ActionForward f=new ActionForward();
+		f.setForward(false);
+		f.setUrl("yi.do");
 		return f;
 	}
 
