@@ -12,7 +12,6 @@ import com.homedream.comm.ActionForward;
 
 import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import jy.com.homedream.service.JY_JN_Service;
-import sun.print.resources.serviceui;
 
 public class JY_JN_ListAction implements Action {
 
