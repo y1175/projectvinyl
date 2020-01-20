@@ -13,7 +13,7 @@
 		  document.frm.submit();
   }
   function del(a_no,q_no){
-	  location href="hs_answerdelete.do?a_no="+a_no+"&q_no"=+q_no
+	  location href="hs_answerdelete.do?a_no="+a_no+"&q_no="+q_no
   }
   $(document).ready(function() {
 	let no=${dto.q_no}

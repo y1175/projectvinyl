@@ -19,7 +19,7 @@ import hs.com.homedream.service.QuestionService;
 /**
  * Servlet implementation class AnswerDetailAction
  */
-@WebServlet("hs_answerdetail.do")
+@WebServlet("/hs_answerdetail.do")
 public class hs_AnswerDetailAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
