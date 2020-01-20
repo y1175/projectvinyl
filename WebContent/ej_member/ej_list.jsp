@@ -125,7 +125,7 @@ $(document).ready(function(){
 	<option value="name">이름</option>
 </select>
 <input type="text" name="txtsearch">
-<input type="submit" value="검색">
+<!-- <input type="submit" value="검색"> -->
 
 <div id="line"></div>
 <label for="point">구매액</label>
@@ -136,7 +136,8 @@ $(document).ready(function(){
 
 
 <table>
-<thead><tr><th>선택</th><th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>구매액</th><th>적립금</th><th>삭제</th></tr>
+<thead><tr><th>선택</th><th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>구매액</th><th>적립금</th>
+<th>                  <th><th>삭제</th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
@@ -148,11 +149,14 @@ $(document).ready(function(){
 	<td>${item.pwd }</td>
 	<td>${item.name }</td>
 
-	<td>${item.total }</td>
-		<td>${item.point }<input type="text" name="addpoint" id="addpoint">
-		<input type="button" id="point" value="적립금" >
-		</td>
-	<td><input type="button" id="delete" value="삭제" ><td>
+	<td>${item.total }원</td>
+		<td>${item.point }포인트<!-- <input type="text" name="addpoint" id="addpoint" size="5"> --></td>
+		<!-- <td><input type="submit" id="point" value="포인트" ></td>  -->
+	<td><a href="ej_insert.do?memNo=${item.memNo}" target="_blank">적립</a><td> 
+		
+		
+		
+	<td><a href="ej_delete.do?memNo=${item.memNo}">삭제</a><td>
 
 
 	</tr>
@@ -166,7 +170,7 @@ $(document).ready(function(){
 	</c:if>
 
 	<c:if test="${currpage!=i }">
-	<a href="list.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
+	<a href="ej_list.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
 	</c:if>
 </c:forEach><br>
 

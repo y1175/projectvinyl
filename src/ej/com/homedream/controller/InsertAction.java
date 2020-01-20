@@ -1,8 +1,6 @@
 package ej.com.homedream.controller;
 
-import java.awt.List;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,23 +11,24 @@ import com.homedream.comm.ActionForward;
 
 import ej.com.homedream.service.MemberService;
 
-public class DeleteAction implements Action {
+public class  InsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String memno1=request.getParameter("memNo");
-		int memno=Integer.parseInt(memno1);
-		System.out.println("memno:"+memno);
+		String addpoint1=request.getParameter("addpoint");
+		System.out.println("memNo랑 addpoint :"+memno1+addpoint1);
+		/*int memno=Integer.parseInt(memno1);
+		System.out.println("update memno:"+memno);*/
 		
 		MemberService service=MemberService.getService();
-		service.delete(memno);
+		//service.update(memno);
 		
-		//forward로 넘기기
+		
 		ActionForward f=new ActionForward();
-		f.setForward(false);//forward로 페이지이동 높 send redirect로 해
-		f.setUrl("ej_list.do");//얘는 바로 .do로
+		f.setForward(true);//forward로 페이지이동 높 send redirect로 해
+		f.setUrl("/ej_member/ej_insert.jsp");//얘는 바로 .do로
 		
 		return f;
 		

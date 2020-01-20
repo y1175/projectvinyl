@@ -43,14 +43,15 @@ public class MemberDAO {
 		{
 			sql.append(" and total between ? and ? ");
 		}
+		//System.out.println("sql:"+sql);
 		
 	
-		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
 			if(!search.equals("")&&!txtsearch.equals(""))
 			{
 			pstmt.setString(1,"%"+txtsearch+"%");//txtsearch를 포함하는
 				
-			}else//검색안할때
+			}//else//검색안할때
 			{
 				if(stxtsearch1!=0&&stxtsearch2!=0)//금액검색하면
 				{
@@ -79,8 +80,10 @@ public class MemberDAO {
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
-		sql.append(" select *  from member ");
-		
+		sql.append(" select  member.mem_no, id, pwd, name, total, sum(ifnull(point,0)) as 'point' ");
+		sql.append(" from member ");
+		sql.append(" left outer join point_msg ");
+		sql.append(" on member.mem_no=point_msg.mem_no ");
 		
 		
 		
@@ -93,12 +96,15 @@ public class MemberDAO {
 		}
 		if(stxtsearch1!=0&&stxtsearch2!=0)//금액검색하면
 		{
-			sql.append(" and total between ? and ? ");
+			sql.append(" where total between ? and ? ");
 		}
 		
-	
+			sql.append(" group by mem_no ");
 			sql.append(" limit ?,15 ");
-		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+			
+			//System.out.println("sql2:"+sql);
+			
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
 		
 		if(!search.equals("")&&!txtsearch.equals(""))//검색하면
 		{
@@ -124,11 +130,13 @@ public class MemberDAO {
 				dto.setId(rs.getString("id"));
 				dto.setPwd(rs.getString("pwd"));
 				dto.setName(rs.getString("name"));
-				dto.setBirth(rs.getString("birth"));
-				dto.setPhone(rs.getString("phone"));
-				dto.setAddr(rs.getString("addr"));
-				dto.setZipcode(rs.getInt("zipcode"));
-				dto.setTotal(rs.getInt("total"));
+				//dto.setBirth(rs.getString("birth"));
+				//dto.setPhone(rs.getString("phone"));
+				//dto.setAddr(rs.getString("addr"));
+				//dto.setZipcode(rs.getInt("zipcode"));
+				//dto.setTotal(rs.getInt("total"));
+				dto.setPoint(rs.getInt("point"));
+				
 				
 				list.add(dto);
 			}
@@ -136,6 +144,30 @@ public class MemberDAO {
 			if(rs!=null) try {rs.close();}catch(SQLException e) {}
 		}
 		return list;
+	}
+	public void delete(Connection conn, int memno) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		
+		System.out.println("memno:"+memno);
+		sql.append(" delete from member ");
+		sql.append(" where mem_no=? ");
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+			pstmt.setInt(1, memno);
+			pstmt.executeUpdate();
+			//System.out.println("2222");
+		}
+	}
+	public void delete2(Connection conn, int memno) throws SQLException {
+			StringBuilder sql=new StringBuilder();
+		
+		sql.append(" delete from point_msg ");
+		sql.append(" where mem_no=? ");
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+			pstmt.setInt(1, memno);
+			int r=pstmt.executeUpdate();
+			//System.out.println("111"+r);
+		}
+		
 	}
 
 }

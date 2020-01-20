@@ -33,8 +33,18 @@ public class ListAction implements Action {
 		MemberService service=MemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
 		
 		//구매액 상세검색
-		int stxtsearch1=Integer.parseInt(request.getParameter("stxtsearch1"));
-		int stxtsearch2=Integer.parseInt(request.getParameter("stxtsearch2"));
+		int stxtsearch1=0;
+		int stxtsearch2=0;
+		
+		String s1=request.getParameter("stxtsearch1");
+		String s2=request.getParameter("stxtsearch2");
+	
+		if(s1!=null&&!"".equals(s1))
+			stxtsearch1=Integer.parseInt(s1);
+		
+		if(s2!=null&&!"".equals(s2))
+			stxtsearch2=Integer.parseInt(s2);
+		
 		System.out.println("stxtsearch1 & stxtsearch2"+stxtsearch1+stxtsearch2);
 		
 		

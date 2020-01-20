@@ -77,6 +77,35 @@ public class MemberService {
 		return null;
 	}
 	*/
+
+	public void delete(int memno) {
+		Connection conn=null;
+	
+				
+		try {
+			DBConnection db=DBConnection.getInstance();
+			
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.delete2(conn,memno);
+			dao.delete(conn,memno);
+			//list를 리턴을 받아줫을때
+			
+			conn.commit();
+			
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+	}
+		
+	}
 	
 
-}
+
