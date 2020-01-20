@@ -66,14 +66,14 @@ request.setCharacterEncoding("utf-8");
 		//페이징 끝
 		//블럭시작
 		int blockcount=5;
-		int startblock=(currpage-1)/blockcount*blockcount+1;
+		int startblock=((currpage-1)/blockcount)*blockcount+1;
 		int endblock=startblock+blockcount-1;
 		System.out.println("startblock:"+startblock);
 		System.out.println("endblock:"+endblock);
-		if(endblock>totalpage) endblock=totalpage;
+		if(endblock>=totalpage) endblock=totalpage;
 		//블럭끝	
-		
-		
+		System.out.println("totalpage:"+totalpage);
+		System.out.println("currpage:"+currpage);
 		
 		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch);//이건 걍 전체 가져오는거고(페이징으로)
 		

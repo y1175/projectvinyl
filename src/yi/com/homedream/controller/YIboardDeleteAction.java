@@ -9,13 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
+import yi.com.homedream.service.MemberService;
+
 public class YIboardDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int bno=Integer.parseInt(request.getParameter("bno"));
+		MemberService service=MemberService.getService();
+		service.boardDelete(bno);
 		
-		return null;
+		ActionForward f=new ActionForward();
+		f.setForward(false);
+		f.setUrl("yiadminboard.do");
+		
+		
+		return f;
 	}
 
 }

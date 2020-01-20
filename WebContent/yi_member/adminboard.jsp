@@ -73,7 +73,7 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="yiboarddelete.do"><!--처음에 list.do햇음  -->
+<form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
 <div id="searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
@@ -105,23 +105,40 @@ $(document).ready(function(){
 	
 		
 		
-	<td><a href="yiadminboard.do?memNo=${item.memNo}">삭제</a><td>
+	<td><a href="yiboarddelete.do?bno=${item.bno}">삭제</a><td>
 
 
 	</tr>
 	 </c:forEach>
 </tbody>
 </table><br>
-<c:forEach var="i" begin="${starblock }+1" end="${endblock }" step="1">
-	<c:if test="${currpage==i }">
-	<c:out value="${i }"/>
-	
-	</c:if>
+<c:if test="${startblock>1 }">
+<a href="yiadminboard.do?curr=${startblock-1 }">이전</a>
+</c:if>
 
-	<c:if test="${currpage!=i }">
+<c:forEach var="i" begin="${starblock+1 }" end="${endblock }" step="1">
+	<c:choose>
+	<c:when test="${currpage==i }">
+	<c:out value="${i }"/>
+	</c:when>
+	<c:when test="${currpage!=i }">
 	<a href="yiadminboard.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
-	</c:if>
-</c:forEach><br>
+	</c:when>
+	
+	</c:choose>
+	<%-- <  c:if test="${currpage==i }">
+	<  c:out value="${i }"/>
+	
+	<  /c:if>
+
+	<  c:if test="${currpage!=i }">
+	<  a href="yiadminboard.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
+	<  /c:if> --%>
+</c:forEach>
+
+<c:if test="${endblock<totalpage }">
+<a href="yiadminboard.do?curr=${endblock+1 }&search=${search}&txtsearch=${txtsearch }">다음</a>
+</c:if>
 
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 

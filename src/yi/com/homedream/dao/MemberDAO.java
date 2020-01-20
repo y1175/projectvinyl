@@ -253,14 +253,15 @@ public class MemberDAO {
 		
 	}
 	
-	public int memberCount(Connection conn, String search, String txtsearch) throws SQLException {//자료수 리턴
+	public int boardCount(Connection conn, String search, String txtsearch) throws SQLException {//자료수 리턴
 		StringBuilder sql=new StringBuilder();
 		int count=0;
 		ResultSet rs=null;
 		
 		sql.append(" select count(*) ");
-		sql.append(" from member     ");
-		sql.append(" where mem_no!=1 ");
+		sql.append(" from mboard inner join member   ");
+		sql.append(" on mboard.mem_no=member.mem_no  ");
+		sql.append(" where member.mem_no!=1 ");
 		//검색
 		if(!search.equals("")&&!txtsearch.equals(""))
 		{
@@ -287,7 +288,6 @@ public class MemberDAO {
 			 if(rs.next()) {
 					count=rs.getInt(1);//첫번째꺼가져와
 			 }
-		
 		}
 		finally {
 			if(rs!=null)try {rs.close();}catch(SQLException e) {}
@@ -353,6 +353,17 @@ public class MemberDAO {
 			if(rs!=null) try {rs.close();}catch(SQLException e) {}
 		}
 		return list;
+	}
+	public void boardDelete(Connection conn, int bno) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		sql.append(" delete from mboard  ");
+		sql.append("  where bno=? ");
+		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+			
+		}
+		
 	}
 	
 	

@@ -239,7 +239,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();//ΩÃ±€≈Ê«ﬁ¿∏¥œ±Ó ¿Ã∑∏∞‘
-			count=dao.memberCount(conn, search, txtsearch);
+			count=dao.boardCount(conn, search, txtsearch);
 			//System.out.println("count: "+count);
 			conn.commit();
 		}catch(NamingException|SQLException e)
@@ -276,6 +276,27 @@ public class MemberService {
 			}return list;
 			
 	
+	}
+	public void boardDelete(int bno) {
+		Connection conn=null;
+		
+		try {
+			DBConnection db=DBConnection.getInstance();
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.boardDelete(conn,bno);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+			
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
 	}
 
 	
