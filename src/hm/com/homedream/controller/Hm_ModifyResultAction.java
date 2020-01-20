@@ -14,20 +14,26 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import hm.com.homedream.dto.Hm_ExpertDTO;
 import hm.com.homedream.service.Hm_ExpertService;
 
-public class Hm_UploadResultAction implements Action {
+public class Hm_ModifyResultAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		int filesize = 1024 * 1024 * 10;
 		String uploadpath = request.getServletContext().getRealPath("hm_expert");
+	
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
 
-		String file_name = multi.getParameter("file_name");
+		/*String file_name = multi.getParameter("file_name");*/
 		String file = multi.getFilesystemName("uploadfile");
+		
+		String num = multi.getParameter("no");
+		int no =1;
+		if(num!=null) {
+			no=Integer.parseInt(num);
+		}
 		
 		String name = multi.getParameter("name");
 		String text = multi.getParameter("content");
@@ -36,8 +42,10 @@ public class Hm_UploadResultAction implements Action {
 		String lon = multi.getParameter("lon");
 		String addr = multi.getParameter("addr");
 		
+		Hm_ExpertService service = Hm_ExpertService.getService();
 		
 		Hm_ExpertDTO dto = new Hm_ExpertDTO();
+		dto.setNo(no);
 		dto.setName(name);
 		dto.setText(text);
 		dto.setPlace(place);
@@ -45,22 +53,16 @@ public class Hm_UploadResultAction implements Action {
 		dto.setLon(lon);
 		dto.setFile_name(file);
 		dto.setAddr(addr);
-	
+
+		service.dataUpdate(dto);
 		
-		System.out.println(name);
-		System.out.println(file_name);
-		System.out.println(file);
-		
-		String origin = multi.getOriginalFileName("uploadfile");
 		request.setAttribute("dto", dto);
-		request.setAttribute("origin", origin);
 		request.setAttribute("file", file);
-		System.out.println(uploadpath + "/" + file);
-		Hm_ExpertService service = Hm_ExpertService.getService();
-		service.dataInsert(dto);
+		
+		
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("hm_list.do");
+		f.setUrl("hm_detail.do?no="+no);
 		return f;
 	}
 

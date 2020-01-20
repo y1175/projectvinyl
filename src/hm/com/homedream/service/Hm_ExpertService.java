@@ -101,6 +101,25 @@ public class Hm_ExpertService {
 		
 		return dto;
 	}
+	public void dataUpdate(Hm_ExpertDTO dto) {
+		// TODO Auto-generated method stub
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		try {
+			conn = db.getConnection();
+			conn.setAutoCommit(false);
+			Hm_ExpertDAO dao = Hm_ExpertDAO.getDAO();
+			dao.dataUpdate(conn,dto);
+			conn.commit();
+			
+		}catch(SQLException | NamingException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(SQLException e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+	}
 	
 	
 }

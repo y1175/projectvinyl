@@ -6,16 +6,19 @@ body{
 .hm_h1{
 	text-align: center;
 	margin : 40px;
+
 }
+
 input[type=submit]{
 	position: relative;
-	left: 510px;
+	left: 500px;
 	background-color: rgba(0,153,255,0.6);
 	color:rgb(255,255,255);
 	font-size : 18px;
 	padding:10px 20px;
 	border: 1px  transparent;
 	border-radius: 15px;
+	margin : 20px;s
 	
 }
 .form-control{
@@ -39,8 +42,8 @@ input[type=submit]{
 .hm_img{
 	width:70%;
 	height:360px;
-	border-radius: 20px;Zipdoc
-	margin : 50px 0px 0px 150px;	
+	border-radius: 20px;
+
 }
 
 .hm_btn {

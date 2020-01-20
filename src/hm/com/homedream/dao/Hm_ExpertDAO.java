@@ -156,8 +156,8 @@ public class Hm_ExpertDAO {
 		sql.append("                             ,place                     ");
 		sql.append("                             ,lat                       ");
 		sql.append("                             ,lon                       ");
-		sql.append("                             ,file_name                 ");
 		sql.append("                             ,addr                      ");
+		sql.append("                             ,file_name                 ");
 		sql.append("   from  expert                                         ");
 		sql.append("   where  no = ?                                        ");
 		ResultSet rs =null;
@@ -174,14 +174,47 @@ public class Hm_ExpertDAO {
 			dto.setPlace(rs.getString("place"));
 			dto.setFlat(Float.parseFloat(rs.getString("lat")));
 			dto.setFlon(Float.parseFloat(rs.getString("lon")));
-			dto.setFile_name(rs.getString("file_name"));
 			dto.setAddr(rs.getString("addr"));
+			dto.setFile_name(rs.getString("file_name"));
+
 		}
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
 			if(rs!=null)try {rs.close();}catch(SQLException e) {}
 		}
 		return dto;
+	}
+	
+	
+	public void dataUpdate(Connection conn, Hm_ExpertDTO dto)throws SQLException {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("    update    expert                     ");
+		sql.append("    set            name=?                ");
+		sql.append("                   ,text=?               ");
+		sql.append("                   ,place=?              ");
+		sql.append("                   ,lat=?                ");
+		sql.append("                   ,lon=?                ");
+		sql.append("                   ,addr=?               ");
+		sql.append("                   ,file_name=?          ");
+		sql.append("    where  no =?                         ");
+		try {
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getText());
+			pstmt.setString(3, dto.getPlace());
+			pstmt.setString(4, dto.getLat());
+			pstmt.setString(5, dto.getLon());
+			pstmt.setString(6, dto.getAddr());
+			pstmt.setString(7, dto.getFile_name());
+			pstmt.setInt(9, dto.getNo());
+			
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
+		}
+		
 	}
 	
 	

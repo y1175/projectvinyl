@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="hm_detail.css" > 
+<link rel="stylesheet" href="hm_expert/hm_detail.css">
 
 </head>
 <body>
@@ -16,12 +16,36 @@
 <%
 	Hm_ExpertDTO dto = (Hm_ExpertDTO) request.getAttribute("dto");
 
-	
+	int no = dto.getNo();
 	String name = dto.getName();
 	String addr = dto.getAddr();
 	String text = dto.getText();
 	String file_name = dto.getFile_name();
+	
 %>
+<div class = "hm_detail">
+	<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_detailimg"/>
+	<h2><%=name%></h2>
+	<p><br><%=addr%><br></p>
+	<p><%=text%><br></p>
+</div>
+
+
+
+
+<a href="hm_list.do">목록으로</a>
+<a href="hm_modify.do?no<%=no%>">수정</a>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

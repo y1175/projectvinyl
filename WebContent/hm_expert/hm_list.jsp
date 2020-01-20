@@ -21,57 +21,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="hm_expert/hm_list.css">
-<!--
-<style>
- 
-.hm_expertmain {
-	background-color: white;
-	border: 1px solid black;
-	border-radius: 20px;
-	width: 65%;
-	height: 300px;
-	margin: 40px auto 20px;
-}
-
-.hm_expertmain img {
-	display: inline-block;
-	float: left;
-	width: 85%;
-	height: 300px;
-}
-
-.hm_expertmain_1 {
-	display: inline-block;
-	float: left;
-	width: 30%;
-	height: 300px;
-	margin: 30px 0px;
-}
-
-.hm_expertmain_1 p {
-	margin: 30px 0px;
-} 
-
-
-
-.hm_btn {
-	margin: 40 40px 0px;
-	display: block;
-	width: 100px;
-	height: 50px;
-	text-decoration: none;
-	text-align: center;
-	line-height: 50px;
-	background-color: coral;
-	color: #fff;
-	border-radius: 50px;
-}
-.hm_search{
-	margin : 20px;
-}
-
-</style>
- -->
 
 
 
@@ -133,9 +82,9 @@
 			int no = dto.getNo();
 	%>
 	
-	    
+	    <p style="text-align: center;">
 			<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>
-		
+		</p>
 	<div class="hm_expertmain">
 		
 
@@ -159,45 +108,48 @@
 	<%
 		}
 	%>
+	
+	<!-- for문 닫음 -->
+ <%
+      int currpage = (Integer) request.getAttribute("currpage");
+      int startblock = (Integer) request.getAttribute("startblock");
+      int endblock = (Integer) request.getAttribute("endblock");
+      int totalpage = (Integer) request.getAttribute("totalpage");
+      String hmcity = request.getParameter("hmcity");
 
-	<%
-		int currpage = (Integer) request.getAttribute("currpage");
-		int startblock = (Integer) request.getAttribute("startblock");
-		int endblock = (Integer) request.getAttribute("endblock");
-		int totalpage = (Integer) request.getAttribute("totalpage");
-		String hmcity = request.getParameter("hmcity");
+      if (startblock > 1) {
+   %>
+   <a href="hm_list.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>">이전</a>
+   <%
+      //currpage -> startblock-1 = 블럭단위로 넘어감   
+      }
+   %>
 
-		if (startblock > 1) {
-	%>
-	<a href="hm_list.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>">이전</a>
-	<%
-		//currpage -> startblock-1 = 블럭단위로 넘어감	
-		}
-	%>
+   <%
+      for (int i = startblock; i <= endblock; i++) {
+         if (currpage == i) {
+   %>
+   <%=i%>
+   <%
+      } else {
+   %>
+   <a href="hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
+   <%
+      }
+   %>
+   <%
+      }
+   %>
+   <%
+      if (endblock < totalpage) {
+   %>
+   <a href="hm_list.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
+   <%
+      //endblock+1로 할수도있음 -> block단위로 다음
+      }
+   %>
 
-	<%
-		for (int i = startblock; i <= endblock; i++) {
-			if (currpage == i) {
-	%>
-	<%=i%>
-	<%
-		} else {
-	%>
-	<a href="hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
-	<%
-		}
-	%>
-	<%
-		}
-	%>
-	<%
-		if (endblock < totalpage) {
-	%>
-	<a href="hm_list.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
-	<%
-		//endblock+1로 할수도있음 -> block단위로 다음
-		}
-	%>
+
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
