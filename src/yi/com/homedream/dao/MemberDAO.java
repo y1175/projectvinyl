@@ -197,6 +197,61 @@ public class MemberDAO {
 		}
 		
 	}
+	public void modifyData(Connection conn, MemberDTO dto) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		sql.append(" update member  ");
+		sql.append("  set pwd=?   ");
+		sql.append("  , name=?   ");
+		sql.append("  , birth=?   ");
+		sql.append("  , phone=?   ");
+		sql.append("  , addr=?   ");
+		sql.append("  , zipcode=?   ");
+		sql.append(" where mem_no=? ");
+		
+		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
+		{
+			
+			pstmt.setString(1,dto.getPwd() );
+			pstmt.setString(2,dto.getName());
+			pstmt.setString(3,dto.getBirth());
+			pstmt.setString(4,dto.getPhone());
+			pstmt.setString(5,dto.getAddr());
+			pstmt.setInt(6, dto.getZipcode());
+			pstmt.setInt(7, dto.getMemNo());
+			pstmt.executeUpdate();
+			
+		
+		}
+		
+	}
+	public List<MemberDTO> memberInfo(Connection conn, String id) throws SQLException {
+	List<MemberDTO> list=new ArrayList<>();
+		StringBuilder sql=new StringBuilder();
+		ResultSet rs=null;
+	sql.append(" select *    ");
+	sql.append(" from member  ");
+	sql.append("  where mem_no=?  ");
+	try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());) {
+		pstmt.setInt(1, Integer.parseInt(id));
+		rs=pstmt.executeQuery();
+		while(rs.next())
+		{
+			MemberDTO dto=new MemberDTO();
+			dto.setId(rs.getString("id"));
+			dto.setPwd(rs.getString("pwd"));
+			dto.setMemNo(rs.getInt("mem_no"));
+			dto.setName(rs.getString("name"));
+			dto.setPhone(rs.getString("phone"));
+			dto.setAddr(rs.getString("addr"));
+			dto.setZipcode(rs.getInt("zipcode"));
+			dto.setBirth(rs.getString("birth"));
+			list.add(dto);
+		}
+	}
+	
+	return list;
+		
+	}
 	
 	
 	

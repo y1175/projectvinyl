@@ -64,7 +64,7 @@
 
 </table>
 <a href="yiordercancel.do?num=${order[0].order_no }">주문취소하기</a><br>
-<a href="yiorderdetail.do?num=${order[0].order_no }">주문내역으로 돌아가기</a><br>
+<a href="yiorderlist.do">주문내역으로 돌아가기</a><br>
 <a href="yi.do">메인페이지로 돌아가기</a><br>
 </body>
 </html>

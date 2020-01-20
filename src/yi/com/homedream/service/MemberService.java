@@ -186,6 +186,50 @@ public class MemberService {
 		}
 		
 	}
+	public void modifyData(MemberDTO dto) {
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.modifyData(conn,dto);
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try { conn.close();}catch(SQLException e) {}
+		}
+		
+		
+	}
+	public List<MemberDTO> memberInfo(String id) {
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		List<MemberDTO> list=new ArrayList<>();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.memberInfo(conn,id);
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try { conn.close();}catch(SQLException e) {}
+		}
+		return list;
+	}
 
 	
 	
