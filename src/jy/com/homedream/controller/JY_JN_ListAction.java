@@ -87,8 +87,13 @@ public class JY_JN_ListAction implements Action {
 		request.setAttribute("search", search);
 		request.setAttribute("searchtxt", searchtxt);
 		
+		String sorting = request.getParameter("sorting");	
 		
-		List<JY_JN_BoardDTO> jn_list = service.jn_getList(search, searchtxt,startrow, endrow);
+		if(sorting==null) {
+			sorting="";
+		}
+		
+		List<JY_JN_BoardDTO> jn_list = service.jn_getList(search, searchtxt,startrow, endrow,sorting);
 		
 		request.setAttribute("jn_list", jn_list);
 		

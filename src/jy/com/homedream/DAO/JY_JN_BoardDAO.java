@@ -21,7 +21,7 @@ public class JY_JN_BoardDAO {
 		return dao;
 	}
 
-	public List<JY_JN_BoardDTO> jn_boardList(Connection conn, String search, String searchtxt, int startrow, int endrow) throws SQLException {
+	public List<JY_JN_BoardDTO> jn_boardList(Connection conn, String search, String searchtxt, int startrow, int endrow, String sorting) throws SQLException {
 		
 		List<JY_JN_BoardDTO> jn_list = new ArrayList<>();
 		StringBuilder sql = new StringBuilder();
@@ -47,6 +47,14 @@ public class JY_JN_BoardDAO {
 			sql.append("  and     m.id    like    ?   ");
 		}
 		
+		if(sorting.equals("new")) {
+			sql.append("  order   by   writedate desc ");
+		}else if(sorting.equals("readpoint")) {
+			sql.append("  order   by   readno    desc ");	
+		}else if(sorting.equals("likepoint")) {
+			sql.append("  order   by   likeno    desc ");
+		}
+		
 		sql.append("    limit         ?     ,     15   ");
 		
 		try (PreparedStatement pstmt = conn.prepareStatement(sql.toString());){
@@ -59,6 +67,7 @@ public class JY_JN_BoardDAO {
 				pstmt.setInt(2, startrow);
 				rs = pstmt.executeQuery();
 			}
+	
 			
 			while(rs.next()) {
 				JY_JN_BoardDTO dto = new JY_JN_BoardDTO();
@@ -217,6 +226,23 @@ public int jn_boardTotalCount(Connection conn) throws SQLException {
 	}
 	return totalcount;
 }
+
+	public int jn_boardUpdateLikeno(int num, Connection conn) throws SQLException {
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		int result = 0;
+		sql.append("  update      mboard              ");
+		sql.append("  set         likeno =  likeno+1  ");
+		sql.append("  where       bno    =       ?    ");
+		try {
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, num);
+			result=pstmt.executeUpdate();
+		}finally {
+			if(pstmt!=null) try {pstmt.close();} catch(SQLException e) {}
+		}
+		return result;
+	}
 
 	
 	

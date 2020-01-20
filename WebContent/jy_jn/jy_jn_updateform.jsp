@@ -37,7 +37,7 @@ function send(){
 <li>
 <input type="submit" value="수정">
 <input type="reset" value="취소">
-<a href="list.do">목록으로</a>
+<a href="jy_list.do">목록으로</a>
 </li>
 </ul>
 </form>

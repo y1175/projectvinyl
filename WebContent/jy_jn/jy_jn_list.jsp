@@ -11,6 +11,16 @@
 <title>집들이 앤 노하우</title>
 </head>
 <body>
+
+
+<form method="post" action="jy_list.do">
+<select name="sorting">
+<option value="new">최신순</option>
+<option value="readpoint">조회수순</option>
+<option value="likepoint">좋아요순</option>
+</select>
+<input type="submit" value="정렬">
+</form>
 <table>
 <thead>
 <tr><th>글 번호</th><th>글 제목</th><th>글쓴이</th><th>좋아요</th><th>조회수</th><th>작성일</th></tr>
@@ -63,13 +73,14 @@
 <c:set var ="totalpage" value="${requestScope.totalpage }"/>
 <c:set var ="search" value="${requestScope.search }"/>
 <c:set var ="searchtxt" value="${requestScope.searchtxt}"/>
+<c:set var ="sorting" value="${requestScope.sorting}"/>
 
 <c:if test="${startblock > 1 }">
-	<a href="jy_list.do?curr=${startblock-1 }&search=${search }&searchtxt=${searchtxt }">이전 블럭으로</a>
+	<a href="jy_list.do?curr=${startblock-1 }&search=${search }&searchtxt=${searchtxt }&sorting=${sorting }">이전 블럭으로</a>
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "jy_list.do?curr=${currpage -1 }&search=${search }&searchtxt=${searchtxt}">이전</a>
+	<a href = "jy_list.do?curr=${currpage -1 }&search=${search }&searchtxt=${searchtxt}&sorting=${sorting }">이전</a>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
@@ -79,7 +90,7 @@
 	</c:if>
 	<c:if test="${currpage != i }">
 		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="jy_list.do?curr=${i}&search=${search}&searchtxt=${searchtxt}">${i}</a>
+		<a href="jy_list.do?curr=${i}&search=${search}&searchtxt=${searchtxt}&sorting=${sorting }">${i}</a>
 	
 	</c:if>
 
@@ -87,11 +98,11 @@
 </c:forEach>
 
 <c:if test="${currpage < totalpage }">
-	<a href = "jy_list.do?curr=${currpage +1 }&search=${search }&searchtxt=${searchtxt}">다음</a>
+	<a href = "jy_list.do?curr=${currpage +1 }&search=${search }&searchtxt=${searchtxt}&sorting=${sorting }">다음</a>
 </c:if>
 
 <c:if test="${endblock < totalpage }">
-	<a href = "jy_list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}">다음블럭으로</a>
+	<a href = "jy_list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}&sorting=${sorting }">다음블럭으로</a>
 </c:if>
 
 
