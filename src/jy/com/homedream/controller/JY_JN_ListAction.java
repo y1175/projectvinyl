@@ -12,6 +12,7 @@ import com.homedream.comm.ActionForward;
 
 import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import jy.com.homedream.service.JY_JN_Service;
+import sun.print.resources.serviceui;
 
 public class JY_JN_ListAction implements Action {
 
@@ -30,11 +31,16 @@ public class JY_JN_ListAction implements Action {
 			searchtxt="";
 		}
 		
+		String sorting = request.getParameter("sorting");	
+		
+		if(sorting==null) {
+			sorting="";
+		}
 		
 		
 		JY_JN_Service service = JY_JN_Service.getService();
 		
-		int totalconut = service.jn_getTotalCount();
+		int totalconut = service.jn_getTotalCount(search,searchtxt);
 		System.out.println(totalconut);
 		
 		int totalpage = (int)Math.ceil((double)totalconut/15);
@@ -86,12 +92,9 @@ public class JY_JN_ListAction implements Action {
 		
 		request.setAttribute("search", search);
 		request.setAttribute("searchtxt", searchtxt);
-		
-		String sorting = request.getParameter("sorting");	
-		
-		if(sorting==null) {
-			sorting="";
-		}
+		request.setAttribute("sorting", sorting);
+
+
 		
 		List<JY_JN_BoardDTO> jn_list = service.jn_getList(search, searchtxt,startrow, endrow,sorting);
 		

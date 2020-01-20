@@ -204,16 +204,31 @@ public void jn_boardUpload(Connection conn, JY_JN_BoardDTO dto) throws SQLExcept
 		}
 	}
 
-public int jn_boardTotalCount(Connection conn) throws SQLException {
+public int jn_boardTotalCount(Connection conn, String search, String searchtxt) throws SQLException {
 	
 	PreparedStatement pstmt = null;
 	int totalcount = 0;
 	ResultSet rs = null;
 	StringBuilder sql = new StringBuilder();
-	sql.append("     select    count(*)      ");
-	sql.append("     from      mboard        ");
+	sql.append("    select      count(*)            ");
+	sql.append("    from        mboard   b          ");
+	sql.append("                join member m       ");
+	sql.append("    where       b.mem_no = m.mem_no ");
+	
+	if(search.equals("btitle")) {
+		sql.append("  and     btitle  like  ?  ");
+	} else if(search.equals("bcontent")) {
+		sql.append("  and     bcontent   like  ?  ");
+	} else if(search.equals("id")) {
+		sql.append("  and     m.id    like    ?   ");
+	}
+	
 	try {
 		pstmt=conn.prepareStatement(sql.toString());
+		 if(!(search.equals(""))) {
+				pstmt.setString(1, "%" + searchtxt + "%");
+			}
+	
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()) {

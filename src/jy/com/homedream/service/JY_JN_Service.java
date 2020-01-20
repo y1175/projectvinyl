@@ -122,7 +122,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		
 	}
 
-	public int jn_getTotalCount() {
+	public int jn_getTotalCount(String search, String searchtxt) {
 	
 	DBConnection db = DBConnection.getInstance();
 	Connection conn = null;
@@ -131,7 +131,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		conn = db.getConnection();
 		conn.setAutoCommit(false);
 		JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
-		totalcount = dao.jn_boardTotalCount(conn);
+		totalcount = dao.jn_boardTotalCount(conn,search,searchtxt);
 		conn.commit();
 	} catch(SQLException | NamingException e){
 		System.out.println(e);
@@ -205,6 +205,25 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 			if(conn!=null)try {conn.close();} catch(SQLException e){}
 		}
 		return result;
+	}
+
+	public void jn_getDeleteSubBoard(int rno) {
+		
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		try {
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
+			dao.jn_SubBoardDelete(conn, rno);
+			conn.commit();
+		} catch(SQLException | NamingException e) {
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		} finally {
+			if(conn!=null)try {conn.close();} catch(SQLException e){}
+		}
+		
 	}
 
 	

@@ -97,6 +97,20 @@ public class JY_JN_SubBoardDAO {
 		}
 		return list;
 	}
+	public void jn_SubBoardDelete(Connection conn, int rno) throws SQLException {
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("    delete     from         reply      ");
+		sql.append("    where      rno     =    ?          ");
+		
+		try {
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, rno);
+			pstmt.executeUpdate();
+		} finally {
+			if(pstmt!=null) try {pstmt.close();} catch(SQLException e) {}
+		}
+	}
 
 	
 	

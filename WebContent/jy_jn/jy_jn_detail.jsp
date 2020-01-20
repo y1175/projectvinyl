@@ -15,6 +15,10 @@ function send(){
 		document.frm.submit();
 }
 
+function del(sno,bno){
+	location.href="jy_subdelete.do?rno="+sno+"&bno="+bno
+}
+
 $(document).ready(function(){
 	let no = ${dto.bno}
 	$.ajax({
@@ -27,7 +31,7 @@ $(document).ready(function(){
 			let result ="<thead><tr><th>작성자</th><th>내용</th></tr></thead><tbody>"
 				result+="<td>"+item.subid+"</td>";
 				result+="<td>"+item.content+"</td>";
-				result+="<td><input type='button' value='삭제' onclick='del("+item.subno+","+item.boardno+")'></td>";
+				result+="<td><input type='button' value='삭제' onclick='del("+item.rno+","+item.bno+")'></td>";
 				result+="</tr></tbody>";
 				$('#result').append(result);
 				// 하단에 내가 쓴 댓글들이 추가가 됨
@@ -96,13 +100,12 @@ $(document).ready(function(){
 <c:out value="${requestScope.subid}"/><br> 
 
  --%>
- <label for="subcontent">댓글</label>
+<label for="subcontent">댓글</label>
 <textarea rows="3" cols="20" name="subcontent" id="subcontent"></textarea><br>
 
 <input type="button" onclick="send()" value="등록">
 <input type="reset" value="취소"> 
 </form>
-
 <div id="result"></div>
 
 
