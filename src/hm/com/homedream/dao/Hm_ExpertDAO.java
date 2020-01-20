@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
+
 
 import hm.com.homedream.dto.Hm_ExpertDTO;
 
@@ -179,6 +179,7 @@ public class Hm_ExpertDAO {
 		}
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
+			if(rs!=null)try {rs.close();}catch(SQLException e) {}
 		}
 		return dto;
 	}

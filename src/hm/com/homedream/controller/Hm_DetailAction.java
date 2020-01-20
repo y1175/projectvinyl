@@ -24,7 +24,7 @@ public class Hm_DetailAction implements Action {
 		if(num!=null&&!("".equals(num))) {
 			no = Integer.parseInt(num);
 		}
-		System.out.println(no);
+		
 		Hm_ExpertService service = Hm_ExpertService.getService();
 		Hm_ExpertDTO dto = service.getSelect(no);
 		

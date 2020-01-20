@@ -38,6 +38,7 @@ public class Hm_ListAction implements Action {
 		int totalcount = service.getCount(search);
 		
 		System.out.println(totalcount);
+		
 		int pagepercount = 3;//한 페이지 당 보여줄 자료
 		int totalpage = (int)Math.ceil((float)totalcount/pagepercount);
 		

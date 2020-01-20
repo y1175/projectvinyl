@@ -1,10 +1,9 @@
-@charset "UTF-8";
 #floatdiv { 
 position:fixed; 
 width:175px; 
 display:inline-block; 
-right:80%; /* ì°½ì—ì„œ ì˜¤ë¥¸ìª½ ê¸¸ì´ */ 
-top:10%; /* ì°½ì—ì„œ ìœ„ì—ì„œ ë¶€í„°ì˜ ë†’ì´ */ 
+right:80%; /* Ã¢¿¡¼­ ¿À¸¥ÂÊ ±æÀÌ */ 
+top:10%; /* Ã¢¿¡¼­ À§¿¡¼­ ºÎÅÍÀÇ ³ôÀÌ */ 
 /* background-image: url('/detail.jpg'); */
 /* background-color: transparent; */
 margin:0; 
