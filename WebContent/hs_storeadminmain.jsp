@@ -25,6 +25,9 @@
      <header>
          <jsp:include page="hs_storeadminheader.jsp"></jsp:include>
      </header>
+     <section>
+         <jsp:include page="yj/itemlist.jsp"></jsp:include>
+     </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>
      </footer>
