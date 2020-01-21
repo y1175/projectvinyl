@@ -23,9 +23,11 @@
 	  if(document.frm.hs_answer.value!="")
 		  document.frm.submit();
   }
+  /*
   function del(a_no,q_no){
 	  location href="hs_answerdelete.do?a_no="+a_no+"&q_no="+q_no
-  }
+  }*/
+  
   $(document).ready(function() {
 	let no=${dto.q_no}
 	$.ajax({
@@ -35,6 +37,7 @@
 	   ,method:'post'
 	   ,success:function(data){
 		   $.each(data, function(index,item){
+			   console.log(item);
 				let result ="<thead><tr><th><i class='fas fa-user-circle'></i>작성자</th><th>내용</th></tr></thead><tbody>"
 					result+="<td>"+item.answerid+"</td>";
 					result+="<td>"+item.content+"</td>";
@@ -94,6 +97,7 @@
       <form method="post" action="hs_answeradd.do" name="frm">
          <p>답변</p>
             <label for="hs_answer"><i class='fas fa-user-circle'></i></label>
+            <input type="hidden" name="no" value="${dto.q_no}">
             <input type="text" name="hs_answer" id="hs_answer">
             <input type="submit" onclick="send()" value="등록"> 
       </form> 

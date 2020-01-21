@@ -20,13 +20,15 @@ public class hs_AnswerAddAction implements Action {
 		// TODO Auto-generated method stub
 		ActionForward forward=new ActionForward();
 		
-		int q_no=Integer.parseInt(request.getParameter("q_no"));
+		int no = Integer.parseInt(request.getParameter("no"));
+
+		System.out.println(no);
 		
 		String hs_answer=request.getParameter("hs_answer");
 		
 		AnswerDTO dto=new AnswerDTO();
 		
-		dto.setQ_no(q_no);
+		dto.setQ_no(no);
 		dto.setMem_no(2);
 		dto.setContent(hs_answer);
 		
@@ -37,7 +39,7 @@ public class hs_AnswerAddAction implements Action {
 		request.setAttribute("answer", answerid);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_questiondetail.do?no="+q_no);
+		forward.setUrl("hs_questiondetail.do?no="+no);
 		
 		return forward;
 	}

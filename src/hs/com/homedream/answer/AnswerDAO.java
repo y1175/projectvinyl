@@ -22,7 +22,7 @@ public class AnswerDAO {
 		sql.append("  insert  into  answer( q_no      ");
 		sql.append("                       ,mem_no    ");
 		sql.append("                       ,content ) ");
-		sql.append("  values(?, ? , ? ");
+		sql.append("  values(    ?   ,    ?   , ?  )  ");
 		try {
 			ps=conn.prepareStatement(sql.toString());
 			ps.setInt(1, dto.getQ_no());
