@@ -11,15 +11,20 @@ import com.homedream.comm.ActionForward;
 
 import yi.com.homedream.service.MemberService;
 
-public class YIboardDeleteAction implements Action {
+public class YIBoardSelectDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int bno=Integer.parseInt(request.getParameter("bno"));
+		String[] selected=request.getParameterValues("select");
+		System.out.println(selected[0]+","+selected[1]);
 		MemberService service=MemberService.getService();
-		service.boardDelete(bno);
+		for(int i=0; i<=selected.length;i++)
+		{
+			
 		
+		service.boardDelete(Integer.parseInt(selected[i]));
+		}
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
