@@ -9,28 +9,29 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
+import ej.com.homedream.dto.MemberDTO;
 import hs.com.homedream.question.QuestionDAO;
-import yi.com.homedream.dao.MemberDAO;
-import yi.com.homedream.dto.ItemDTO;
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.dto.OrderlistDTO;
-import yi.com.homedream.dto.QuestionDTO;
+import yi.com.homedream.dao.YIMemberDAO;
+import yi.com.homedream.dto.YIItemDTO;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.dto.YIOrderlistDTO;
+import yi.com.homedream.dto.YIQuestionDTO;
 
-public class MemberService {
+public class YIMemberService {
 
-	private MemberService() {}
-	private static MemberService service=new MemberService();
-	public static MemberService getService()
+	private YIMemberService() {}
+	private static YIMemberService service=new YIMemberService();
+	public static YIMemberService getService()
 	{
 		return service;
 	}
-	public void join(MemberDTO dto) {
+	public void join(YIMemberDTO dto) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			dao.join(conn,dto);
 
 
@@ -47,16 +48,16 @@ public class MemberService {
 		}
 
 	}
-	public String getLogin(String id, String pwd) {
+	public MemberDTO getLogin(String id, String pwd) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		String userId=null;
-
+		MemberDTO dto=null;
+		
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
-			userId=dao.getLogin(conn,id,pwd);
+			YIMemberDAO dao=YIMemberDAO.getDAO();
+			dto=dao.getLogin(conn,id,pwd);
 			conn.commit();
 		}catch(NamingException|SQLException e)
 		{
@@ -68,16 +69,16 @@ public class MemberService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 
-		return userId;
+		return dto;
 	}
-	public List<OrderlistDTO> orderlist(String id) {
+	public List<YIOrderlistDTO> orderlist(String id) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		List<OrderlistDTO> list=new ArrayList<OrderlistDTO>();
+		List<YIOrderlistDTO> list=new ArrayList<YIOrderlistDTO>();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.orderlist(conn,id);
 
 			conn.commit();
@@ -93,15 +94,15 @@ public class MemberService {
 		}
 		return list;
 	}
-	public List<MemberDTO> orderDetailMember(int num) {
+	public List<YIMemberDTO> orderDetailMember(int num) {
 		// TODO Auto-generated method stub
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		List<MemberDTO> list=new ArrayList<>();
+		List<YIMemberDTO> list=new ArrayList<>();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.orderDetailMember(conn,num);
 
 			conn.commit();
@@ -118,14 +119,14 @@ public class MemberService {
 
 		return list;
 	}
-	public List<ItemDTO> orderDetailItem(int num) {
-		List<ItemDTO> list=new ArrayList<>();
+	public List<YIItemDTO> orderDetailItem(int num) {
+		List<YIItemDTO> list=new ArrayList<>();
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.orderDetailItem(conn,num);
 
 			conn.commit();
@@ -142,14 +143,14 @@ public class MemberService {
 
 		return list;
 	}
-	public List<OrderlistDTO> orderDetailOrder(int num) {
-		List<OrderlistDTO> list=new ArrayList<>();
+	public List<YIOrderlistDTO> orderDetailOrder(int num) {
+		List<YIOrderlistDTO> list=new ArrayList<>();
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.orderDetailOrder(conn,num);
 
 			conn.commit();
@@ -173,7 +174,7 @@ public class MemberService {
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			dao.orderCancel(conn,num);
 			conn.commit();
 		}
@@ -188,13 +189,13 @@ public class MemberService {
 		}
 
 	}
-	public void modifyData(MemberDTO dto) {
+	public void modifyData(YIMemberDTO dto) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			dao.modifyData(conn,dto);
 			conn.commit();
 		}
@@ -210,14 +211,14 @@ public class MemberService {
 
 
 	}
-	public List<MemberDTO> memberInfo(String id) {
+	public List<YIMemberDTO> memberInfo(String id) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		List<MemberDTO> list=new ArrayList<>();
+		List<YIMemberDTO> list=new ArrayList<>();
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.memberInfo(conn,id);
 			conn.commit();
 		}
@@ -240,7 +241,7 @@ public class MemberService {
 		try{
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();//싱글톤햇으니까 이렇게
+			YIMemberDAO dao=YIMemberDAO.getDAO();//싱글톤햇으니까 이렇게
 			count=dao.boardCount(conn, search, txtsearch);
 			//System.out.println("count: "+count);
 			conn.commit();
@@ -253,9 +254,9 @@ public class MemberService {
 		}
 		return count;
 	}
-	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch) {//출력
+	public List<YIMemberDTO> getList(int startrow, int endrow, String search, String txtsearch) {//출력
 		Connection conn=null;
-		List<MemberDTO> list=null;
+		List<YIMemberDTO> list=null;
 
 		try {
 			DBConnection db=DBConnection.getInstance();
@@ -263,7 +264,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.getlist(conn,startrow, endrow, search, txtsearch);
 			//list를 리턴을 받아줫을때
 
@@ -287,7 +288,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			dao.boardDelete(conn,bno);
 			conn.commit();
 		}catch(NamingException|SQLException e)
@@ -300,14 +301,14 @@ public class MemberService {
 		}
 
 	}
-	public List<QuestionDTO> qnaList(int startrow, int endrow, String search, String txtsearch) {
+	public List<YIQuestionDTO> qnaList(int startrow, int endrow, String search, String txtsearch) {
 		Connection conn=null;
 		DBConnection db=DBConnection.getInstance();
-		List<QuestionDTO> list=new ArrayList<>();
+		List<YIQuestionDTO> list=new ArrayList<>();
 		try {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.getQlist(conn,startrow,endrow,search, txtsearch);
 			conn.commit();
 		}catch(NamingException|SQLException e){
@@ -326,7 +327,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			dao.qnaDelete(conn,q_no);
 			conn.commit();
 		}catch(NamingException|SQLException e)
@@ -338,16 +339,16 @@ public class MemberService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 	}
-	public List<MemberDTO> memberlist(String id) {
+	public List<YIMemberDTO> memberlist(String id) {
 		Connection conn=null;
-		List<MemberDTO> list=new ArrayList<>();
+		List<YIMemberDTO> list=new ArrayList<>();
 		try {
 			
 			DBConnection db=DBConnection.getInstance();
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
+			YIMemberDAO dao=YIMemberDAO.getDAO();
 			list=dao.memberlist(conn,id);
 			conn.commit();
 		}catch(NamingException|SQLException e)

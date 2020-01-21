@@ -24,7 +24,7 @@ public class YILoginAction implements Action {
 		f.setForward(true);
 		f.setUrl("/yi_member/loginform.jsp");
 		}
-		else if(id.equals("1"))	//admin으로 로그인할때
+		else if(id.equals("admin"))	//admin으로 로그인할때
 		{
 			f.setForward(true);
 			f.setUrl("/hs_memberadminmain.jsp");

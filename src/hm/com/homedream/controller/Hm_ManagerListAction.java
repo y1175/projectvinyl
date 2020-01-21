@@ -25,10 +25,8 @@ public class Hm_ManagerListAction implements Action {
 		{
 			search="";
 		}
-		String[] hmsearch = request.getParameterValues("hmcity");
 		
 		Hm_ExpertService service = Hm_ExpertService.getService();
-
 		
 		
 		int currpage = 1;//현재페이지
@@ -38,7 +36,6 @@ public class Hm_ManagerListAction implements Action {
 			currpage = Integer.parseInt(curr);
 		}
 		int totalcount = service.getCount(search);
-		
 		
 		
 		int pagepercount = 5;//한 페이지 당 보여줄 자료

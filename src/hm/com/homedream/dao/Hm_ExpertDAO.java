@@ -218,6 +218,22 @@ public class Hm_ExpertDAO {
 		}
 		
 	}
+	public void dataDelete(Connection conn, int no) throws SQLException{
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("    delete     from   expert     ");
+		sql.append("     where   no = ?              ");
+		
+		try {
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, no);
+			 pstmt.executeUpdate();
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
+		}
+		
+	}
 	
 	
 	

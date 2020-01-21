@@ -16,11 +16,14 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link rel="stylesheet" href="css/yi_adminboard.css">
 <style>
 #searchbox{border:1px solid silver;
 width: 60%;
-padding: 20px;}
+padding: 20px;
+margin-bottom: 1%;}
 #line{border:0.5px solid silver;}
+.searchselect{margin-right: 1%;}
 </style>
 
 <script>
@@ -88,31 +91,34 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
-<div id="searchbox">
-<select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
+<form method="post" class="form-inline" action="yiadminboard.do"><!--처음에 list.do햇음  -->
+
+<div class="questionsearch_searchbox">
+        <select name="search" class="custom-select"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
 	<option value="name">이름</option>
 	<option value="btitle">글제목</option>
 </select>
-<input type="text" name="txtsearch">
-<!-- <input type="submit" value="검색"> -->
-
-
+<i class='fas fa-search' style="padding: 5px;"></i>
+<input type="text" name="txtsearch" class="form-control">
 </div>
 
 
+<!-- <input type="submit" value="검색"> -->
 
-<table>
-<thead><tr><th>선택</th><th>회원번호</th><th>아이디</th><th>글번호</th><th>글제목</th><th>추천수</th>
-<th>                  <th><th>게시글삭제</th></tr>
+
+
+
+<table class='table table-hover'>
+<thead class='thead-dark'><tr><th>선택</th><th>회원번호</th><th>아이디</th><th>글번호</th><th>글제목</th><th>추천수</th>
+<th>게시글삭제</th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
 	<c:forEach var="item" items="${list}">
 	<tr>
  	<td><input type="checkbox" name="select" id="select" value="${item.bno }" ></td>
-	<td><c:out value="${item.memNo }"></c:out></td> 
+	<td>${item.memNo }</td> 
 	<td>${item.id }</td>
 	<td>${item.bno }</td>
 	<td>${item.btitle }</td>
@@ -120,29 +126,33 @@ $(document).ready(function(){
 	
 		
 		
-	<td><a href="yiboarddelete.do?bno=${item.bno}">삭제</a><td>
+	<td><a href="yiboarddelete.do?bno=${item.bno}" class="btn btn-danger">삭제</a><td>
 
 
 	</tr>
 	 </c:forEach>
 </tbody>
 </table><br>
+<div class="container">
+<div class="row">
+<div class="col"></div>
+<ul class='pagination'>
 <c:if test="${startblock > 1 }">
-	<a href="yiadminboard.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a>
+	<li><a class="page-link" href="yiadminboard.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a></li>
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "yiadminboard.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a>
+	<li><a class="page-link" href = "yiadminboard.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a></li>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
 	<c:if test="${currpage ==i }">
 		<!-- 같으면 그냥 출력 -->
-		<c:out value="${i}"/>
+		<li class="page-item active" ><a class="page-link" href="yiadminboard.do?curr=${i}" ><c:out value="${i}" /></a></li>
 	</c:if>
 	<c:if test="${currpage != i }">
 		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="yiadminboard.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a>
+		<li><a class="page-link" href="yiadminboard.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a></li>
 	
 	</c:if>
 
@@ -150,12 +160,16 @@ $(document).ready(function(){
 </c:forEach>
 
 <c:if test="${currpage < totalpage }">
-	<a href = "yiadminboard.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
+	<li><a class="page-link" href = "yiadminboard.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a></li>
 </c:if>
 
 <c:if test="${endblock < totalpage }">
-	<a href = "yiadminboard.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
+	<li><a class="page-link" href = "yiadminboard.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a></li>
 </c:if>
+</ul>
+<div class="col"></div>
+</div>
+</div>
 <br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 </form>

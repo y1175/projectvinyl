@@ -7,66 +7,98 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="css/yi_joinform.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
 <body>
+<div class='container'>
+
+<header>
+			<jsp:include page="/hs_communityheader.jsp"></jsp:include>
+		</header>
+
+<div class='row'>
+<div class='col'></div>
+<div class='col-6'>
 <form method="post" action="yijoinresult.do">
-<ul>
-<li><label for="id">아이디</label>
-<input type="text" name="id" id="id" required="required" onkeyup="idCheckFunction();">
-</li>
 
-<li><label for="pwd">패스워드</label>
-<input type="password" name="pwd" id="pwd" required="required" >
-</li>
+<label for="id">아이디</label>
+<input type="text" name="id" id="id" required="required" onkeyup="idCheckFunction();" class="form-control">
 
-<li><label for="pwdcheck">패스워드확인</label>
-<input type="password" name="pwdcheck" id="pwdcheck" required="required" onkeyup="passwordCheckFunction();">
-</li>
-<li>
+
+<label for="pwd">패스워드</label>
+<input type="password" name="pwd" id="pwd" required="required" class="form-control">
+
+
+<label for="pwdcheck">패스워드확인</label>
+<input type="password" name="pwdcheck" id="pwdcheck" required="required" onkeyup="passwordCheckFunction();" class="form-control">
+
+
 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
 <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-</li>
 
-<li><label for="name">이름</label>
-<input type="text" name="name" id="name" required="required">
-</li>
 
-<li><label for="birth">생년월일</label>
-<input type="date" name="birth" id="birth">
-</li>
+<label for="name">이름</label>
+<input type="text" name="name" id="name" required="required" class="form-control">
 
-<li><label for="id">전화번호</label>
-<input type="text" name="phone" id="phone">
-</li>
 
-<li>
+<label for="birth">생년월일</label>
+<input type="date" name="birth" id="birth" class="form-control">
+
+
+<label for="id">전화번호</label>
+<input type="text" name="phone" id="phone" class="form-control">
+
+
+
 <label for='addr'>주소</label>
-<input type="text" id="sample4_postcode" name='zipcode' placeholder="우편번호">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" readonly="readonly"><br>
-
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="roadaddr" readonly="readonly">
+<div class='form-row'>
+<div class='col-5'>
+<input type="text" id="sample4_postcode" name='zipcode' placeholder="우편번호" class='form-control'>
+</div>
+<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" readonly="readonly" class='btn btn-info' ><br>
+</div>
+<div class='juso'>
+<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="roadaddr" readonly="readonly" class="form-control">
 <input type="radio" id='roadAddress' name='addrselect' value="0" required ><label for="addrselect">도로명주소 선택</label> <br>
 
-<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="jibunaddr" readonly="readonly">
-<input type="radio" id='jibunAddress' name='addrselect' value="1" ><label for="addrselect">지번주소 선택</label>
+<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="jibunaddr" readonly="readonly" class="form-control">
+<input type="radio" id='jibunAddress' name='addrselect' value="1" ><label for="addrselect">지번주소 선택</label><br>
+</div>
 <span id="guide" style="color:#999"></span>
-</li>
-<li>
+
+
 <label for="detailaddr">상세주소</label>
-<input type="text" id="detailaddr" name="detailaddr">
-</li>
+<input type="text" id="detailaddr" name="detailaddr" class="form-control">
 
-<li><label for="policy">이용약관</label><br>
-<textarea rows="5" cols="30" readonly="readonly">동의하세요</textarea><br>
-<label for="agree">동의합니다</label>
-<input type="checkbox" name="agree" id="agree" required>
-</li>
-<li>
-<input type="submit" id="submit" value="제출">
-<input type="reset" id="submit" value="취소">
-</li>
-</ul>
+
+<label for="policy">이용약관</label><br>
+<textarea rows="5" cols="30" readonly="readonly" class="form-control">동의하세요.</textarea><br>
+
+<div class='agreetext'>
+<label for="agree" class='form-check-label'>동의합니다</label>
+<input type="checkbox" name="agree" id="agree" required >
+<div class='row submit-btn'>
+<div class='col'></div>
+<input type="submit" id="submit" value="가입완료" class='btn btn-info'>
+<div class='col'></div>
+</div>
+</div>
+
 </form>
+</div>
+<div class='col'></div>
+</div>
 
+<footer>
+			<jsp:include page="/hs_user_footer.jsp"></jsp:include>
+		</footer>
+
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -158,5 +190,18 @@ $("input")
 
 
 </script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 </body>
 </html>

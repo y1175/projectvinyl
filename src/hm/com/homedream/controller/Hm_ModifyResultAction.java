@@ -21,7 +21,7 @@ public class Hm_ModifyResultAction implements Action {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		int filesize = 1024 * 1024 * 10;
-		String uploadpath = request.getServletContext().getRealPath("hm_expert");
+		String uploadpath = request.getServletContext().getRealPath("upload");
 	
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -33,30 +33,15 @@ public class Hm_ModifyResultAction implements Action {
 		if(num!=null) {
 			no=Integer.parseInt(num);
 		}
-		
-		String name = multi.getParameter("name");
-		String text = multi.getParameter("content");
-		String place = multi.getParameter("place");
-		String lat = multi.getParameter("lat");
-		String lon = multi.getParameter("lon");
-		String addr = multi.getParameter("addr");
+		request.setAttribute("file", file);
 		
 		Hm_ExpertService service = Hm_ExpertService.getService();
-		
-		Hm_ExpertDTO dto = new Hm_ExpertDTO();
-		dto.setNo(no);
-		dto.setName(name);
-		dto.setText(text);
-		dto.setPlace(place);
-		dto.setLat(lat);
-		dto.setLon(lon);
-		dto.setFile_name(file);
-		dto.setAddr(addr);
+		Hm_ExpertDTO dto = service.getSelect(no);
 
 		service.dataUpdate(dto);
 		
 		request.setAttribute("dto", dto);
-		request.setAttribute("file", file);
+		
 		
 		
 		ActionForward f = new ActionForward();

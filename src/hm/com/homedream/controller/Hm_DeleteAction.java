@@ -9,34 +9,30 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import hm.com.homedream.dto.Hm_ExpertDTO;
 import hm.com.homedream.service.Hm_ExpertService;
 
-
-public class Hm_ModifyAction implements Action {
+public class Hm_DeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		String num = request.getParameter("no");
 		
 		int no = 1;
-		if(num!=null&&!("".equals(num)))
+		if(num!=null&&("".equals(num)))
 		{
-			no = Integer.parseInt(num);
+			no=Integer.parseInt(num);
 		}
-		
-		
 		Hm_ExpertService service = Hm_ExpertService.getService();
-		Hm_ExpertDTO dto = service.getSelect(no);
-		request.setAttribute("dto", dto);
+		service.dataDelete(no);
 		
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_modify.jsp");
-		
+		forward.setUrl("hm_managerlist.do");
+
 		return forward;
 	}
 

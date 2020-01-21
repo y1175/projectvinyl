@@ -10,7 +10,8 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.service.MemberService;
+import ej.com.homedream.dto.MemberDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YILoginResultAction implements Action {
 
@@ -21,12 +22,12 @@ public class YILoginResultAction implements Action {
 		String pwd=request.getParameter("pwd");
 		
 		
-		MemberService service=MemberService.getService();
-		String userId=service.getLogin(id,pwd);
+		YIMemberService service=YIMemberService.getService();
+		MemberDTO dto=service.getLogin(id,pwd);
 		
 		ActionForward f=new ActionForward();
 		
-		if(userId==null)	//로그인 실패
+		if(dto==null)	//로그인 실패
 		{
 			System.out.println("로그인 실패");
 			f.setForward(false);
@@ -35,13 +36,15 @@ public class YILoginResultAction implements Action {
 		else
 		{
 		HttpSession session=request.getSession();
-		session.setAttribute("userId", userId);
+		session.setAttribute("userId", dto.getId());
+		session.setAttribute("mem_no", dto.getMemNo());
 		session.setMaxInactiveInterval(60*5);
 		
 		f.setForward(false);
 		f.setUrl("homedream.do");
 		System.out.println("로그인 성공");
-		System.out.println("userId:"+userId);
+		System.out.println("userId:"+dto.getId());
+		System.out.println("userId:"+dto.getMemNo());
 		}
 		
 		return f;

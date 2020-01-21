@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIJoinResultAction implements Action {
 
@@ -40,7 +40,7 @@ public class YIJoinResultAction implements Action {
 		int zipcode=Integer.parseInt(request.getParameter("zipcode"));
 		
 		
-		MemberDTO dto=new MemberDTO();
+		YIMemberDTO dto=new YIMemberDTO();
 		dto.setId(id);
 		dto.setPwd(pwd);
 		dto.setName(name);
@@ -50,7 +50,7 @@ public class YIJoinResultAction implements Action {
 		dto.setZipcode(zipcode);
 		
 		
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		service.join(dto);
 		
 		ActionForward f=new ActionForward();

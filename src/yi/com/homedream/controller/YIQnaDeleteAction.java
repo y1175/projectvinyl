@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIQnaDeleteAction implements Action{
 
@@ -17,7 +17,7 @@ public class YIQnaDeleteAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int q_no=Integer.parseInt(request.getParameter("q_no"));
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		service.qnaDelete(q_no);
 		
 		

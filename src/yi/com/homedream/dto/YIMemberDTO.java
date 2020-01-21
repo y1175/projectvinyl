@@ -1,6 +1,6 @@
 package yi.com.homedream.dto;
 
-public class MemberDTO {
+public class YIMemberDTO {
 private int memNo;
 private String id;
 private String pwd;

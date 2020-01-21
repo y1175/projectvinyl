@@ -62,7 +62,7 @@
 <a href="hm_managerlist.do"><button type="button" class="btn btn-outline-info"
 style = "margin:20px 20px 0px 0px;"
 >리스트보기</button></a>
-<a href="hm_modify.do?no<%=no%>"><button type="button" class="btn btn-outline-info"
+<a href="hm_modify.do?no=<%=no%>"><button type="button" class="btn btn-outline-info"
 style = "margin:20px 20px 0px 0px;">수정</button></a>
 
 	

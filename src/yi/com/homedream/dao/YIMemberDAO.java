@@ -7,20 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import yi.com.homedream.dto.ItemDTO;
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.dto.OrderlistDTO;
-import yi.com.homedream.dto.QuestionDTO;
+import ej.com.homedream.dto.MemberDTO;
+import yi.com.homedream.dto.YIItemDTO;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.dto.YIOrderlistDTO;
+import yi.com.homedream.dto.YIQuestionDTO;
 
-public class MemberDAO {
+public class YIMemberDAO {
 
-	private MemberDAO() {}
-	private static MemberDAO dao=new MemberDAO();
-	public static MemberDAO getDAO()
+	private YIMemberDAO() {}
+	private static YIMemberDAO dao=new YIMemberDAO();
+	public static YIMemberDAO getDAO()
 	{
 		return dao;
 	}
-	public void join(Connection conn, MemberDTO dto) throws SQLException {
+	public void join(Connection conn, YIMemberDTO dto) throws SQLException {
 		StringBuilder sql=new StringBuilder();
 		sql.append(" insert into  ");
 		sql.append("  member(id,pwd,name,birth,phone,addr,zipcode)  ");
@@ -41,14 +42,14 @@ public class MemberDAO {
 		}
 		
 	}
-	public String getLogin(Connection conn,String id, String pwd) throws SQLException{
+	public MemberDTO getLogin(Connection conn,String id, String pwd) throws SQLException{
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		String userId=null;
 		sql.append(" select mem_no,id,pwd ");
 		sql.append(" from member  ");
 		sql.append(" where id= ? and pwd= ?   ");
-		
+		MemberDTO dto=new MemberDTO();
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
 		{
 			pstmt.setString(1, id);
@@ -56,7 +57,9 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			if(rs.next())
 			{
-				userId=rs.getString("mem_no");
+				dto.setMemNo(rs.getInt("mem_no"));
+				dto.setId(rs.getString("id"));
+				
 			}
 
 			
@@ -66,11 +69,11 @@ public class MemberDAO {
 		}
 		
 		
-		return userId;
+		return dto;
 	}
-	public List<OrderlistDTO> orderlist(Connection conn, String id) throws SQLException{
+	public List<YIOrderlistDTO> orderlist(Connection conn, String id) throws SQLException{
 		StringBuilder sql=new StringBuilder();
-		List<OrderlistDTO> list=new ArrayList<OrderlistDTO>();
+		List<YIOrderlistDTO> list=new ArrayList<YIOrderlistDTO>();
 		ResultSet rs=null;
 		sql.append(" select orderdate,order_no,status  ");
 		sql.append(" from member inner join orderlist  ");
@@ -84,7 +87,7 @@ public class MemberDAO {
 			while(rs.next())
 			{
 				
-				OrderlistDTO dto=new OrderlistDTO();
+				YIOrderlistDTO dto=new YIOrderlistDTO();
 				dto.setOrderdate(rs.getString("orderdate"));
 				dto.setOrder_no(rs.getInt("order_no"));
 				dto.setStatus(rs.getInt("status"));
@@ -97,9 +100,9 @@ public class MemberDAO {
 		}
 		return list;
 	}
-	public List<MemberDTO> orderDetailMember(Connection conn, int num) throws SQLException {
+	public List<YIMemberDTO> orderDetailMember(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		List<MemberDTO> list=new ArrayList<>();
+		List<YIMemberDTO> list=new ArrayList<>();
 		sql.append(" select phone,name,addr  ");
 		sql.append(" from member inner join orderlist ");
 		sql.append(" on member.mem_no=orderlist.mem_no");
@@ -111,7 +114,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{			
-				MemberDTO dto=new MemberDTO();
+				YIMemberDTO dto=new YIMemberDTO();
 				dto.setPhone(rs.getString("phone"));
 				dto.setName(rs.getString("name"));
 				dto.setAddr(rs.getString("addr"));
@@ -124,7 +127,7 @@ public class MemberDAO {
 		
 		return list;
 	}
-	public List<ItemDTO> orderDetailItem(Connection conn, int num) throws SQLException {
+	public List<YIItemDTO> orderDetailItem(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
 		sql.append(" select name,price,img_no,file_name,loc   ");
 		sql.append(" from orderlist inner join item ");
@@ -132,14 +135,14 @@ public class MemberDAO {
 		sql.append(" where order_no=? ");
 		
 		ResultSet rs=null;
-		List<ItemDTO> list=new ArrayList<>();
+		List<YIItemDTO> list=new ArrayList<>();
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
 		{
 			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				ItemDTO dto=new ItemDTO();
+				YIItemDTO dto=new YIItemDTO();
 				dto.setName(rs.getString("name"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setImg_no(rs.getInt("img_no"));
@@ -154,9 +157,9 @@ public class MemberDAO {
 		
 		return list;
 	}
-	public List<OrderlistDTO> orderDetailOrder(Connection conn, int num) throws SQLException {
+	public List<YIOrderlistDTO> orderDetailOrder(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		List<OrderlistDTO> list=new ArrayList<>();
+		List<YIOrderlistDTO> list=new ArrayList<>();
 		ResultSet rs=null;
 		sql.append(" select order_no,status,cost ");
 		sql.append(" from orderlist inner join item ");
@@ -169,7 +172,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				OrderlistDTO dto=new OrderlistDTO();
+				YIOrderlistDTO dto=new YIOrderlistDTO();
 				dto.setOrder_no(rs.getInt("order_no"));
 				dto.setCost(rs.getInt("cost"));
 				dto.setStatus(rs.getInt("status"));
@@ -198,7 +201,7 @@ public class MemberDAO {
 		}
 		
 	}
-	public void modifyData(Connection conn, MemberDTO dto) throws SQLException {
+	public void modifyData(Connection conn, YIMemberDTO dto) throws SQLException {
 		StringBuilder sql=new StringBuilder();
 		sql.append(" update member  ");
 		sql.append("  set pwd=?   ");
@@ -225,8 +228,8 @@ public class MemberDAO {
 		}
 		
 	}
-	public List<MemberDTO> memberInfo(Connection conn, String id) throws SQLException {
-	List<MemberDTO> list=new ArrayList<>();
+	public List<YIMemberDTO> memberInfo(Connection conn, String id) throws SQLException {
+	List<YIMemberDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 	sql.append(" select *    ");
@@ -237,7 +240,7 @@ public class MemberDAO {
 		rs=pstmt.executeQuery();
 		while(rs.next())
 		{
-			MemberDTO dto=new MemberDTO();
+			YIMemberDTO dto=new YIMemberDTO();
 			dto.setId(rs.getString("id"));
 			dto.setPwd(rs.getString("pwd"));
 			dto.setMemNo(rs.getInt("mem_no"));
@@ -295,8 +298,8 @@ public class MemberDAO {
 		}
 		return count;
 	}
-	public List<MemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch) throws SQLException{
-		List<MemberDTO> list=new ArrayList<>();
+	public List<YIMemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch) throws SQLException{
+		List<YIMemberDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
@@ -337,7 +340,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				MemberDTO dto=new MemberDTO();
+				YIMemberDTO dto=new YIMemberDTO();
 				dto.setMemNo(rs.getInt("mem_no"));
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
@@ -379,9 +382,9 @@ public class MemberDAO {
 		}
 		
 	}
-	public List<QuestionDTO> getQlist(Connection conn, int startrow, int endrow, String search, String txtsearch)
+	public List<YIQuestionDTO> getQlist(Connection conn, int startrow, int endrow, String search, String txtsearch)
 	throws SQLException{
-		List<QuestionDTO> list=new ArrayList<>();
+		List<YIQuestionDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
@@ -427,7 +430,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				QuestionDTO dto=new QuestionDTO();
+				YIQuestionDTO dto=new YIQuestionDTO();
 				dto.setMem_no(rs.getInt("mem_no"));
 				dto.setId(rs.getString("id"));
 				dto.setQ_no(rs.getInt("q_no"));
@@ -457,9 +460,9 @@ public class MemberDAO {
 		}
 		
 	}
-	public List<MemberDTO> memberlist(Connection conn, String id) throws SQLException {
+	public List<YIMemberDTO> memberlist(Connection conn, String id) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		List<MemberDTO> list=new ArrayList<>();
+		List<YIMemberDTO> list=new ArrayList<>();
 		ResultSet rs=null;
 		sql.append(" select *  ");
 		sql.append(" from member  ");
@@ -469,7 +472,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			if(rs.next())
 			{
-				MemberDTO dto=new MemberDTO();
+				YIMemberDTO dto=new YIMemberDTO();
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
 				dto.setBirth(rs.getString("birth"));

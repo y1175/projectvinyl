@@ -101,12 +101,11 @@
       style ="width:37px;height:57px; ">보기</button></a>
       </td>
       <td>
-      <a href ="hm_delete.do?no<%=no%>">
+      <a href ="hm_delete.do?no=<%=no%>">
       <button type="button" class="btn btn-outline-info" 
       style ="width:37px; height:57px;" >삭제</button></a>
       </td>
     </tr>
-    
 	<%
 		}
 	%>

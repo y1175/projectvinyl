@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.dto.ItemDTO;
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.dto.OrderlistDTO;
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.dto.YIItemDTO;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.dto.YIOrderlistDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIOrderDetailAction implements Action {
 
@@ -23,10 +23,10 @@ public class YIOrderDetailAction implements Action {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		int num=Integer.parseInt(request.getParameter("num"));
-		List<ItemDTO> item=new ArrayList<>();
-		List<OrderlistDTO> order=new ArrayList<>();
-		List<MemberDTO> member=new ArrayList<>();
-		MemberService service=MemberService.getService();
+		List<YIItemDTO> item=new ArrayList<>();
+		List<YIOrderlistDTO> order=new ArrayList<>();
+		List<YIMemberDTO> member=new ArrayList<>();
+		YIMemberService service=YIMemberService.getService();
 		member=service.orderDetailMember(num);
 		item=service.orderDetailItem(num);
 		order=service.orderDetailOrder(num);
