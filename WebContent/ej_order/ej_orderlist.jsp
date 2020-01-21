@@ -98,7 +98,7 @@ $(document).ready(function(){
 <div id="ej_line"></div>
 <label for="cost">가격</label>
 <input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원<br>
-<input class="btn btn-outline-primary" type="submit" value="상세검색">
+<input class="btn btn-primary" type="submit" value="상세검색">
 <!-- <input type="submit" value="상세검색">  -->
 </div>
 
@@ -150,7 +150,8 @@ $(document).ready(function(){
 	
 	
 	<td>${item.cost }원</td>
-	<td><a href="ej_orderdelete.do?orderno=${item.orderno}" onclick="delconfirm()">삭제</a><td>
+	<td><a class="btn btn-outline-secondary" 
+	href="ej_delete.do?orderno=${item.orderno}" onclick="delconfirm();">삭제</a></td>
 
 
 	</tr>

@@ -109,7 +109,8 @@ $(document).ready(function(){
 </button>
 	<td> 
 <!--target="_blank"  -->
-	<td><a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a><td>
+	<td><a class="btn btn-outline-secondary" href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a>
+	<%-- <a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a> --%><td>
 
 
 	</tr>
