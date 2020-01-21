@@ -103,6 +103,32 @@ public class OrderService {
 		
 	}
 
+		public void update(int orderno, int status) {
+		Connection conn=null;
+		
+		
+		try {
+			DBConnection db=DBConnection.getInstance();
+			
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			OrderDAO dao=OrderDAO.getDAO();
+			dao.update(conn,orderno, status);
+			//list를 리턴을 받아줫을때
+			
+			conn.commit();
+			
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+		
+	}
 	
 		
 	}

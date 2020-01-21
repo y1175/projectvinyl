@@ -57,6 +57,8 @@ public class OrderListAction implements Action {
 							search="";
 						if(txtsearch==null)
 							txtsearch="";
+						
+		//주문 섹렉에서 가져오기
 		//검색끝
 		//페이징시작
 		int totalcount=service.getCount(search, txtsearch, stxtsearch1, stxtsearch2);//전체자료
@@ -93,7 +95,7 @@ public class OrderListAction implements Action {
 		request.setAttribute("search",search);
 		request.setAttribute("txtsearch", txtsearch);
 		//request.setAttribute("slist", slist);//2순위
-		
+		//srequest.setAttribute(arg0, arg1);
 		
 		//forward로 넘기기
 		ActionForward f=new ActionForward();

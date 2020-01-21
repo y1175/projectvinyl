@@ -150,6 +150,20 @@ public class OrderDAO {
 			//System.out.println("2222");
 		}
 	}
+	public void update(Connection conn, int orderno, int status) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		
+    	sql.append(" update orderlist ");
+		sql.append(" set status=? ");
+		sql.append(" where order_no=? ");
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+			pstmt.setInt(1, status);
+			pstmt.setInt(2, orderno);
+			pstmt.executeUpdate();
+			
+		}
+		
+	}
 	
 		
 	

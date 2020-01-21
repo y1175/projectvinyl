@@ -126,6 +126,8 @@ public class MemberService {
 		}
 		
 	}
+
+
 	
 	/*public void insert(int memno, int addpoint) {
 	

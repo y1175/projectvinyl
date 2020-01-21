@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.service.MemberService;
+import ej.com.homedream.service.OrderService;
+
+
 
 public class OrderDeleteAction implements Action {
 
@@ -23,7 +25,7 @@ public class OrderDeleteAction implements Action {
 		int orderno=Integer.parseInt(orderno1);
 		System.out.println("orderno:"+orderno);
 		
-		MemberService service=MemberService.getService();
+		OrderService service=OrderService.getService();
 		service.delete(orderno);
 		
 		//forward로 넘기기

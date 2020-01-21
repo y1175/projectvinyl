@@ -80,9 +80,27 @@ public class ListAction implements Action {
 		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch, stxtsearch1, stxtsearch2);//이건 걍 전체 가져오는거고(페이징으로)
 		
 		
-		//List<MemberDTO> slist=service.getselectedList();//선택한거 리스트에 넣는건. 2순위
-		String addpoint=request.getParameter("addpoint");
+///////////////////////////////
+		String addpoint1=request.getParameter("addpoint");//얘는 insert.jsp에서받음
+		String memno1=request.getParameter("recipient-name");//list jsp에서 받은거
+		int addpoint=0; 
+		int memno=0;
+		
+		if(addpoint1!=null&&!"".equals(addpoint1))
+			addpoint=Integer.parseInt(addpoint1);
+		if(memno1!=null&&!"".equals(memno1))
+			memno=Integer.parseInt(memno1);
+		
+		
+		//service.update(memno);
+		//service.insert(memno,addpoint);
+		
+		
 		System.out.println("addpoint:"+addpoint);
+		System.out.println("point"+addpoint);
+		System.out.println("memno이다이다: "+memno);
+		
+		
 		request.setAttribute("list", list);
 		request.setAttribute("currpage", currpage);
 		request.setAttribute("totalpage", totalpage);
@@ -90,9 +108,9 @@ public class ListAction implements Action {
 		request.setAttribute("endblock", endblock);
 		request.setAttribute("search",search);
 		request.setAttribute("txtsearch", txtsearch);
-		//request.setAttribute("slist", slist);//2순위
+
 		
-		String[] sCheck=request.getParameterValues("select");
+	
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
