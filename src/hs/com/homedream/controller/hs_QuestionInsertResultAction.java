@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
@@ -33,16 +34,42 @@ public class hs_QuestionInsertResultAction implements Action {
 		String title=multi.getParameter("title");
 		String content=multi.getParameter("content");
 		
-		QuestionDTO dto=new QuestionDTO();
-		dto.setTitle(title);
-		dto.setContent(content);
-		dto.setFilename(file);
+		//session을 적용하려면 Action에서 수정하면된다.
+
+		HttpSession session=request.getSession();
+		      String mem_no=(String)session.getAttribute("userId");
+		      ActionForward f=new ActionForward();
+		      if(mem_no==null)   //세션이 없으면 로그인화면으로 넘어간다
+		      {
+		         f.setForward(false);
+		         f.setUrl("yilogin.do");
+		         
+		      }
+		      else   //id!=null, 즉 아이디가 있으면..
+		      {
+		    	  QuestionDTO dto=new QuestionDTO();
+		  		  dto.setTitle(title);
+		  		  dto.setContent(content);
+		  		dto.setFilename(file);
+		  		
+		  		QuestionService service=QuestionService.getService();
+		  		service.getInsertUpload(dto,mem_no);
+		         
+		         
+		         f.setForward(false);
+		         f.setUrl("hs_questionlist.do");
+		      }
+
+
+
+		//세션값을 저장하고 싶으면 
+		//request.setAttribute("session", Integer.parseInt(mem_no));
+		//이후 session으로 request값을 호출하면 됨. (session값은 mem_no임)
 		
-		QuestionService service=QuestionService.getService();
-		service.getInsertUpload(dto);
 		
-		forward.setForward(true);
-		forward.setUrl("hs_questionlist.do");
+		
+		/*forward.setForward(true);
+		forward.setUrl("hs_questionlist.do");*/
 		return forward;
 	}
 

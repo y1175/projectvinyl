@@ -8,6 +8,15 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
+<!-- viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
@@ -17,7 +26,10 @@
 <link rel="stylesheet" href="css/hs_communitycontent.css?ver=1">
 </head>
 <body>
-<div class="hs_main_carouserl" style="margin-top: -35px; margin-bottom: 30px;">
+<div class="container">
+     <header>
+         <jsp:include page="hs_communityheader.jsp"></jsp:include>
+     </header>
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="10000">
@@ -47,7 +59,6 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div> 
 </div>
   <nav class="hs_content_category">
      <a href="">
@@ -186,31 +197,10 @@
      <br>
      <b style="color: rgb(0, 153, 255);">27%</b><b>178,400</b>
    </div>
-   
-   
-   
-    <!--카테고리 스크립트-->
-    <script src="../js/hs_communitycontent.js"></script>
-    <script>
-    $(document).ready(function() {
-        $(".hs_aside_bright_g-scrolling-carousel .hs_aside_bright_items").gScrollingCarousel();
-    });
-    </script>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36251023-1']);
-        _gaq.push(['_setDomainName', 'jqueryscript.net']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!--카테고리 스크립트-->   
+  
+<footer>
+         <jsp:include page="hs_user_footer.jsp"></jsp:include>
+     </footer>
+  </div>    
 </body>
 </html>

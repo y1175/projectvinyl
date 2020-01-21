@@ -88,7 +88,7 @@ public class QuestionDAO {
 		} 
 		return list;
 	}
-	public void insertUpload(Connection conn, QuestionDTO dto) throws SQLException{
+	public void insertUpload(Connection conn, QuestionDTO dto, String mem_no) throws SQLException{
 		// TODO Auto-generated method stub
 		PreparedStatement ps=null;
 		StringBuilder sql=new StringBuilder();
@@ -98,12 +98,13 @@ public class QuestionDAO {
 		sql.append("                         ,qdate     ");
 		sql.append("                         ,readno    ");
 		sql.append("                         ,file_name)");
-		sql.append("  values ( 2, ?, ?, now(),0,? )     ");
+		sql.append("  values ( ?, ?, ?, now(),0,? )     ");
 		try {
 			ps=conn.prepareStatement(sql.toString());
-			ps.setString(1, dto.getTitle());
-			ps.setString(2, dto.getContent());
-			ps.setString(3, dto.getFilename());
+			ps.setInt(1, Integer.parseInt(mem_no));
+			ps.setString(2, dto.getTitle());
+			ps.setString(3, dto.getContent());
+			ps.setString(4, dto.getFilename());
 			ps.executeUpdate();
 		}finally {
 			if(ps!=null) try {ps.close();} catch(SQLException e) {}
