@@ -80,12 +80,13 @@
       <td style ="width:180px;"><%=name%></td>
       <td><%=text%></td>
       <td>  
+      <a href = "hm_managerdetail.do?no=<%=no%>">
       <button type="button" class="btn btn-outline-info"
-      style ="width:35px; , text-align:center">수정</button>
+      style ="width:35px; , text-align:center">수정</button></a>
       </td>
       <td>
       <button type="button" class="btn btn-outline-info" 
-      style ="width:35px; ,text-align:center">삭제</button>
+      style ="width:35px; ,text-align:center" >삭제</button>
       </td>
     </tr>
     
