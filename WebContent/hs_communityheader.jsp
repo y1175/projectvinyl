@@ -13,7 +13,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <!--header style-->
-<link rel="stylesheet" href="css/hs_userheader.css" >
+<link rel="stylesheet" href="css/hs_userheader.css?ver=1" >
 <!--header style-->
 <style>
   .hs_header_nav_a{
