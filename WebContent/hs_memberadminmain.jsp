@@ -26,7 +26,7 @@
          <jsp:include page="hs_memberadminheader.jsp"></jsp:include>
      </header>
      <section>
-
+          <jsp:include page="ej_member/ej_list.jsp"></jsp:include>
      </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>

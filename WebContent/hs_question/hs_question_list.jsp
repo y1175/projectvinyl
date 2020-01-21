@@ -65,7 +65,7 @@
           <a href="hs_questiondetail.do?no=${item.q_no}"><c:out value="${item.content}"/></a>       
       </li>
       <li class="hs_question_ul_li_member">
-          <i class='fas fa-user-circle'></i>
+          <i class='fas fa-user-circle' style='font-size:20px'></i>
           <c:out value="${item.mem_name}"/>   
           <c:out value="${item.qdate}"/>  
           <c:out value="${item.qdate}"/>
@@ -73,10 +73,8 @@
           <c:out value="${item.readno}"/>       
       </li>
       </ul>
-      <div class="hs_question_ul_li_img">
-                 이미지
-         <c:out value="${item.filename}"></c:out>
-         <img src="upload/${item.filename}" alt="${item.filename}">      
+      <div>
+         <img src="upload/${item.filename}" alt="${item.filename}"  class="hs_question_ul_li_img">      
       </div>
   </div>
   </c:forEach>
@@ -88,9 +86,13 @@
   <c:set var="totalpage" value="${requestScope.totalpage}"/>
   <c:set var="hs_questionsearchtxt" value="${requestScope.hs_questionsearchtxt}"/>
   <c:set var="hs_questionsearch" value="${requestScope.hs_questionsearch}"/>
-  
+  <!-- 이전블록  -->
   <c:if test="${startblock>1}">
-     <a href="hs_questionlist.do?curr=${startblock-1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i>이전</a>
+     <a href="hs_questionlist.do?curr=${startblock-1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i></a>
+  </c:if>
+  <!-- 이전페이지 -->  
+  <c:if test="${currpage>1}">
+     <a href="hs_questionlist.do?curr=${currpage-1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i></a>
   </c:if>
   
   <c:forEach var="i" begin="${startblock}" end="${endblock}" step="1">
@@ -101,9 +103,13 @@
         <a href="hs_questionlist.do?curr=${i}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}">${i}</a>
      </c:if>
   </c:forEach>
-  <i class='fas fa-angle-right' style='font-size:24px'></i>
+  <!-- 다음페이지 -->
+    <c:if test="${currpage<totalpage}">
+     <a href="hs_questionlist.do?curr=${currpage+1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-right' style='font-size:24px'></i></a>
+  </c:if>
+  <!-- 다음블록 -->
   <c:if test="${endblcok<totalpage}">
-     <a href="hs_questionlist.do?curr=${endblcok+1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}">다음</a>
+     <a href="hs_questionlist.do?curr=${endblcok+1}&search=${hs_questionsearch}&searchtxt=${hs_questionsearchtxt}"><i class='fas fa-angle-left' style='font-size:24px'></i></a>
   </c:if>
  </div>
  <footer>
