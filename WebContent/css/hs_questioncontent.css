@@ -87,16 +87,17 @@ body{
 }
 .hs_question_ul_li_title{
 	margin-bottom : 20px;
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 800;
 }
 .hs_question_ul_li_content{
 	margin-bottom : 20px;
-	font-size: 13px;
-	font-weight: 700;
+	font-size: 14px;
+	font-weight: 600;
 }
 .hs_question_ul_li_member{
-	font-size: 12px;
+	font-size: 12.5px;
+	font-weight: 600;
 }
 .hs_question_ul_li_img{
 	width: 120px;

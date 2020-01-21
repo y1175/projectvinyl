@@ -27,13 +27,13 @@ public class YILoginAction implements Action {
 		else if(id.equals("1"))	//admin으로 로그인할때
 		{
 			f.setForward(true);
-			f.setUrl("/yi_member/admin.jsp");
+			f.setUrl("/hs_memberadminmain.jsp");
 		}
 		
 		else	//회원로그인 할때
 		{
 			f.setForward(false);
-			f.setUrl("yi.do");
+			f.setUrl("homedream.do");
 		}
 		return f;
 	}

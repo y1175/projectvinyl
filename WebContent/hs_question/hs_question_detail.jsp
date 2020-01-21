@@ -50,6 +50,7 @@
   });
   
 </script>
+<link rel="stylesheet" href="css/hs_questiondetail.css" >
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
@@ -60,7 +61,7 @@
   <jsp:include page="/hs_communityheader.jsp"></jsp:include>
  </header>
   <c:set var="dto" value="${requestScope.dto}"/>
-    <div>
+    <div  class="hs_question_detaildiv">
        <ul>
          <li>
            <p>질문과 답변</p>

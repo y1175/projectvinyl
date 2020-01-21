@@ -26,7 +26,7 @@ public class YILogoutAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
-		f.setUrl("yi.do");
+		f.setUrl("homedream.do");
 		return f;
 	}
 

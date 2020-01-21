@@ -59,7 +59,7 @@ String memno=(String)session.getAttribute("userId");
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
-		f.setUrl("yi.do");
+		f.setUrl("homedream.do");
 		return f;
 	}
 

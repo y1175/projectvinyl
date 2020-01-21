@@ -29,7 +29,7 @@
      </div>
      <div class="hs_header_cartlogin">
         <a href=""><i class="fa fa-shopping-cart"></i></a>
-        <a href="">로그인</a><span> | </span><a href="">회원가입</a>
+        <a href="yilogin.do">로그인</a><span> | </span><a href="yijoin.do">회원가입</a>
      </div>
     </div>
    <div class="hs_header_bottom">

@@ -39,7 +39,7 @@ public class YILoginResultAction implements Action {
 		session.setMaxInactiveInterval(60*5);
 		
 		f.setForward(false);
-		f.setUrl("yi.do");
+		f.setUrl("homedream.do");
 		System.out.println("로그인 성공");
 		System.out.println("userId:"+userId);
 		}

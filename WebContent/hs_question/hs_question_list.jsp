@@ -71,11 +71,10 @@
           <a href="hs_questiondetail.do?no=${item.q_no}"><c:out value="${item.content}"/></a>       
       </li>
       <li class="hs_question_ul_li_member">
-          <i class='fas fa-user-circle' style='font-size:20px'></i>
-          <c:out value="${item.mem_name}"/>   
-          <c:out value="${item.qdate}"/>  
-          <c:out value="${item.qdate}"/>
-          <span>댓글수</span>
+          <i class='fas fa-user-circle' style='margin-right:5px; font-size:20px'></i>
+          <c:out value="${item.mem_name}"/><span> | </span>   
+          <c:out value="${item.qdate}"/><span> | </span>  
+          <span>댓글수 </span>
           <c:out value="${item.readno}"/>       
       </li>
       </ul>

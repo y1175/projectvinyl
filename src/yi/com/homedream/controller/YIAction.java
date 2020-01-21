@@ -24,18 +24,18 @@ public class YIAction implements Action {
 	{
 		
 		f.setForward(true);
-		f.setUrl("/yi_member/notlogin.jsp");
+		f.setUrl("/hs_communitymain.jsp");
 	}
 	else if(session.getAttribute("userId").equals("1"))	//세션이 admin일때 -> admin 페이지
 	{
 		f.setForward(true);
-		f.setUrl("/yi_member/admin.jsp");
+		f.setUrl("/hs_memberadminmain.jsp");
 	}
 	
 	else	//세션이 회원일때 ->회원페이지
 	{
 		f.setForward(true);
-		f.setUrl("/yi_member/mypagetest.jsp");
+		f.setUrl("/hs_communitymain.jsp");
 	}
 		return f;
 		
