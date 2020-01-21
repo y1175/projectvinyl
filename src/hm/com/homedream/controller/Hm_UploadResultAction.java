@@ -46,21 +46,18 @@ public class Hm_UploadResultAction implements Action {
 		dto.setFile_name(file);
 		dto.setAddr(addr);
 	
-		
-		System.out.println(name);
-		System.out.println(file_name);
-		System.out.println(file);
+
 		
 		String origin = multi.getOriginalFileName("uploadfile");
 		request.setAttribute("dto", dto);
 		request.setAttribute("origin", origin);
 		request.setAttribute("file", file);
-		System.out.println(uploadpath + "/" + file);
+		
 		Hm_ExpertService service = Hm_ExpertService.getService();
 		service.dataInsert(dto);
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("hm_list.do");
+		f.setUrl("hm_managerlist.do");
 		return f;
 	}
 

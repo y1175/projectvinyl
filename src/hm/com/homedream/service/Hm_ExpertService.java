@@ -120,6 +120,25 @@ public class Hm_ExpertService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 	}
+	public void dataDelete(int no) {
+		// TODO Auto-generated method stub
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		
+		try {
+			conn = db.getConnection();
+			conn.setAutoCommit(false);
+			Hm_ExpertDAO dao = Hm_ExpertDAO.getDAO();
+			dao.dataDelete(conn,no);
+			conn.commit();
+		}catch(SQLException | NamingException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(SQLException e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+	}
 	
 	
 }

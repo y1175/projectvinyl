@@ -80,7 +80,7 @@ data-ride="carousel">
 
 
 
-<div class ="hm_managerdetail" style ="border : 1px solid silver; border-radius :30px; padding:20px; margin-top:30px;">
+<div class ="hm_managerdetail" style ="border : 1px solid silver; width : 86%; border-radius :30px; padding:20px; margin: 30px auto 0px;">
 <h2><%=name%></h2>
 <blockquote class="blockquote">
 <p class="mb-0"><%=text%></p>

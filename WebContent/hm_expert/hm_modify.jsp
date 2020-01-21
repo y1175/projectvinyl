@@ -6,13 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+function send(){
+	if(document.hmfrm.title.value!="")
+		document.hmfrm.submit();
+}
+</script>
 </head>
+
 <body>
 <%
 	Hm_ExpertDTO dto = (Hm_ExpertDTO)request.getAttribute("dto");
 %>
 
-<form method ="post" action ="hm_modifyresult.do" enctype="multipart/form-data">
+<form method ="post" action ="hm_modifyresult.do" enctype="multipart/form-data" name = "hmfrm">
 <ul>
 	<li>
 	<label for="no">업체번호</label>
