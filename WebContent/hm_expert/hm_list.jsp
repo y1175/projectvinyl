@@ -20,13 +20,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="hm_expert/hm_list.css">
-<style>
-/* header nav 전문가찾기 글씨색상  */
-  .hs_header_nav > a:nth-child(3){
-    color: rgb(0, 153, 255);
-  }
-</style>
+<link rel="stylesheet" href="css/hm_list.css">
 </head>
 <body>
    <div class="container">
@@ -173,6 +167,8 @@
 
 
 
+
+
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -187,6 +183,7 @@
 		})();
 	</script>
 	<!--End of Tawk.to Script-->
+
 
    <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>

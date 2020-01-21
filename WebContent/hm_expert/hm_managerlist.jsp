@@ -20,7 +20,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="hm_expert/hm_managerlist.css">
+<link rel="stylesheet" href="css/hm_managerlist.css">
 </head>
 <body>
   <div class="container">
@@ -63,9 +63,11 @@
 	</form>
 
 
-	
+	<a href = "hm_upload.do">
+      <button type="button" class="btn btn-outline-info"
+      style ="width:100px; margin : 0px 0px 20px 0px; float:right;">업체등록</button></a>
 
-<table class="table" >
+<table class="table"  >
   <thead>
     <tr class="table-info">
        <th scope="col">#</th>
@@ -96,11 +98,11 @@
       <td>  
       <a href = "hm_managerdetail.do?no=<%=no%>">
       <button type="button" class="btn btn-outline-info"
-      style ="width:35px; , text-align:center">수정</button></a>
+      style ="width:35px;">수정</button></a>
       </td>
       <td>
       <button type="button" class="btn btn-outline-info" 
-      style ="width:35px; ,text-align:center" >삭제</button>
+      style ="width:35px; " >삭제</button>
       </td>
     </tr>
     
@@ -108,8 +110,12 @@
 		}
 	%>
 	
+	
 	 </tbody>
 </table>
+
+
+
 	<!-- for문 닫음 -->
  <%
       int currpage = (Integer) request.getAttribute("currpage");

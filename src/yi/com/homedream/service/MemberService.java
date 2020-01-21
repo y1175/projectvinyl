@@ -9,10 +9,12 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
+import hs.com.homedream.question.QuestionDAO;
 import yi.com.homedream.dao.MemberDAO;
 import yi.com.homedream.dto.ItemDTO;
 import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
+import yi.com.homedream.dto.QuestionDTO;
 
 public class MemberService {
 
@@ -30,8 +32,8 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			dao.join(conn,dto);
-			
-			
+
+
 			conn.commit();
 		}
 		catch(NamingException|SQLException e)
@@ -43,13 +45,13 @@ public class MemberService {
 		{
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
 	}
 	public String getLogin(String id, String pwd) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		String userId=null;
-		
+
 		try {
 			conn=dbconn.getConnection();
 			conn.setAutoCommit(false);
@@ -65,7 +67,7 @@ public class MemberService {
 		{
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
 		return userId;
 	}
 	public List<OrderlistDTO> orderlist(String id) {
@@ -77,7 +79,7 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			list=dao.orderlist(conn,id);
-			
+
 			conn.commit();
 		}
 		catch(NamingException|SQLException e)
@@ -101,7 +103,7 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			list=dao.orderDetailMember(conn,num);
-			
+
 			conn.commit();
 		}
 		catch(NamingException|SQLException e)
@@ -113,7 +115,7 @@ public class MemberService {
 		{
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
 		return list;
 	}
 	public List<ItemDTO> orderDetailItem(int num) {
@@ -125,7 +127,7 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			list=dao.orderDetailItem(conn,num);
-			
+
 			conn.commit();
 		}
 		catch(NamingException|SQLException e)
@@ -137,7 +139,7 @@ public class MemberService {
 		{
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
 		return list;
 	}
 	public List<OrderlistDTO> orderDetailOrder(int num) {
@@ -149,7 +151,7 @@ public class MemberService {
 			conn.setAutoCommit(false);
 			MemberDAO dao=MemberDAO.getDAO();
 			list=dao.orderDetailOrder(conn,num);
-			
+
 			conn.commit();
 		}
 		catch(NamingException|SQLException e)
@@ -161,7 +163,7 @@ public class MemberService {
 		{
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
 		return list;
 	}
 	public void orderCancel(int num) {
@@ -184,7 +186,7 @@ public class MemberService {
 		{
 			if(conn!=null)try { conn.close();}catch(SQLException e) {}
 		}
-		
+
 	}
 	public void modifyData(MemberDTO dto) {
 		Connection conn=null;
@@ -205,8 +207,8 @@ public class MemberService {
 		{
 			if(conn!=null)try { conn.close();}catch(SQLException e) {}
 		}
-		
-		
+
+
 	}
 	public List<MemberDTO> memberInfo(String id) {
 		Connection conn=null;
@@ -231,7 +233,7 @@ public class MemberService {
 		return list;
 	}
 	public int getCount(String search, String txtsearch) {
-		
+
 		DBConnection db=DBConnection.getInstance();//dbconnection꺼 받아
 		Connection conn=null;
 		int count=0;
@@ -252,39 +254,39 @@ public class MemberService {
 		return count;
 	}
 	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch) {//출력
-			Connection conn=null;
-			List<MemberDTO> list=null;
-					
-			try {
-				DBConnection db=DBConnection.getInstance();
-				
-				conn=db.getConnection();
-				conn.setAutoCommit(false);
-				
-				MemberDAO dao=MemberDAO.getDAO();
-				list=dao.getlist(conn,startrow, endrow, search, txtsearch);
-				//list를 리턴을 받아줫을때
-				
-				conn.commit();
-				
-			}catch(NamingException|SQLException e)
-			{
-				System.out.println(e);
-				try {conn.rollback();}catch(Exception e2) {}
-			}finally {
-				if(conn!=null)try {conn.close();}catch(SQLException e) {}
-			}return list;
-			
-	
+		Connection conn=null;
+		List<MemberDTO> list=null;
+
+		try {
+			DBConnection db=DBConnection.getInstance();
+
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.getlist(conn,startrow, endrow, search, txtsearch);
+			//list를 리턴을 받아줫을때
+
+			conn.commit();
+
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}return list;
+
+
 	}
 	public void boardDelete(int bno) {
 		Connection conn=null;
-		
+
 		try {
 			DBConnection db=DBConnection.getInstance();
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			
+
 			MemberDAO dao=MemberDAO.getDAO();
 			dao.boardDelete(conn,bno);
 			conn.commit();
@@ -292,15 +294,57 @@ public class MemberService {
 		{
 			System.out.println(e);
 			try {conn.rollback();}catch(Exception e2) {}
-			
+
 		}finally {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
-		
+
+	}
+	public List<QuestionDTO> qnaList(int startrow, int endrow, String search, String txtsearch) {
+		Connection conn=null;
+		DBConnection db=DBConnection.getInstance();
+		List<QuestionDTO> list=new ArrayList<>();
+		try {
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.getQlist(conn,startrow,endrow,search, txtsearch);
+			conn.commit();
+		}catch(NamingException|SQLException e){
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();} catch(SQLException e) {}
+		}
+		return list;
+	}
+	public void qnaDelete(int q_no) {
+		Connection conn=null;
+
+		try {
+			DBConnection db=DBConnection.getInstance();
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.qnaDelete(conn,q_no);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
 	}
 
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 }

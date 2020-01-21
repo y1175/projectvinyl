@@ -1,0 +1,21 @@
+@charset "UTF-8";
+body{
+	margin: 0px auto;
+}
+.hm_managerdetail{
+	border:1px solid silver;
+	
+}
+.hm_managerdetailimg{
+	width:70%;
+	height:360px;
+	border-radius: 20px;
+	margin 
+}
+.hm_managerdetail h6{
+	margin : 20px 0px 10px 10px;
+}
+.hm_managerdetail h2{
+	text-align: center;
+	/*폰트 설정하기*/
+}
