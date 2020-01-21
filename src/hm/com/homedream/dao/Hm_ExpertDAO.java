@@ -31,7 +31,7 @@ public class Hm_ExpertDAO {
 		sql.append("          ,lat                                   ");
 		sql.append("          ,lon                                   ");
 		sql.append("          ,file_name                             ");
-		sql.append("          ,loc      )                            ");
+		sql.append("          ,addr      )                            ");
 		sql.append("         values(?,?,?,?,?,?,?)                   ");
 		try {
 			pstmt = conn.prepareStatement(sql.toString());	
@@ -41,7 +41,7 @@ public class Hm_ExpertDAO {
 			pstmt.setString(4, dto.getLat());
 			pstmt.setString(5, dto.getLon());
 			pstmt.setString(6, dto.getFile_name());
-			pstmt.setString(7, dto.getLoc());
+			pstmt.setString(7, dto.getAddr());
 			pstmt.executeUpdate();
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
@@ -60,7 +60,7 @@ public class Hm_ExpertDAO {
 		sql.append("                             ,lat                       ");
 		sql.append("                             ,lon                       ");
 		sql.append("                             ,file_name                 ");
-		sql.append("                             ,loc                       ");
+		sql.append("                             ,addr                       ");
 		sql.append("   from  expert                                         ");
 		if(!search.equals(""))
 		{
@@ -82,10 +82,10 @@ public class Hm_ExpertDAO {
 			if(!search.equals(""))
 			{
 				pstmt.setString(1, search);
-				pstmt.setInt(2, (currpage-1)*pagepercount+1);
+				pstmt.setInt(2, (currpage-1)*pagepercount);
 				pstmt.setInt(3, pagepercount);
 			}else {
-				pstmt.setInt(1, (currpage-1)*pagepercount+1);
+				pstmt.setInt(1, (currpage-1)*pagepercount);
 				pstmt.setInt(2, pagepercount);
 			}
 			rs = pstmt.executeQuery();
@@ -96,10 +96,10 @@ public class Hm_ExpertDAO {
 				dto.setName(rs.getString("name"));
 				dto.setText(rs.getString("text"));
 				dto.setPlace(rs.getString("place"));
-				dto.setLat(rs.getString("lat"));
-				dto.setLon(rs.getString("lon"));
+				dto.setFlat(Float.parseFloat(rs.getString("lat")));
+				dto.setFlon(Float.parseFloat(rs.getString("lon")));
 				dto.setFile_name(rs.getString("file_name"));
-				dto.setLoc(rs.getString("loc"));
+				dto.setAddr(rs.getString("addr"));
 				list.add(dto);
 			}
 		}finally {
@@ -156,8 +156,8 @@ public class Hm_ExpertDAO {
 		sql.append("                             ,place                     ");
 		sql.append("                             ,lat                       ");
 		sql.append("                             ,lon                       ");
+		sql.append("                             ,addr                      ");
 		sql.append("                             ,file_name                 ");
-		sql.append("                             ,loc                       ");
 		sql.append("   from  expert                                         ");
 		sql.append("   where  no = ?                                        ");
 		ResultSet rs =null;
@@ -166,22 +166,55 @@ public class Hm_ExpertDAO {
 		pstmt = conn.prepareStatement(sql.toString());	
 		pstmt.setInt(1, no);
 		rs = pstmt.executeQuery();
-		if(rs!=null)
+		if(rs.next())
 		{
 			dto.setNo(rs.getInt("no"));
 			dto.setName(rs.getNString("name"));
 			dto.setText(rs.getString("text"));
 			dto.setPlace(rs.getString("place"));
-			dto.setLat(rs.getString("lat"));
-			dto.setLon(rs.getString("lon"));
+			dto.setFlat(Float.parseFloat(rs.getString("lat")));
+			dto.setFlon(Float.parseFloat(rs.getString("lon")));
+			dto.setAddr(rs.getString("addr"));
 			dto.setFile_name(rs.getString("file_name"));
-			dto.setLoc(rs.getString("loc"));
+
 		}
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
 			if(rs!=null)try {rs.close();}catch(SQLException e) {}
 		}
 		return dto;
+	}
+	
+	
+	public void dataUpdate(Connection conn, Hm_ExpertDTO dto)throws SQLException {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("    update    expert                     ");
+		sql.append("    set            name=?                ");
+		sql.append("                   ,text=?               ");
+		sql.append("                   ,place=?              ");
+		sql.append("                   ,lat=?                ");
+		sql.append("                   ,lon=?                ");
+		sql.append("                   ,addr=?               ");
+		sql.append("                   ,file_name=?          ");
+		sql.append("    where  no =?                         ");
+		try {
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getText());
+			pstmt.setString(3, dto.getPlace());
+			pstmt.setString(4, dto.getLat());
+			pstmt.setString(5, dto.getLon());
+			pstmt.setString(6, dto.getAddr());
+			pstmt.setString(7, dto.getFile_name());
+			pstmt.setInt(9, dto.getNo());
+			
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
+		}
+		
 	}
 	
 	

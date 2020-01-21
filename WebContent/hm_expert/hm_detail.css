@@ -1,11 +1,13 @@
-#floatdiv { 
-position:fixed; 
-width:175px; 
-display:inline-block; 
-right:80%; /* 창에서 오른쪽 길이 */ 
-top:10%; /* 창에서 위에서 부터의 높이 */ 
-/* background-image: url('/detail.jpg'); */
-/* background-color: transparent; */
-margin:0; 
-border:1px solid black;
+@charset "UTF-8";
+.hm_detail{
+	position: fixed;
+	left:20px;
+	bottom:20px;
+	
+}
+#map{
+	position: relative;
+	left:800px;
+	top:450px;
+	
 }

@@ -23,7 +23,6 @@ public class Hm_UploadResultAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		int filesize = 1024 * 1024 * 10;
 		String uploadpath = request.getServletContext().getRealPath("hm_expert");
-		System.out.println(uploadpath);
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
 
@@ -35,6 +34,8 @@ public class Hm_UploadResultAction implements Action {
 		String place = multi.getParameter("place");
 		String lat = multi.getParameter("lat");
 		String lon = multi.getParameter("lon");
+		String addr = multi.getParameter("addr");
+		
 		
 		Hm_ExpertDTO dto = new Hm_ExpertDTO();
 		dto.setName(name);
@@ -42,8 +43,9 @@ public class Hm_UploadResultAction implements Action {
 		dto.setPlace(place);
 		dto.setLat(lat);
 		dto.setLon(lon);
-		dto.setFile_name(file_name);
-		dto.setLoc(file);
+		dto.setFile_name(file);
+		dto.setAddr(addr);
+	
 		
 		System.out.println(name);
 		System.out.println(file_name);
@@ -58,7 +60,7 @@ public class Hm_UploadResultAction implements Action {
 		service.dataInsert(dto);
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("hm_expert/hm_list.jsp");
+		f.setUrl("hm_list.do");
 		return f;
 	}
 

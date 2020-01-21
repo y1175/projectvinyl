@@ -186,6 +186,118 @@ public class MemberService {
 		}
 		
 	}
+	public void modifyData(MemberDTO dto) {
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.modifyData(conn,dto);
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try { conn.close();}catch(SQLException e) {}
+		}
+		
+		
+	}
+	public List<MemberDTO> memberInfo(String id) {
+		Connection conn=null;
+		DBConnection dbconn=DBConnection.getInstance();
+		List<MemberDTO> list=new ArrayList<>();
+		try {
+			conn=dbconn.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.memberInfo(conn,id);
+			conn.commit();
+		}
+		catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}
+		finally
+		{
+			if(conn!=null)try { conn.close();}catch(SQLException e) {}
+		}
+		return list;
+	}
+	public int getCount(String search, String txtsearch) {
+		
+		DBConnection db=DBConnection.getInstance();//dbconnection꺼 받아
+		Connection conn=null;
+		int count=0;
+		try{
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			MemberDAO dao=MemberDAO.getDAO();//싱글톤햇으니까 이렇게
+			count=dao.boardCount(conn, search, txtsearch);
+			//System.out.println("count: "+count);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		return count;
+	}
+	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch) {//출력
+			Connection conn=null;
+			List<MemberDTO> list=null;
+					
+			try {
+				DBConnection db=DBConnection.getInstance();
+				
+				conn=db.getConnection();
+				conn.setAutoCommit(false);
+				
+				MemberDAO dao=MemberDAO.getDAO();
+				list=dao.getlist(conn,startrow, endrow, search, txtsearch);
+				//list를 리턴을 받아줫을때
+				
+				conn.commit();
+				
+			}catch(NamingException|SQLException e)
+			{
+				System.out.println(e);
+				try {conn.rollback();}catch(Exception e2) {}
+			}finally {
+				if(conn!=null)try {conn.close();}catch(SQLException e) {}
+			}return list;
+			
+	
+	}
+	public void boardDelete(int bno) {
+		Connection conn=null;
+		
+		try {
+			DBConnection db=DBConnection.getInstance();
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.boardDelete(conn,bno);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+			
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+	}
 
 	
 	

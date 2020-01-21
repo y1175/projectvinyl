@@ -25,7 +25,6 @@ public class YIOrderlistAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("userId");
-		System.out.println("id:"+id);
 		ActionForward f=new ActionForward();
 		if(id==null)
 		{

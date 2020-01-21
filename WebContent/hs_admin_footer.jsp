@@ -10,6 +10,7 @@
 #hs_footer_wrap{
 	background-color: rgb(250, 250, 250);
 	padding: 20px 0px;
+	margin-top: 150px;
 }
 /* 고객센터명 */
 .hs_footer_cc{

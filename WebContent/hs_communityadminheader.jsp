@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <!--header style-->
-<link rel="stylesheet" href="../css/hs_adminheader.css" >
+<link rel="stylesheet" href="css/hs_adminheader.css?ver=1" >
 <!--header style-->
 
 </head>
@@ -25,7 +25,8 @@
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
          <a href="" style="color: rgb(0, 153, 255);">이벤트관리</a>
-         <a href="">게스판관리</a>
+         <a href="hm_upload.do">업체관리</a>
+         <a href="">게시판관리</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 

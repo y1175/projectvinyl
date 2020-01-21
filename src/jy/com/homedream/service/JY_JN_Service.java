@@ -23,7 +23,7 @@ public class JY_JN_Service {
 	
 	private JY_JN_Service() {}
 	
-	public List<JY_JN_BoardDTO> jn_getList(String search, String searchtxt, int startrow, int endrow) {
+	public List<JY_JN_BoardDTO> jn_getList(String search, String searchtxt, int startrow, int endrow, String sorting) {
 		
 		DBConnection db = DBConnection.getInstance();
 		List<JY_JN_BoardDTO> jy_jn_list = new ArrayList<>();
@@ -33,7 +33,7 @@ public class JY_JN_Service {
 			System.out.println(conn);
 			conn.setAutoCommit(false);
 			JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
-			jy_jn_list = dao.jn_boardList(conn,search, searchtxt,startrow, endrow);
+			jy_jn_list = dao.jn_boardList(conn,search, searchtxt,startrow, endrow,sorting);
 			System.out.println(jy_jn_list);
 			conn.commit();
 			
@@ -122,7 +122,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		
 	}
 
-	public int jn_getTotalCount() {
+	public int jn_getTotalCount(String search, String searchtxt) {
 	
 	DBConnection db = DBConnection.getInstance();
 	Connection conn = null;
@@ -131,7 +131,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		conn = db.getConnection();
 		conn.setAutoCommit(false);
 		JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
-		totalcount = dao.jn_boardTotalCount(conn);
+		totalcount = dao.jn_boardTotalCount(conn,search,searchtxt);
 		conn.commit();
 	} catch(SQLException | NamingException e){
 		System.out.println(e);
@@ -176,7 +176,6 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 			conn = db.getConnection();
 			conn.setAutoCommit(false);
 			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
-			
 			list = dao.jn_SubBoardDetail(conn, num);
 			conn.commit();
 		}catch(SQLException | NamingException e) {
@@ -187,6 +186,44 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		}
 		
 		return list;
+	}
+
+	public int jn_getUpdateLike(int num) {
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
+			result=dao.jn_boardUpdateLikeno(num,conn);
+			conn.commit();
+		}catch(SQLException | NamingException e) {
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		} finally {
+			if(conn!=null)try {conn.close();} catch(SQLException e){}
+		}
+		return result;
+	}
+
+	public void jn_getDeleteSubBoard(int rno) {
+		
+		DBConnection db = DBConnection.getInstance();
+		Connection conn = null;
+		try {
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
+			dao.jn_SubBoardDelete(conn, rno);
+			conn.commit();
+		} catch(SQLException | NamingException e) {
+			System.out.println(e);
+			try {conn.rollback();} catch(SQLException e2) {}
+		} finally {
+			if(conn!=null)try {conn.close();} catch(SQLException e){}
+		}
+		
 	}
 
 	

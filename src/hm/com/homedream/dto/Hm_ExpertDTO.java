@@ -9,7 +9,9 @@ public class Hm_ExpertDTO {
 	private String lat;
 	private String lon;
 	private String file_name;
-	private String loc;
+	private String addr;
+	private Float flat;
+	private Float flon;
 	public int getNo() {
 		return no;
 	}
@@ -52,12 +54,23 @@ public class Hm_ExpertDTO {
 	public void setFile_name(String file_name) {
 		this.file_name = file_name;
 	}
-	public String getLoc() {
-		return loc;
+	public String getAddr() {
+		return addr;
 	}
-	public void setLoc(String loc) {
-		this.loc = loc;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
-	
-	
+	public Float getFlat() {
+		return flat;
+	}
+	public void setFlat(Float flat) {
+		this.flat = flat;
+	}
+	public Float getFlon() {
+		return flon;
+	}
+	public void setFlon(Float flon) {
+		this.flon = flon;
+	}
+
 }
