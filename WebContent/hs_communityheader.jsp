@@ -16,18 +16,26 @@
 <link rel="stylesheet" href="css/hs_userheader.css?ver=1" >
 <!--header style-->
 <style>
-  .hs_header_nav_a{
-     color: rgb(0, 153, 255);
-  }
+  /* .hs_header_nav_a{
+   color: rgb(0, 153, 255); 
+      background-color:silver;
+  } */
 </style>
 <script>
-   $(document).ready(function(){
-	   $("hs_header_nav").each(function(){
-		  $(this).click(function(){
-			  $(this).addClass("hs_header_nav_a");  
+  /*  $(document).ready(function(){
+	   $(".hs_header_nav>a").each(function(){
+		 
+		  $(this).click(function(event){
+			  event.preventDefault();
+			    console.log(this);
+			  $(this).addClass("hs_header_nav_a") 
+		             .siblings().removeClass('hs_header_nav_a');
+			   let v=$(this).prop('href');
+			   location.href=v;
 		  });
+	
 	   });
-   });
+   }); */
 </script>
 </head>
 <body>
@@ -53,7 +61,7 @@
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
          <a href="">홈</a>
-         <a href="jy_list.do">집들이&노하우</a>
+         <a href="jy_list.do">집들이 &amp;노하우</a>
          <a href="hm_list.do">전문가찾기</a>
          <a href="hs_questionlist.do">질문과답변</a>
          <a href="">이벤트</a>
