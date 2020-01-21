@@ -13,12 +13,12 @@ import com.homedream.comm.ActionForward;
 import hm.com.homedream.dto.Hm_ExpertDTO;
 import hm.com.homedream.service.Hm_ExpertService;
 
-public class Hm_ListAction implements Action {
+public class Hm_ManagerListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		String search = request.getParameter("hmcity");
 		if(search==null)
@@ -41,7 +41,7 @@ public class Hm_ListAction implements Action {
 		
 		
 		
-		int pagepercount = 3;//한 페이지 당 보여줄 자료
+		int pagepercount = 5;//한 페이지 당 보여줄 자료
 		int totalpage = (int)Math.ceil((float)totalcount/pagepercount);
 		
 		int startrow = (currpage-1)*pagepercount+1;
@@ -73,7 +73,7 @@ public class Hm_ListAction implements Action {
 		request.setAttribute("list", list);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_list.jsp");
+		forward.setUrl("/hm_expert/hm_managerlist.jsp");
 		
 		
 		return forward;

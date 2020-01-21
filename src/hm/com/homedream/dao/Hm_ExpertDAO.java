@@ -71,7 +71,7 @@ public class Hm_ExpertDAO {
 			else if(search.equals("강북"))
 		sql.append("     where place like?                                    ");
 			//테스트용 -> 이 부분 나중에 고칠 것 
-		}
+		} 
 		sql.append("     limit ?, ?                                           ");
 		
 		

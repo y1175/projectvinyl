@@ -27,6 +27,11 @@
      <header>
          <jsp:include page="/hs_communityheader.jsp"></jsp:include>
      </header>
+     
+     
+     
+        
+     
 <%
 	Hm_ExpertDTO dto = (Hm_ExpertDTO) request.getAttribute("dto");
 
@@ -37,29 +42,6 @@
 	String file_name = dto.getFile_name();
 	
 %>
-<div class = "hm_detail">
-	<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_detailimg"/>
-	<h2><%=name%></h2>
-	<p><br><%=addr%><br></p>
-	<p><%=text%><br></p>
-</div>
-
-
-
-
-<a href="hm_list.do">목록으로</a>
-<a href="hm_modify.do?no<%=no%>">수정</a>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,6 +64,21 @@
 		    map: map // 마커를 표시할 지도 객체
 		});
 	</script>
+
+<div class = "hm_detail">
+	<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_detailimg"/>
+	<h2><%=name%></h2>
+	<p><br><%=addr%><br></p>
+	<p><%=text%><br></p>
+</div> 
+
+
+
+	
+<a href="hm_list.do">목록으로</a>
+<a href="hm_modify.do?no<%=no%>">수정</a>	
+	
+	
    <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>
    </footer>
