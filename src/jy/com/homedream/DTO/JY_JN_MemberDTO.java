@@ -1,7 +1,7 @@
 package jy.com.homedream.DTO;
 
 public class JY_JN_MemberDTO {
-private int memNo;
+private int mem_no;
 private String id;
 private String pwd;
 private String name;
@@ -15,11 +15,12 @@ private int like;
 private String writedate;
 private int total;
 
-public int getMemNo() {
-	return memNo;
+
+public int getMem_no() {
+	return mem_no;
 }
-public void setMemNo(int memNo) {
-	this.memNo = memNo;
+public void setMem_no(int mem_no) {
+	this.mem_no = mem_no;
 }
 public String getId() {
 	return id;
