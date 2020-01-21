@@ -11,21 +11,19 @@ import com.homedream.comm.ActionForward;
 
 import yi.com.homedream.service.MemberService;
 
-public class YIboardDeleteAction implements Action {
+public class YIQnaDeleteAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int bno=Integer.parseInt(request.getParameter("bno"));
+		int q_no=Integer.parseInt(request.getParameter("q_no"));
 		MemberService service=MemberService.getService();
-		service.boardDelete(bno);
+		service.qnaDelete(q_no);
 		
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
-		f.setUrl("yiadminboard.do");
-		
-		
+		f.setUrl("yiqnaadmin.do");
 		return f;
 	}
 
