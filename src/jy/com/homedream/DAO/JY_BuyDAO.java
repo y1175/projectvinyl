@@ -24,7 +24,7 @@ public class JY_BuyDAO {
 		StringBuilder sql = new StringBuilder();
 		sql.append("     select       item_no      ,      name     ,        content     ");
 		sql.append("                  ,price       ,stock          ,     sale           ");
-		sql.append("                  ,img_no      ,    file_name     ,   loc           ");
+		sql.append("                               ,    file_name             ");
 		sql.append("     from         item                                              ");
 		sql.append("     where        item_no      =      ?                             ");
 		try {
@@ -38,9 +38,7 @@ public class JY_BuyDAO {
 				dto.setPrice(rs.getInt("price"));
 				dto.setStock(rs.getInt("stock"));
 				dto.setSale(rs.getFloat("sale"));
-				dto.setImg_no(rs.getInt("img_no"));
 				dto.setFile_name(rs.getString("file_name"));
-				dto.setLoc(rs.getString("loc"));
 			}
 		} finally {
 			if(rs!=null) try {rs.close();} catch(SQLException e) {}
@@ -83,7 +81,7 @@ public class JY_BuyDAO {
 			pstmt.setInt(1, mem_no);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dto.setMemNo(rs.getInt("mem_no"));
+				dto.setMem_no(rs.getInt("mem_no"));
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
 				dto.setPhone(rs.getString("phone"));
