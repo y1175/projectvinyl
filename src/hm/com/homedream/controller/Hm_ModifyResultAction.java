@@ -26,7 +26,6 @@ public class Hm_ModifyResultAction implements Action {
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
 
-		/*String file_name = multi.getParameter("file_name");*/
 		String file = multi.getFilesystemName("uploadfile");
 		
 		String num = multi.getParameter("no");
@@ -62,7 +61,7 @@ public class Hm_ModifyResultAction implements Action {
 		
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("hm_detail.do?no="+no);
+		f.setUrl("hm_managerdetail.do?no="+no);
 		return f;
 	}
 

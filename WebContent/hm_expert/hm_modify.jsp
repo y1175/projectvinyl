@@ -32,11 +32,11 @@
 	</li>
 	<li>
 	<label for ="lat">위도</label>
-	<input type =text name = "lat" id ="lat" value=<%=dto.getLat()%>>
+	<input type =text name = "lat" id ="lat" value=<%=dto.getFlat()%>>
 	</li>
 	<li>
 	<label for ="lon">경도</label>
-	<input type ="text" name = "lon" id ="lon" value=<%=dto.getLon()%>>
+	<input type ="text" name = "lon" id ="lon" value=<%=dto.getFlon()%>>
 	</li>
 	<li>
 	<label for ="addr">상세주소</label>

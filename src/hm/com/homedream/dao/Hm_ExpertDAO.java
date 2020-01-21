@@ -191,7 +191,8 @@ public class Hm_ExpertDAO {
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
 		sql.append("    update    expert                     ");
-		sql.append("    set            name=?                ");
+		sql.append("           set     no = ?                ");
+		sql.append("                   ,name=?                ");
 		sql.append("                   ,text=?               ");
 		sql.append("                   ,place=?              ");
 		sql.append("                   ,lat=?                ");
@@ -201,16 +202,17 @@ public class Hm_ExpertDAO {
 		sql.append("    where  no =?                         ");
 		try {
 			pstmt = conn.prepareStatement(sql.toString());
-			
-			pstmt.setString(1, dto.getName());
-			pstmt.setString(2, dto.getText());
-			pstmt.setString(3, dto.getPlace());
-			pstmt.setString(4, dto.getLat());
-			pstmt.setString(5, dto.getLon());
-			pstmt.setString(6, dto.getAddr());
-			pstmt.setString(7, dto.getFile_name());
+			pstmt.setInt(1,dto.getNo());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getText());
+			pstmt.setString(4, dto.getPlace());
+			pstmt.setString(5, dto.getLat());
+			pstmt.setString(6, dto.getLon());
+			pstmt.setString(7, dto.getAddr());
+			pstmt.setString(8, dto.getFile_name());
 			pstmt.setInt(9, dto.getNo());
 			
+			pstmt.executeUpdate();
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
 		}
