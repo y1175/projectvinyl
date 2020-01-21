@@ -15,6 +15,7 @@
 <!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="css/jy_detail.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -71,36 +72,45 @@ $(document).ready(function(){
   <jsp:include page="/hs_communityheader.jsp"></jsp:include>
  </header>
 
-
 <c:set var="dto" value="${requestScope.dto}"/>
 <ul>
 <li>
-<label for="bno">글번호</label><br>
-<c:out value="${dto.bno }"/><br>
+<h1 class="mt-4"><c:out value="${dto.btitle }"/><br></h1>
+</li>
+<hr>
+<c:out value="${dto.writedate}"></c:out>
+<hr>
+<li>
+<img src="upload/${dto.file_name}" alt="${file }" class="jy_img">
 </li>
 <li>
-<label for="btitle">제목</label><br>
-<c:out value="${dto.btitle }"/><br>
+<p class="lead">
+${dto.bcontent }
+<p>
 </li>
 <li>
-<label for="bcontent">내용</label><br>
-<c:out value="${dto.bcontent }"/><br>
-</li>
-<li>
-<label for="likeno">좋아요</label><br>
-<c:out value="${dto.likeNo }"/><br>
-</li>
-<li>
-<label for="readno">조회수</label><br>
-<c:out value="${dto.readNo }"/><br>
-</li>
-<li>
-<label for="file_name">업로드 한 사진</label><br>
- <img src="upload/${dto.file_name}" alt="${file }">
-</li>
-<li>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="location.href='jy_likeno.do?num=${dto.bno}'" value="좋아요" ></button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Like it!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
 <input type="button" onclick="location.href='jy_likeno.do?num=${dto.bno}'" value="좋아요">
 </li>
+<li>
+좋아요 <c:out value="${dto.likeNo }"/>
+조회수 <c:out value="${dto.readNo }"/>
 </ul>
 <a href="jy_list.do">목록으로</a>
 <a href="jy_update.do?num=${dto.bno }">수정</a>
@@ -110,26 +120,37 @@ $(document).ready(function(){
   
   <c:set var="subid" value="${requestScope.subid}"/>
   
-  
-<h3>--댓글--</h3>
+
+<!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">댓글을 입력해주세요.</h5>
+          <div class="card-body">
+          <form method="post" action="jy_subadd.do" name="frm">
+          <input type="hidden" name="num" value="${dto.bno}">
+              <div class="form-group">
+                <textarea class="form-control" rows="3" name="subcontent" id="subcontent"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" onclick="send()" >등록</button>
+              <button type="reset" class="btn btn-primary">취소</button>
+            </form>
+          </div>
+        </div>
 
 
-<form method="post" action="jy_subadd.do" name="frm">
 
-<input type="hidden" name="num" value="${dto.bno}">
+
+
 <%-- 
  <label for="subid">아이디</label> <br>
 <!-- 로그인이랑 연결시킨 다음에 세션으로 연결, 로그인한 아이디 값 받아와서 readonly로 잡기 현재는 임시로 그냥 아무 값이나 넣겠음-->
 <c:out value="${requestScope.subid}"/><br> 
 
  --%>
-<label for="subcontent">댓글</label>
-<textarea rows="3" cols="20" name="subcontent" id="subcontent"></textarea><br>
 
-<input type="button" onclick="send()" value="등록">
-<input type="reset" value="취소"> 
-</form>
 <div id="result"></div>
+
+
+
 
 <footer>
    <jsp:include page="/hs_user_footer.jsp"></jsp:include>

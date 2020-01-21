@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+ul>li {
+	list-style: none;
+}
+
+.jy_img{
+width:900px;
+display: block; 
+margin: 0px auto; 
+}
