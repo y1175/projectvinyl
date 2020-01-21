@@ -24,6 +24,12 @@
 <!--question content style-->
 <link rel="stylesheet" href="css/hs_questioncontent.css" >
 <!--question content style-->
+<style>
+/* header nav 질문과답변 글씨색상  */
+  .hs_header_nav > a:nth-child(4){
+    color: rgb(0, 153, 255);
+  }
+</style>
 </head>
 <body>
 <div class="container">

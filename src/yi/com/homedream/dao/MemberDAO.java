@@ -10,6 +10,7 @@ import java.util.List;
 import yi.com.homedream.dto.ItemDTO;
 import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
+import yi.com.homedream.dto.QuestionDTO;
 
 public class MemberDAO {
 
@@ -361,6 +362,97 @@ public class MemberDAO {
 		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
 			pstmt.setInt(1, bno);
 			pstmt.executeUpdate();
+			
+		}
+		
+	}
+	public void boardSelectDelete(Connection conn, int selected)throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		sql.append(" delete from mboard  ");
+		sql.append("  where bno=? ");
+
+		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+
+				pstmt.setInt(1, selected);
+				pstmt.executeUpdate();
+			
+		}
+		
+	}
+	public List<QuestionDTO> getQlist(Connection conn, int startrow, int endrow, String search, String txtsearch)
+	throws SQLException{
+		List<QuestionDTO> list=new ArrayList<>();
+		StringBuilder sql=new StringBuilder();
+		ResultSet rs=null;
+		
+		sql.append("  select  q_no                        ");
+		sql.append("         ,m.name                      "); 
+		sql.append("         ,title                       ");
+		sql.append("         ,content                     ");
+		sql.append("         ,qdate                       ");
+		sql.append("         ,m.mem_no                      ");
+		sql.append("         ,id                      ");
+		sql.append("  from question q inner join member m ");
+        sql.append("  on q.mem_no=m.mem_no                ");
+		
+		
+		
+		if(!search.equals("")&&!txtsearch.equals(""))//검색을 하면
+		{	
+			if(search.equals("id"))
+				sql.append(" where id like ? ");
+			else if(search.equals("name"))
+				sql.append(" where name like ? ");
+			else if(search.equals("title"))
+			sql.append(" where title like ? ");
+		}
+		
+			sql.append(" group by m.mem_no,q_no   ");
+			sql.append(" limit ?,15 ");
+			
+			//System.out.println("sql2:"+sql);
+			
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+		
+		if(!search.equals("")&&!txtsearch.equals(""))//검색하면
+		{
+			pstmt.setString(1, "%"+txtsearch+"%");
+			pstmt.setInt(2, startrow);
+			
+		}
+		else{//존재하지않으면 또는 검색안하면
+			pstmt.setInt(1, startrow);
+		}
+		
+			rs=pstmt.executeQuery();
+			while(rs.next())
+			{
+				QuestionDTO dto=new QuestionDTO();
+				dto.setMem_no(rs.getInt("mem_no"));
+				dto.setId(rs.getString("id"));
+				dto.setQ_no(rs.getInt("q_no"));
+				dto.setTitle(rs.getString("title"));
+				dto.setQdate(rs.getString("qdate"));
+				dto.setContent(rs.getString("content"));
+				dto.setMem_name(rs.getString("name"));
+				
+				
+				list.add(dto);
+			}
+	}finally {
+			if(rs!=null) try {rs.close();}catch(SQLException e) {}
+		}
+		return list;
+	}
+	public void qnaDelete(Connection conn, int q_no) throws SQLException{
+		StringBuilder sql=new StringBuilder();
+		sql.append(" delete from question ");
+		sql.append("  where q_no=? ");
+
+		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+
+				pstmt.setInt(1, q_no);
+				pstmt.executeUpdate();
 			
 		}
 		

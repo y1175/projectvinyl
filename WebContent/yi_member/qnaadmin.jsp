@@ -73,7 +73,7 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
+<form method="post" action="yiqnaadmin.do"><!--처음에 list.do햇음  -->
 <div id="searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
@@ -89,23 +89,22 @@ $(document).ready(function(){
 
 
 <table>
-<thead><tr><th>선택</th><th>회원번호</th><th>아이디</th><th>글번호</th><th>글제목</th><th>추천수</th>
-<th>                  <th><th>게시글삭제</th></tr>
+<thead><tr><th>선택</th><th>글번호</th><th>아이디</th><th>회원번호</th><th>질문제목</th><th>질문날짜</th><th>답변하기</th><th>삭제</th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
 	<c:forEach var="item" items="${list}">
 	<tr>
- 	<td><input type="checkbox" name="select" id="select" value="${item.bno }" ></td>
-	<td><c:out value="${item.memNo }"></c:out></td> 
+ 	<td><input type="checkbox" name="select" id="select" value="${item.q_no }" ></td>
+	<td><c:out value="${item.q_no }"></c:out></td> 
 	<td>${item.id }</td>
-	<td>${item.bno }</td>
-	<td>${item.btitle }</td>
-	<td>${item.like }</td>
+	<td>${item.mem_no }</td>
+	<td>${item.title }</td>
+	<td>${item.qdate }</td>
 	
-		
-		
-	<td><a href="yiboarddelete.do?bno=${item.bno}">삭제</a><td>
+	
+	<td><a href="hs_questiondetail.do?no=${item.q_no}">답변하러가기</a><td>
+	<td><a href="yiqnadelete.do?q_no=${item.q_no}">삭제</a><td>
 
 
 	</tr>
@@ -113,11 +112,11 @@ $(document).ready(function(){
 </tbody>
 </table><br>
 <c:if test="${startblock > 1 }">
-	<a href="yiadminboard.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a>
+	<a href="yiqnaadmin.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a>
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "yiadminboard.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a>
+	<a href = "yiqnaadmin.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
@@ -127,7 +126,7 @@ $(document).ready(function(){
 	</c:if>
 	<c:if test="${currpage != i }">
 		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="yiadminboard.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a>
+		<a href="yiqnaadmin.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a>
 	
 	</c:if>
 
@@ -135,11 +134,11 @@ $(document).ready(function(){
 </c:forEach>
 
 <c:if test="${currpage < totalpage }">
-	<a href = "yiadminboard.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
+	<a href = "yiqnaadmin.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
 </c:if>
 
 <c:if test="${endblock < totalpage }">
-	<a href = "yiadminboard.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
+	<a href = "yiqnaadmin.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
 </c:if>
 <br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
