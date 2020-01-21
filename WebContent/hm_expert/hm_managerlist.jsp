@@ -101,8 +101,9 @@
       style ="width:35px;">수정</button></a>
       </td>
       <td>
+      <a href ="hm_delete.do?no<%=no%>">
       <button type="button" class="btn btn-outline-info" 
-      style ="width:35px; " >삭제</button>
+      style ="width:35px; " >삭제</button></a>
       </td>
     </tr>
     

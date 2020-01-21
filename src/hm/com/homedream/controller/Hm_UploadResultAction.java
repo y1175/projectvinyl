@@ -22,7 +22,7 @@ public class Hm_UploadResultAction implements Action {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		int filesize = 1024 * 1024 * 10;
-		String uploadpath = request.getServletContext().getRealPath("hm_expert");
+		String uploadpath = request.getServletContext().getRealPath("upload");
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
 

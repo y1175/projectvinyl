@@ -80,7 +80,7 @@
 	%>
 	
 	    <p style="text-align: center;">
-			<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>
+			<img src="upload/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>
 		</p>
 	<div class="hm_expertmain">
 		
