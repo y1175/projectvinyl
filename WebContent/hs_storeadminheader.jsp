@@ -12,7 +12,7 @@
 
 </head>
 <body>
-  <div>
+  <div class="hs_header_store_header">
     <div class="hs_header_top">
      <a href="hs_memberadminmain.jsp" id="hs_header_h1">홈드림</a>
      <a href="hs_memberadminmain.jsp" class="hs_header_hc">회원관리</a>

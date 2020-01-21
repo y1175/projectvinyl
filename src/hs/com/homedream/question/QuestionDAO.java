@@ -52,7 +52,7 @@ public class QuestionDAO {
 		sql.append("         ,content                     ");
 		sql.append("         ,qdate                       ");
 		sql.append("         ,readno                      ");
-		sql.append("         ,filename                    ");
+		sql.append("         ,file_name                   ");
 		sql.append("  from question q inner join member m ");
         sql.append("  on q.mem_no=m.mem_no                ");
         
@@ -80,7 +80,7 @@ public class QuestionDAO {
 				dto.setContent(rs.getString("content"));
 				dto.setQdate(rs.getString("qdate"));
 				dto.setReadno(rs.getInt("readno"));
-				dto.setFilename(rs.getString("filename"));
+				dto.setFilename(rs.getString("file_name"));
 				list.add(dto);
 			}
 		}finally {
@@ -136,7 +136,7 @@ public class QuestionDAO {
 		sql.append("         ,content                       ");
 		sql.append("         ,qdate                         ");
 		sql.append("         ,readno                        ");
-		sql.append("         ,filename                      ");
+		sql.append("         ,file_name                     ");
 		sql.append("  from   question q inner join member m ");
 		sql.append("  on q.mem_no=m.mem_no                  ");
 		sql.append("  where  q_no=?                         ");
@@ -151,7 +151,7 @@ public class QuestionDAO {
 				dto.setContent(rs.getString("content"));
 				dto.setQdate(rs.getString("qdate"));
 				dto.setReadno(rs.getInt("readno"));
-				dto.setFilename(rs.getString("filename"));
+				dto.setFilename(rs.getString("file_name"));
 			}
 		}finally {
 			if(rs!=null) try {rs.close();} catch(SQLException e) {}
@@ -167,7 +167,7 @@ public class QuestionDAO {
 		sql.append("  set     title = ?     ");
 		sql.append("         ,content = ?   ");
 		sql.append("         ,qdate = now() ");
-		sql.append("         ,filename = ?  ");
+		sql.append("         ,file_name = ? ");
 		sql.append("  where  q_no = ?       ");
 		try {
 			ps=conn.prepareStatement(sql.toString());
