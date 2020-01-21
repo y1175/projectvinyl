@@ -50,7 +50,7 @@
 <h6>업체등록번호 : <%=no%></h6>
 <h2><%=name%></h2>
 <blockquote class="blockquote">
-<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_managerdetailimg"/> 
+<img src="upload/<%=file_name%>" alt="<%=file_name%>" class ="hm_managerdetailimg"/> 
 <p class="mb-0"><%=text%></p>
 </blockquote>
 
