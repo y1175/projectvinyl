@@ -92,13 +92,13 @@ public class QuestionDAO {
 		// TODO Auto-generated method stub
 		PreparedStatement ps=null;
 		StringBuilder sql=new StringBuilder();
-		sql.append("  insert  into  question( mem_no   ");
-		sql.append("                         ,title    ");
-		sql.append("                         ,content  ");
-		sql.append("                         ,qdate    ");
-		sql.append("                         ,readno   ");
-		sql.append("                         ,filename)");
-		sql.append("  values ( 2, ?, ?, now(),0,? )    ");
+		sql.append("  insert  into  question( mem_no    ");
+		sql.append("                         ,title     ");
+		sql.append("                         ,content   ");
+		sql.append("                         ,qdate     ");
+		sql.append("                         ,readno    ");
+		sql.append("                         ,file_name)");
+		sql.append("  values ( 2, ?, ?, now(),0,? )     ");
 		try {
 			ps=conn.prepareStatement(sql.toString());
 			ps.setString(1, dto.getTitle());
