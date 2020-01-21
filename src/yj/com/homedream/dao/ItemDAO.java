@@ -55,14 +55,14 @@ public class ItemDAO {
 	public List<CategoriDTO> getCategori(Connection conn) {
 		List<CategoriDTO> list = new ArrayList<>();
 		StringBuilder sql = new StringBuilder();
-		sql.append("select cat_no, cname from categori order by cat_no ");
+		sql.append("select cat_no, ctitle from categori order by cat_no ");
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 			ResultSet rs = pstmt.executeQuery();){
 			while(rs.next()) {
 				CategoriDTO dto = new CategoriDTO();
 				dto.setcNo(rs.getInt("cat_no"));
-				dto.setCname(rs.getString("cname"));
+				dto.setCname(rs.getString("ctitle"));
 				list.add(dto);
 			}
 		}catch (Exception e) {
