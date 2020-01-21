@@ -56,7 +56,7 @@ public class hs_QuestionInsertResultAction implements Action {
 		  		service.getInsertUpload(dto,mem_no);
 		         
 		         
-		         f.setForward(true);
+		         f.setForward(false);
 		         f.setUrl("hs_questionlist.do");
 		      }
 

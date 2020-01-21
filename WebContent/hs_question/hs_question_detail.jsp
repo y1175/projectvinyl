@@ -38,10 +38,10 @@
 	   ,success:function(data){
 		   $.each(data, function(index,item){
 			   console.log(item);
-				let result ="<thead><tr><th><i class='fas fa-user-circle'></i>작성자</th><th>내용</th></tr></thead><tbody>"
-					result+="<td>"+item.answerid+"</td>";
-					result+="<td>"+item.content+"</td>";
-					result+="<td><input type='button' value='삭제' onclick='del("+item.a_no+","+item.q_no+")'></td>";
+				let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>"
+					result+="<td style='font-size: 20px; font-weight : 500; padding-right:20px;'>"+item.answerid+"</td>";
+					result+="<td style='font-size: 17px; width : 93%;'>"+item.content+"</td>";
+					result+="<td><input type='button' value='삭제' onclick='del("+item.a_no+","+item.q_no+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;'></td>";
 					result+="</tr></tbody>";
 					$('#hs_answer_result').append(result);
 			    })
@@ -53,7 +53,8 @@
   });
   
 </script>
-<link rel="stylesheet" href="css/hs_questiondetail.css" >
+<style type="text/css"></style>
+<link rel="stylesheet" href="css/hs_questiondetail.css?ver=1" >
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
@@ -67,40 +68,44 @@
     <div  class="hs_question_detaildiv">
        <ul>
          <li>
-           <p>질문과 답변</p>
+           <p class="hs_question_detail_qa">질문과 답변</p>
          </li>
-         <li>
+         <li style="font-size:18px; font-weight: 800; margin-top: -10px;">
+           <c:out value="${dto.title}"/>
+         </li>
+         <li class="hs_question_detail_qamname" style="margin-top: 15px; font-size: 13px;">
+           <i class='fas fa-user-circle' style="font-size: 30px; margin-right: 5px;"></i>
            <c:out value="${dto.mem_name}"/>
          </li>
          <li>
-           <c:out value="${dto.title}"/>
+           <img src="upload/${dto.filename}" alt="${file}" class="hs_question_detail_qaimg">
          </li>
-         <li>
-           <img src="upload/${dto.filename}" alt="${file}">
-         </li>
-         <li>
+         <li style="margin: 30px 20px;">
            <c:out value="${dto.content}"/>
          </li>
-         <li>
-           <c:out value="${dto.qdate}"/><span>ㆍ</span>
+         <li style="text-align: right; font-size: 12px; font-weight: 800; margin-right: 20px;" >
+           <span>작성일 </span><c:out value="${dto.qdate}"/><span>ㆍ조회수 </span>
            <c:out value="${dto.readno}"/><span>ㆍ스크랩 0</span>
          </li>  
        </ul>
     </div>
-    <div></div> <!-- 라인 -->
-    <a href="hs_questionlist.do"><button>목록</button></a>
-    
-    <a href="hs_questionupdate.do?no=${dto.q_no}"><button>수정</button></a>
-    <a href="hs_questiondelete.do?no=${dto.q_no}"><button>삭제</button></a>
+    <div class="hs_question_divline"></div> <!-- 라인 -->
+    <div style="float: right;">    
+    <a href="hs_questionupdate.do?no=${dto.q_no}"><button class="hs_question_divbtn" >수정</button></a>           
+    <a href="hs_questiondelete.do?no=${dto.q_no}"><button class="hs_question_divbtn" style="margin-left: 5px;" >삭제</button></a>
+    </div>
+    <a href="hs_questionlist.do"><button class="hs_question_divbtn" style="" >목록</button></a>
     <!-- 댓글  -->
-    <div>
-      <form method="post" action="hs_answeradd.do" name="frm">
-         <p>답변</p>
-            <label for="hs_answer"><i class='fas fa-user-circle'></i></label>
+    <p style="font-size:18px; font-weight: 800; margin-top: 20px; ">답변</p>
+    <div  style="margin-bottom: 20px;">
+        <form method="post" action="hs_answeradd.do" name="frm">         
+            <label for="hs_answer"><i class='fas fa-user-circle' style="font-size: 30px; margin-right: 5px;"></i></label>
             <input type="hidden" name="no" value="${dto.q_no}">
-            <input type="text" name="hs_answer" id="hs_answer">
-            <input type="submit" onclick="send()" value="등록"> 
-      </form> 
+            <div class="hs_question_answer">
+              <input type="text" name="hs_answer" id="hs_answer">
+              <input type="submit" onclick="send()" value="등록" style="border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;"> 
+            </div>          
+         </form> 
     </div>
     <div id="hs_answer_result"></div>
  <footer>
