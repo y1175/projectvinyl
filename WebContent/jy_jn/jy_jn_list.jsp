@@ -23,7 +23,7 @@
 <!-- Bootstrap -->
 <style>
 /* header nav 집들이 앤 노하우 글씨색상  */
-  .hs_header_nav > a:nth-child(2){
+  .hs_header_nav > a:nth-child(3){
     color: rgb(0, 153, 255);
   }
 </style>
