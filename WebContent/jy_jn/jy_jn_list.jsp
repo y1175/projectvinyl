@@ -20,6 +20,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
 <!-- Bootstrap -->
 <style>
 /* header nav 집들이 앤 노하우 글씨색상  */
@@ -27,20 +28,14 @@
     color: rgb(0, 153, 255);
   }
 </style>
+
 </head>
 <body>
-<div class="container">
-  <header>
-     <jsp:include page="/hs_communityheader.jsp"></jsp:include>
-  </header>
-<form method="post" action="jy_list.do">
-<select name="sorting">
-<option value="new">최신순</option>
-<option value="readpoint">조회수순</option>
-<option value="likepoint">좋아요순</option>
-</select>
-<input type="submit" value="정렬">
-</form>
+
+<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=new">최신순</a>
+<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=readpoint">조회수순</a>
+<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=likepoint">좋아요순</a>
+
 <table>
 <thead>
 <tr><th>글 번호</th><th>글 제목</th><th>글쓴이</th><th>좋아요</th><th>조회수</th><th>작성일</th></tr>
@@ -125,7 +120,18 @@
 	<a href = "jy_list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}&sorting=${sorting }">다음블럭으로</a>
 </c:if>
 
+
+
 <form method="post" action="jy_list.do">
+
+
+<select name="sorting">
+<option value="new">최신순</option>
+<option value="readpoint">조회수순</option>
+<option value="likepoint">좋아요순</option>
+</select>
+
+
 <select name="search">
 <option value="btitle">제목</option>
 <option value="bcontent">내용</option>
@@ -134,9 +140,5 @@
 <input type="text" name="searchtxt" id="searchtxt">
 <input type="submit" value="검색">
 </form>
-<footer>
-     <jsp:include page="/hs_user_footer.jsp"></jsp:include>
-  </footer>
-</div>
 </body>
 </html>
