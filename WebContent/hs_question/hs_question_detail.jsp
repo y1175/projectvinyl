@@ -63,7 +63,7 @@
     <div>
        <ul>
          <li>
-           <p><i class='fas fa-user-circle'></i>질문과 답변</p>
+           <p>질문과 답변</p>
          </li>
          <li>
            <c:out value="${dto.mem_name}"/>
