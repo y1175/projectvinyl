@@ -33,6 +33,16 @@ public class YILoginResultAction implements Action {
 			f.setForward(false);
 			f.setUrl("yilogin.do");
 		}
+		else if(dto.getMemNo()==1)
+		{
+			HttpSession session=request.getSession();
+			session.setAttribute("userId", dto.getId());
+			session.setAttribute("mem_no", dto.getMemNo());
+			session.setMaxInactiveInterval(60*5);
+			f.setForward(true);
+			f.setUrl("/hs_memberadminmain.jsp");
+			System.out.println("관리자 로그인 성공");
+		}
 		else
 		{
 		HttpSession session=request.getSession();

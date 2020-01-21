@@ -71,7 +71,7 @@ public class YIMemberService {
 
 		return dto;
 	}
-	public List<YIOrderlistDTO> orderlist(String id) {
+	public List<YIOrderlistDTO> orderlist(int id) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		List<YIOrderlistDTO> list=new ArrayList<YIOrderlistDTO>();
@@ -339,7 +339,7 @@ public class YIMemberService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 	}
-	public List<YIMemberDTO> memberlist(String id) {
+	public List<YIMemberDTO> memberlist(int id) {
 		Connection conn=null;
 		List<YIMemberDTO> list=new ArrayList<>();
 		try {

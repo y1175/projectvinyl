@@ -25,12 +25,12 @@ public class YIOrderlistAction implements Action {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		HttpSession session=request.getSession();
-		String id=(String)session.getAttribute("userId");
+		int id=(int)session.getAttribute("mem_no");
 		ActionForward f=new ActionForward();
-		if(id==null)
+		if(id==0)
 		{
 			f.setForward(false);
-			f.setUrl("yilogin.do");
+			f.setUrl("homedream.do");
 			
 		}
 		else

@@ -71,7 +71,7 @@ public class YIMemberDAO {
 		
 		return dto;
 	}
-	public List<YIOrderlistDTO> orderlist(Connection conn, String id) throws SQLException{
+	public List<YIOrderlistDTO> orderlist(Connection conn, int id) throws SQLException{
 		StringBuilder sql=new StringBuilder();
 		List<YIOrderlistDTO> list=new ArrayList<YIOrderlistDTO>();
 		ResultSet rs=null;
@@ -80,7 +80,7 @@ public class YIMemberDAO {
 		sql.append(" on member.mem_no = orderlist.mem_no  ");
 		sql.append(" where orderlist.mem_no= ? ");
 		try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
-			pstmt.setInt(1, Integer.parseInt(id));
+			pstmt.setInt(1, id);
 			rs=pstmt.executeQuery();
 			
 			
@@ -460,7 +460,7 @@ public class YIMemberDAO {
 		}
 		
 	}
-	public List<YIMemberDTO> memberlist(Connection conn, String id) throws SQLException {
+	public List<YIMemberDTO> memberlist(Connection conn, int id) throws SQLException {
 		StringBuilder sql=new StringBuilder();
 		List<YIMemberDTO> list=new ArrayList<>();
 		ResultSet rs=null;
@@ -468,7 +468,7 @@ public class YIMemberDAO {
 		sql.append(" from member  ");
 		sql.append(" where mem_no=?  ");
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
-			pstmt.setInt(1, Integer.parseInt(id));
+			pstmt.setInt(1, id);
 			rs=pstmt.executeQuery();
 			if(rs.next())
 			{
