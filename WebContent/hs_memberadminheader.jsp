@@ -24,8 +24,8 @@
     <div class="hs_header_line"></div>
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
-         <a href="" style="color: rgb(0, 153, 255);">조회 및 삭제</a>
-         <a href="">주문배송관리</a>
+         <a href="ej_list.do" style="color: rgb(0, 153, 255);">조회 및 삭제</a>
+         <a href="ej_orderlist.do">주문배송관리</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 

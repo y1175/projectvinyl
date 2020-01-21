@@ -8,20 +8,22 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
-import ej.com.homedream.dao.MemberDAO;
-import ej.com.homedream.dto.MemberDTO;
+
+import ej.com.homedream.dao.OrderDAO;
+import ej.com.homedream.dto.OrderDTO;
 
 
 
-public class MemberService {
 
-	private static MemberService service=new MemberService();
-	public static MemberService getService() {
+public class OrderService {
+
+	private static OrderService service=new OrderService();
+	public static OrderService getService() {
 		
 		return service;
 	}//싱글톤
 	
-	private MemberService() {}
+	private OrderService() {}
 	//////////////////////////////////////////////////////////////
 	public int getCount(String search, String txtsearch, int txtsearch1, int txtsearch2)
 	{//connection만들어서 dao로 넘겨
@@ -32,8 +34,8 @@ public class MemberService {
 		try{
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();//싱글톤햇으니까 이렇게
-			count=dao.memberCount(conn, search, txtsearch, txtsearch1, txtsearch2);
+			OrderDAO dao=OrderDAO.getDAO();//싱글톤햇으니까 이렇게
+			count=dao.orderCount(conn, search, txtsearch, txtsearch1, txtsearch2);
 			//System.out.println("count: "+count);
 			conn.commit();
 		}catch(NamingException|SQLException e)
@@ -46,10 +48,10 @@ public class MemberService {
 		return count;
 	}//전체 자료수
 	
-	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch
+	public List<OrderDTO> getList(int startrow, int endrow, String search, String txtsearch
 			, int stxtsearch1, int stxtsearch2) {//출력
 		Connection conn=null;
-		List<MemberDTO> list=null;
+		List<OrderDTO> list=null;
 				
 		try {
 			DBConnection db=DBConnection.getInstance();
@@ -57,7 +59,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
+			OrderDAO dao=OrderDAO.getDAO();
 			list=dao.getlist(conn,startrow, endrow, search, txtsearch, stxtsearch1, stxtsearch2);
 			//list를 리턴을 받아줫을때
 			
@@ -72,9 +74,9 @@ public class MemberService {
 		}return list;
 		
 	}
+	
 
-
-	public void delete(int memno) {
+	public void delete(int orderno) {
 		Connection conn=null;
 	
 				
@@ -84,9 +86,9 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
-			dao.delete2(conn,memno);
-			dao.delete(conn,memno);
+			OrderDAO dao=OrderDAO.getDAO();
+			
+			dao.delete(conn,orderno);
 			//list를 리턴을 받아줫을때
 			
 			conn.commit();
@@ -100,59 +102,8 @@ public class MemberService {
 		}
 		
 	}
+
 	
-	public void insert(int memno, int addpoint) {
-		Connection conn=null;
-	
-				
-		try {
-			DBConnection db=DBConnection.getInstance();
-			
-			conn=db.getConnection();
-			conn.setAutoCommit(false);
-			
-			MemberDAO dao=MemberDAO.getDAO();
-			dao.insert(conn, memno, addpoint);
-			//list를 리턴을 받아줫을때
-			
-			conn.commit();
-			
-		}catch(NamingException|SQLException e)
-		{
-			System.out.println(e);
-			try {conn.rollback();}catch(Exception e2) {}
-		}finally {
-			if(conn!=null)try {conn.close();}catch(SQLException e) {}
-		}
-		
-	}
-	
-	/*public void insert(int memno, int addpoint) {
-	
-	Connection conn=null;
-	try {
-		DBConnection db=DBConnection.getInstance();
-		
-		conn=db.getConnection();
-		conn.setAutoCommit(false);
-		
-		MemberDAO dao=MemberDAO.getDAO();
-		
-		dao.insert(conn,memno,addpoint);
-		//list를 리턴을 받아줫을때
-		
-		conn.commit();
-		
-	}catch(NamingException|SQLException e)
-	{
-		System.out.println(e);
-		try {conn.rollback();}catch(Exception e2) {}
-	}finally {
-		if(conn!=null)try {conn.close();}catch(SQLException e) {}
-	}
-	
-	
-}*/
 		
 	}
 	

@@ -1,13 +1,7 @@
 @charset "UTF-8";
-.hm_detail{
+ .hm_detail{
 	position: fixed;
 	left:20px;
 	bottom:20px;
-	
-}
-#map{
-	position: relative;
-	left:800px;
-	top:450px;
 	
 }

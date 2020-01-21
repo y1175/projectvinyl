@@ -21,10 +21,8 @@
 width: 60%;
 padding: 20px;}
 #ej_line{border:0.5px solid silver;}
+
 </style>
-
-
-
 <script>
 function delconfirm(){
 
@@ -38,11 +36,11 @@ function delconfirm(){
 <title>Insert title here</title>
 </head>
 <body>
-  <div class="container">
+<div class="container">
      <header>
          <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
      </header>
-<h3>회원조회</h3>
+<h3>주문배송조회</h3>
 <!--setAttribute로 지정한것 변수로 받아오기  -->
 <c:set var="list" value="${requestScope.list }"/>
 <c:set var="currpage" value="${requestScope.currpage }"/>
@@ -52,17 +50,18 @@ function delconfirm(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="ej_list.do"><!--처음에 list.do햇음  -->
+<form method="post" action="ej_orderlist.do"><!--처음에 list.do햇음  -->
 <div id="ej_searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
-	<option value="id">아이디</option>
-	<option value="name">이름</option>
+	<option value="orderno">주문번호</option>
+	<option value="memno">회원번호</option>
 </select>
+
 <input type="text" name="txtsearch">
 <!-- <input type="submit" value="검색"> -->
 
 <div id="ej_line"></div>
-<label for="point">구매액</label>
+<label for="cost">가격</label>
 <input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원<br>
 <input type="submit" value="상세검색"> 
 </div>
@@ -70,22 +69,21 @@ function delconfirm(){
 
 
 <table>
-<thead><tr><th>선택</th><th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>구매액</th><th>적립금</th>
-<th>                  <th><th>삭제</th></tr>
+<thead><tr><th>선택</th><th>주문번호</th><th>회원번호</th><th>물품번호</th>
+<th>이름</th><th>주문상태</th><th>가격</th><th>삭제</th></tr>
 </thead>
 <tbody>
-	<!--arraylist니까 foreach  -->
+	<!--array list니까 for each  -->
 	<c:forEach var="item" items="${list}">
 	<tr>
- 	<td><input type="checkbox" name="select" id="select" value="${item.memNo }" ></td>
-	<td><c:out value="${item.memNo }"></c:out></td> 
-	<td>${item.id }</td>
-	<td>${item.pwd }</td>
-	<td>${item.name }</td>
-	<td>${item.total }원</td>
-	<td><a href="ej_insert.do?memNo=${item.memNo}" target="_blank"  >${item.point }포인트</a><td> 
-<!--target="_blank"  -->
-	<td><a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a><td>
+ 	<td><input type="checkbox" name="select" id="select" value="${item.memno }" ></td>
+	<td><c:out value="${item.orderno }"></c:out></td> 
+	<td>${item.memno }</td>
+	<td>${item.itemno }</td>
+	<td>${item.orderdate }</td>
+	<td><a href="ej_orderupdate.do?orderno=${item.orderno}" >${item.status }</a></td>
+	<td>${item.cost }</td>
+	<td><a href="ej_orderdelete.do?orderno=${item.orderno}" onclick="delconfirm();">삭제</a><td>
 
 
 	</tr>
@@ -99,22 +97,18 @@ function delconfirm(){
 	</c:if>
 
 	<c:if test="${currpage!=i }">
-	<a href="ej_list.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
+	<a href="ej_orderlist.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
 	</c:if>
 </c:forEach><br>
 
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
-     
-     
+
+
+</form>
      <footer>
          <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
      </footer>
   </div>
-
-
-
-
-</form>
 
 </body>
 </html>

@@ -98,9 +98,6 @@ body{
 .hs_question_ul_li_member{
 	font-size: 12px;
 }
-
-
-
 .hs_question_ul_li_img{
 	width: 120px;
 	height: 120px;
@@ -109,4 +106,9 @@ body{
 	position: relative;
 	bottom: 120px;
 	border-radius: 5px;
+}
+.hs_question_paging{
+    text-align: center;	
+    font-size: 20px;
+    font-weight: 500;
 }

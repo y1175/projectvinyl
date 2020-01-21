@@ -9,16 +9,26 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-<script>
-
-</script>
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <!--header style-->
-<link rel="stylesheet" href="css/hs_userheader.css" >
+<link rel="stylesheet" href="css/hs_userheader.css?ver=1" >
 <!--header style-->
-
+<style>
+  .hs_header_nav_a{
+     color: rgb(0, 153, 255);
+  }
+</style>
+<script>
+   $(document).ready(function(){
+	   $("hs_header_nav").each(function(){
+		  $(this).click(function(){
+			  $(this).addClass("hs_header_nav_a");  
+		  });
+	   });
+   });
+</script>
 </head>
 <body>
   <div>
@@ -42,10 +52,10 @@
     <div class="hs_header_line"></div>
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
-         <a href="" style="color: rgb(0, 153, 255);" class="hs_header_a">홈</a>
-         <a href="jy_list.do" class="hs_header_a">집들이&노하우</a>
-         <a href="hm_list.do" class="hs_header_a">전문가찾기</a>
-         <a href="hs_questionlist.do" class="hs_header_a">질문과답변</a>
+         <a href="">홈</a>
+         <a href="jy_list.do">집들이&노하우</a>
+         <a href="hm_list.do">전문가찾기</a>
+         <a href="hs_questionlist.do">질문과답변</a>
          <a href="">이벤트</a>
      </nav>  
     </div> 
