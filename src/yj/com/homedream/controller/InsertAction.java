@@ -24,7 +24,7 @@ public class InsertAction implements Action {
 		ActionForward forward = new ActionForward();
 		request.setAttribute("list", list);
 		forward.setForward(true);
-		forward.setUrl("/yj/insert.jsp");
+		forward.setUrl("/yj/insertItem.jsp");
 		
 		return forward;
 	}

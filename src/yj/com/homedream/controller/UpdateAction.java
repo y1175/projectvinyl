@@ -30,7 +30,7 @@ public class UpdateAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/yj/update.jsp");
+		forward.setUrl("/yj/updateItem.jsp");
 		return forward;
 	}
 

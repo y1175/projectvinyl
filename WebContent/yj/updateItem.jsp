@@ -13,9 +13,8 @@
 	margin: auto;
 }
 
-#imgblock {
-	border: 1px solid black;
-	width: 600px;
+img {
+	width: 300px;
 	height: 300px;
 }
 
@@ -44,17 +43,32 @@ textarea {
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-	$(document).ready(function () {
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var fileName = input.files[0].name;
+		}
+		var reader = new FileReader();
+		reader.readAsDataURL(input.files[0]);
+		reader.onload = function(e) {
+			$('#uploadimg').attr('src', e.target.result);
+		}
+	}
+
+	$(document).ready(function() {
 		$('#sub').click(function() {
-			if($('#categori').val() == '0'){
+			if ($('#categori').val() == '0') {
 				alert("카테고리를 선택하세요");
 				return;
 			}
-			if($('input[name=sale]:checked').length == 0){
+			if ($('input[name=sale]:checked').length == 0) {
 				alert("세일 퍼센트를 선택하세요");
 				return;
 			}
 			$('#frm').submit();
+		});
+
+		$('#fileupload').on('change', function() {
+			readURL(this);
 		});
 	});
 </script>
@@ -67,8 +81,10 @@ textarea {
 				<tbody>
 					<tr>
 						<td class="theight tableH">이미지</td>
-						<td colspan="3"><input type="file" id="fileupload"
-							name="fileupload"></td>
+						<td colspan="3">
+						<img id="uploadimg" alt="업로드 할 사진" src="">
+						<input type="file" id="fileupload" name="fileupload">
+						</td>
 					</tr>
 					<tr>
 						<td class="theight tableH">카테고리</td>
