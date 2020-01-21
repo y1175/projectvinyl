@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="memberdto" value="${requestScope.memberdto }"/>
+<c:set var="itemdto" value="${requestScope.itemdto}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-
-<c:set var="memberdto" value="${requestScope.memberdto }"/>
-<c:set var="itemdto" value="${requestScope.itemdto}"/>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 
 <script>
-function pay(){
+$(function(){
         var IMP = window.IMP; // 생략가능
         IMP.init('imp65601532'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
@@ -25,8 +23,8 @@ function pay(){
             name : 'HOMEDREADM 결제',
             amount : ${itemdto.price},
             buyer_name : ${memberdto.name},
-            buyer_tel :  ${memberdto.phone}",
-            buyer_addr :  ${memberdto.addr},
+            buyer_tel :  ${memberdto.phone},
+            buyer_addr : "서울",
             buyer_postcode :  ${memberdto.zipcode}
             }, function(rsp) {
             if ( rsp.success ) {
@@ -63,8 +61,13 @@ function pay(){
             }
         });
         
-};
+});
 </script>
+
+</head>
+<body>
+
+
 
 
 </body>
