@@ -10,8 +10,10 @@
 </head>
 <body>
 <c:set var="list" value="${requestScope.list}"></c:set>
+<c:set var="mlist" value="${requestScope.mlist }"></c:set>
 
-<h1>마이페이지-주문관리</h1>
+<h1>마이페이지</h1>
+<h2>주문 내역</h2>
 <table>
 <thead>
 <tr><th>주문일</th><th>주문번호</th><th>주문상세</th><th>배송현황</th>
@@ -52,6 +54,18 @@
 </tbody>
 </table>
 <c:set var="num" value="${item.order_no }"></c:set>
+
+<h2>회원 정보</h2>
+<ul>
+<li><c:out value="${mlist[0].id }"></c:out></li>
+<li><c:out value="${mlist[0].name }"></c:out></li>
+<li><c:out value="${mlist[0].birth }"></c:out></li>
+<li><c:out value="${mlist[0].phone }"></c:out></li>
+<li><c:out value="${mlist[0].addr }"></c:out></li>
+</ul>
+<a href="yimodify.do">회원정보 수정</a><br>
 <a href="yi.do">메인으로 돌아가기</a>
+
+
 </body>
 </html>

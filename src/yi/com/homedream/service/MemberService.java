@@ -338,6 +338,29 @@ public class MemberService {
 			if(conn!=null)try {conn.close();}catch(SQLException e) {}
 		}
 	}
+	public List<MemberDTO> memberlist(String id) {
+		Connection conn=null;
+		List<MemberDTO> list=new ArrayList<>();
+		try {
+			
+			DBConnection db=DBConnection.getInstance();
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			MemberDAO dao=MemberDAO.getDAO();
+			list=dao.memberlist(conn,id);
+			conn.commit();
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+		return list;
+	}
 
 
 

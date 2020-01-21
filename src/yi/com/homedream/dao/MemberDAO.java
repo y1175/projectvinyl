@@ -412,7 +412,7 @@ public class MemberDAO {
 			
 			//System.out.println("sql2:"+sql);
 			
-		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
 		
 		if(!search.equals("")&&!txtsearch.equals(""))//검색하면
 		{
@@ -455,6 +455,30 @@ public class MemberDAO {
 				pstmt.executeUpdate();
 			
 		}
+		
+	}
+	public List<MemberDTO> memberlist(Connection conn, String id) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		List<MemberDTO> list=new ArrayList<>();
+		ResultSet rs=null;
+		sql.append(" select *  ");
+		sql.append(" from member  ");
+		sql.append(" where mem_no=?  ");
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());){
+			pstmt.setInt(1, Integer.parseInt(id));
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				MemberDTO dto=new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setAddr(rs.getString("addr"));
+				list.add(dto);
+			}
+		}
+		return list;
 		
 	}
 	

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
+import yi.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.OrderlistDTO;
 import yi.com.homedream.service.MemberService;
 
@@ -35,9 +36,12 @@ public class YIOrderlistAction implements Action {
 		else
 		{
 			List<OrderlistDTO> list=new ArrayList<>();
+			List<MemberDTO> mlist=new ArrayList<>();
 			MemberService service=MemberService.getService();
 			list=service.orderlist(id);
+			mlist=service.memberlist(id);
 			request.setAttribute("list", list);
+			request.setAttribute("mlist", mlist);
 			
 			f.setForward(true);
 			f.setUrl("/yi_member/orderlist.jsp");
