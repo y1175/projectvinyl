@@ -39,8 +39,8 @@
 		   $.each(data, function(index,item){
 			   console.log(item);
 				let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>"
-					result+="<td style='font-size: 20px; font-weight : 500; padding-right:20px;'>"+item.answerid+"</td>";
-					result+="<td style='font-size: 17px; width : 93%;'>"+item.content+"</td>";
+					result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;'>"+item.answerid+"</td>";
+					result+="<td style='font-size: 15px; width : 93%;'>"+item.content+"</td>";
 					result+="<td><input type='button' value='삭제' onclick='del("+item.a_no+","+item.q_no+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;'></td>";
 					result+="</tr></tbody>";
 					$('#hs_answer_result').append(result);
@@ -53,7 +53,12 @@
   });
   
 </script>
-<style type="text/css"></style>
+<style>
+/* header nav 질문과답변 글씨색상  */
+  .hs_header_nav > a:nth-child(4){
+    color: rgb(0, 153, 255);
+  }
+</style>
 <link rel="stylesheet" href="css/hs_questiondetail.css?ver=1" >
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -74,7 +79,7 @@
            <c:out value="${dto.title}"/>
          </li>
          <li class="hs_question_detail_qamname" style="margin-top: 15px; font-size: 13px;">
-           <i class='fas fa-user-circle' style="font-size: 30px; margin-right: 5px;"></i>
+           <i class='fas fa-user-circle' style="font-size: 25px; margin-right: 5px;"></i>
            <c:out value="${dto.mem_name}"/>
          </li>
          <li>
