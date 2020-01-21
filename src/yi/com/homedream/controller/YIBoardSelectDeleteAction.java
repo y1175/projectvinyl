@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIBoardSelectDeleteAction implements Action {
 
@@ -18,7 +18,7 @@ public class YIBoardSelectDeleteAction implements Action {
 			throws ServletException, IOException {
 		String[] selected=request.getParameterValues("select");
 		System.out.println(selected[0]+","+selected[1]);
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		for(int i=0; i<=selected.length;i++)
 		{
 			

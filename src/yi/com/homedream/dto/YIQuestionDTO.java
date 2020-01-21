@@ -1,6 +1,6 @@
 package yi.com.homedream.dto;
 
-public class QuestionDTO {
+public class YIQuestionDTO {
 	private int q_no;
 	private int mem_no;
 	private String title;

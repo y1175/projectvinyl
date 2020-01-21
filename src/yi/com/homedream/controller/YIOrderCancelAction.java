@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIOrderCancelAction implements Action {
 
@@ -20,7 +20,7 @@ public class YIOrderCancelAction implements Action {
 		int num=Integer.parseInt(request.getParameter("num"));
 		System.out.println(request.getParameter("num"));
 		
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		service.orderCancel(num);
 		
 		

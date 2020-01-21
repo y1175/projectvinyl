@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIModifyResultAction implements Action {
 
@@ -43,7 +43,7 @@ String memno=(String)session.getAttribute("userId");
 		int zipcode=Integer.parseInt(request.getParameter("zipcode"));
 		
 		
-		MemberDTO dto=new MemberDTO();
+		YIMemberDTO dto=new YIMemberDTO();
 		dto.setMemNo(Integer.parseInt(memno));
 		dto.setId(id);
 		dto.setPwd(pwd);
@@ -54,7 +54,7 @@ String memno=(String)session.getAttribute("userId");
 		dto.setZipcode(zipcode);
 		
 		
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		service.modifyData(dto);
 		
 		ActionForward f=new ActionForward();

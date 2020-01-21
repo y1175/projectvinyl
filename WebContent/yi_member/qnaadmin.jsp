@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
 <!-- Bootstrap -->
+<link rel="stylesheet" href="css/yi_adminboard.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -88,14 +89,15 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="yiqnaadmin.do"><!--처음에 list.do햇음  -->
-<div id="searchbox">
-<select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
+<form method="post" class="form-inline" action="yiqnaadmin.do"><!--처음에 list.do햇음  -->
+<div class="questionsearch_searchbox">
+<select name="search" class="custom-select"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
 	<option value="name">이름</option>
 	<option value="btitle">글제목</option>
 </select>
-<input type="text" name="txtsearch">
+<i class='fas fa-search' style="padding: 5px;"></i>
+<input type="text" name="txtsearch" class="form-control">
 <!-- <input type="submit" value="검색"> -->
 
 
@@ -103,45 +105,49 @@ $(document).ready(function(){
 
 
 
-<table>
-<thead><tr><th>선택</th><th>글번호</th><th>아이디</th><th>회원번호</th><th>질문제목</th><th>질문날짜</th><th>답변하기</th><th>삭제</th></tr>
+<table class='table table-hover'>
+<thead class='thead-dark'><tr><th>선택</th><th>글번호</th><th>아이디</th><th>회원번호</th><th>질문제목</th><th>질문날짜</th><th>답변하기</th><th></th><th>삭제</th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
 	<c:forEach var="item" items="${list}">
 	<tr>
  	<td><input type="checkbox" name="select" id="select" value="${item.q_no }" ></td>
-	<td><c:out value="${item.q_no }"></c:out></td> 
+	<td>${item.q_no }</td> 
 	<td>${item.id }</td>
 	<td>${item.mem_no }</td>
 	<td>${item.title }</td>
 	<td>${item.qdate }</td>
 	
 	
-	<td><a href="hs_questiondetail.do?no=${item.q_no}">답변하러가기</a><td>
-	<td><a href="yiqnadelete.do?q_no=${item.q_no}">삭제</a><td>
+	<td><a href="hs_questiondetail.do?no=${item.q_no}" class="btn btn-outline-info">답변하기</a><td>
+	<td><a href="yiqnadelete.do?q_no=${item.q_no}" class="btn btn-danger">삭제</a><td>
 
 
 	</tr>
 	 </c:forEach>
 </tbody>
 </table><br>
+<div class="container">
+<div class="row">
+<div class="col"></div>
+<ul class='pagination'>
 <c:if test="${startblock > 1 }">
-	<a href="yiqnaadmin.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a>
+	<li><a class="page-link" href="yiqnaadmin.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a></li>
 </c:if>
 
 <c:if test="${currpage > 1 }">
-	<a href = "yiqnaadmin.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a>
+	<li><a class="page-link" href = "yiqnaadmin.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a></li>
 </c:if>
 
 <c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
 	<c:if test="${currpage ==i }">
 		<!-- 같으면 그냥 출력 -->
-		<c:out value="${i}"/>
+		<li class="page-item active" ><a class="page-link" href="yiqnaadmin.do?curr=${i}" ><c:out value="${i}" /></a></li>
 	</c:if>
 	<c:if test="${currpage != i }">
 		<!-- 다르면 링크 걸어주고 시작 -->
-		<a href="yiqnaadmin.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a>
+		<li><a class='page-link' href="yiqnaadmin.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a></li>
 	
 	</c:if>
 
@@ -149,12 +155,16 @@ $(document).ready(function(){
 </c:forEach>
 
 <c:if test="${currpage < totalpage }">
-	<a href = "yiqnaadmin.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
+	<li><a class='page-link' href = "yiqnaadmin.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
 </c:if>
 
 <c:if test="${endblock < totalpage }">
-	<a href = "yiqnaadmin.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
+	<li><a class="page-link" href = "yiqnaadmin.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
 </c:if>
+</ul>
+<div class="col"></div>
+</div>
+</div>
 <br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 

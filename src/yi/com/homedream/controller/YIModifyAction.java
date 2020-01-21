@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.dto.OrderlistDTO;
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.dto.YIOrderlistDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIModifyAction implements Action {
 
@@ -35,8 +35,8 @@ public class YIModifyAction implements Action {
 		}
 		else
 		{
-			List<MemberDTO> list=new ArrayList<>();
-			MemberService service=MemberService.getService();
+			List<YIMemberDTO> list=new ArrayList<>();
+			YIMemberService service=YIMemberService.getService();
 			list=service.memberInfo(id);
 			request.setAttribute("list", list);
 			

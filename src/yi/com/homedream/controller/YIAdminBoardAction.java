@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.dto.MemberDTO;
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.dto.YIMemberDTO;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIAdminBoardAction implements Action {
 
@@ -28,7 +28,7 @@ request.setCharacterEncoding("utf-8");
 		}
 		
 				
-		MemberService service=MemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
+		YIMemberService service=YIMemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
 		
 		//구매액 상세검색
 		int stxtsearch1=0;
@@ -75,7 +75,7 @@ request.setCharacterEncoding("utf-8");
 		System.out.println("totalpage:"+totalpage);
 		System.out.println("currpage:"+currpage);
 		
-		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch);//이건 걍 전체 가져오는거고(페이징으로)
+		List<YIMemberDTO> list=service.getList(startrow,endrow,search,txtsearch);//이건 걍 전체 가져오는거고(페이징으로)
 		
 		
 		request.setAttribute("list", list);

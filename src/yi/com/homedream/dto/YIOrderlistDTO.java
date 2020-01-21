@@ -1,6 +1,6 @@
 package yi.com.homedream.dto;
 
-public class OrderlistDTO {
+public class YIOrderlistDTO {
 private int order_no;
 private String orderdate;
 private int status;

@@ -1,6 +1,6 @@
 package yi.com.homedream.dto;
 
-public class ItemDTO {
+public class YIItemDTO {
 private int item_no;
 private String name;
 private String content;

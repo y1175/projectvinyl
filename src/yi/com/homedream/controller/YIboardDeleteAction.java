@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yi.com.homedream.service.MemberService;
+import yi.com.homedream.service.YIMemberService;
 
 public class YIboardDeleteAction implements Action {
 
@@ -17,7 +17,7 @@ public class YIboardDeleteAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int bno=Integer.parseInt(request.getParameter("bno"));
-		MemberService service=MemberService.getService();
+		YIMemberService service=YIMemberService.getService();
 		service.boardDelete(bno);
 		
 		
