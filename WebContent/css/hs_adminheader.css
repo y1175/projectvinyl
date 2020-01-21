@@ -29,11 +29,12 @@
 }
 /* 관리자모드  */
 .hs_header_admin{
-	font-size:18px;
+	font-size:17px;
 	float: right;
 	color: rgb(0, 153, 255);
 	position: relative;
 	top: 20px;
+	text-decoration: none;
 } 
 /* header nav line */
 .hs_header_line{

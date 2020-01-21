@@ -158,12 +158,13 @@ $(document).ready(function(){
 </c:if>
 <br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
+</form>
 
-<footer>
+
+     <footer>
          <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
      </footer>
   </div>
-</form>
 
 
 
