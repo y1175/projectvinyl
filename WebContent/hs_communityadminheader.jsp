@@ -25,7 +25,7 @@
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
          <a href="" style="color: rgb(0, 153, 255);">이벤트관리</a>
-         <a href="hm_upload.do">업체관리</a>
+         <a href="hm_managerlist.do">업체관리</a>
          <a href="">게시판관리</a>
      </nav>  
     </div> 

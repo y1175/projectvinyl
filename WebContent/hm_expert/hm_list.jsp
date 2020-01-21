@@ -20,10 +20,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="hm_expert/hm_list.css">
-
-
-
+<link rel="stylesheet" href="css/hm_list.css">
 </head>
 <body>
    <div class="container">
@@ -38,7 +35,7 @@
 	<form method="post" action="hm_list.do">
 		<select class="form-control" id="hmcity" name="hmcity">
 			<!-- select name값을 넘겨서 검색처리하기 -->
-			<option value="전체">선택하세요</option>
+			<option value ="">선택하세요</option> 
 			<!-- 전체부분 데이터 페이징처리하기 -->
 			<option value="강남">서울특별시 강남구</option>
 			<option value="동작">서울특별시 동작구</option>
@@ -118,10 +115,18 @@
       String hmcity = request.getParameter("hmcity");
 
       if (startblock > 1) {
+    	  if(hmcity==null||hmcity.equals(""))
+    		  
+    	  {
+    	%>
+    	 <a href="hm_list.do?curr=<%=currpage - 1%>">이전</a>
+    	  <% 
+    	  }else{
+    	  
    %>
    <a href="hm_list.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>">이전</a>
    <%
-      //currpage -> startblock-1 = 블럭단위로 넘어감   
+    	  }//currpage -> startblock-1 = 블럭단위로 넘어감   
       }
    %>
 
@@ -131,7 +136,11 @@
    %>
    <%=i%>
    <%
-      } else {
+      } else if(hmcity==null||hmcity.equals("")){
+   %>
+   <a href="hm_list.do?curr=<%=i%>"><%=i%></a>
+   <% 
+      }else{
    %>
    <a href="hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
    <%
@@ -142,12 +151,21 @@
    %>
    <%
       if (endblock < totalpage) {
+    	  if(hmcity==null||hmcity.equals("")){
+    		  %>
+    		  <a href="hm_list.do?curr=<%=currpage + 1%>">다음</a>
+    		  
+    		  <% 
+    	  }else{
    %>
    <a href="hm_list.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
    <%
+    	  }
       //endblock+1로 할수도있음 -> block단위로 다음
       }
    %>
+
+
 
 
 
@@ -165,6 +183,7 @@
 		})();
 	</script>
 	<!--End of Tawk.to Script-->
+
 
    <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>

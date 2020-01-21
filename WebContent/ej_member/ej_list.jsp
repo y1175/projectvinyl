@@ -4,111 +4,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<!-- jQuery -->
+<!-- viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
 <style>
-#searchbox{border:1px solid silver;
+#ej_searchbox{border:1px solid silver;
 width: 60%;
 padding: 20px;}
-#line{border:0.5px solid silver;}
+#ej_line{border:0.5px solid silver;}
 </style>
 
+
+
 <script>
+function delconfirm(){
 
-/*  $(document).ready(function () {
-	//let values=[];//체크된 번호를 받는 배열
-	var h=new Array();
-$("input[name='select']").click(function(){
-	$("input[name='select']:checked").each(function(i)
-			{
-			
-			let h=($("input[name='select']:checked").val());
-			console.log(h);
-
-				});
-	
-});
-	 $('#delete').on('click',function(){
-	
-	$.ajax({
-		url:"delete.do",
-		type:"get",
-		data: h,
-		success:function(data){
-			alert("삭제완료!");
-		},
-		error:function(data){
-			alert("에러 발생 ");
-			
-		}
-	});
-	
-	
-});
-
-}); */
-
-function send(){/* document.form이름.submit() */
-	if(document.frm.title.value!="")
-		document.frm.submit();
-}//send()
-
-function del(mem_no){
-	console.log(sno);
-	console.log(bno);
-	location.href="subdelete.do?subno="+sno+"&boardno="+bno;
+	var jbResult = confirm( '해당 회원을 삭제 하시겠습니까?' );
+	//document.write( jbResult );	
 }
-$(document).ready(function(){
-	let no=${dto.boardno};
-	console.log("no:",no);
-	$.ajax({
-		url:'subdetail.do'
-		,data:{'num':no}
-		,dataType: 'json'//json으로 하면 ~.do로 자료 사용하는건맞음 SubDetailAction implements 하면안됨
-		//class로 하면 자료 받을 수 없다. class가 아닌 servlet만들면됨 객체만들필요없다
-		//ublic class SubDetailAction /*implements Action */{//파라미터 받아줘야함
-
-	//@Override
-	//public ForwardAction execute(HttpServletRequest request, HttpServletResponse response)
-			//throws ServletException, IOException {
-		//json타입으로 받아옴 요청받고 응답에 대한 자료 처리;
-		//out객체 만들어서 자료들을 처리 굳이 controll탈필요 없 
-		//return 어쩌고.jsp할필요없
-		//implements Action 할 필요 없음
-		//properties에 안쓴다
-		
-	
-
-		,method:'post'//post방식으로 하면 숨겨서 넘김
-		,success:function(data)
-		{
-			$.each(data,function(index,item){
-				console.log(index);
-				console.log(item);
-				console.log(item.subno);
-				//let result="<tr><td>"+item.subno+"</td>";//따로 넣어야됨 . 이건 시퀀스인듯
-				let result="<tr>";
-				result+="<td>"+item.subtitle+"</td>";
-				result+="<td>"+item.writer;
-				result+="<input type='button' value='삭제' onclick=del("+item.subno+","+item.boardno+")>";
-				//result+="<td>"+item.boardno+"</td>";//1번글에 대한 댓글임을 보여줌. 따라서 출력할 필요없음
-				result+="</td></tr>";
-				$('#result').append(result);
-				});
-			
-		}
-		,error:function(data)
-		{
-			console.log('error',data);
-		}
-	});
-	
-});
 </script>
+
+
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
-<% %>
+  <div class="container">
+     <header>
+         <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
+     </header>
+<h3>회원조회</h3>
 <!--setAttribute로 지정한것 변수로 받아오기  -->
 <c:set var="list" value="${requestScope.list }"/>
 <c:set var="currpage" value="${requestScope.currpage }"/>
@@ -119,7 +53,7 @@ $(document).ready(function(){
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
 <form method="post" action="ej_list.do"><!--처음에 list.do햇음  -->
-<div id="searchbox">
+<div id="ej_searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
 	<option value="name">이름</option>
@@ -127,7 +61,7 @@ $(document).ready(function(){
 <input type="text" name="txtsearch">
 <!-- <input type="submit" value="검색"> -->
 
-<div id="line"></div>
+<div id="ej_line"></div>
 <label for="point">구매액</label>
 <input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원<br>
 <input type="submit" value="상세검색"> 
@@ -148,15 +82,10 @@ $(document).ready(function(){
 	<td>${item.id }</td>
 	<td>${item.pwd }</td>
 	<td>${item.name }</td>
-
 	<td>${item.total }원</td>
-		<td>${item.point }포인트<!-- <input type="text" name="addpoint" id="addpoint" size="5"> --></td>
-		<!-- <td><input type="submit" id="point" value="포인트" ></td>  -->
-	<td><a href="ej_insert.do?memNo=${item.memNo}" target="_blank">적립</a><td> 
-		
-		
-		
-	<td><a href="ej_delete.do?memNo=${item.memNo}">삭제</a><td>
+	<td><a href="ej_insert.do?memNo=${item.memNo}" target="_blank"  >${item.point }포인트</a><td> 
+<!--target="_blank"  -->
+	<td><a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a><td>
 
 
 	</tr>
@@ -175,7 +104,12 @@ $(document).ready(function(){
 </c:forEach><br>
 
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
-
+     
+     
+     <footer>
+         <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
+     </footer>
+  </div>
 
 
 

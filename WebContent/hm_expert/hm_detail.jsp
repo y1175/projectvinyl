@@ -21,12 +21,18 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link rel="stylesheet" href="css/hm_detail.css">
 </head>
 <body>
 <div class="container">
      <header>
          <jsp:include page="/hs_communityheader.jsp"></jsp:include>
      </header>
+     
+     
+     
+        
+     
 <%
 	Hm_ExpertDTO dto = (Hm_ExpertDTO) request.getAttribute("dto");
 
@@ -37,29 +43,6 @@
 	String file_name = dto.getFile_name();
 	
 %>
-<div class = "hm_detail">
-	<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_detailimg"/>
-	<h2><%=name%></h2>
-	<p><br><%=addr%><br></p>
-	<p><%=text%><br></p>
-</div>
-
-
-
-
-<a href="hm_list.do">목록으로</a>
-<a href="hm_modify.do?no<%=no%>">수정</a>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,6 +65,21 @@
 		    map: map // 마커를 표시할 지도 객체
 		});
 	</script>
+
+<div class = "hm_detail">
+	<img src="hm_expert/<%=file_name%>" alt="<%=file_name%>" class ="hm_detailimg"/>
+	<h2><%=name%></h2>
+	<p><br><%=addr%><br></p>
+	<p><%=text%><br></p>
+</div> 
+
+
+
+	
+<a href="hm_list.do">목록으로</a>
+<a href="hm_modify.do?no<%=no%>">수정</a>	
+	
+	
    <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>
    </footer>

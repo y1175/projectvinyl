@@ -72,11 +72,7 @@ public class MemberService {
 		}return list;
 		
 	}
-	/*public List<MemberDTO> getselectedList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	*/
+
 
 	public void delete(int memno) {
 		Connection conn=null;
@@ -104,6 +100,59 @@ public class MemberService {
 		}
 		
 	}
+	
+	public void insert(int memno, int addpoint) {
+		Connection conn=null;
+	
+				
+		try {
+			DBConnection db=DBConnection.getInstance();
+			
+			conn=db.getConnection();
+			conn.setAutoCommit(false);
+			
+			MemberDAO dao=MemberDAO.getDAO();
+			dao.insert(conn, memno, addpoint);
+			//list를 리턴을 받아줫을때
+			
+			conn.commit();
+			
+		}catch(NamingException|SQLException e)
+		{
+			System.out.println(e);
+			try {conn.rollback();}catch(Exception e2) {}
+		}finally {
+			if(conn!=null)try {conn.close();}catch(SQLException e) {}
+		}
+		
+	}
+	
+	/*public void insert(int memno, int addpoint) {
+	
+	Connection conn=null;
+	try {
+		DBConnection db=DBConnection.getInstance();
+		
+		conn=db.getConnection();
+		conn.setAutoCommit(false);
+		
+		MemberDAO dao=MemberDAO.getDAO();
+		
+		dao.insert(conn,memno,addpoint);
+		//list를 리턴을 받아줫을때
+		
+		conn.commit();
+		
+	}catch(NamingException|SQLException e)
+	{
+		System.out.println(e);
+		try {conn.rollback();}catch(Exception e2) {}
+	}finally {
+		if(conn!=null)try {conn.close();}catch(SQLException e) {}
+	}
+	
+	
+}*/
 		
 	}
 	

@@ -20,6 +20,7 @@ public class YIboardDeleteAction implements Action {
 		MemberService service=MemberService.getService();
 		service.boardDelete(bno);
 		
+		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
 		f.setUrl("yiadminboard.do");

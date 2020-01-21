@@ -96,7 +96,7 @@ $(document).ready(function(){
 	<!--arraylist니까 foreach  -->
 	<c:forEach var="item" items="${list}">
 	<tr>
- 	<td><input type="checkbox" name="select" id="select" value="${item.memNo }" ></td>
+ 	<td><input type="checkbox" name="select" id="select" value="${item.bno }" ></td>
 	<td><c:out value="${item.memNo }"></c:out></td> 
 	<td>${item.id }</td>
 	<td>${item.bno }</td>
@@ -112,34 +112,36 @@ $(document).ready(function(){
 	 </c:forEach>
 </tbody>
 </table><br>
-<c:if test="${startblock>1 }">
-<a href="yiadminboard.do?curr=${startblock-1 }">이전</a>
+<c:if test="${startblock > 1 }">
+	<a href="yiadminboard.do?curr=${startblock-1 }&search=${search }&txtsearch=${txtsearch }">이전 블럭으로</a>
 </c:if>
 
-<c:forEach var="i" begin="${starblock+1 }" end="${endblock }" step="1">
-	<c:choose>
-	<c:when test="${currpage==i }">
-	<c:out value="${i }"/>
-	</c:when>
-	<c:when test="${currpage!=i }">
-	<a href="yiadminboard.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
-	</c:when>
-	
-	</c:choose>
-	<%-- <  c:if test="${currpage==i }">
-	<  c:out value="${i }"/>
-	
-	<  /c:if>
+<c:if test="${currpage > 1 }">
+	<a href = "yiadminboard.do?curr=${currpage -1 }&search=${search }&txtsearch=${txtsearch}">이전</a>
+</c:if>
 
-	<  c:if test="${currpage!=i }">
-	<  a href="yiadminboard.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a>
-	<  /c:if> --%>
+<c:forEach var = "i" begin="${startblock}" end="${endblock}" step ="1">
+	<c:if test="${currpage ==i }">
+		<!-- 같으면 그냥 출력 -->
+		<c:out value="${i}"/>
+	</c:if>
+	<c:if test="${currpage != i }">
+		<!-- 다르면 링크 걸어주고 시작 -->
+		<a href="yiadminboard.do?curr=${i}&search=${search}&txtsearch=${txtsearch}">${i}</a>
+	
+	</c:if>
+
+
 </c:forEach>
 
-<c:if test="${endblock<totalpage }">
-<a href="yiadminboard.do?curr=${endblock+1 }&search=${search}&txtsearch=${txtsearch }">다음</a>
+<c:if test="${currpage < totalpage }">
+	<a href = "yiadminboard.do?curr=${currpage +1 }&search=${search }&txtsearch=${txtsearch}">다음</a>
 </c:if>
 
+<c:if test="${endblock < totalpage }">
+	<a href = "yiadminboard.do?curr=${endblock +1 }&search=${search }&txtsearch=${txtsearch}">다음블럭으로</a>
+</c:if>
+<br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 
 

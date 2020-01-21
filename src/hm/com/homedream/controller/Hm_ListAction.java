@@ -25,6 +25,8 @@ public class Hm_ListAction implements Action {
 		{
 			search="";
 		}
+		String[] hmsearch = request.getParameterValues("hmcity");
+		
 		Hm_ExpertService service = Hm_ExpertService.getService();
 
 		
