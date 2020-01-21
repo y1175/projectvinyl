@@ -5,12 +5,15 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import hs.com.homedream.question.QuestionDTO;
+import hs.com.homedream.service.QuestionService;
 import jy.com.homedream.DTO.JY_JN_BoardDTO;
 import jy.com.homedream.service.JY_JN_Service;
 
@@ -42,19 +45,31 @@ public class JY_JN_UploadResultAction implements Action {
 		System.out.println(btitle);
 		System.out.println(bcontent);
 		
-		JY_JN_BoardDTO dto = new JY_JN_BoardDTO();
-		dto.setBtitle(btitle);
-		dto.setBcontent(bcontent);
-		dto.setFile_name(file);
-		
-		JY_JN_Service service = JY_JN_Service.getService();
-		service.jn_getUpload(dto);
-		
 		ActionForward forward = new ActionForward();
-		forward.setForward(true);
-		forward.setUrl("jy_list.do");
 		
-		 
+		HttpSession session=request.getSession();
+	      String mem_no=(String)session.getAttribute("userId");
+	      ActionForward f=new ActionForward();
+	      if(mem_no==null)   //세션이 없으면 로그인화면으로 넘어간다
+	      {
+	         f.setForward(false);
+	         f.setUrl("yilogin.do");
+	         
+	      }
+	      else   //id!=null, 즉 아이디가 있으면..
+	      {
+	    	  JY_JN_BoardDTO dto = new JY_JN_BoardDTO();
+	  		  dto.setBtitle(btitle);
+	  		  dto.setBcontent(bcontent);
+	  		  dto.setFile_name(file);
+	  		
+	  		  JY_JN_Service service = JY_JN_Service.getService();
+	  		  service.jn_getUpload(dto);
+	         
+	  		  forward.setForward(true);
+			  forward.setUrl("jy_list.do");
+	      }
+
 		return forward;
 	}
 

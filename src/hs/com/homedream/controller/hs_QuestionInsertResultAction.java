@@ -50,13 +50,13 @@ public class hs_QuestionInsertResultAction implements Action {
 		    	  QuestionDTO dto=new QuestionDTO();
 		  		  dto.setTitle(title);
 		  		  dto.setContent(content);
-		  		dto.setFilename(file);
+		  		  dto.setFilename(file);
 		  		
-		  		QuestionService service=QuestionService.getService();
+		  		  QuestionService service=QuestionService.getService();
 		  		service.getInsertUpload(dto,mem_no);
 		         
 		         
-		         f.setForward(false);
+		         f.setForward(true);
 		         f.setUrl("hs_questionlist.do");
 		      }
 
