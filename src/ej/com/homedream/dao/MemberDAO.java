@@ -169,5 +169,18 @@ public class MemberDAO {
 		}
 		
 	}
+	public void insert(Connection conn, int memno, int addpoint) throws SQLException {
+		StringBuilder sql=new StringBuilder();
+		
+		sql.append(" insert into point_msg(mem_no,point) ");
+		sql.append(" values(?,?) ");
+		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString())){
+			pstmt.setInt(1, memno);
+			pstmt.setInt(2, addpoint);
+			pstmt.executeUpdate();
+			
+		}
+		
+	}
 
 }
