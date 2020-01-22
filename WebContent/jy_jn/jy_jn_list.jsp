@@ -34,7 +34,6 @@
 
     <div class="title-header pens-title-header">
         <h1 style="display: inline-block; font-size: 4em;">집들이 & 노하우</h1>
-      
     </div>
     
     <div class="title_under_bar"></div>
@@ -45,7 +44,7 @@
 		<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=likepoint">좋아요순</a>
         </div>   
         
-        <div class="fuckyou">
+
 <c:set var="list" value="${requestScope.jn_list}"/>
 <c:forEach var="item" items="${list}">
 
@@ -83,11 +82,12 @@
 
 
 
-</div>
 
 
 <br>
-<a href="jy_upload.do">새글쓰기</a>
+<div class="new_write" style="width:100%; padding-left: 83%;">
+<a href="jy_upload.do"><button type="button" class="btn btn-outline-info" style="font-size: 15px;">새글쓰기</button></a>
+</div>
 <br>
 
 <c:set var ="currpage" value = "${requestScope.currpage }"/>
