@@ -97,7 +97,7 @@ public class ItemDAO {
 		ItemDTO dto = null;
 		ResultSet rs = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("select name, content, company, price, stock "
+		sql.append("select name, content, company, price, stock, file_name "
 				+ "	from item "
 				+ "	where item_no = ?");
 		try(PreparedStatement pstmt = conn.prepareStatement(sql.toString());){
@@ -111,6 +111,7 @@ public class ItemDAO {
 				dto.setCompany(rs.getString("company"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setStock(rs.getInt("stock"));
+				dto.setFileName(rs.getString("file_name"));
 			}
 		}catch (Exception e) {
 			System.out.println(e);

@@ -13,7 +13,7 @@ import yj.com.homedream.dto.CategoriDTO;
 import yj.com.homedream.dto.ItemDTO;
 import yj.com.homedream.service.ItemService;
 
-public class UpdateAction implements Action {
+public class UpdateItemAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)

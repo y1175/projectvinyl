@@ -13,38 +13,43 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import yj.com.homedream.dto.ItemDTO;
 import yj.com.homedream.service.ItemService;
 
-public class InsertResultAction implements Action {
+public class UpdateItemResultAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws SecurityException, IOException {
-
 		int filesize = 1024 * 1024 * 10;
 		String uploadpath = request.getServletContext().getRealPath("img");
 		MultipartRequest multi =new MultipartRequest(request, uploadpath, filesize, "utf-8", new DefaultFileRenamePolicy());
 		
 		String file = multi.getFilesystemName("fileupload");
 		int cNo = Integer.parseInt(multi.getParameter("categori"));
+		String sale = multi.getParameter("sale");
+		
 		String company = multi.getParameter("company");
 		String content = multi.getParameter("content");
 		String name = multi.getParameter("name");
 		int price = Integer.parseInt(multi.getParameter("price"));
 		int stock = Integer.parseInt(multi.getParameter("stock"));
-		int sale = Integer.parseInt(multi.getParameter("sale"));
+		int itemNo = Integer.parseInt(multi.getParameter("itemNo"));
 		
 		ItemDTO dto = new ItemDTO();
-		dto.setFileName(file);
+		
+		if(file != null) {
+			dto.setFileName(file);			
+		}
+		
 		dto.setName(name);
 		dto.setCompany(company);
-		dto.setCNo(cNo);
 		dto.setContent(content);
 		dto.setPrice(price);
 		dto.setStock(stock);
-		dto.setSale(sale);
+		dto.setSale(Integer.parseInt(sale));			
+		dto.setCNo(cNo);
+		dto.setItemNo(itemNo);
 		
 		ItemService service = ItemService.getInstance();
-		service.insertItem(dto);
-		
+		service.updateItem(dto);
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(false);

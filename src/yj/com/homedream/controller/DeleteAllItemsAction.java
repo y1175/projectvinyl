@@ -1,7 +1,6 @@
 package yj.com.homedream.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,23 +8,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import yj.com.homedream.dto.CategoriDTO;
 import yj.com.homedream.service.ItemService;
 
-public class InsertAction implements Action {
+
+
+public class DeleteAllItemsAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws SecurityException, IOException {
+		String[] arr = request.getParameterValues("num");
 		
-		ItemService service = ItemService.getInstance();
-		List<CategoriDTO> list = service.getCategori(); 
+		ItemService.getInstance().deletAll(arr);
 		
 		ActionForward forward = new ActionForward();
-		request.setAttribute("list", list);
-		forward.setForward(true);
-		forward.setUrl("/yj/insertItem.jsp");
-		
+		forward.setForward(false);
+		forward.setUrl("yj_itemlist.do");
 		return forward;
 	}
 
