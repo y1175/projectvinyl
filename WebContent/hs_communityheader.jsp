@@ -13,7 +13,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <!--header style-->
-<link rel="stylesheet" href="css/hs_userheader.css?ver=2" >
+<link rel="stylesheet" href="css/hs_userheader.css?ver=3" >
 <!--header style-->
 <style>
   /* .hs_header_nav_a{
@@ -49,7 +49,7 @@
      <form>
         <label for="hs_mainsearch"></label>
         <i class='fas fa-search' style="padding: 5px;"></i>
-        <input type="text" id="hs_mainsearch" name="hs_mainsearch" value="통합검색">
+        <!-- <input type="text" id="hs_mainsearch" name="hs_mainsearch" placeholder="통합검색"> -->
      </form>
      </div>
      <div class="hs_header_cartlogin">
@@ -71,7 +71,7 @@
     <div class="hs_header_line"></div> 
     </div>
    </div>
-  </c:if>
+</c:if>
   <c:if test="${sessionScope.userId != null}">
     <div>
     <div class="hs_header_top">
@@ -82,7 +82,7 @@
      <form>
         <label for="hs_mainsearch"></label>
         <i class='fas fa-search' style="padding: 5px;"></i>
-        <input type="text" id="hs_mainsearch" name="hs_mainsearch" value="통합검색">
+        <!-- <input type="text" id="hs_mainsearch" name="hs_mainsearch" placeholder="통합검색"> -->
      </form>
      </div>
      <div class="hs_header_cartlogin">

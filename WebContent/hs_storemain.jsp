@@ -26,7 +26,8 @@
          <jsp:include page="hs_storeheader.jsp"></jsp:include>
      </header>
      <section>
-         <jsp:include page="hs_storecontent.jsp"></jsp:include>
+         <c:set var="hs_user_store_contentpage" value="${param.page}"/>
+         <jsp:include page="${hs_user_store_contentpage}"></jsp:include>
      </section>
      <footer>
          <jsp:include page="hs_user_footer.jsp"></jsp:include>
