@@ -27,7 +27,8 @@
          <jsp:include page="hs_communityheader.jsp"></jsp:include>
      </header>
      <section>
-         <jsp:include page="hs_communitycontent.jsp"></jsp:include>
+         <c:set var="hs_user_community_contentpage" value="${param.page}"/>
+         <jsp:include page="${hs_user_community_contentpage}"></jsp:include>
      </section>
      <footer>
          <jsp:include page="hs_user_footer.jsp"></jsp:include>

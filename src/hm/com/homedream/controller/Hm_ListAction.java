@@ -73,7 +73,7 @@ public class Hm_ListAction implements Action {
 		request.setAttribute("list", list);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_list.jsp");
+		forward.setUrl("/hs_communitymain.jsp?page=hm_expert/hm_list.jsp");
 		
 		
 		return forward;

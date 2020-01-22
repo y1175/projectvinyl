@@ -18,7 +18,7 @@ public class Hm_UploadAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_uploadform.jsp");
+		forward.setUrl("/hs_communityadminmain.jsp?page=hm_expert/hm_uploadform.jsp");
 		
 		return forward;
 	}
