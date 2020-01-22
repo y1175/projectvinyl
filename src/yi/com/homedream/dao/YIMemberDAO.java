@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ej.com.homedream.dto.MemberDTO;
+import ej.com.homedream.dto.EJMemberDTO;
 import yi.com.homedream.dto.YIItemDTO;
 import yi.com.homedream.dto.YIMemberDTO;
 import yi.com.homedream.dto.YIOrderlistDTO;
@@ -42,14 +42,14 @@ public class YIMemberDAO {
 		}
 		
 	}
-	public MemberDTO getLogin(Connection conn,String id, String pwd) throws SQLException{
+	public EJMemberDTO getLogin(Connection conn,String id, String pwd) throws SQLException{
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		String userId=null;
 		sql.append(" select mem_no,id,pwd ");
 		sql.append(" from member  ");
 		sql.append(" where id= ? and pwd= ?   ");
-		MemberDTO dto=new MemberDTO();
+		EJMemberDTO dto=new EJMemberDTO();
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
 		{
 			pstmt.setString(1, id);

@@ -9,7 +9,7 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
-import ej.com.homedream.dto.MemberDTO;
+import ej.com.homedream.dto.EJMemberDTO;
 import hs.com.homedream.question.QuestionDAO;
 import yi.com.homedream.dao.YIMemberDAO;
 import yi.com.homedream.dto.YIItemDTO;
@@ -48,10 +48,10 @@ public class YIMemberService {
 		}
 
 	}
-	public MemberDTO getLogin(String id, String pwd) {
+	public EJMemberDTO getLogin(String id, String pwd) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		MemberDTO dto=null;
+		EJMemberDTO dto=null;
 		
 		try {
 			conn=dbconn.getConnection();
