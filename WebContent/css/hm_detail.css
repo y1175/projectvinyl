@@ -39,7 +39,7 @@ body
 }
 .hm_tile .hm_text
 {
-/*   z-index:99; */
+  z-index:99;
   position:absolute;
   padding:30px;
   height:calc(100% - 60px);
@@ -63,7 +63,7 @@ body
   font-weight:300;
   margin:20px 0 0 0;
   line-height: 25px;
-/*   opacity:0; */
+  opacity:0;
   transform: translateX(-200px);
   transition-delay: 0.2s;
 }
@@ -74,7 +74,7 @@ body
 }
 .hm_tile:hover
 {
-/*   background-color:#99aeff; */
+  background-color:#99aeff;
 box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:scale(1.05);
 }
@@ -87,7 +87,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:translateX(0);
   opacity:1;
 }
-.hm_dots
+ .hm_dots
 {
   position:absolute;
   bottom:20px;

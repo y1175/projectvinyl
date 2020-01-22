@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="hm_expert/hm_detail.css">
+<link rel="stylesheet" href="hm_expert/hm_detail.css?ver=1">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
@@ -90,7 +90,7 @@
 </div>
   
   
-</div>
+
 
 
 
@@ -239,6 +239,7 @@ style ="margin:50px 80px 50px 0px; float:right;"
    <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>
    </footer>
-</div>	
+
+</div>
 </body>
 </html>
