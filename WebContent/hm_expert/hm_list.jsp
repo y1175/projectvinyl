@@ -20,7 +20,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="css/hm_list.css">
+<link rel="stylesheet" href="css/hm_list.css?ver=1">
 <style>
 /* header nav 전문가찾기 글씨색상  */
   .hs_header_nav > a:nth-child(3){
@@ -85,6 +85,16 @@
 			int no = dto.getNo();
 	%>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	    <p style="text-align: center;">
 			<img src="upload/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>
 		</p>
@@ -102,7 +112,9 @@
 				<%=text%>
 			</p>
 			<p>
-				<a href="hm_detail.do?no=<%=dto.getNo()%>" class="hm_btn">상세보기</a>
+					<a href="hm_detail.do?no=<%=dto.getNo()%>">
+					<button type="button" class="btn btn-outline-info" 
+					style ="margin: 40px 40px 0px 0px; ">상세보기</button></a>	
 			</p>
 		</div>
 	</div> 

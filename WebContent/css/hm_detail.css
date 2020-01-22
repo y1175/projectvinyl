@@ -2,6 +2,15 @@ body
 {
  margin : 0px auto;
 }
+.hm_detailfirst h1{
+	margin : 20px 0px 40px 0px;
+	text-align: center;
+	font-weight: bolder;
+}
+.hm_detailfirst h6{
+	text-align: center;
+	font-weight: bolder;
+}
 .hm_wrap
 {
   margin:50px auto 0 auto;
@@ -82,7 +91,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 {
   opacity: 0.2;
 }
-.hm_tile:hover .animate-text
+.hm_tile:hover .hm_animate-text
 {
   transform:translateX(0);
   opacity:1;
@@ -135,35 +144,19 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
    transition-delay: 0.15s;
 }
 
+.hm_detailtwice h3{
+	margin : 100px 0px 0px 165px;
+	font-weight: bolder;
+}
+.hm_detailtwice h3:hover{
+	color:rgba(0,153,255,0.6);
+	
+}
 
-/* 
- .carousel-inner{
-width:86%; 
-height:400px; 
-margin : 0px auto; 
-overflow: hidden		
-}
-.carousel-control-prev{
-	margin : 0px 0px 0px 20px;
-}
-.carousel-control-next{
-	margin : 0px 20px 0px 0px;
-}
-.hm_managerdetail h2{
-	text-align: center;
-	margin : 30px 0px;
-}
-.hm_managerdetail p{
-	text-align: center;
-}
-address{
-	margin:50px 0px;
-	text-align:center;
-}
+
 .card-title{
 	text-align: center;
 }
 .card-text{
 	text-align: center;
-} */
- 
+} 
