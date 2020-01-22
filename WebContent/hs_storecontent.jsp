@@ -9,6 +9,12 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 <link rel="stylesheet" href="css/hs_storecontent.css?ver=1">
+<style>
+/* header nav 스토어홈  */
+  .hs_header_nav > a:nth-child(1){
+    color: rgb(0, 153, 255);
+  }
+</style>
 </head>
 <body>
 <!--category start-->
@@ -90,84 +96,113 @@
    <h6 style="font-weight: 800;">전체보기</h6>
   <!-- store_thumbnail 1 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542094133046_6h.jpg?gif=1&w=480&h=480&c=c" alt="이지은행거"></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542094133046_6h.jpg?gif=1&w=480&h=480&c=c" alt="이지은행거">
+     </a>
      <p class="hs_thumbnail_store_title">이지은행거</p>
      <a href=""><b>이중지지대 이지 폴행거 모음전</b></a>
      <br>
      <b style="color: rgb(0, 153, 255);">26%</b><b>47,900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.1<span style="color: #757575;"> 리뷰 646</span></p>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);">
+     </i>4.1<span style="color: #757575;"> 리뷰 646</span></p>
    </div>
   <!-- store_thumbnail 2 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/156326726207924806.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="데코뷰">
+     </a>
+     <p class="hs_thumbnail_store_title">데코뷰</p>
+     <a href=""><b>[연휴특가] 인기 시폰커튼/린넨커튼 24종</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">73%</b><b>13,900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);">
+     </i>4.6<span style="color: #757575;"> 리뷰 1,789</span></p>
    </div>
   <!-- store_thumbnail 3 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157898943354763294.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="피움플랜트">
+     </a>
+     <p class="hs_thumbnail_store_title">피움플랜트</p>
+     <a href=""><b>먼지먹는 식물 수염틸란드시아 행잉플랜트 모음</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">31%</b><b>5,500</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;">
+     <i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.1<span style="color: #757575;"> 리뷰 3,923</span></p>
    </div>
    <!-- store_thumbnail 4 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/15650448088234_xUa76.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="까사미다">
+     </a>
+     <p class="hs_thumbnail_store_title">까사미아</p>
+     <a href=""><b>오브B 원목책상 120cm/160cm</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">17%</b><b>255,000</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;">
+     <i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>
+     3.8<span style="color: #757575;"> 리뷰 1</span></p>
    </div>
   <!-- store_thumbnail 5 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157862924829702173.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="tenzo">
+     </a>
+     <p class="hs_thumbnail_store_title">tenzo</p>
+     <a href=""><b>[연휴특가] 스웨덴가구 서랍/수납장 12types</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">0%</b><b>151,900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;">
+     <i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>
+     4.5<span style="color: #757575;"> 리뷰 5</span></p>
    </div>
   <!-- store_thumbnail 6 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157966074552956459.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="마틸라">
+     </a>
+     <p class="hs_thumbnail_store_title">마틸라</p>
+     <a href=""><b>프리미엄 차렵이불(단품/세트) 8종</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">41%</b><b>22,320</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;">
+     <i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.1
+     <span style="color: #757575;"> 리뷰 5,222</span></p>
    </div>             
     <!-- store_thumbnail 7 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157534853542631411.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="잉글랜더">
+     </a>
+     <p class="hs_thumbnail_store_title">잉글랜더</p>
+     <a href=""><b>[연휴특가] 미스틱 서랍장 3size 2colors</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">64%</b><b>89,100</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;">
+     <i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.3<span style="color: #757575;">
+      리뷰 20</span></p>
    </div>
   <!-- store_thumbnail 8 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="">
+     <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157959709636059439.JPG?gif=1&w=640&h=640&c=c&webp=1" alt=" 선데이 러그 7size 5colors">
+     </a>
+     <p class="hs_thumbnail_store_title">에보니아</p>
+     <a href=""><b>[기간한정] 무브 모듈 소파 3type 4colors</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">36%</b><b>104,000</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>
+     4.1<span style="color: #757575;"> 리뷰 10</span></p>
    </div>
   <!-- store_thumbnail 9 -->
    <div class="hs_thumbnail_store">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href=""><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1499928795848_dsUQ.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="바이빔"></a>
+     <p class="hs_thumbnail_store_title">바이빔</p>
+     <a href=""><b>[연휴특가] 선데이 러그 7size 5colors</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">41%</b><b>19.900</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);">
+     </i>4.5<span style="color: #757575;"> 리뷰 8,444</span></p>
    </div>   
    <!-- store_thumbnail 10 -->
    <div class="hs_thumbnail_store">

@@ -65,7 +65,7 @@
          <a href="jy_list.do">집들이 &amp;노하우</a>
          <a href="hm_list.do">전문가찾기</a>
          <a href="hs_questionlist.do">질문과답변</a>
-         <a href="hs_event_main.jsp">이벤트</a>
+         <a href="hs_community_event_main.jsp">이벤트</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 
@@ -98,7 +98,7 @@
          <a href="jy_list.do">집들이 &amp;노하우</a>
          <a href="hm_list.do">전문가찾기</a>
          <a href="hs_questionlist.do">질문과답변</a>
-         <a href="">이벤트</a>
+         <a href="hs_community_event_main.jsp">이벤트</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 
