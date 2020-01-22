@@ -18,7 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link rel ="stylesheet" href="css/hm_upload.css?ver=1">
+<link rel ="stylesheet" href="css/hm_upload.css?ver=2">
 </head>
 <body>
    <div class="container">
@@ -29,12 +29,14 @@
 
 
 
-
+<div class ="hm_uploadfirst">
+<h2>업체 등록</h2>
+</div>
 
 <form method = "post" action="hm_uploadresult.do" enctype="multipart/form-data">
 
 
-		<div class="input-group flex-nowrap" style="margin : 30px 0px 30px; ">
+		<div class="input-group flex-nowrap" style="margin : 30px auto 30px; width:80%;">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="addon-wrapping">업체명</span>
 			</div>
@@ -42,14 +44,14 @@
 				aria-label="Username" aria-describedby="addon-wrapping">
 		</div>
 			
-			<div class="input-group" style="margin : 0px 0px 30px;">
+			<div class="input-group" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
 					<span class="input-group-text">업체소개</span>
 				</div>
 				<textarea class="form-control" aria-label="With textarea" name ="content"></textarea>
 			</div>
 
-			<div class="input-group mb-3" style="margin : 0px 0px 30px;">
+			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">위치</span>
 				</div>
@@ -57,7 +59,7 @@
 					aria-label="Username" aria-describedby="basic-addon1">
 			</div>
 
-			<div class="input-group" style="margin : 0px 0px 30px;">
+			<div class="input-group" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
 					<span class="input-group-text">위도&경도</span>
 				</div>
@@ -66,7 +68,7 @@
 			</div>
 
 
-			<div class="input-group mb-3" style="margin : 0px 0px 30px;">
+			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">상세주소</span>
 				</div>
@@ -74,13 +76,13 @@
 					name="addr" aria-label="Username" aria-describedby="basic-addon1">
 			</div>
 
-			<div class="input-group mb-3" style="margin : 0px 0px 30px;">
+			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroupFileAddon01">파일업로드</span>
 			</div>
 			<div class="custom-file" >
 				<input type="file" class="custom-file-input" id="inputGroupFile01"
-					name="uploadfile" aria-describedby="inputGroupFileAddon01">
+					name="uploadfile" aria-describedby="inputGroupFileAddon01" style="width:80%; magin : 0px auto 30px;">
 				<label class="custom-file-label" for="inputGroupFile01">Choose
 					file</label>
 			</div>

@@ -21,12 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/hm_list.css?ver=1">
-<style>
-/* header nav 전문가찾기 글씨색상  */
-  .hs_header_nav > a:nth-child(3){
-    color: rgb(0, 153, 255);
-  }
-</style>
+
 </head>
 <body>
    <div class="container">
@@ -68,9 +63,6 @@
 	</form>
 
 
-	
-
-
 	<%
 		List<Hm_ExpertDTO> list = (List<Hm_ExpertDTO>) request.getAttribute("list");
 
@@ -86,14 +78,7 @@
 	%>
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	    <p style="text-align: center;">
 			<img src="upload/<%=file_name%>" alt="<%=file_name%>" class ="hm_img"/>

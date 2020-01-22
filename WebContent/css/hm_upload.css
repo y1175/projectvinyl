@@ -1,5 +1,23 @@
 @charset "UTF-8";
+body{
+	margin: 0px auto;
+}
 
-.input-group flex-nowrap{
-	margin : 30px 0px 30px;
+.hm_uploadfirst h2{
+	
+text-align: center;
+font-weight: bolder;
+margin: 60px 0px 60px;
+}
+input[type=submit]{
+	position: relative;
+	left: 500px;
+	background-color: rgba(0,153,255,0.6);
+	color:rgb(255,255,255);
+	font-size : 18px;
+	padding:10px 20px;
+	border: 1px  transparent;
+	border-radius: 15px;
+	margin : 20px;s
+	
 }
