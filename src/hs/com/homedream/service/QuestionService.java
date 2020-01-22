@@ -61,7 +61,7 @@ public class QuestionService {
 		}
 		return list;
 	}
-	public void getInsertUpload(QuestionDTO dto, String mem_no) {
+	public void getInsertUpload(QuestionDTO dto) {
 		// TODO Auto-generated method stub
 		Connection conn=null;
 		DBConnection db=DBConnection.getInstance();
@@ -69,7 +69,7 @@ public class QuestionService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			QuestionDAO dao=QuestionDAO.getDAO();
-			dao.insertUpload(conn,dto,mem_no);
+			dao.insertUpload(conn,dto);
 			conn.commit();
 		}catch(NamingException | SQLException e) {
 			System.out.println(e);
