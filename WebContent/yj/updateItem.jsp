@@ -6,42 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
 </head>
 <style>
-#container {
+#insertform{
 	width: 60%;
-	margin: auto;
+	margin: 0 auto;
 }
-
-img {
-	width: 300px;
-	height: 300px;
+#uploadimg{
+	width: 200px;
+	height :200px;
 }
-
-.tableH {
-	width: 20%;
-	font-weight: bold;
-	text-align: center;
-}
-
-.theight {
-	height: 50px;
-}
-
-table {
-	width: 100%;
-}
-
-textarea {
-	width: 80%;
-	height: 200px;
-}
-
-#btn {
+#btn{
 	text-align: right;
 }
 </style>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	function readURL(input) {
 		if (input.files && input.files[0]) {
@@ -66,6 +50,10 @@ textarea {
 			}
 			$('#frm').submit();
 		});
+		
+		$('#can').click(function() {
+			location.href="yj_itemlist.do";
+		});
 
 		$('#fileupload').on('change', function() {
 			readURL(this);
@@ -74,62 +62,62 @@ textarea {
 </script>
 
 <body>
-	<div id="container">
+	<div id="insertform">
 		<form method="post" action="yj_updateResult.do"
 			enctype="multipart/form-data" id="frm">
-			<table>
+			<table class="table">
 				<tbody>
 					<tr>
-						<td class="theight tableH">이미지</td>
+						<th scope="row">이미지</th>
 						<td colspan="3">
 						<img id="uploadimg" alt="업로드 할 사진" src="">
-						<input type="file" id="fileupload" name="fileupload">
+						<input type="file" class="form-control-file" id="fileupload" name="fileupload">
 						</td>
 					</tr>
 					<tr>
-						<td class="theight tableH">카테고리</td>
-						<td><select name="categori" id="categori">
+						<th scope="row">카테고리</th>
+						<td><select class="form-control" name="categori" id="categori">
 								<option value="0">카테고리 선택</option>
 								<c:forEach var="dto" items="${list }">
 									<option value="${dto.cNo }">${dto.cname }</option>
 								</c:forEach>
 						</select></td>
-						<td class="theight tableH">업체명</td>
-						<td><input type="text" id="company" name="company"
+						<th scope="row">업체명</th>
+						<td><input type="text" id="company" name="company" class="form-control"
 							value="${dto.company }"></td>
 					</tr>
 					<tr>
-						<td class="theight tableH">상품명</td>
-						<td colspan="3"><input type="text" id="name" name="name"
+						<th scope="row">상품명</th>
+						<td colspan="3"><input type="text" id="name" name="name" class="form-control"
 							required="required" value="${dto.name }"></td>
 					</tr>
 					<tr>
-						<td class="tableH">상품설명</td>
-						<td colspan="3"><textarea id="content" name="content">${dto.content }</textarea></td>
+						<th scope="row">상품설명</th>
+						<td colspan="3"><textarea class="form-control" id="content" name="content">${dto.content }</textarea></td>
 					</tr>
 					<tr>
-						<td class="theight tableH">가격</td>
-						<td><input type="text" id="price" name="price"
-							required="required" value="${dto.price }">원</td>
-						<td class="theight tableH">재고</td>
-						<td><input type="text" id="stock" name="stock"
-							required="required" value="${dto.stock }">개
+						<th scope="row">가격</th>
+						<td><input type="text" id="price" name="price" class="form-control"
+							required="required" value="${dto.price }"></td>
+						<th scope="row">재고</th>
+						<td><input type="text" id="stock" name="stock" class="form-control"
+							required="required" value="${dto.stock }">
 						</td>
 					</tr>
 					<tr>
-						<td class="theight tableH">세일</td>
+						<th scope="row">할인율</th>
 						<td colspan="3">
-							<input type="radio" name="sale" value="10">10%
-							<input type="radio" name="sale" value="20">20% 
-							<input type="radio" name="sale" value="30">30% 
-							<input type="radio" name="sale" value="0">없음
+							<input type="radio" class="form-check form-check-inline" name="sale" value="10">10%
+							<input type="radio" class="form-check form-check-inline" name="sale" value="20">20% 
+							<input type="radio" class="form-check form-check-inline" name="sale" value="30">30% 
+							<input type="radio" class="form-check form-check-inline" name="sale" value="0">없음
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div id="btn">
-				<input type="button" id="sub" value="수정"> <input type="button"
-					value="취소">
+				<button type="button" id="sub" class="btn btn-info">수정</button>
+				<button type="button" id="can" class="btn btn-outline-dark">취소</button>
 				<input type="hidden" id="itemNo" name="itemNo" value="${itemNo }">
 			</div>
 		</form>

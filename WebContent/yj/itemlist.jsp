@@ -17,7 +17,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
+<style>
+	.table{
+		text-align: center;
+	}
+	#btnblock{
+		text-align: right;
+	}
+	.itemimg{
+		height: 100px;
+		width : 100px;
+	}
+</style>
 </head>
 <script>
 	function deletemsg(itemNo) {
@@ -37,7 +48,7 @@
 	}
 	
 	$(document).ready(function () {
-		$('input[id=insert]').click(function() {
+		$('button[id=insert]').click(function() {
 			location.href="yj_insertItem.do";
 		});
 	});
@@ -48,16 +59,16 @@
          <jsp:include page="/hs_storeadminheader.jsp"></jsp:include>
      </header>
 		<form id="frm" method="post" action="yj_deleteAll.do">
-			<table>
-				<thead>
+			<table class="table">
+				<thead class="thead-dark">
 					<tr>
-						<td>ㅁ</td> <!-- g l y p h  i  c o n g l y p h i  c o n  -check -->
-						<td>NO</td>
-						<td>이미지</td>
-						<td>상품명</td>
-						<td>판매가</td>
-						<td>재고</td>
-						<td>관리</td>
+						<th scope="col">ㅁ</th> <!-- g l y p h  i  c o n g l y p h i  c o n  -check -->
+						<th scope="col">NO</th>
+						<th scope="col">이미지</th>
+						<th scope="col">상품명</th>
+						<th scope="col">판매가</th>
+						<th scope="col">재고</th>
+						<th scope="col">관리</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -65,21 +76,21 @@
 					<tr>
 						<td><input type="checkbox" name="num" value="${item.itemNo }"></td>
 						<td><c:out value="${item.itemNo }"/></td>
-						<td><img src="img/${item.fileName }"></td>
+						<td><img class="itemimg" src="img/${item.fileName }"></td>
 						<td><h1><c:out value="${item.name }"/></h1></td>
 						<td><h2><c:out value="${item.price }원"/></h2></td>
 						<td><h2><c:out value="${item.stock }개"/></h2></td>
 						<td>
-						<input type="button" class="update" value="수정" onclick="location.href='yj_update.do?itemNo=${item.itemNo}'"> 
-						<input type="button" class="delete" value="삭제" onclick="deletemsg(${item.itemNo})"></td>
+						<button type="button" class="update btn btn-secondary" onclick="location.href='yj_update.do?itemNo=${item.itemNo}'">수정</button> 
+						<button type="button" class="delete btn btn-danger" onclick="deletemsg(${item.itemNo})">삭제</button></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 			<br>
 			<div id="btnblock">
-				<input type="button" id="deleteAll" value="선택상품삭제" onclick="deleteAllmsg()"> 
-				<input type="button" id="insert" value="상품등록">
+				<button type="button" class="btn btn-primary" id="insert">상품등록</button>
+				<button type="button" id="deleteAll" class="btn btn-danger" onclick="deleteAllmsg()">선택상품삭제</button> 
 			</div>
 		</form>
      <footer>

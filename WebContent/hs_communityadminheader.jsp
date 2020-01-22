@@ -18,7 +18,7 @@
      <a href="hs_memberadminmain.jsp" class="hs_header_hc">회원관리</a>
      <a href="hs_storeadminmain.jsp" class="hs_header_hc">스토어관리</a>
      <a href="hs_communityadminmain.jsp" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티관리</a>
-     <a href=""  class="hs_header_hc">로그아웃</a>
+     <a href="yilogout.do"  class="hs_header_hc">로그아웃</a>
      <b class="hs_header_admin">관리자모드</b>    
     </div>
     <div class="hs_header_bottom">

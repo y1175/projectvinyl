@@ -2,27 +2,32 @@ package yj.com.homedream.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
+import yj.com.homedream.dto.ItemDTO;
 import yj.com.homedream.service.ItemService;
 
-
-public class DeleteAction implements Action {
+public class DetailItemAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-			throws SecurityException, IOException {
+			throws ServletException, IOException {
+		
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		
 		ItemService service = ItemService.getInstance();
-		service.deleteItem(itemNo);
+		ItemDTO dto = service.getDetail(itemNo);
+		
+		request.setAttribute("dto", dto);
+		
 		ActionForward forward = new ActionForward();
-		forward.setForward(false);
-		forward.setUrl("yj_itemlist.do");
+		forward.setForward(true);
+		forward.setUrl("/yj_detailItem.jsp");
 		return forward;
 	}
 

@@ -25,8 +25,8 @@ public class Hm_UploadResultAction implements Action {
 		String uploadpath = request.getServletContext().getRealPath("upload");
 		MultipartRequest multi = new MultipartRequest(request, uploadpath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
-
-		String file_name = multi.getParameter("file_name");
+		
+	   
 		String file = multi.getFilesystemName("uploadfile");
 		
 		String name = multi.getParameter("name");

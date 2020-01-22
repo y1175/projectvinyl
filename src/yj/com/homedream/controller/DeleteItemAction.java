@@ -11,16 +11,15 @@ import com.homedream.comm.ActionForward;
 import yj.com.homedream.service.ItemService;
 
 
-
-public class DeleteAllAction implements Action {
+public class DeleteItemAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws SecurityException, IOException {
-		String[] arr = request.getParameterValues("num");
+		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		
-		ItemService.getInstance().deletAll(arr);
-		
+		ItemService service = ItemService.getInstance();
+		service.deleteItem(itemNo);
 		ActionForward forward = new ActionForward();
 		forward.setForward(false);
 		forward.setUrl("yj_itemlist.do");

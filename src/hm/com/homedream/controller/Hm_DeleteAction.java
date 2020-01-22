@@ -21,7 +21,7 @@ public class Hm_DeleteAction implements Action {
 		String num = request.getParameter("no");
 		
 		int no = 1;
-		if(num!=null&&("".equals(num)))
+		if(num!=null)
 		{
 			no=Integer.parseInt(num);
 		}
