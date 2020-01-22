@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ej.com.homedream.dto.MemberDTO;
 import yi.com.homedream.dto.YIItemDTO;
 import yi.com.homedream.dto.YIMemberDTO;
 import yi.com.homedream.dto.YIOrderlistDTO;
@@ -42,14 +41,13 @@ public class YIMemberDAO {
 		}
 		
 	}
-	public MemberDTO getLogin(Connection conn,String id, String pwd) throws SQLException{
+	public YIMemberDTO getLogin(Connection conn,String id, String pwd) throws SQLException{
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
-		String userId=null;
 		sql.append(" select mem_no,id,pwd ");
 		sql.append(" from member  ");
 		sql.append(" where id= ? and pwd= ?   ");
-		MemberDTO dto=new MemberDTO();
+		YIMemberDTO dto=new YIMemberDTO();
 		try(PreparedStatement pstmt=conn.prepareStatement(sql.toString());)
 		{
 			pstmt.setString(1, id);
@@ -482,6 +480,24 @@ public class YIMemberDAO {
 		}
 		return list;
 		
+	}
+	public int idCheck(Connection conn, String id) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("select count(*) from member "
+				+ " where id = ? ");
+		ResultSet rs = null;
+		int row = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql.toString());){
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				row = rs.getInt(1);
+			}
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		return row;
 	}
 	
 	

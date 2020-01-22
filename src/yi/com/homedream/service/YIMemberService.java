@@ -9,8 +9,6 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
-import ej.com.homedream.dto.MemberDTO;
-import hs.com.homedream.question.QuestionDAO;
 import yi.com.homedream.dao.YIMemberDAO;
 import yi.com.homedream.dto.YIItemDTO;
 import yi.com.homedream.dto.YIMemberDTO;
@@ -48,10 +46,10 @@ public class YIMemberService {
 		}
 
 	}
-	public MemberDTO getLogin(String id, String pwd) {
+	public YIMemberDTO getLogin(String id, String pwd) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
-		MemberDTO dto=null;
+		YIMemberDTO dto=null;
 		
 		try {
 			conn=dbconn.getConnection();
@@ -361,6 +359,17 @@ public class YIMemberService {
 		}
 		
 		return list;
+	}
+	public int idCheck(String id) {
+		DBConnection db = DBConnection.getInstance();
+		int row = 0;
+		try(Connection conn = db.getConnection();){
+			YIMemberDAO dao = YIMemberDAO.getDAO();
+			row = dao.idCheck(conn, id);
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		return row;
 	}
 
 

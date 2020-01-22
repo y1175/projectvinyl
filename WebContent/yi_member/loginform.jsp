@@ -33,7 +33,6 @@
 
 							<label for='id'>아이디</label> <input type="text" name="id" id="id"
 								class="form-control" required>
-
 						</div>
 						<div class="form-group">
 							<label for="pwd">패스워드</label> <input type="password" name="pwd"
