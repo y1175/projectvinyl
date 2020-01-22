@@ -62,7 +62,7 @@
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">ㅁ</th> <!-- g l y p h  i  c o n g l y p h i  c o n  -check -->
+						<th scope="col"><img src="https://img.icons8.com/material/16/000000/checked-2--v2.png"></th>
 						<th scope="col">NO</th>
 						<th scope="col">이미지</th>
 						<th scope="col">상품명</th>

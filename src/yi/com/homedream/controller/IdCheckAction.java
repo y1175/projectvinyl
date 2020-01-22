@@ -22,8 +22,8 @@ public class IdCheckAction implements Action {
 		request.setAttribute("data", row);
 		
 		ActionForward forward = new ActionForward();
-		forward.setForward(false);
-		forward.setUrl("/yi_member/joinform.jsp");
+		forward.setForward(true);
+		forward.setUrl("/yi_member/checkResult.jsp");
 		return forward;
 	}
 
