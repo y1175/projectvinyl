@@ -88,7 +88,7 @@
 			<p>
 					<a href="hm_detail.do?no=<%=dto.getNo()%>">
 					<button type="button" class="btn btn-outline-info" 
-					style ="margin: 40px 40px 0px 0px; ">상세보기</button></a>	
+					style ="margin: 40px 40px 0px 0px; font-weight:bolder; ">상세보기</button></a>	
 			</p>
 		</div>
 	</div> 
