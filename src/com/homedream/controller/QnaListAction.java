@@ -90,7 +90,7 @@ request.setCharacterEncoding("utf-8");
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
-		f.setUrl("/communityadminmain.jsp?page=_member/qnaadmin.jsp");//list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
+		f.setUrl("/communityadminmain.jsp?page=qnaadmin.jsp");//list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
 		
 		return f;
 	}

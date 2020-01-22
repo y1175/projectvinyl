@@ -33,7 +33,7 @@ public class SubAddAction implements Action {
 		
 		ActionForward forward =	new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("detail.do?num="+num);
+		forward.setUrl("boarddetail.do?num="+num);
 		
 		return forward;
 	}

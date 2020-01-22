@@ -51,7 +51,7 @@ public class BoardUploadResultAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("list.do");
+		forward.setUrl("boardlist.do");
 		
 		 
 		return forward;

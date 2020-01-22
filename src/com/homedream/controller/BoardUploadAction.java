@@ -18,7 +18,7 @@ public class BoardUploadAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=uploadform.jsp");		
+		forward.setUrl("/communitymain.jsp?page=boardUploadform.jsp");		
 		 
 		return forward;
 	}

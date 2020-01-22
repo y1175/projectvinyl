@@ -45,7 +45,7 @@ public class ExpertModifyResultAction implements Action {
 		
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("managerdetail.do?no="+no);
+		f.setUrl("expertmanagerdetail.do?no="+no);
 		return f;
 	}
 

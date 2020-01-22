@@ -17,7 +17,7 @@ public class JoinAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/communitymain.jsp?page=_member/joinform.jsp");
+		f.setUrl("/communitymain.jsp?page=joinform.jsp");
 		
 		
 		return f;

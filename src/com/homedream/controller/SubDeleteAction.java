@@ -22,7 +22,7 @@ public class SubDeleteAction implements Action {
 		service.getDeleteSubBoard(rno);
 		
 		ActionForward forward = new ActionForward();
-		forward.setUrl("detail.do?num="+num);
+		forward.setUrl("boarddetail.do?num="+num);
 		forward.setForward(true);
 		
 		return forward;

@@ -67,7 +67,7 @@ public class QuestionListAction implements Action {
 		request.setAttribute("list", list);
 		
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=question/question_list.jsp");
+		forward.setUrl("/communitymain.jsp?page=question_list.jsp");
 	System.out.println("pagesize"+pagesize);
 		return forward;
 	}

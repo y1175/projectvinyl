@@ -30,7 +30,7 @@ public class ExpertManagerDetailAction implements Action {
 		request.setAttribute("dto", dto);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communityadminmain.jsp?page=expert/managerdetail.jsp");
+		forward.setUrl("/communityadminmain.jsp?page=expertManagerdetail.jsp");
 
 
 		return forward;

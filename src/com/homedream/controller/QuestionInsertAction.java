@@ -16,7 +16,7 @@ public class QuestionInsertAction implements Action {
 			throws ServletException, IOException {
 		ActionForward forward=new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=question/question_insert.jsp");
+		forward.setUrl("/communitymain.jsp?page=question_insert.jsp");
 		
 		return forward;
 	}

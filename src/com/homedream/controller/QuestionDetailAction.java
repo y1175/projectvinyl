@@ -32,7 +32,7 @@ public class QuestionDetailAction implements Action {
 		request.setAttribute("dto", dto);
 		
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=question/question_detail.jsp");
+		forward.setUrl("/communitymain.jsp?page=question_detail.jsp");
 		
 		return forward;
 	}

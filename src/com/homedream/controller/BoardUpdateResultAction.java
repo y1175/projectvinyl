@@ -65,7 +65,7 @@ public class BoardUpdateResultAction implements Action {
 	
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("detail.do?num="+bno);
+		forward.setUrl("boarddetail.do?num="+bno);
 		
 		return forward;
 	}

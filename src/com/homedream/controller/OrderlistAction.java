@@ -43,7 +43,7 @@ public class OrderlistAction implements Action {
 			request.setAttribute("mlist", mlist);
 			
 			f.setForward(true);
-			f.setUrl("/communitymain.jsp?page=_member/orderlist.jsp");
+			f.setUrl("/communitymain.jsp?page=orderlist.jsp");
 		}
 		
 		return f;

@@ -101,7 +101,7 @@ public class BoardListAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=jn/list.jsp");
+		forward.setUrl("/communitymain.jsp?boardList.jsp");
 		
 		return forward;
 	}

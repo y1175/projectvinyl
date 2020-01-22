@@ -30,7 +30,7 @@ public class ExpertDeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("managerlist.do");
+		forward.setUrl("expertManagerlist.do");
 
 		return forward;
 	}

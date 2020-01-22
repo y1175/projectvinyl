@@ -33,7 +33,7 @@ public class QuestionUpdateAction implements Action {
 		request.setAttribute("dto", dto);
 		
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=question/question_update.jsp");
+		forward.setUrl("/communitymain.jsp?page=question_update.jsp");
 		
 		return forward;
 	}

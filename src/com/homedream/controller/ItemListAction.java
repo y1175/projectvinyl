@@ -22,7 +22,7 @@ public class ItemListAction implements Action {
 		request.setAttribute("list", list);
 		
 		forward.setForward(true);
-		forward.setUrl("/storeadminmain.jsp?page=yj/itemlist.jsp");
+		forward.setUrl("/storeadminmain.jsp?page=itemlist.jsp");
 		return forward;
 	}
 

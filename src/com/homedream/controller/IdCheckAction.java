@@ -22,7 +22,7 @@ public class IdCheckAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/_member/checkResult.jsp");
+		forward.setUrl("/checkResult.jsp");
 		return forward;
 	}
 

@@ -33,7 +33,7 @@ public class ExpertModifyAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communityadminmain.jsp?page=expert/modify.jsp");
+		forward.setUrl("/communityadminmain.jsp?page=expertModify.jsp");
 		
 		return forward;
 	}

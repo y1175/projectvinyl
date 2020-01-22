@@ -36,7 +36,7 @@ public class OrderDetailAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/communitymain.jsp?page=_member/orderdetail.jsp?num="+num);
+		f.setUrl("/communitymain.jsp?page=orderdetail.jsp?num="+num);
 		return f;
 	}
 

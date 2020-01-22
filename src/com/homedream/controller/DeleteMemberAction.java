@@ -27,7 +27,7 @@ public class  DeleteMemberAction implements Action {
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(false);//forward로 페이지이동 높 send redirect로 해
-		f.setUrl("list.do");//얘는 바로 .do로
+		f.setUrl("memberlist.do");//얘는 바로 .do로
 		
 		return f;
 		

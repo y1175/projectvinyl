@@ -39,7 +39,7 @@ public class ModifyAction implements Action {
 			request.setAttribute("list", list);
 			
 			f.setForward(true);
-			f.setUrl("/communitymain.jsp?page=_member/membermodify.jsp");
+			f.setUrl("/communitymain.jsp?page=membermodify.jsp");
 		}
 		
 		return f;

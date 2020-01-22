@@ -56,7 +56,7 @@ public class ExpertUploadResultAction implements Action {
 		service.dataInsert(dto);
 		ActionForward f = new ActionForward();
 		f.setForward(true);
-		f.setUrl("managerlist.do");
+		f.setUrl("expertmanagerlist.do");
 		return f;
 	}
 

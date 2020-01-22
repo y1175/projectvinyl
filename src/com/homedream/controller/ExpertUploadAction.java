@@ -18,7 +18,7 @@ public class ExpertUploadAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communityadminmain.jsp?page=expert/uploadform.jsp");
+		forward.setUrl("/communityadminmain.jsp?page=expertUploadform.jsp");
 		
 		return forward;
 	}

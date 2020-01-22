@@ -23,7 +23,7 @@ public class InsertItemAction implements Action {
 		ActionForward forward = new ActionForward();
 		request.setAttribute("list", list);
 		forward.setForward(true);
-		forward.setUrl("/storeadminmain.jsp?page=yj/insertItem.jsp");
+		forward.setUrl("/storeadminmain.jsp?page=insertItem.jsp");
 		
 		return forward;
 	}

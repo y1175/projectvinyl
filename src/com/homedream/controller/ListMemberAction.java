@@ -113,7 +113,7 @@ public class  ListMemberAction implements Action {
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
-		f.setUrl("/member/list.jsp");//list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
+		f.setUrl("/memberList.jsp");//list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
 		
 		return f;
 		

@@ -22,7 +22,7 @@ public class LoginAction implements Action {
 		if(session.getAttribute("userId")==null)	//로그인 상태가 아닐때
 		{			
 		f.setForward(true);
-		f.setUrl("/communitymain.jsp?page=_member/loginform.jsp");
+		f.setUrl("/communitymain.jsp?page=loginform.jsp");
 		}
 		/*else if(id.equals("admin"))	//admin으로 로그인할때
 		{

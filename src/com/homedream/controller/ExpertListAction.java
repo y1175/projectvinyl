@@ -72,7 +72,7 @@ public class ExpertListAction implements Action {
 		request.setAttribute("list", list);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=expert/list.jsp");
+		forward.setUrl("/communitymain.jsp?page=expertList.jsp");
 		
 		
 		return forward;

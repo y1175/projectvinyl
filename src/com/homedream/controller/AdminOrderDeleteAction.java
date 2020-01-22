@@ -10,7 +10,7 @@ import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 import com.homedream.service.OrderListService;
 
-public class DeleteOrderAction implements Action {
+public class AdminOrderDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +26,7 @@ public class DeleteOrderAction implements Action {
 		// forward로 넘기기
 		ActionForward f = new ActionForward();
 		f.setForward(false);// forward로 페이지이동 높 send redirect로 해
-		f.setUrl("orderlist.do");// 얘는 바로 .do로
+		f.setUrl("adminorderlist.do");// 얘는 바로 .do로
 
 		return f;
 

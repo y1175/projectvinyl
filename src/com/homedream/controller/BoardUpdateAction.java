@@ -33,7 +33,7 @@ public class BoardUpdateAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/communitymain.jsp?page=updateform.jsp");
+		forward.setUrl("/communitymain.jsp?page=boardUpdateform.jsp");
 		
 		return forward;
 	}
