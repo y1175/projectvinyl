@@ -192,14 +192,15 @@ img {
 </style>
 </head>
 <script>
-	function buy(itemNo) {
+	function buy(itemNo,mem_no) {
 		//session에 저장되어있는 유저 번호로  mem_no찾기
-		location.href="jy_buypage.do?mem_no=58&item_no=" + itemNo;  
+		location.href="jy_buypage.do?mem_no=" + mem_no + "&item_no=" + itemNo;  
 	}
 </script>
 
 <body>
-
+<c:set var="mem_no" value="${sessionScope.mem_no }"/>
+<c:out value="${mem_no }"></c:out>
 	<div class="dtail-container">
 		<div class="card">
 			<div class="container-fliud">

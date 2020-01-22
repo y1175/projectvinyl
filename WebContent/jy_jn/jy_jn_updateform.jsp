@@ -28,6 +28,7 @@ function send(){
 <form method="post" action="jy_updateresult.do" enctype="multipart/form-data" name="frm">
 <c:set var="dto" value="${requestScope.dto}"/>
   <div class="form-group">
+    <input type="hidden" name="bno" id="bno" value="${dto.bno }">
     <label for="btitle">제목</label>
     <input type="text" class="form-control" id="btitle" name= "btitle" value="${dto.btitle}">
   </div>
