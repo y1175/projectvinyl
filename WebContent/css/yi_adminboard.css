@@ -41,3 +41,39 @@
 	background-color: #BBDEFB;
  
 }
+
+.yi_orderdetailTitle{
+	margin-top:-2%;
+	font-weight:600;
+}
+
+.yi_orderdetail-location{
+	margin-left:10%;
+	font-weight:600;
+	
+}
+
+.yi_orderdetail-item{
+	text-align:center;
+	font-weight:600;
+	
+}
+
+.yi_ordercancelbtn{
+	margin-top:1%;
+	margin-left:45%;
+}
+
+.yi_backToOrderlist a{
+    font-weight : 700;
+    font-size: 15px;
+    text-decoration: none;
+    color: #222;
+    float:right;
+    margin-right:5%;
+    margin-top:-3%;
+}
+.yi_backToOrderlist a:hover{
+    color: rgb(0, 153, 255);
+    text-decoration: none;
+}

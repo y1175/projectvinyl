@@ -29,32 +29,32 @@
 <c:set var="member" value="${requestScope.member }"></c:set>
 <c:set var="order" value="${requestScope.order }"></c:set>
 <c:set var="items" value="${requestScope.items }"></c:set>
+<div class="yi_backToOrderlist"><a href="yiorderlist.do">주문내역으로 돌아가기</a></div>
+<h4 class="yi_orderdetailTitle">주문 상세정보</h4><br>
 
-<h1>주문/배송지 정보</h1>
+<h5 class="yi_orderdetail-location">주문/배송지 정보</h5>
 <div class='row'>
-<div class='col'></div>
-<div class='col-9'>
+<div class='col-1'></div>
+<div class='col-7'>
 <table class="table">
 <thead class="thead-dark">
 <tr><th>주문번호</th><td><c:out value="${order[0].order_no }"/></td>
-<th>주문일자</th><td><c:out value="${order[0].orderdate }"/></td>
-</tr>
-<tr><th>배송주소</th><td><c:out value="${member[0].addr }"/></td>
-<th>전화번호</th><td><c:out value="${member[0].phone }"/></td>
-</tr>
-<tr><th>이름</th><td><c:out value="${member[0].name }"/></td>
-<th>결제금액</th><td><c:out value="${order[0].cost }"/>원</td>
-</tr>
+<th>주문일자</th><td><c:out value="${order[0].orderdate }"/></td></tr>
+<tr><th>이름</th><td><c:out value="${member[0].name }"/></td><th>전화번호</th><td><c:out value="${member[0].phone }"/></td></tr>
+<tr><th>결제금액</th><td><c:out value="${items[0].price }"/>원</td><th>배송주소</th><td><c:out value="${member[0].addr }"/></td></tr>
 </thead>
 <tbody></tbody>
 </table>
 </div>
 <div class='col'></div>
 </div>
-
-<h1>주문상품</h1>
-<table>
-<thead>
+<br>
+<h5 class="yi_orderdetail-item">주문상품</h5>
+<div class='row'>
+<div class='col-1'></div>
+<div class='col-10'>
+<table class="table">
+<thead class="thead-dark">
 <tr><th>사진</th><th>상품명</th><th>가격</th><th>주문배송현황</th></tr>
 
 </thead>
@@ -81,7 +81,8 @@
 </c:choose>
 
 <tr>
-<td><img src="" alt="${items[status.index].file_name}"/></td>
+
+<td><img src="upload/${items[status.index].file_name }" alt="${items[status.index].file_name}"/></td>
 <td><c:out value="${items[stat.index].name }"/></td>
 <td><c:out value="${items[stat.index].price }"/>원</td>
 <td><c:out value="${orderst }"/></td>
@@ -89,10 +90,12 @@
 </c:forEach>
 </tbody>
 </table>
+</div>
+<div class='col'></div>
+</div>
+<div class='yi_ordercancelbtn'><a href="yiordercancel.do?num=${order[0].order_no }" class="btn btn-primary">주문취소하기</a></div>
 
-<a href="yiordercancel.do?num=${order[0].order_no }">주문취소하기</a><br>
-<a href="yiorderlist.do">주문내역으로 돌아가기</a><br>
-<a href="yi.do">메인페이지로 돌아가기</a><br>
+
 
 <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>
