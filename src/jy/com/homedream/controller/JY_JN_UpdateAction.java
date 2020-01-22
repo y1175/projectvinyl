@@ -26,7 +26,8 @@ public class JY_JN_UpdateAction implements Action {
 			bno = Integer.parseInt(num);
 		}
 		
-		
+		System.out.println( "업데이트 글번호"+bno);
+
 		JY_JN_Service service = JY_JN_Service.getService();
 		JY_JN_BoardDTO dto = service.jn_getSelect(bno);
 		request.setAttribute("dto", dto);

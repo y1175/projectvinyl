@@ -1,12 +1,4 @@
-@font-face {
-    font-family: "Telefon Black";
-    src: url(https://production-assets.codepen.io/assets/telefon/black/3f32b1c9-8e26-465e-ae02-ff82a378b670-3-78992f1ed89d5cadb09702e6a0d5bbb0302e85c728c1f8d18fdc8aa56870104c.woff) format("woff"),url(https://production-assets.codepen.io/assets/telefon/black/3f32b1c9-8e26-465e-ae02-ff82a378b670-3-6435f1279663bb84d4a1d8effe0adafbf8499ff6efdd01a59be848c90d8c4c0b.woff2) format("woff2")
-}
 
-@font-face {
-    font-family: "Telefon";
-    src: url(https://production-assets.codepen.io/assets/telefon/bold/af889c53-1ee3-4868-8fdc-2b310d587b50-3-b7a87e0fbd213943fae0c0ef5985635dd43fa9c24876b2725127a13ccaf4ab6a.woff) format("woff"),url(https://production-assets.codepen.io/assets/telefon/bold/af889c53-1ee3-4868-8fdc-2b310d587b50-3-446e9e68a40500d1b24a18331c6d6a78226d276079dcdc2ad9e80a48bdcfd948.woff2) format("woff2")
-}
 
 * {
   box-sizing: border-box;
@@ -28,7 +20,10 @@ body {
   align-items: center;
   }
 
-
+.jy_img_list{
+	width:400px;
+	height:200px;
+}
 
 .content{
 	display:inline-block;
