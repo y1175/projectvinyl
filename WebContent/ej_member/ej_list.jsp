@@ -20,10 +20,103 @@
 <!-- Bootstrap -->
 
 <style>
+#ej_orderbutton{
+width:140px;
+}
+
 #ej_searchbox{border:1px solid silver;
-width: 60%;
-padding: 20px;}
+width: 100%;
+padding: 20px;
+margin: 12px auto;
+/* backgroud-color: solid silver !important; */
+}
+.ej_searchbox1{
+position:relative;
+	left:290px;
+    width: 44%;	
+    background-color:white;
+    border: 1px solid #757575;
+    border-radius: 5px;
+}
+.ej_txtsearch{
+width:72%;
+border: 1px transparent;}
+
+.ej_searchop{
+	width :24%;
+	border: 1px transparent;
+	padding: 5px;
+	border-radius: 5px;
+	position:relative;
+	right:5px;
+}
+/* .ej_stxtsearch1{
+border-radius:5px;
+}
+.ej_stxtsearch2{
+border-radius:5px;
+} */
+#ej_search{
+width:29px;
+height:29px;
+margin:8px;
+position:relative;
+top:13px;
+/* border: 1px solid silver; */
+}
+
+.ej_selectbox{
+width:150px;
+margin:6px;
+border-radius: 5px;
+}
 #ej_line{border:0.5px solid silver;}
+.ej_all{
+margin: auto;
+text-align: center;
+}
+ul li{
+list-style:none;
+}
+tr{
+margin:auto;
+text-align: center;
+}
+table{
+/* width:80%; */
+margin: auto;
+text-align: center;}
+.ej_page{
+margin: auto;
+text-align: center;
+}
+.ej_userimage{
+width:50px;
+height:50px;}
+
+/*////////////////////////////////////////////////  */
+.ej_form-control{
+width:100px;
+/* background-color:silver; */
+border: 1px transparent;
+font-size: 20px;
+}
+/* .ej_selectbox{
+width:130px;
+font-size: 20px;
+background-color: rgb(220, 234, 248);
+} */
+.ej_control-label{
+font-size: 20px 0px 0px 0px;}
+#ej_check{
+position:relative;
+top:5px;
+width:30px; height:30px;}
+.modal-body{
+padding:20px 0px 0px 0px;
+}
+.ej_modalfooter{
+padding: 0px 0px 15px 0px;}
 </style>
 
 
@@ -49,6 +142,16 @@ $(document).ready(function(){
 		  console.log(button);
 		  console.log(modal+"!!!"); 
 		});
+	 
+/* 	 $("#modal-body").modal('show').css({
+		    'margin-top': function () { //vertical centering
+		        return -($(this).height() / 2);
+		    },
+		    'margin-left': function () { //Horizontal centering
+		        return -($(this).width() / 2);
+		    }
+		}); */
+
 	
 	
 });
@@ -66,8 +169,11 @@ $(document).ready(function(){
      <header>
          <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
      </header>
-
-<h3>회원조회</h3>
+ <div class="ej_all">
+ <ul><li>
+<img src="http://localhost:9080/projectvinyl/ej_member/ej_user.png" alt="user"
+ class="ej_userimage"><h3>회원조회</h3></li>
+ </ul>
 <form method="post" action="ej_list.do">
 <!--setAttribute로 지정한것 변수로 받아오기  -->
 <c:set var="list" value="${requestScope.list }"/>
@@ -80,24 +186,33 @@ $(document).ready(function(){
 
 
 <div id="ej_searchbox">
-<select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
+<div class="ej_searchbox1">
+<select name="search" class="ej_searchop"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
 	<option value="name">이름</option>
 </select>
-<input type="text" name="txtsearch">
+<input type="text" name="txtsearch"
+class="ej_txtsearch" placeholder="회원 정보를 검색해보세요">
 <!-- <input type="submit" value="검색"> -->
-
+</div>
+<br>
 <div id="ej_line"></div>
 <label for="point">구매액</label>
-<input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원<br>
-<input type="submit" value="상세검색"> 
+<input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원
+<!-- <input type="submit" value="상세검색">  -->
+<input type="image" 
+src="http://localhost:9080/projectvinyl/ej_order/ej_search.png" alt="search"
+id="ej_search">
 </div>
 
 </form>
 
-<table>
-<thead><tr><th>선택</th><th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>구매액</th><th>적립금</th>
-<th>                  <th><th>삭제</th></tr>
+<table class="table">
+<thead class="thead-dark">
+<tr><th scope="col">선택</th><th scope="col">회원번호</th>
+<th scope="col">아이디</th><th scope="col">비밀번호</th>
+<th scope="col">이름</th><th scope="col">구매액</th><th scope="col">적립금</th>
+<th scope="col">삭제</th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
@@ -109,15 +224,12 @@ $(document).ready(function(){
 	<td>${item.pwd }</td>
 	<td>${item.name }</td>
 	<td>${item.total }원</td>
-	<td><%-- <a href="ej_insert.do?memNo=${item.memNo}" target="_blank"  >${item.point }포인트</a> --%>
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-	 data-whatever="${item.memNo }">
-  ${item.point }포인트
-</button>
+	<td>
+		<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
+	 data-whatever="${item.memNo }" id="ej_orderbutton">${item.point }포인트</button></td>
 	<td> 
-<!--target="_blank"  -->
-	<td><a class="btn btn-outline-secondary" href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a>
-	<%-- <a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a> --%><td>
+	<a class="btn btn-outline-secondary" href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a>
+	<%-- <a href="ej_delete.do?memNo=${item.memNo}" onclick="delconfirm();">삭제</a> --%></td>
 
 
 	</tr>
@@ -125,36 +237,36 @@ $(document).ready(function(){
 	 
 </tbody>
 </table><br>
-
+   <form method="post" action="ej_insert.do">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header"> 
+        <h4 class="modal-title" id="exampleModalLabel">적립금부여</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
       </div>
       <div class="modal-body">
-     <form method="post" action="ej_insert.do">
-          <div class="form-group">
-            <label for="recipient-name" class="control-label" >Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name" name="what">
+  
+          <div class="form-group">	
+           <ul>
+          <li>
+            <label for="recipient-name" class="ej_control-label" >회원번호:</label>
+            <input type="text" class="ej_form-control" id="recipient-name" name="what"></li></ul>
           </div>
-          <!-- <div class="form-group"> -->
-           <!--  <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea> -->
-          
-          <!--  --></div>
+       </div>
         
-         
-            <input type="text" name="addpoint" id="addpoint">
-            <input type="submit" value="적립">
+           <div class="ej_modalfooter">
+           <ul><li>
+            <input type="text" name="addpoint" id="addpoint"
+            placeholder="포인트적립">
+            <input type="image" 
+src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
+id="ej_check">
+            </li></ul></div>
       </form>        
       </div>
     
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">적립</button>
-      </div> -->
+
         
     </div>
    
@@ -163,7 +275,7 @@ $(document).ready(function(){
 </div>
 
 
-
+<div class="ej_page">
 <div class="btn-group" role="group" aria-label="...">
 <c:forEach var="i" begin="${starblock }+1" end="${endblock }" step="1">
 	<c:if test="${currpage==i }">
@@ -181,11 +293,12 @@ $(document).ready(function(){
 	
 </c:forEach><br>
 </div>
+</div>
 
 
 
 
-
+</div><!-- div class=ej_all -->
 
 
      <footer>

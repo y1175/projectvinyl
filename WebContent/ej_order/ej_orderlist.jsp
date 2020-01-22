@@ -18,27 +18,62 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-
+<!--icon-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--icon-->
 <style>
+/* input#ej_submit {
+background:url("./ej_search.png");
+background-repeat: no-repeat;
+width:40px;
+height:40px;
+border: 0;
+} */
+#ej_orderbutton{
+width:110px;
+}
+
 #ej_searchbox{border:1px solid silver;
-width: 80%;
+width: 100%;
 padding: 20px;
-margin: auto;}
+margin: 12px auto;
+/* backgroud-color: solid silver !important; */
+}
 .ej_searchbox1{
 position:relative;
-	left:202px;
-    width: 60%;	
+	left:190px;
+    width: 50%;	
     background-color:white;
     border: 1px solid #757575;
     border-radius: 5px;
 }
+.ej_txtsearch{
+width:72%;
+border: 1px transparent;}
 
 .ej_searchop{
-	width :13%;
+	width :24%;
 	border: 1px transparent;
 	padding: 5px;
 	border-radius: 5px;
+	position:relative;
+	right:5px;
 }
+/* .ej_stxtsearch1{
+border-radius:5px;
+}
+.ej_stxtsearch2{
+border-radius:5px;
+} */
+#ej_search{
+width:29px;
+height:29px;
+margin:8px;
+position:relative;
+top:13px;
+/* border: 1px solid silver; */
+}
+
 .ej_selectbox{
 width:150px;
 margin:6px;
@@ -60,6 +95,32 @@ text-align: center;}
 margin: auto;
 text-align: center;
 }
+.ej_deliveryimage{
+width:50px;
+height:50px;}
+
+.ej_form-control{
+width:100px;
+/* background-color:silver; */
+border: 1px transparent;
+font-size: 20px;
+}
+.ej_selectbox{
+width:130px;
+font-size: 20px;
+background-color: rgb(220, 234, 248);
+}
+.ej_control-label{
+font-size: 20px 0px 0px 0px;}
+#ej_check{
+position:relative;
+top:5px;
+width:30px; height:30px;}
+.modal-body{
+padding:20px 0px 0px 0px;
+}
+.ej_modalfooter{
+padding: 0px 0px 15px 0px;}
 </style>
 <script>
 function delconfirm(){
@@ -99,8 +160,9 @@ $(document).ready(function(){
          <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
      </header>
      <div class="ej_all">
-<h3>주문배송관리</h3>
-<!--setAttribute로 지정한것 변수로 받아오기  -->
+<img src="http://localhost:9080/projectvinyl/ej_order/ej_delivery.png" alt="delivery"
+ class="ej_deliveryimage"><h3>주문배송관리</h3>
+<form method="post" action="ej_orderlist.do">
 <c:set var="list" value="${requestScope.list }"/>
 <c:set var="currpage" value="${requestScope.currpage }"/>
 <c:set var="startblock" value="${requestScope.startblock }"/>
@@ -109,29 +171,37 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="ej_orderlist.do"><!--처음에 list.do햇음  -->
+
 <div id="ej_searchbox">
 <div class="ej_searchbox1">
 <select name="search" class="ej_searchop"><!--search txtsearch받아야댐 ListAction에서  -->
-	<option value="orderno">주문번호</option>
-	<option value="memno">회원번호</option>
+	<option value="orderno">주문번호 </option>
+	<option value="memno">회원번호 </option>
 </select>
 
-<input type="text" name="txtsearch">
+<input type="text" name="txtsearch" 
+class="ej_txtsearch" placeholder="주문 배송을 검색해보세요">
 </div>
 <br>
 <div id="ej_line"></div>
+
 <label for="cost">가격</label>
-<input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원<br>
-<input class="btn btn-primary" type="submit" value="상세검색">
+<input type="text" name="stxtsearch1" class="ej_stxtsearch1" placeholder="원">~
+<input type="text" name="stxtsearch2" class="ej_stxtsearch2" placeholder="원">
+<input type="image" 
+src="http://localhost:9080/projectvinyl/ej_order/ej_search.png" alt="search"
+id="ej_search">
+<!-- <input  type="submit" value="상세검색" id="ej_submit" alt="submit"> -->
+<!--class="btn btn-primary" 상세검색에 이거 썻엇음 -->
 <!-- <input type="submit" value="상세검색">  -->
 </div>
 </form>
 
 
-<table>
-<thead><tr><th>선택</th><th>주문번호</th><th>회원번호</th><th>물품번호</th>
-<th>주문날짜</th><th>주문상태</th><th>가격</th><th>비고</th></tr>
+<table class="table">
+<thead class="thead-dark"><tr><th scope="col">선택</th><th scope="col">주문번호</th>
+<th scope="col">회원번호</th><th scope="col">물품번호</th>
+<th scope="col">주문날짜</th><th scope="col">주문상태</th><th scope="col">가격</th><th scope="col">비고</th></tr>
 </thead>
 
 <tbody>
@@ -170,7 +240,7 @@ $(document).ready(function(){
 	<td>${item.orderdate }</td>
 	<td>
 	<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
-	 data-whatever="${item.orderno }">${temp }</button></td>
+	 data-whatever="${item.orderno }" id="ej_orderbutton">${temp }</button></td>
 	 <!-- btn btn-primary 클래스 이거 엿음 -->
 <%-- 	<td><a href="ej_update.do?orderno=${item.orderno}" target="_blank" >${temp}</a> --%>
 	
@@ -189,7 +259,7 @@ $(document).ready(function(){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel" >주문상태변경</h4>
+        <h4 class="modal-title" id="ej_exampleModalLabel" >주문상태변경</h4>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
     
@@ -198,8 +268,8 @@ $(document).ready(function(){
           <div class="form-group">
           <ul>
           <li>
-            <label for="recipient-name" class="control-label" >주문번호</label>
-            <input type="text" class="form-control" id="recipient-name" name="what" readonly="readonly" maxlength="3">
+            <label for="recipient-name" class="ej_control-label" >주문번호:</label>
+            <input type="text" class="ej_form-control" id="recipient-name" name="what" readonly="readonly">
             </li></ul>
           </div>
       </div>
@@ -207,6 +277,7 @@ $(document).ready(function(){
          
   <ul>
   <li>
+  <div class="ej_modalfooter">
 <select name="status" class="ej_selectbox">
 	<option value=1>결제확인</option>
 	<option value=2>배송준비중</option>
@@ -214,8 +285,12 @@ $(document).ready(function(){
 	<option value=4>배송완료</option>
 	<option value=5>취소승인</option>
 </select>
-<input type="submit" value="변경" >
-      </li> </ul>        
+<input type="image" 
+src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
+id="ej_check">
+
+      </li> </ul> 
+      </div>       
       </div>
     
     
