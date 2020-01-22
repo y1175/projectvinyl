@@ -34,7 +34,7 @@ public class hs_QuestionUpdateAction implements Action {
 		request.setAttribute("dto", dto);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_question/hs_question_update.jsp");
+		forward.setUrl("/hs_communitymain.jsp?page=hs_question/hs_question_update.jsp");
 		
 		return forward;
 	}
