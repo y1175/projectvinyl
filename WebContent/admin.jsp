@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>admin page test</h1>
-<a href="upload.do">전문가 업로드</a><br>
+<a href="expertupload.do">전문가 업로드</a><br>
 <a href="adminorder.do">주문관리</a>
 <a href="adminboard.do">게시판관리</a>
 <a href="logout.do">로그아웃</a>

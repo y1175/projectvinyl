@@ -50,7 +50,7 @@
 	</form>
 
 
-	<a href = "upload.do">
+	<a href = "expertupload.do">
       <button type="button" class="btn btn-outline-info"
       style ="width:100px; margin : 0px 0px 20px 0px; float:right;">업체등록</button></a>
 

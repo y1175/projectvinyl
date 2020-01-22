@@ -22,7 +22,7 @@ public class AdminBoardDeleteAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
-		f.setUrl("adminboard.do");
+		f.setUrl("adminboarddelete.do");
 		
 		
 		return f;
