@@ -2,16 +2,16 @@ body
 {
  margin : 0px auto;
 }
-.hm_detailfirst h1{
+.detailfirst h1{
 	margin : 20px 0px 40px 0px;
 	text-align: center;
 	font-weight: bolder;
 }
-.hm_detailfirst h6{
+.detailfirst h6{
 	text-align: center;
 	font-weight: bolder;
 }
-.hm_wrap
+.wrap
 {
   margin:50px auto 0 auto;
   width:100%;
@@ -19,7 +19,7 @@ body
   align-items:space-around;
   max-width:1200px;
 }
-.hm_tile
+.tile
 {
   width:380px;
   height:380px;
@@ -36,7 +36,7 @@ body
   font-family:'Roboto';
   
 }
-.hm_tile img
+.tile img
 {
   height:100%;
   width:100%;
@@ -46,28 +46,28 @@ body
   z-index:0;
   transition: all 0.4s ease-out;
 }
-.hm_tile .hm_text
+.tile .text
 {
   z-index:99;
   position:absolute;
   padding:30px;
   height:calc(100% - 60px);
 }
-.hm_tile h1
+.tile h1
 {
  
   font-weight:300;
   margin:0;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
-.hm_tile h2
+.tile h2
 {
   font-weight:100;
   margin:20px 0 0 0;
   font-style:italic;
    transform: translateX(200px);
 }
-.hm_tile p
+.tile p
 {
   font-weight:300;
   margin:20px 0 0 0;
@@ -76,27 +76,27 @@ body
   transform: translateX(-200px);
   transition-delay: 0.2s;
 }
-.hm_animate-text
+.animate-text
 {
   opacity:0;
   transition: all 0.6s ease-in-out;
 }
-.hm_tile:hover
+.tile:hover
 {
   background-color:#99aeff;
 box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:scale(1.05);
 }
-.hm_tile:hover img
+.tile:hover img
 {
   opacity: 0.2;
 }
-.hm_tile:hover .hm_animate-text
+.tile:hover .animate-text
 {
   transform:translateX(0);
   opacity:1;
 }
- .hm_dots
+ .dots
 {
   position:absolute;
   bottom:20px;
@@ -112,7 +112,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   
 }
 
-.hm_dots span
+.dots span
 {
     width: 5px;
     height:5px;
@@ -125,30 +125,30 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
  
 }
 
-.hm_tile:hover span
+.tile:hover span
 {
   opacity:1;
   transform:translateY(0px);
 }
 
-.hm_dots span:nth-child(1)
+.dots span:nth-child(1)
 {
    transition-delay: 0.05s;
 }
-.hm_dots span:nth-child(2)
+.dots span:nth-child(2)
 {
    transition-delay: 0.1s;
 }
-.hm_dots span:nth-child(3)
+.dots span:nth-child(3)
 {
    transition-delay: 0.15s;
 }
 
-.hm_detailtwice h3{
+.detailtwice h3{
 	margin : 100px 0px 0px 165px;
 	font-weight: bolder;
 }
-.hm_detailtwice h3:hover{
+.detailtwice h3:hover{
 	color:rgba(0,153,255,0.6);
 	
 }

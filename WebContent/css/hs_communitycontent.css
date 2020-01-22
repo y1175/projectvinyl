@@ -3,20 +3,20 @@ body{
 	margin: 0px auto;
 }
 /* 카테고리 */
-.hs_content_category {
+.content_category {
 	margin: 20px 0px;
 }
-.hs_content_category a{
+.content_category a{
      margin: 0px 15px;
 	text-decoration:none;
 	display: inline-block;
 	color: #222;
 }
-.hs_content_category a img{
+.content_category a img{
 	width: 124px;
 	height: 110px;
 }
-.hs_content_category a p{
+.content_category a p{
 	font-weight:900;
 	font-size : 15px;
 	margin-top : 10px;
@@ -24,103 +24,103 @@ body{
 }
 
 /* 썸네일 title*/
-.hs_content_title_div{
+.content_title_div{
 	margin-bottom: 15px;
 }
-.hs_content_title{
+.content_title{
 	font-size: 20px;
 }
 /* 오늘의스토리 썸네일  */
 /* 썸네일div  */
-.hs_thumbnail_story {
+.thumbnail_story {
     width: 350px;
     display: inline-block;
     margin: 8px;
 }
 /* 썸네일사진 */
-.hs_thumbnail_story img {
+.thumbnail_story img {
     width: 350px;
     height: 220px;
     border-radius: 5%;
     margin-bottom: 10px;
 }
 /* 썸네일 a태그(이미지,제목) */
-.hs_thumbnail_story a{
+.thumbnail_story a{
 	text-decoration: none;
 	color: #222;
 }
 /* 썸네일 제목 */
-.hs_thumbnail_story b{
+.thumbnail_story b{
 	font-size: 16px;
 	color: #222;
 }
 /* 썸네일 아이콘  */
-.hs_thumbnail_story i{
+.thumbnail_story i{
 	font-size: 25px;
 	margin:10px 0px;
 }
 /* 썸네일 닉네임  */
-.hs_thumbnail_story p {
+.thumbnail_story p {
     font-size: 13px;
     font-weight: 700;
     color: #222;
 }
 /* 오늘의 딜 */
-.hs_thumbnail_deal{
+.thumbnail_deal{
 	width: 350px;
     display: inline-block;
     margin: 8px
 }
-.hs_thumbnail_deal img{
+.thumbnail_deal img{
 	width: 350px;
     height: 300px;
     margin-bottom: 10px;
     border-radius: 5%;
 }
-.hs_thumbnail_deal_p{
+.thumbnail_deal_p{
 	font-size: 13px;
 	font-weight: 800;
 }
-.hs_thumbnail_deal a{
+.thumbnail_deal a{
 	text-decoration: none;
 	color: #222;
 }
-.hs_thumbnail_deal a b{
+.thumbnail_deal a b{
 	font-size: 16px;
 	color: #222;
 	position: relative;
 	bottom: 15px;
 }
-.hs_thumbnail_deal b{
+.thumbnail_deal b{
 	font-size: 20px;
 	color: #222;
 	position: relative;
 	bottom: 15px;
 }
-.hs_thumbnail_deal_star{
+.thumbnail_deal_star{
 	font-size: 13px;
 	color: #222;
 	position: relative;
 	bottom: 15px;
 }
 /* 오늘의 이벤트 */
-.hs_thumbnail_event{
+.thumbnail_event{
 	width: 350px;
     display: inline-block;
     margin: 8px;
 }
-.hs_thumbnail_event img {
+.thumbnail_event img {
     width: 350px;
     height: 220px;
     margin-bottom: 10px;
     border-radius: 5%;
 }
-.hs_thumbnail_event p{
+.thumbnail_event p{
 	margin-left:5px;
 	font-size: 11px;
 	color: #222;
 }
-.hs_thumbnail_event b{
+.thumbnail_event b{
 	margin-left:5px;
 	font-size: 13px;
 	color: #222;
@@ -128,25 +128,25 @@ body{
 	bottom: 15px;
 }
 /* 베스트 썸네일  */
-.hs_thumbnail_best{
+.thumbnail_best{
 	width: 350px;
     display: inline-block;
     margin: 8px
 }
-.hs_thumbnail_best img{
+.thumbnail_best img{
 	width: 350px;
     height: 300px;
     margin-bottom: 10px;
     border-radius: 5%;
 }
-.hs_thumbnail_best a{
+.thumbnail_best a{
 	text-decoration: none;
 }
-.hs_thumbnail_best a b{
+.thumbnail_best a b{
 	font-size: 16px;
 	color: #222;
 }
-.hs_thumbnail_best b{
+.thumbnail_best b{
 	font-size: 20px;
 	color: #222;
 }

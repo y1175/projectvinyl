@@ -1,4 +1,4 @@
-.yi_question_titlediv{
+._question_titlediv{
 	margin-top:0px;
 	width: 100%;
 	background-color: rgba(224,224,224,0.5);
@@ -6,7 +6,7 @@
 	margin-bottom: 30px;
 }	
 
-.yi_questionsearch_searchbox{	position:relative;
+._questionsearch_searchbox{	position:relative;
 	left:202px;
     width: 60%;	
     background-color:white;
@@ -14,13 +14,13 @@
     border-radius: 5px;
     }
     
-.yi_questionsearch_searchop{
+._questionsearch_searchop{
 	width :13%;
 	border: 1px transparent;
 	padding: 5px;
 	border-radius: 5px;
 }
-#yi_questionsearchtxt{
+#_questionsearchtxt{
 	width :81%;
 	padding: 5px;
 	border: 1px transparent;

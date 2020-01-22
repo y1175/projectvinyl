@@ -20,7 +20,7 @@ body {
   align-items: center;
   }
 
-.jy_img_list{
+.img_list{
 	width:400px;
 	height:200px;
 }
@@ -90,7 +90,7 @@ h1 {
 }
 
 
-.jy_page{
+.page{
 	font-size: 25px;
 	padding: 0px 40%;
 }

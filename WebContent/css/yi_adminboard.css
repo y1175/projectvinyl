@@ -2,7 +2,7 @@
 	text-align:center;
 }
 
-.yi_admin_titlediv{
+._admin_titlediv{
 	margin-top:0px;
 	width: 100%;
 	background-color: rgba(224,224,224,0.5);
@@ -10,7 +10,7 @@
 	margin-bottom: 30px;
 }	
 
-.yi_admin_searchbox{	position:relative;
+._admin_searchbox{	position:relative;
 	left:202px;
     width: 60%;	
     background-color:white;
@@ -18,37 +18,37 @@
     border-radius: 5px;
     }
     
-.yi_adminsearch_searchop{
+._adminsearch_searchop{
 	width :13%;
 	border: 1px transparent;
 	padding: 5px;
 	border-radius: 5px;
 }
-#yi_adminsearchtxt{
+#_adminsearchtxt{
 	width :81%;
 	padding: 5px;
 	border: 1px transparent;
 	border-radius: 5px;	
 }
 
-.yi_modifybtn{
+._modifybtn{
 	margin-right:5%;
 	margin-bottom:3%;
     float:right;
 }
 
 
-.yi_mypagelogo{
+._mypagelogo{
 	font-weight: 600;
 }
 
-.yi_accordion-inside-title{
+._accordion-inside-title{
 	font-weight: 600;
 	margin-left: 3%;
 	margin-top: 2%;
 	
 }
-.yi_orderguide{
+._orderguide{
 	padding-left:3%;
 	padding-right:3%
 	padding-top:5%;
@@ -58,29 +58,29 @@
  
 }
 
-.yi_orderdetailTitle{
+._orderdetailTitle{
 	margin-top:-2%;
 	font-weight:600;
 }
 
-.yi_orderdetail-location{
+._orderdetail-location{
 	margin-left:10%;
 	font-weight:600;
 	
 }
 
-.yi_orderdetail-item{
+._orderdetail-item{
 	text-align:center;
 	font-weight:600;
 	
 }
 
-.yi_ordercancelbtn{
+._ordercancelbtn{
 	margin-top:1%;
 	margin-left:45%;
 }
 
-.yi_backToOrderlist a{
+._backToOrderlist a{
     font-weight : 700;
     font-size: 15px;
     text-decoration: none;
@@ -89,7 +89,7 @@
     margin-right:5%;
     margin-top:-3%;
 }
-.yi_backToOrderlist a:hover{
+._backToOrderlist a:hover{
     color: rgb(0, 153, 255);
     text-decoration: none;
 }

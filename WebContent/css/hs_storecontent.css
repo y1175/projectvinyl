@@ -2,12 +2,12 @@
 body{
     margin: 0px auto;
 }
-.hs_container_nav_cg {
+.container_nav_cg {
     max-width: 100%;
     margin-bottom: 30px;
 }
 
-.hs_cg_g-scrolling-carousel .hs_cg_items a {
+.cg_g-scrolling-carousel .cg_items a {
     display: inline-block;
     notice the comments between inline-block items margin-right: 10px;
     width: 110px;
@@ -15,12 +15,12 @@ body{
     /*text-align: center;*/
     text-decoration: none;
 }
-.hs_storecontent_cg_img{
+.storecontent_cg_img{
 	width: 110px;
     height:110px;
 }
 
-.hs_cg_g-scrolling-carousel .hs_cg_items a p {
+.cg_g-scrolling-carousel .cg_items a p {
     margin: 0px;
     color: #222;
     font-size: 12px;
@@ -29,18 +29,18 @@ body{
     text-align: center;
 }
 
-.hs_cg_g-scrolling-carousel {
+.cg_g-scrolling-carousel {
     position: relative;
 }
 
-.hs_cg_g-scrolling-carousel .hs_cg_items {
+.cg_g-scrolling-carousel .cg_items {
     overflow-x: scroll;
     white-space: nowrap;
     width: 100%;
     -webkit-overflow-scrolling: touch;
 }
 
-.hs_cg_g-scrolling-carousel .hs_cg_items::-webkit-scrollbar {
+.cg_g-scrolling-carousel .cg_items::-webkit-scrollbar {
     display: none;
 }
 
@@ -115,7 +115,7 @@ body{
 }
 /* 위에 건들이면 안됨 */
 /* 라인 */
-.hs_storecontent_line{
+.storecontent_line{
 	width: 100%;
     height: 1px;
     background-color: rgb(224, 224, 224);
@@ -123,42 +123,42 @@ body{
 }
 
 /* 카테고리 */
-.hs_thumbnail_store {
+.thumbnail_store {
 	width: 330px;
     display: inline-block;
     margin: 18px;
 }
-.hs_thumbnail_store img {
+.thumbnail_store img {
 	width: 330px;
     height: 250px;
     margin-bottom: 10px;
     border-radius: 5%;
 }
-.hs_thumbnail_store_title {
+.thumbnail_store_title {
 	font-size: 13px;
 	font-weight: 800;
 	}
-.hs_thumbnail_deal_p{
+.thumbnail_deal_p{
 	font-size: 13px;
 	font-weight: 800;
 }
-.hs_thumbnail_store a{
+.thumbnail_store a{
 	text-decoration: none;
 	color: #222;
 }
-.hs_thumbnail_store a b{
+.thumbnail_store a b{
 	font-size: 15px;
 	color: #222;
 	position: relative;
 	bottom: 15px;
 }
-.hs_thumbnail_store b{
+.thumbnail_store b{
 	font-size: 20px;
 	color: #222;
 	position: relative;
 	bottom: 15px;
 }
-.hs_thumbnail_store_star{
+.thumbnail_store_star{
 	font-size: 13px;
 	color: #222;
 	position: relative;

@@ -98,7 +98,7 @@
                 });
                 rightElem.bind("click", function(e){
                   leftElem.fadeIn(200);
-                  items = $(this).siblings(".hs_aside_bright_items");
+                  items = $(this).siblings(".aside_bright_items");
                   currx = items.scrollLeft();
                   amX = parseInt($(this).parent().width() / amount); // cantidad de elementos x viewport
                   am = (amX * amount) - amount;
@@ -108,7 +108,7 @@
                 });
                 leftElem.bind("click", function(e){
                   rightElem.fadeIn(200);
-                  items = $(this).siblings(".hs_aside_bright_items");
+                  items = $(this).siblings(".aside_bright_items");
                   currx = items.scrollLeft();
                   amX = parseInt($(this).parent().width() / amount); // cantidad de elementos x viewport
                   am = (amX * amount) - amount;

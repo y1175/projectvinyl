@@ -23,7 +23,7 @@ function focus(event) {
 
 function reset(event) {
     event.target.classList.remove('focused');
-    ryan.classList.remove('playing');
+    ryan.classList.remove('plang');
 
     clearTimeout(timer);
     timer = setTimeout( () => {
@@ -82,7 +82,7 @@ function lookAway(event) {
 
     clearTimeout(timer);
     timer = setTimeout( () => {
-        ryan.classList.add( 'playing' );
+        ryan.classList.add( 'plang' );
     }, 300);
 }
 

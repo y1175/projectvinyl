@@ -3,13 +3,13 @@ body{
 	margin: 0px auto;
 }
 
-.hm_h1mg{
+.h1mg{
 	text-align: center;
 	margin : 40px;
 
 }
 
-.hm_searchmg{
+.searchmg{
 	position: relative;
 	left: 500px;
 	background-color: rgba(0,153,255,0.6);
