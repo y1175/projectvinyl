@@ -30,7 +30,7 @@ public class UpdateItemAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/yj/updateItem.jsp");
+		forward.setUrl("/hs_storeadminmain.jsp?page=yj/updateItem.jsp");
 		return forward;
 	}
 
