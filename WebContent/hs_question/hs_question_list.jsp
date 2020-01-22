@@ -74,7 +74,7 @@
           <i class='fas fa-user-circle' style='margin-right:5px; font-size:20px'></i>
           <c:out value="${item.mem_name}"/><span> | </span>   
           <c:out value="${item.qdate}"/><span> | </span>  
-          <span>댓글수 </span>
+          <span>조회수 </span>
           <c:out value="${item.readno}"/>       
       </li>
       </ul>

@@ -25,7 +25,7 @@
   }
   
   function del(a_no,q_no){
-	  location href="hs_answerdelete.do?a_no="+a_no+"&q_no="+q_no
+	  location.href="hs_answerdelete.do?a_no="+a_no+"&q_no="+q_no;
   }
   
   $(document).ready(function() {

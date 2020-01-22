@@ -18,14 +18,26 @@ public class hs_AnswerDeleteAction implements Action {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ActionForward forward=new ActionForward();
-		int a_no=Integer.getInteger(request.getParameter("a_no"));		
-		int q_no=Integer.getInteger(request.getParameter("p_no"));
 		
-		System.out.println("È­¼ö ´ñ±Û"+a_no);
-		System.out.println("È­¼ö ´ñ±Û"+q_no);
+		String a_no = request.getParameter("a_no");
+		String q_no = request.getParameter("q_no");
+		
+		int ano = 1;
+		int qno = 1;
+		
+		if(a_no!=null&&!(a_no.equals(""))) {
+			ano= Integer.parseInt(a_no);
+		}
+		
+		if(q_no!=null&&!(q_no.equals(""))) {
+			qno= Integer.parseInt(q_no);
+		}
+		
+		System.out.println("È­¼ö ´ñ±Û"+ano);
+		System.out.println("È­¼ö ´ñ±Û"+qno);
 		
 		QuestionService service=QuestionService.getService();
-		service.getAnswerDelete(a_no);
+		service.getAnswerDelete(ano);
 		
 		forward.setForward(true);
 		forward.setUrl("hs_questiondetail.do?no="+q_no);

@@ -16,34 +16,25 @@ import org.json.simple.JSONObject;
 import hs.com.homedream.answer.AnswerDTO;
 import hs.com.homedream.service.QuestionService;
 
-/**
- * Servlet implementation class AnswerDetailAction
- */
+
 @WebServlet("/hs_answerdetail.do")
 public class hs_AnswerDetailAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public hs_AnswerDetailAction() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doReq(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doReq(request, response);
 	}
+	
 	private void doReq(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json;charset=utf-8");
 		
@@ -65,7 +56,7 @@ public class hs_AnswerDetailAction extends HttpServlet {
 		}
 		PrintWriter out=response.getWriter();
 		out.print(arr);	
-		System.out.println(arr);
+		System.out.println(arr.size());
 	}
 
 }
