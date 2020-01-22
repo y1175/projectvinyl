@@ -18,7 +18,7 @@ public class JY_JN_UploadAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		forward.setForward(true);
-		forward.setUrl("/jy_jn/jy_jn_uploadform.jsp");		
+		forward.setUrl("/hs_communitymain.jsp?page=jy_jn/jy_jn_uploadform.jsp");		
 		 
 		return forward;
 	}

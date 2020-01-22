@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.dto.EJMemberDTO;
+import yi.com.homedream.dto.YIMemberDTO;
 import yi.com.homedream.service.YIMemberService;
 
 public class YILoginResultAction implements Action {
@@ -23,7 +23,7 @@ public class YILoginResultAction implements Action {
 		
 		
 		YIMemberService service=YIMemberService.getService();
-		EJMemberDTO dto=service.getLogin(id,pwd);
+		YIMemberDTO dto=service.getLogin(id,pwd);
 		
 		ActionForward f=new ActionForward();
 		

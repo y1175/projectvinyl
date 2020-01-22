@@ -13,7 +13,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <!--header style-->
-<link rel="stylesheet" href="css/hs_userheader.css?ver=1" >
+<link rel="stylesheet" href="css/hs_userheader.css?ver=3" >
 <!--header style-->
 <style>
   /* .hs_header_nav_a{
@@ -39,6 +39,7 @@
 </script>
 </head>
 <body>
+<c:if test="${sessionScope.userId == null}">
   <div>
     <div class="hs_header_top">
      <a href="hs_communitymain.jsp" id="hs_header_h1">홈드림</a>
@@ -48,7 +49,7 @@
      <form>
         <label for="hs_mainsearch"></label>
         <i class='fas fa-search' style="padding: 5px;"></i>
-        <input type="text" id="hs_mainsearch" name="hs_mainsearch" value="통합검색">
+        <!-- <input type="text" id="hs_mainsearch" name="hs_mainsearch" placeholder="통합검색"> -->
      </form>
      </div>
      <div class="hs_header_cartlogin">
@@ -69,6 +70,40 @@
     </div> 
     <div class="hs_header_line"></div> 
     </div>
-  </div>
+   </div>
+</c:if>
+  <c:if test="${sessionScope.userId != null}">
+    <div>
+    <div class="hs_header_top">
+     <a href="hs_communitymain.jsp" id="hs_header_h1">홈드림</a>
+     <a href="hs_communitymain.jsp" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티</a>
+     <a href="hs_storemain.jsp" class="hs_header_hc">스토어</a>
+     <div class="hs_header_search">
+     <form>
+        <label for="hs_mainsearch"></label>
+        <i class='fas fa-search' style="padding: 5px;"></i>
+        <!-- <input type="text" id="hs_mainsearch" name="hs_mainsearch" placeholder="통합검색"> -->
+     </form>
+     </div>
+     <div class="hs_header_cartlogin">
+        <a href="yiorderlist.do"><i class="fa fa-shopping-cart"></i></a>
+        <a href="yiorderlist.do">마이페이지</a><span> | </span><a href="yilogout.do">로그아웃</a>
+     </div>
+    </div>
+    <div class="hs_header_bottom">
+    <div class="hs_header_line"></div>
+    <div class="hs_header_cg">
+     <nav class="hs_header_nav">
+         <a href="">홈</a>
+         <a href="jy_list.do">집들이 &amp;노하우</a>
+         <a href="hm_list.do">전문가찾기</a>
+         <a href="hs_questionlist.do">질문과답변</a>
+         <a href="">이벤트</a>
+     </nav>  
+    </div> 
+    <div class="hs_header_line"></div> 
+    </div>
+    </div>
+  </c:if>
 </body>
 </html>

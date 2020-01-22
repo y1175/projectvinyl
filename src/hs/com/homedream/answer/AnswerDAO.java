@@ -28,6 +28,8 @@ public class AnswerDAO {
 			ps.setInt(1, dto.getQ_no());
 			ps.setInt(2, dto.getMem_no());
 			ps.setString(3, dto.getContent());
+			System.out.println("호도 디티오"+dto.getContent());
+			
 			ps.executeUpdate();
 		}finally {
 			if(ps!=null) try {ps.close();} catch(SQLException e) {}

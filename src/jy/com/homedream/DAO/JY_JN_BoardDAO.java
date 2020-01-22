@@ -34,6 +34,7 @@ public class JY_JN_BoardDAO {
 		sql.append("                ,likeno             ");
 		sql.append("                ,readno             ");
 		sql.append("                ,writedate          ");
+		sql.append("                ,file_name          ");
 		sql.append("    from        mboard   b          ");
 		sql.append("                join member m       ");
 		sql.append("    where       b.mem_no = m.mem_no ");
@@ -79,6 +80,7 @@ public class JY_JN_BoardDAO {
 				dto.setReadNo(rs.getInt("readno"));
 				dto.setWritedate(rs.getString("writedate"));
 				dto.setId(rs.getString("id"));
+				dto.setFile_name(rs.getString("file_name"));
 				jn_list.add(dto);
 			}
 		} finally {
@@ -92,16 +94,19 @@ public class JY_JN_BoardDAO {
 		ResultSet rs = null;
 		JY_JN_BoardDTO dto = new JY_JN_BoardDTO();
 		StringBuilder sql = new StringBuilder();
-		sql.append("   select      bno        ");
-		sql.append("               ,mem_no    ");
-		sql.append("               ,btitle    ");
-		sql.append("               ,bcontent  ");
-		sql.append("               ,likeno    ");
-		sql.append("               ,readno    ");
-		sql.append("               ,writedate ");
-		sql.append("               ,file_name ");
-		sql.append("   from        mboard     ");
-		sql.append("   where       bno  =  ?  ");
+		sql.append("    select      bno                 ");
+		sql.append("                ,m.mem_no           ");
+		sql.append("                ,btitle             ");
+		sql.append("                ,bcontent           ");
+		sql.append("                ,m.id               ");
+		sql.append("                ,likeno             ");
+		sql.append("                ,readno             ");
+		sql.append("                ,writedate          ");
+		sql.append("                ,file_name          ");
+		sql.append("    from        mboard   b          ");
+		sql.append("                join member m       ");
+		sql.append("    on          b.mem_no = m.mem_no ");
+		sql.append("    where       bno     =     ?     ");
 		try {
 			
 			pstmt = conn.prepareStatement(sql.toString());
@@ -117,6 +122,7 @@ public class JY_JN_BoardDAO {
 				dto.setReadNo(rs.getInt("readno"));
 				dto.setWritedate(rs.getString("writedate"));
 				dto.setFile_name(rs.getString("file_name"));
+				dto.setId(rs.getString("id"));
 			}
 		}finally{
 			if(rs!=null) try {rs.close();} catch(SQLException e) {}

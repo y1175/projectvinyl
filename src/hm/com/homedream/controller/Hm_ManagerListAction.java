@@ -70,7 +70,7 @@ public class Hm_ManagerListAction implements Action {
 		request.setAttribute("list", list);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_managerlist.jsp");
+		forward.setUrl("/hs_communityadminmain.jsp?page=hm_expert/hm_managerlist.jsp");
 		
 		
 		return forward;

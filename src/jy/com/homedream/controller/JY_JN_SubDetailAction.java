@@ -41,6 +41,7 @@ public class JY_JN_SubDetailAction extends HttpServlet {
 		response.setContentType("application/json;charset=utf-8");
 		
 		int num = Integer.parseInt(request.getParameter("num"));
+		
 		JY_JN_Service service = JY_JN_Service.getService();
 		List<JY_JN_SubBoardDTO>list = service.jn_getDetailSubBoard(num);
 		

@@ -44,7 +44,7 @@ public class YIOrderlistAction implements Action {
 			request.setAttribute("mlist", mlist);
 			
 			f.setForward(true);
-			f.setUrl("/yi_member/orderlist.jsp");
+			f.setUrl("/hs_communitymain.jsp?page=yi_member/orderlist.jsp");
 		}
 		
 		return f;

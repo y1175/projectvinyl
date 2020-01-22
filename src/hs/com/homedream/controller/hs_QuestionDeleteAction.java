@@ -20,12 +20,15 @@ public class hs_QuestionDeleteAction implements Action {
 		ActionForward forward=new ActionForward();
 		
         String no=request.getParameter("no");
+        System.out.println("삭제 부분임"+no);
 		
 		int q_no=1;
 		
 		if(no!=null && !("".equals(no))) {
 			q_no=Integer.parseInt(no);
 		}
+		
+		System.out.println("삭제 부분임"+q_no);
 		
 		QuestionService service=QuestionService.getService();
 		service.questionDelete(q_no);

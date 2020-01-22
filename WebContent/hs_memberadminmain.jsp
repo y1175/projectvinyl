@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,13 @@
          <jsp:include page="hs_memberadminheader.jsp"></jsp:include>
      </header>
      <section>
-          <jsp:include page="ej_member/ej_list.jsp"></jsp:include>
+       <c:set var="hs_admin_member_contentpage" value="${param.page}"/>
+         <c:if test="${hs_admin_member_contentpage!=null}">
+           <jsp:include page="${hs_admin_member_contentpage}"></jsp:include>
+         </c:if>
+         <c:if test="${hs_admin_member_contentpage==null}">
+           <jsp:include page="ej_member/ej_list.jsp"></jsp:include>
+         </c:if>
      </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>

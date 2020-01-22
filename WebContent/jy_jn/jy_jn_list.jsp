@@ -9,17 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>집들이 앤 노하우</title>
+<link rel = "stylesheet" href="css/jy_list.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-<!-- viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-<!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
    <script>
       function insertBoard() {
          location.href="jy_upload.do";
@@ -28,8 +21,6 @@
          location.href="yilogin.do";
       };
    </script>
-
-<!-- Bootstrap -->
 <style>
 /* header nav 집들이 앤 노하우 글씨색상  */
   .hs_header_nav > a:nth-child(2){
@@ -39,62 +30,64 @@
 
 </head>
 <body>
-<div class="container">
- <header>
-  <jsp:include page="/hs_communityheader.jsp"></jsp:include>
- </header>
- 
-<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=new">최신순</a>
-<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=readpoint">조회수순</a>
-<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=likepoint">좋아요순</a>
 
-<table>
-<thead>
-<tr><th>글 번호</th><th>글 제목</th><th>글쓴이</th><th>좋아요</th><th>조회수</th><th>작성일</th></tr>
-</thead>
-<tbody>
+
+    <div class="title-header pens-title-header">
+        <h1 style="display: inline-block; font-size: 4em;">집들이 & 노하우</h1>
+      
+    </div>
+    
+    <div class="title_under_bar"></div>
+    
+   <div class="sorting" style=" font-size: 15px; width:100%; padding-left: 83%;">
+        <a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=new">최신순</a>
+		<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=readpoint">조회수순</a>
+		<a href ="jy_list.do?search=${search }&searchtxt=${searchtxt }&sorting=likepoint">좋아요순</a>
+        </div>   
+        
+        <div class="fuckyou">
 <c:set var="list" value="${requestScope.jn_list}"/>
 <c:forEach var="item" items="${list}">
-<tr>
 
-<td>
-<c:out value="${item.bno }"/>
-</td>
 
-<td>
-<a href = "jy_detail.do?num=${item.bno }">
-<c:out value="${item.btitle }"/>
-</a>
-</td>
 
-<td>
-<c:out value="${item.id}"/>
-</td>
+<div class="content">
 
-<td>
-<c:out value="${item.likeNo }"/>
-</td>
+    <div class="row" id="picked"><!-- 애가 큰 상자 -->
 
-<td>
-<c:out value="${item.readNo }"/>
-</td>
-
-<td>
-<c:out value="${item.writedate }"/>
-</td>
-
-</tr>
+      <div class="card">
+      <figure class="card_header">
+      <c:if test="${item.file_name != null}">
+       <a href="jy_detail.do?num=${item.bno }"><img src="upload/${item.file_name}" alt="${file }" class="jy_img_list"></a>
+        </c:if>
+        <c:if test="${item.file_name == null}">
+               <a href="jy_detail.do?num=${item.bno }"><img src="https://postfiles.pstatic.net/MjAyMDAxMjJfMTA2/MDAxNTc5NjgzNjE3NTA4.D0pd8M4Q4bffOEO5CkV96b_2PQgedutGF8EnuBzJVhUg.B7mzTTcPYVbFyXATq1-0GVxEuHtLal16yuqPIYZn2Owg.JPEG.x_o1215/KakaoTalk_Photo_20200122_1740_52240_-_%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg?type=w966" alt="${file }" class="jy_img_list"></a>
+        </c:if>
+        </figure>
+        <div class="card_text"><h2 class="card_title">
+          <a href="jy_detail.do?num=${item.bno }"><c:out value="${item.btitle }"/></a></h2>
+          <p class="card_desc">
+          <c:out value="${item.id}"/><br>
+          <c:out value="${item.writedate }"/><br>
+          </p>  
+          </div>
+        </div>
+    </div>
+</div>
 
 </c:forEach>
 
-</tbody>
-
-</table>
 
 
 
+
+
+
+</div>
+
+
+<br>
 <a href="jy_upload.do">새글쓰기</a>
-
 <br>
 
 <c:set var ="currpage" value = "${requestScope.currpage }"/>
@@ -104,6 +97,9 @@
 <c:set var ="search" value="${requestScope.search }"/>
 <c:set var ="searchtxt" value="${requestScope.searchtxt}"/>
 <c:set var ="sorting" value="${requestScope.sorting}"/>
+
+<div class="jy_page">
+
 
 <c:if test="${startblock > 1 }">
 	<a href="jy_list.do?curr=${startblock-1 }&search=${search }&searchtxt=${searchtxt }&sorting=${sorting }">이전 블럭으로</a>
@@ -135,7 +131,7 @@
 	<a href = "jy_list.do?curr=${endblock +1 }&search=${search }&searchtxt=${searchtxt}&sorting=${sorting }">다음블럭으로</a>
 </c:if>
 
-
+</div>
 
 <form method="post" action="jy_list.do">
 
@@ -156,9 +152,5 @@
 <input type="submit" value="검색">
 </form>
 
-<footer>
-   <jsp:include page="/hs_user_footer.jsp"></jsp:include>
- </footer>
-</div> 
 </body>
 </html>

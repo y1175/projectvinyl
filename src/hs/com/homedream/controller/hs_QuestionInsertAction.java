@@ -16,7 +16,7 @@ public class hs_QuestionInsertAction implements Action {
 			throws ServletException, IOException {
 		ActionForward forward=new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hs_question/hs_question_insert.jsp");
+		forward.setUrl("/hs_communitymain.jsp?page=hs_question/hs_question_insert.jsp");
 		
 		return forward;
 	}

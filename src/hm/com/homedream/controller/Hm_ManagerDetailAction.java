@@ -31,7 +31,7 @@ public class Hm_ManagerDetailAction implements Action {
 		request.setAttribute("dto", dto);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_managerdetail.jsp");
+		forward.setUrl("/hs_communityadminmain.jsp?page=hm_expert/hm_managerdetail.jsp");
 
 
 		return forward;

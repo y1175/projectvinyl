@@ -33,7 +33,7 @@ public class JY_JN_DetailAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/jy_jn/jy_jn_detail.jsp");
+		forward.setUrl("/hs_communitymain.jsp?page=jy_jn/jy_jn_detail.jsp");
 		
 		return forward;
 	}

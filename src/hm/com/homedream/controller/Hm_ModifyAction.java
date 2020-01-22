@@ -35,7 +35,7 @@ public class Hm_ModifyAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/hm_expert/hm_modify.jsp");
+		forward.setUrl("/hs_communityadminmain.jsp?page=hm_expert/hm_modify.jsp");
 		
 		return forward;
 	}

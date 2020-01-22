@@ -95,14 +95,14 @@ public class JY_JN_ListAction implements Action {
 
 
 		
-		List<JY_JN_BoardDTO> jn_list = service.jn_getList(search, searchtxt,startrow, endrow,sorting);
+        List<JY_JN_BoardDTO> jn_list = service.jn_getList(search, searchtxt,startrow, endrow,sorting);
 		
 		request.setAttribute("jn_list", jn_list);
 		
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/jy_jn/jy_jn_list.jsp");
+		forward.setUrl("/hs_communitymain.jsp?page=jy_jn/jy_jn_list.jsp");
 		
 		return forward;
 	}

@@ -22,9 +22,9 @@ public class YILoginAction implements Action {
 		if(session.getAttribute("userId")==null)	//로그인 상태가 아닐때
 		{			
 		f.setForward(true);
-		f.setUrl("/yi_member/loginform.jsp");
+		f.setUrl("/hs_communitymain.jsp?page=yi_member/loginform.jsp");
 		}
-		else if(id.equals("admin"))	//admin으로 로그인할때
+		/*else if(id.equals("admin"))	//admin으로 로그인할때
 		{
 			f.setForward(true);
 			f.setUrl("/hs_memberadminmain.jsp");
@@ -34,7 +34,7 @@ public class YILoginAction implements Action {
 		{
 			f.setForward(false);
 			f.setUrl("homedream.do");
-		}
+		}*/
 		return f;
 	}
 

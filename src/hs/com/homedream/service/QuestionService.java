@@ -124,6 +124,7 @@ public class QuestionService {
 			conn.setAutoCommit(false);
 			QuestionDAO dao=QuestionDAO.getDAO();
 			dao.questionDelete(conn,q_no);
+			System.out.println("dao"+q_no);
 			conn.commit();
 		}catch(NamingException | SQLException e) {
 			System.out.println(e);
@@ -144,6 +145,7 @@ public class QuestionService {
 			AnswerDAO dao=AnswerDAO.getAnswerDAO();
 			dao.getAnswerAdd(conn,dto);
 			answerid=dao.answerID(conn,mem_no);
+			System.out.println("화수 답변아이디" + answerid);
 			conn.commit();
 		}catch(NamingException | SQLException e) {
 			System.out.println(e);

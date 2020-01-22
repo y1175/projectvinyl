@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,15 @@
      <header>
          <jsp:include page="hs_communityadminheader.jsp"></jsp:include>
      </header>
+     <section>
+       <c:set var="hs_admin_community_contentpage" value="${param.page}"/>
+          <c:if test="${hs_admin_community_contentpage!=null}">
+           <jsp:include page="${hs_admin_community_contentpage}"></jsp:include>
+          </c:if>
+          <c:if test="${hs_admin_community_contentpage==null}">
+           <jsp:include page="hs_event/hs_event_main.jsp"></jsp:include>
+          </c:if>
+     </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>
      </footer>

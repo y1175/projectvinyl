@@ -41,7 +41,7 @@ public class YIModifyAction implements Action {
 			request.setAttribute("list", list);
 			
 			f.setForward(true);
-			f.setUrl("/yi_member/membermodify.jsp");
+			f.setUrl("/hs_communitymain.jsp?page=yi_member/membermodify.jsp");
 		}
 		
 		return f;
