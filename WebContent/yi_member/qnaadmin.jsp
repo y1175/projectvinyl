@@ -5,13 +5,10 @@
 <html>
 <head>
 
-<style>
-#searchbox{border:1px solid silver;
-width: 60%;
-padding: 20px;}
-#line{border:0.5px solid silver;}
-</style>
-
+<link rel="stylesheet" href="css/yi_qnaadmin.css">
+<!--icon-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--icon-->
 <script>
 
 
@@ -74,19 +71,27 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" class="form-inline" action="yiqnaadmin.do"><!--처음에 list.do햇음  -->
-<div class="questionsearch_searchbox">
-<select name="search" class="custom-select"><!--search txtsearch받아야댐 ListAction에서  -->
-	<option value="id">아이디</option>
-	<option value="name">이름</option>
-	<option value="btitle">글제목</option>
-</select>
-<i class='fas fa-search' style="padding: 5px;"></i>
-<input type="text" name="txtsearch" class="form-control">
+
+ 
+    <form method="post" action="yiqnaadmin.do">
+    <div class="yi_question_titlediv">
+       <div class="yi_questionsearch_searchbox">
+        <select name="search" class="yi_questionsearch_searchop">
+        	<option value="id">아이디</option>
+			<option value="name">이름</option>
+			<option value="title">글제목</option>
+        </select> 
+        <i class='fas fa-search' style="padding: 5px;"></i>
+        <input type="text" id="yi_questionsearchtxt" name="txtsearch" placeholder="검색">
+       </div>
+   
+    </div>
+
+
 <!-- <input type="submit" value="검색"> -->
 
 
-</div>
+
 
 
 
@@ -154,8 +159,8 @@ $(document).ready(function(){
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 
 
-</form>
 
+ </form>
 
 </body>
 </html>
