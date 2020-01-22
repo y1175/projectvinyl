@@ -211,7 +211,7 @@ public class YIMemberService {
 
 
 	}
-	public List<YIMemberDTO> memberInfo(String id) {
+	public List<YIMemberDTO> memberInfo(int id) {
 		Connection conn=null;
 		DBConnection dbconn=DBConnection.getInstance();
 		List<YIMemberDTO> list=new ArrayList<>();

@@ -7,14 +7,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<!-- jQuery -->
+<!-- viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/yi_adminboard.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
 </head>
 <body>
+<div class='container'>
+<header>
+         <jsp:include page="/hs_communityheader.jsp"></jsp:include>
+     </header>
 <c:set var="member" value="${requestScope.member }"></c:set>
 <c:set var="order" value="${requestScope.order }"></c:set>
 <c:set var="items" value="${requestScope.items }"></c:set>
 
 <h1>주문/배송지 정보</h1>
-<table>
+<div class='row'>
+<div class='col'></div>
+<div class='col-9'>
+<table class="table">
+<thead class="thead-dark">
 <tr><th>주문번호</th><td><c:out value="${order[0].order_no }"/></td>
 <th>주문일자</th><td><c:out value="${order[0].orderdate }"/></td>
 </tr>
@@ -24,8 +45,13 @@
 <tr><th>이름</th><td><c:out value="${member[0].name }"/></td>
 <th>결제금액</th><td><c:out value="${order[0].cost }"/>원</td>
 </tr>
-
+</thead>
+<tbody></tbody>
 </table>
+</div>
+<div class='col'></div>
+</div>
+
 <h1>주문상품</h1>
 <table>
 <thead>
@@ -33,6 +59,7 @@
 
 </thead>
 <tbody>
+
 <c:forEach items="${items }" varStatus="stat">
 
 <c:choose> 
@@ -54,17 +81,22 @@
 </c:choose>
 
 <tr>
-<td><img src="img/${items[stat.index].loc}" alt="${items[status.index].file_name}"/></td>
+<td><img src="" alt="${items[status.index].file_name}"/></td>
 <td><c:out value="${items[stat.index].name }"/></td>
 <td><c:out value="${items[stat.index].price }"/>원</td>
 <td><c:out value="${orderst }"/></td>
 </tr>
 </c:forEach>
 </tbody>
-
 </table>
+
 <a href="yiordercancel.do?num=${order[0].order_no }">주문취소하기</a><br>
 <a href="yiorderlist.do">주문내역으로 돌아가기</a><br>
 <a href="yi.do">메인페이지로 돌아가기</a><br>
+
+<footer>
+         <jsp:include page="/hs_user_footer.jsp"></jsp:include>
+     </footer>
+</div>
 </body>
 </html>

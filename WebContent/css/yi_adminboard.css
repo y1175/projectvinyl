@@ -14,3 +14,30 @@
     padding-left: 16%;
     margin-bottom:1%;
 }
+
+.yi_modifybtn{
+	margin-right:5%;
+	margin-bottom:3%;
+    float:right;
+}
+
+
+.yi_mypagelogo{
+	font-weight: 600;
+}
+
+.yi_accordion-inside-title{
+	font-weight: 600;
+	margin-left: 3%;
+	margin-top: 2%;
+	
+}
+.yi_orderguide{
+	padding-left:3%;
+	padding-right:3%
+	padding-top:5%;
+	padding-bottom:5%
+	margin:5%;
+	background-color: #BBDEFB;
+ 
+}

@@ -7,69 +7,85 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/yi_joinform.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 </head>
 <body>
+<div class='container'>
 <c:set var="list" value="${requestScope.list }"></c:set>
+<header>
+			<jsp:include page="/hs_communityheader.jsp"></jsp:include>
+		</header>
 
+<div class='row'>
+<div class='col'></div>
+<div class='col-6'>
 <form method="post" action="yimodifyresult.do">
-<ul>
-<li><label for="id">아이디</label>
+
+<label for="id">아이디</label>
 <input type="text" name="id" id="id" required="required" onkeyup="idCheckFunction();"
-value="${list[0].id }" readonly="readonly"
->
-</li>
+value="${list[0].id }" readonly="readonly" class="form-control">
 
-<li><label for="pwd">패스워드</label>
-<input type="password" name="pwd" id="pwd" required="required" value="${list[0].pwd }" >
-</li>
 
-<li><label for="pwdcheck">패스워드확인</label>
-<input type="password" name="pwdcheck" id="pwdcheck" required="required" value="${list[0].pwd }" onkeyup="passwordCheckFunction();">
-</li>
-<li>
+<label for="pwd">패스워드</label>
+<input type="password" name="pwd" id="pwd" required="required" value="${list[0].pwd }" class="form-control" >
+
+
+<label for="pwdcheck">패스워드확인</label>
+<input type="password" name="pwdcheck" id="pwdcheck" required="required" value="${list[0].pwd }" onkeyup="passwordCheckFunction();" class="form-control">
+
 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
 <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-</li>
+<label for="name">이름</label>
+<input type="text" name="name" id="name" value="${list[0].name }" required="required" class="form-control">
+<label for="birth">생년월일</label>
+<input type="date" name="birth" id="birth" value="${list[0].birth }" class="form-control">
+<label for="id">전화번호</label>
+<input type="text" name="phone" id="phone" value="${list[0].phone }" class="form-control">
 
-<li><label for="name">이름</label>
-<input type="text" name="name" id="name" value="${list[0].name }" required="required">
-</li>
 
-<li><label for="birth">생년월일</label>
-<input type="date" name="birth" id="birth" value="${list[0].birth }">
-</li>
 
-<li><label for="id">전화번호</label>
-<input type="text" name="phone" id="phone" value="${list[0].phone }">
-</li>
-
-<li>
 <label for='addr'>주소</label>
-<input type="text" id="sample4_postcode" name='zipcode' placeholder="우편번호">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" readonly="readonly"><br>
 
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="roadaddr" readonly="readonly">
+<div class='form-row'>
+<div class='col-5'>
+<input type="text" id="sample4_postcode" name='zipcode' placeholder="우편번호" class="form-control">
+</div>
+<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" readonly="readonly" class='btn btn-info'><br>
+</div>
+
+<div class='juso'>
+<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="roadaddr" readonly="readonly" class="form-control">
 <input type="radio" id='roadAddress' name='addrselect' value="0" required ><label for="addrselect">도로명주소 선택</label> <br>
 
-<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="jibunaddr" readonly="readonly">
+<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="jibunaddr" readonly="readonly" class="form-control">
 <input type="radio" id='jibunAddress' name='addrselect' value="1" ><label for="addrselect">지번주소 선택</label>
+</div>
 <span id="guide" style="color:#999"></span>
-</li>
-<li>
+
 <label for="detailaddr">상세주소</label>
-<input type="text" id="detailaddr" name="detailaddr">
-</li>
+<input type="text" id="detailaddr" name="detailaddr" class="form-control">
 
+<div class='row submit-btn'>
+<div class='col'></div>
+<input type="submit" id="submit" value="수정" class='btn btn-info'>
+<div class='col'></div>
+</div>
 
-<li>
-<input type="submit" id="submit" value="제출">
-<input type="reset" id="submit" value="취소">
-</li>
-</ul>
 </form>
+</div>
+<div class='col'></div>
+
+<footer>
+			<jsp:include page="/hs_user_footer.jsp"></jsp:include>
+		</footer>
 
 
-
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -159,5 +175,19 @@ $("input")
 
 
 </script>
+
+<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 </body>
 </html>

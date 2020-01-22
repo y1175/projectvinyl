@@ -129,7 +129,7 @@ public class YIMemberDAO {
 	}
 	public List<YIItemDTO> orderDetailItem(Connection conn, int num) throws SQLException {
 		StringBuilder sql=new StringBuilder();
-		sql.append(" select name,price,img_no,file_name,loc   ");
+		sql.append(" select name,price,file_name   ");
 		sql.append(" from orderlist inner join item ");
 		sql.append(" on orderlist.item_no = item.item_no  ");
 		sql.append(" where order_no=? ");
@@ -145,9 +145,7 @@ public class YIMemberDAO {
 				YIItemDTO dto=new YIItemDTO();
 				dto.setName(rs.getString("name"));
 				dto.setPrice(rs.getInt("price"));
-				dto.setImg_no(rs.getInt("img_no"));
 				dto.setFile_name(rs.getString("file_name"));
-				dto.setLoc(rs.getString("loc"));
 				list.add(dto);
 			}
 		}
@@ -161,8 +159,8 @@ public class YIMemberDAO {
 		StringBuilder sql=new StringBuilder();
 		List<YIOrderlistDTO> list=new ArrayList<>();
 		ResultSet rs=null;
-		sql.append(" select order_no,status,cost ");
-		sql.append(" from orderlist inner join item ");
+		sql.append(" select order_no,status,cost,orderdate          ");
+		sql.append(" from orderlist inner join item       ");
 		sql.append(" on orderlist.item_no = item.item_no  ");
 		sql.append(" where order_no=? ");
 		
@@ -176,6 +174,7 @@ public class YIMemberDAO {
 				dto.setOrder_no(rs.getInt("order_no"));
 				dto.setCost(rs.getInt("cost"));
 				dto.setStatus(rs.getInt("status"));
+				dto.setOrderdate(rs.getString("orderdate"));
 				list.add(dto);
 			}
 		}
@@ -228,7 +227,7 @@ public class YIMemberDAO {
 		}
 		
 	}
-	public List<YIMemberDTO> memberInfo(Connection conn, String id) throws SQLException {
+	public List<YIMemberDTO> memberInfo(Connection conn, int id) throws SQLException {
 	List<YIMemberDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
@@ -236,7 +235,7 @@ public class YIMemberDAO {
 	sql.append(" from member  ");
 	sql.append("  where mem_no=?  ");
 	try (PreparedStatement pstmt=conn.prepareStatement(sql.toString());) {
-		pstmt.setInt(1, Integer.parseInt(id));
+		pstmt.setInt(1, id);
 		rs=pstmt.executeQuery();
 		while(rs.next())
 		{

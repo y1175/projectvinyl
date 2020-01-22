@@ -21,7 +21,7 @@ public class YIModifyResultAction implements Action {
 request.setCharacterEncoding("utf-8");
 		
 HttpSession session=request.getSession();
-String memno=(String)session.getAttribute("userId");
+int mem_no=(int)session.getAttribute("mem_no");
 
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
@@ -44,7 +44,7 @@ String memno=(String)session.getAttribute("userId");
 		
 		
 		YIMemberDTO dto=new YIMemberDTO();
-		dto.setMemNo(Integer.parseInt(memno));
+		dto.setMemNo(mem_no);
 		dto.setId(id);
 		dto.setPwd(pwd);
 		dto.setName(name);
@@ -59,7 +59,7 @@ String memno=(String)session.getAttribute("userId");
 		
 		ActionForward f=new ActionForward();
 		f.setForward(false);
-		f.setUrl("homedream.do");
+		f.setUrl("yiorderlist.do");
 		return f;
 	}
 

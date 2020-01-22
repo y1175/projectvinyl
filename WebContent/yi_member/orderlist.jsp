@@ -26,18 +26,35 @@
 <header>
          <jsp:include page="/hs_communityheader.jsp"></jsp:include>
      </header>
-     
+
+<h4 class="yi_mypagelogo">마이페이지</h4>
+   
 <c:set var="list" value="${requestScope.list}"></c:set>
 <c:set var="mlist" value="${requestScope.mlist }"></c:set>
 
-<h1>마이페이지</h1>
-<h2>주문 내역</h2>
-<div>
+
+<div class="accordion" id="accordion1">
+  <div class="card">
+    <div class="card-header" id="orderlist">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          주문내역
+        </button>
+      </h2>
+    </div>
+    
+    <div id="collapseOne" class="collapse" aria-labelledby="orderlist" data-parent="#accordion1">
+      <div class="card-body">
+        
+    <h5 class="yi_accordion-inside-title">주문 내역</h5>
+<div class="yi_orderguide">
 <ul>
+<br>
 <li>상세조회 버튼을 클릭하시면 주문/입금/배송정보 등 세부내역을 확인하실 수 있습니다.</li>
-<li>결제/입금하신 경우 배송이완료되면 상세조회 화면에서 영수증을 출력하실 수 있습니다.</li>
 <li>포인트를 사용하여 주문하셨다가 재주문을 원하신다면 해당 주문을 취소하시면 포인트는 다시 반환됩니다.</li>
 <li>주문취소 방법: 리스트의 상세정보를 클릭하시고 들어가신후 하단의 주문취소 버튼을 클릭하시면 됩니다.</li>
+<li>결제,배송 이후 취소/반품 요청은 관리자에게 연락주세요.</li>
+<br>
 </ul>
   </div>
 <table class="table table-hover">
@@ -71,26 +88,60 @@
 
 <td><c:out value="${item.orderdate }"></c:out></td>
 <td><c:out value="${item.order_no }"></c:out></td>
-<td><a href="yiorderdetail.do?num=${item.order_no }">상세보기</a></td>
+<td><a href="yiorderdetail.do?num=${item.order_no }" class="btn btn-outline-primary">상세보기</a></td>
 
-<td><c:out value="${orderst }"></c:out></td>
+<td><button type="button" class="btn btn-secondary btn-lg" disabled><c:out value="${orderst }"></c:out></button></td>
 </tr>
 </c:forEach>
 
 </tbody>
+</table>    
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="memberInfo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         회원정보
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="memberInfo" data-parent="#accordion1">
+      <div class="card-body">
+       
+       <h5 class="yi_accordion-inside-title">회원 정보</h5>
+<table class="table table-hover">
+<tr><th>아이디</th>
+<td><c:out value="${mlist[0].id }"></c:out></td></tr>
+<tr><th>이름</th>
+<td><c:out value="${mlist[0].name }"></c:out></td></tr>
+<tr><th>생년월일</th>
+<td><c:out value="${mlist[0].birth }"></c:out></td></tr>
+<tr><th>전화번호</th>
+<td><c:out value="${mlist[0].phone }"></c:out></td></tr>
+<tr><th>주소</th>
+<td><c:out value="${mlist[0].addr }"></c:out></td></tr>
 </table>
-<c:set var="num" value="${item.order_no }"></c:set>
+<div class="yi_modifybtn">
+<a href="yimodify.do" class="btn btn-outline-primary">회원정보 수정</a><br>
+    </div>   
+       
+      </div>
+    </div>
+  </div>
+  
+</div>
 
-<h2>회원 정보</h2>
-<ul>
-<li><c:out value="${mlist[0].id }"></c:out></li>
-<li><c:out value="${mlist[0].name }"></c:out></li>
-<li><c:out value="${mlist[0].birth }"></c:out></li>
-<li><c:out value="${mlist[0].phone }"></c:out></li>
-<li><c:out value="${mlist[0].addr }"></c:out></li>
-</ul>
-<a href="yimodify.do">회원정보 수정</a><br>
-<a href="yi.do">메인으로 돌아가기</a>
+
+
+
+
+
+
+
 
 <footer>
          <jsp:include page="/hs_user_footer.jsp"></jsp:include>
