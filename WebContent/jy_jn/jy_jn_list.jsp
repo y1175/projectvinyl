@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>집들이 앤 노하우</title>
-<link rel = "stylesheet" href="css/jy_jn_list.css?ver=1">
+<link rel = "stylesheet" href="css/jy_list.css?ver=1">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
