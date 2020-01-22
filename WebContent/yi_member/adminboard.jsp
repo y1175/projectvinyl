@@ -76,7 +76,6 @@ $(document).ready(function(){
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
 <form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
-
 <div class="yi_admin_titlediv">
        <div class="yi_admin_searchbox">
         <select name="search" class="yi_adminsearch_searchop">
