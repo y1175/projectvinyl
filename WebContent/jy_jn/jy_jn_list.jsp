@@ -61,7 +61,7 @@
      </c:if>
      <c:if test="${item.file_name == null}">
         <a href="jy_detail.do?num=${item.bno }">
-          <img src="https://postfiles.pstatic.net/MjAyMDAxMjJfMTA2/MDAxNTc5NjgzNjE3NTA4.D0pd8M4Q4bffOEO5CkV96b_2PQgedutGF8EnuBzJVhUg.B7mzTTcPYVbFyXATq1-0GVxEuHtLal16yuqPIYZn2Owg.JPEG.x_o1215/KakaoTalk_Photo_20200122_1740_52240_-_%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg?type=w966" alt="${file }">
+          <img src="img/hs_event.jpg" alt="${file }">
         </a>
      </c:if>
      <p class="jy_thumbnail_jn_title">
