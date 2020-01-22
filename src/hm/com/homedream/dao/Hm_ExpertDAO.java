@@ -25,23 +25,25 @@ public class Hm_ExpertDAO {
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
 		sql.append("  insert into expert(                            ");
-		sql.append("          name                                  ");
+		sql.append("          no                                    ");
+		sql.append("          ,name                                 ");
 		sql.append("          ,text                                  ");
 		sql.append("          ,place                                 ");
 		sql.append("          ,lat                                   ");
 		sql.append("          ,lon                                   ");
 		sql.append("          ,file_name                             ");
 		sql.append("          ,addr      )                            ");
-		sql.append("         values(?,?,?,?,?,?,?)                   ");
+		sql.append("         values(?,?,?,?,?,?,?,?)                   ");
 		try {
-			pstmt = conn.prepareStatement(sql.toString());	
-			pstmt.setString(1, dto.getName());
-			pstmt.setString(2, dto.getText());
-			pstmt.setString(3, dto.getPlace());
-			pstmt.setString(4, dto.getLat());
-			pstmt.setString(5, dto.getLon());
-			pstmt.setString(6, dto.getFile_name());
-			pstmt.setString(7, dto.getAddr());
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, dto.getNo());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getText());
+			pstmt.setString(4, dto.getPlace());
+			pstmt.setString(5, dto.getLat());
+			pstmt.setString(6, dto.getLon());
+			pstmt.setString(7, dto.getFile_name());
+			pstmt.setString(8, dto.getAddr());
 			pstmt.executeUpdate();
 		}finally {
 			if(pstmt!=null)try {pstmt.close();}catch(SQLException e) {}
