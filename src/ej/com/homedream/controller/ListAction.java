@@ -82,7 +82,7 @@ public class ListAction implements Action {
 		
 ///////////////////////////////
 		String addpoint1=request.getParameter("addpoint");//얘는 insert.jsp에서받음
-		String memno1=request.getParameter("recipient-name");//list jsp에서 받은거
+		String memno1=request.getParameter("what");//list jsp에서 받은거
 		int addpoint=0; 
 		int memno=0;
 		
@@ -96,9 +96,8 @@ public class ListAction implements Action {
 		//service.insert(memno,addpoint);
 		
 		
-		System.out.println("addpoint:"+addpoint);
-		System.out.println("point"+addpoint);
-		System.out.println("memno이다이다: "+memno);
+		System.out.println("리스트액션에서 addpoint:"+addpoint);
+		System.out.println("리스트액션에서 memno: "+memno);
 		
 		
 		request.setAttribute("list", list);

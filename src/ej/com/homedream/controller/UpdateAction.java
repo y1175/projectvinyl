@@ -18,8 +18,11 @@ public class UpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String status1=request.getParameter("status");//얘는 insert.jsp에서받음
-		String orderno1=request.getParameter("orderno");//list jsp에서 받은거
+		System.out.println("updateActon!!!");
+		String status1=request.getParameter("status");//
+		String orderno1=request.getParameter("what");//
+		System.out.println("status"+status1);
+		System.out.println("orderno: "+orderno1);
 		int status=0; 
 		int orderno=0;
 		
@@ -27,21 +30,33 @@ public class UpdateAction implements Action {
 			status=Integer.parseInt(status1);
 		if(orderno1!=null&&!"".equals(orderno1))
 			orderno=Integer.parseInt(orderno1);
-		System.out.println("status"+status);
-		System.out.println("orderno: "+orderno);
+		
 		OrderService service=OrderService.getService();
 		
 		service.update(orderno,status);
-		
+		/*
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동 
 		f.setUrl("/ej_order/ej_update.jsp");//얘는 바로 .do로
 		//f.setUrl("ej_list.do");
-		request.setAttribute("orderno", orderno);//얘또 넘겨줘 
+		
 		//forward는 setAttributem로
 	
+		return f;*/
+		request.setAttribute("orderno", orderno);
+		/*샌드리다이렉*/
+		ActionForward f=new ActionForward();
+		f.setForward(false);//forward로 페이지이동 높 send redirect로 해
+		f.setUrl("ej_orderlist.do");//얘는 바로 .do로
+		//얘또 넘겨줘 
 		return f;
 		
+		/*ActionForward f=new ActionForward();
+		f.setForward(false);
+		f.setUrl("ej_update.do");
+		request.setAttribute("orderno", orderno);
+		return f;
+		*/
 	}
 
 }

@@ -61,7 +61,14 @@ $(document).ready(function(){
 <title>Insert title here</title>
 </head>
 <body>
+
+<div class="container">
+     <header>
+         <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
+     </header>
+
 <h3>회원조회</h3>
+<form method="post" action="ej_list.do">
 <!--setAttribute로 지정한것 변수로 받아오기  -->
 <c:set var="list" value="${requestScope.list }"/>
 <c:set var="currpage" value="${requestScope.currpage }"/>
@@ -71,7 +78,7 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="ej_list.do"><!--처음에 list.do햇음  -->
+
 <div id="ej_searchbox">
 <select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="id">아이디</option>
@@ -86,7 +93,7 @@ $(document).ready(function(){
 <input type="submit" value="상세검색"> 
 </div>
 
-
+</form>
 
 <table>
 <thead><tr><th>선택</th><th>번호</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>구매액</th><th>적립금</th>
@@ -127,7 +134,7 @@ $(document).ready(function(){
         <h4 class="modal-title" id="exampleModalLabel">New message</h4>
       </div>
       <div class="modal-body">
-        <form>
+     <form method="post" action="ej_insert.do">
           <div class="form-group">
             <label for="recipient-name" class="control-label" >Recipient:</label>
             <input type="text" class="form-control" id="recipient-name" name="what">
@@ -137,12 +144,13 @@ $(document).ready(function(){
             <textarea class="form-control" id="message-text"></textarea> -->
           
           <!--  --></div>
-        </form>
-         <form method="post" action="ej_list.do">
+        
+         
             <input type="text" name="addpoint" id="addpoint">
             <input type="submit" value="적립">
-            </form>
+      </form>        
       </div>
+    
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
         <button type="button" class="btn btn-primary">적립</button>
@@ -170,6 +178,7 @@ $(document).ready(function(){
 	  onclick="location.href='ej_list.do?curr=${i }&search=${search}&txtsearch=${txtsearch }'">${i }</button>
 	<%-- <a href="ej_list.do?curr=${i }&search=${search}&txtsearch=${txtsearch }">${i }</a> --%>
 	</c:if>
+	
 </c:forEach><br>
 </div>
 
@@ -177,9 +186,12 @@ $(document).ready(function(){
 
 
 
-</form>
 
 
+     <footer>
+         <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
+     </footer>
+  </div>
 
 
 

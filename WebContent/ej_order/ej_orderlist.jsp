@@ -21,16 +21,39 @@
 
 <style>
 #ej_searchbox{border:1px solid silver;
-width: 60%;
+width: 80%;
 padding: 20px;
 margin: auto;}
+.ej_searchbox1{
+position:relative;
+	left:202px;
+    width: 60%;	
+    background-color:white;
+    border: 1px solid #757575;
+    border-radius: 5px;
+}
+
+.ej_searchop{
+	width :13%;
+	border: 1px transparent;
+	padding: 5px;
+	border-radius: 5px;
+}
+.ej_selectbox{
+width:150px;
+margin:6px;
+border-radius: 5px;
+}
 #ej_line{border:0.5px solid silver;}
 .ej_all{
 margin: auto;
 text-align: center;
 }
+ul li{
+list-style:none;
+}
 table{
-width:70%;
+width:80%;
 margin: auto;
 text-align: center;}
 .ej_page{
@@ -88,12 +111,14 @@ $(document).ready(function(){
 
 <form method="post" action="ej_orderlist.do"><!--처음에 list.do햇음  -->
 <div id="ej_searchbox">
-<select name="search"><!--search txtsearch받아야댐 ListAction에서  -->
+<div class="ej_searchbox1">
+<select name="search" class="ej_searchop"><!--search txtsearch받아야댐 ListAction에서  -->
 	<option value="orderno">주문번호</option>
 	<option value="memno">회원번호</option>
 </select>
 
 <input type="text" name="txtsearch">
+</div>
 <br>
 <div id="ej_line"></div>
 <label for="cost">가격</label>
@@ -101,13 +126,14 @@ $(document).ready(function(){
 <input class="btn btn-primary" type="submit" value="상세검색">
 <!-- <input type="submit" value="상세검색">  -->
 </div>
-
+</form>
 
 
 <table>
 <thead><tr><th>선택</th><th>주문번호</th><th>회원번호</th><th>물품번호</th>
 <th>주문날짜</th><th>주문상태</th><th>가격</th><th>비고</th></tr>
 </thead>
+
 <tbody>
 	<!--array list니까 for each  -->
 	<c:forEach var="item" items="${list}">
@@ -144,55 +170,67 @@ $(document).ready(function(){
 	<td>${item.orderdate }</td>
 	<td>
 	<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
-	 data-whatever="${item.orderno }}">${temp }</button></td>
+	 data-whatever="${item.orderno }">${temp }</button></td>
 	 <!-- btn btn-primary 클래스 이거 엿음 -->
 <%-- 	<td><a href="ej_update.do?orderno=${item.orderno}" target="_blank" >${temp}</a> --%>
 	
 	
 	<td>${item.cost }원</td>
 	<td><a class="btn btn-outline-secondary" 
-	href="ej_delete.do?orderno=${item.orderno}" onclick="delconfirm();">삭제</a></td>
+	href="ej_orderdelete.do?orderno=${item.orderno}" onclick="delconfirm();">삭제</a></td>
 
 
 	</tr>
 	 </c:forEach>
 </tbody>
 </table><br>
-
+ <form method="post" action="ej_update.do">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+        <h4 class="modal-title" id="exampleModalLabel" >주문상태변경</h4>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
+    
       <div class="modal-body">
-        <form>
+     
           <div class="form-group">
-            <label for="recipient-name" class="control-label" >Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name" name="what">
+          <ul>
+          <li>
+            <label for="recipient-name" class="control-label" >주문번호</label>
+            <input type="text" class="form-control" id="recipient-name" name="what" readonly="readonly" maxlength="3">
+            </li></ul>
           </div>
-          <!-- <div class="form-group"> -->
-           <!--  <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea> -->
-          
-          <!--  --></div>
-        </form>
-         <form method="post" action="ej_list.do">
-            <input type="text" name="addpoint" id="addpoint">
-            <input type="submit" value="적립">
-            </form>
       </div>
+        
+         
+  <ul>
+  <li>
+<select name="status" class="ej_selectbox">
+	<option value=1>결제확인</option>
+	<option value=2>배송준비중</option>
+	<option value=3>배송중</option>
+	<option value=4>배송완료</option>
+	<option value=5>취소승인</option>
+</select>
+<input type="submit" value="변경" >
+      </li> </ul>        
+      </div>
+    
+    
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
         <button type="button" class="btn btn-primary">적립</button>
       </div> -->
         
     </div>
-   
+    </form>
   </div>
   
 </div>
+ 
+
 
 
 <div class="ej_page">
@@ -217,7 +255,7 @@ $(document).ready(function(){
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
 
 
-</form>
+
 </div> <!--div class=ej_all  -->
      <footer>
          <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
