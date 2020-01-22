@@ -12,7 +12,7 @@ import com.homedream.comm.ActionForward;
 
 
 
-public class YIAction implements Action {
+public class HomedreamAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -25,17 +25,20 @@ public class YIAction implements Action {
 		
 		f.setForward(true);
 		f.setUrl("/hs_communitymain.jsp");
+	
 	}
 	else if(session.getAttribute("userId").equals("1"))	//세션이 admin일때 -> admin 페이지
 	{
 		f.setForward(true);
 		f.setUrl("/hs_memberadminmain.jsp");
+		System.out.println("a2");
 	}
 	
 	else	//세션이 회원일때 ->회원페이지
 	{
 		f.setForward(true);
 		f.setUrl("/hs_communitymain.jsp");
+		System.out.println("3");
 	}
 		return f;
 		

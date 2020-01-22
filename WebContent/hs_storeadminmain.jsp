@@ -27,8 +27,13 @@
          <jsp:include page="hs_storeadminheader.jsp"></jsp:include>
      </header>
      <section>
-         <c:set var="hs_admin_store_contentpage" value="${param.page}"/>
+       <c:set var="hs_admin_store_contentpage" value="${param.page}"/>
+        <c:if test="${hs_admin_store_contentpage!=null}">
          <jsp:include page="${hs_admin_store_contentpage}"></jsp:include>
+        </c:if>
+        <c:if test="${hs_admin_store_contentpage==null}">
+         <jsp:include page="${hs_admin_store_contentpage}"></jsp:include>
+        </c:if>
      </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>

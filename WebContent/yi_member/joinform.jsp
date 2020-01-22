@@ -7,40 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/yi_joinform.css">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
 </head>
-<script>
-$(document).ready(function() {
-	$('#multicheck').click(function() {
-		if($("#id").val() == ""){
-			alert("아이디를 입력하세요");
-			return;
-		}
-		$.ajax({
-			type :'post',
-			url : 'IdCheck',
-			data : {"id" : $('#id').val()},
-			success : function(data) {
-				console.log(11111);
-			},
-			error : function() {
-				console.log(22222);
-			}
-		});
-	});
-});
-	
-</script>
 <body>
-	<div class='container'>
-
-		<header>
-			<jsp:include page="/hs_communityheader.jsp"></jsp:include>
-		</header>
 
 		<div class='row'>
 			<div class='col'></div>
@@ -53,7 +21,8 @@ $(document).ready(function() {
 								class="form-control">
 						</div>
 						<div class="col-auto">
-							<button type="button" class="form-control" id="multicheck">중복 확인</button>
+							<button type="button" class="form-control" id="multicheck">중복
+								확인</button>
 						</div>
 						<div id="checkMsg"></div>
 					</div>
@@ -123,12 +92,6 @@ $(document).ready(function() {
 			</div>
 			<div class='col'></div>
 		</div>
-
-		<footer>
-			<jsp:include page="/hs_user_footer.jsp"></jsp:include>
-		</footer>
-
-	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -222,12 +185,16 @@ $(document).ready(function() {
 			}
 			$.ajax({
 				type :'post',
-				url : '/idCheck.do',
+				url : 'idCheck.do',
 				data : {"id" : $('#id').val()},
 				success : function(data) {
-					console.log(11111);
-					console.log(data);
-				},
+					if(data == 0){
+						$('#checkMsg').html('<p style="color:blue">사용가능</p>');
+                	}
+                	else{
+                    	$('#checkMsg').html('<p style="color:red">사용불가능</p>');
+                	}
+            	},
 				error : function(data) {
 					console.log(data);
 				}

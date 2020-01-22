@@ -37,7 +37,7 @@ public class YIOrderDetailAction implements Action {
 		
 		ActionForward f=new ActionForward();
 		f.setForward(true);
-		f.setUrl("/yi_member/orderdetail.jsp?num="+num);
+		f.setUrl("/hs_communitymain.jsp?page=yi_member/orderdetail.jsp?num="+num);
 		return f;
 	}
 
