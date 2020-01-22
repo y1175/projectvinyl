@@ -24,11 +24,11 @@
 <body>
   <div class="container">
      <header>
-         <jsp:include page="hs_memberadminheader.jsp"></jsp:include>
+         <jsp:include page="hs_storeadminheader.jsp"></jsp:include>
      </header>
-      <section>
-         <c:set var="hs_admin_member_contentpage" value="${param.page}"/>
-         <jsp:include page="${hs_admin_member_contentpage}"></jsp:include>
+     <section>
+         <c:set var="hs_admin_store_contentpage" value="${param.page}"/>
+         <jsp:include page="${hs_admin_store_contentpage}"></jsp:include>
      </section>
      <footer>
          <jsp:include page="hs_admin_footer.jsp"></jsp:include>
