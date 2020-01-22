@@ -11,7 +11,8 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 
-<link rel="stylesheet" href="css/hm_managerdetail.css?ver=1">
+<link rel="stylesheet" href="css/hm_managerdetail.css?ver=2">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic+Coding|Noto+Serif+KR&display=swap" rel="stylesheet">
 
 
 </head>
@@ -32,12 +33,13 @@
 
 
 <div class ="hm_managerdetail">
-<h5>업체등록번호 : <%=no%></h5>
+<p>업체등록번호 : <%=no%></p>
 <h2><%=name%></h2>
 <div style="width: 100%; text-align: center;">
 <img src="upload/<%=file_name%>" alt="<%=file_name%>" class ="hm_managerdetailimg"/> 
 </div>
 <div class="hm_text"> 
+<p>업체 소개글 </p>
 <h6><%=text%></h6>
 </div>
 <address>

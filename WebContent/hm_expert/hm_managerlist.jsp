@@ -11,7 +11,7 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-<link rel="stylesheet" href="css/hm_managerlist.css">
+<link rel="stylesheet" href="css/hm_managerlist.css?ver=2">
 </head>
 <body>
 

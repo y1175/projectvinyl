@@ -19,7 +19,7 @@
 
 		<div class="input-group flex-nowrap" style="margin : 30px auto 30px; width:80%;">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="addon-wrapping">업체명</span>
+				<span class="input-group-text" id="addon-wrapping"><span style="margin-left: 15px; ">업체명</span></span>
 			</div>
 			<input type="text" class="form-control" placeholder="Company name" name = "name"
 				aria-label="Username" aria-describedby="addon-wrapping">
@@ -27,14 +27,14 @@
 			
 			<div class="input-group" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
-					<span class="input-group-text">업체소개</span>
+					<span class="input-group-text" id="addon-wrapping"><span style="margin:0px auto;">업체소개</span></span>
 				</div>
 				<textarea class="form-control" aria-label="With textarea" name ="content"></textarea>
 			</div>
 
 			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1">위치</span>
+					<span class="input-group-text" id="basic-addon1"><span style="margin:0px auto;">위치</span></span>
 				</div>
 				<input type="text" class="form-control" placeholder="District" name = "place"
 					aria-label="Username" aria-describedby="basic-addon1">
@@ -42,16 +42,16 @@
 
 			<div class="input-group" style="margin : 0px auto 30px; width:80%;">
 				<div class="input-group-prepend">
-					<span class="input-group-text">위도&경도</span>
+					<span class="input-group-text" id="addon-wrapping" ><span style="margin:0px auto;">위도&경도</span></span>
 				</div>
 				<input type="text" aria-label="위도" class="form-control"  name = "lat" placeholder="Latitude">
 				<input type="text" aria-label="경도" class="form-control" name = "lon" placeholder="Longitude">
 			</div>
 
 
-			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
+			<div class="input-group mb-3" style="margin : 0px auto 30px; width:	80%;">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1">상세주소</span>
+					<span class="input-group-text" id="basic-addon1" ><span style="margin:0px auto;">상세주소</span></span>
 				</div>
 				<input type="text" class="form-control" placeholder="Address"
 					name="addr" aria-label="Username" aria-describedby="basic-addon1">
@@ -59,11 +59,10 @@
 
 			<div class="input-group mb-3" style="margin : 0px auto 30px; width:80%;">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroupFileAddon01">파일업로드</span>
+				<span class="input-group-text" id="inputGroupFileAddon01" ><span span style="margin:0px auto;">파일업로드</span></span>
 			</div>
 			<div class="custom-file" >
-				<input type="file" class="custom-file-input" id="inputGroupFile01"
-					name="uploadfile" aria-describedby="inputGroupFileAddon01" style="width:80%; magin : 0px auto 30px;">
+				<input type="file" class="custom-file-input" id="inputGroupFile01" name="uploadfile" aria-describedby="inputGroupFileAddon01" >
 				<label class="custom-file-label" for="inputGroupFile01">Choose
 					file</label>
 			</div>
@@ -79,46 +78,6 @@
 
 
 
-		<!-- 
-     
-     
-     
-<form method = "post" action="hm_uploadresult.do" enctype="multipart/form-data">업로드할때 enctype 꼭 써줘야함 
-	<ul>
-	<li>
-	<label for ="name">상호명</label>
-	<input type ="text" name = "name" id ="name">
-	</li>
-	<li>
-	<label for ="content">내용</label>
-	<textarea rows="4" cols="20" name ="content" id="content"></textarea>
-	</li>
-	<li>
-	<label for ="place">위치</label>
-	<input type ="text" name = "place" id ="place">
-	</li>
-	<li>
-	<label for ="lat">위도</label>
-	<input type =text name = "lat" id ="lat">
-	</li>
-	<li>
-	<label for ="lon">경도</label>
-	<input type ="text" name = "lon" id ="lon">
-	</li>
-	<li>
-	<label for ="addr">상세주소</label>
-	<textarea rows="1" cols="20" name ="addr" id="addr"></textarea>
-	</li> 
-	<li>
-	<label for ="uploadfile">파일경로</label>
-	<input type ="file" name = "uploadfile" id ="uploadfile">
-	</li>
-	<li>
-	<input type ="submit" value ="전송">
-	<input type ="reset" value ="취소">
-	</li>
-	</ul>
-	</form> -->
 	 
 	 
 </body>
