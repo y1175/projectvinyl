@@ -61,7 +61,7 @@
      </c:if>
      <c:if test="${item.file_name == null}">
         <a href="jy_detail.do?num=${item.bno }">
-          <img src="img/hs_event.jpg" alt="${file }">
+          <img src="img/jy_img.jpg" alt="${file }">
         </a>
      </c:if>
      <p class="jy_thumbnail_jn_title">
