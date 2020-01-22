@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "Telefon Black";
+    src: url(https://production-assets.codepen.io/assets/telefon/black/3f32b1c9-8e26-465e-ae02-ff82a378b670-3-78992f1ed89d5cadb09702e6a0d5bbb0302e85c728c1f8d18fdc8aa56870104c.woff) format("woff"),url(https://production-assets.codepen.io/assets/telefon/black/3f32b1c9-8e26-465e-ae02-ff82a378b670-3-6435f1279663bb84d4a1d8effe0adafbf8499ff6efdd01a59be848c90d8c4c0b.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: "Telefon";
+    src: url(https://production-assets.codepen.io/assets/telefon/bold/af889c53-1ee3-4868-8fdc-2b310d587b50-3-b7a87e0fbd213943fae0c0ef5985635dd43fa9c24876b2725127a13ccaf4ab6a.woff) format("woff"),url(https://production-assets.codepen.io/assets/telefon/bold/af889c53-1ee3-4868-8fdc-2b310d587b50-3-446e9e68a40500d1b24a18331c6d6a78226d276079dcdc2ad9e80a48bdcfd948.woff2) format("woff2")
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
+
+
+
+.content{
+	display:inline-block;
+	width:33%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  clear: both;
+  margin: 0 auto;
+}
+
+.skeleton {
+padding:40px;
+  
+}
+.card {
+  margin: 1em;
+  padding-bottom: 0.75em;
+}
+
+.card_header {
+  background: #d8e1e6;
+}
+.card_header img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.card_text {
+  padding: 1em;
+}
+.card_title {
+  font-size: 2rem;
+  margin-bottom: 1em;
+  font-weight: 200;
+  line-height: 1.2;
+}
+.card_title a {
+  text-decoration: none;
+  color: #496776;
+}
+.card_desc {
+  color: #496776;
+}
+
+h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Telefon Black", Sans-Serif;
+    line-height: 1.1;
+    
+}
+
+.pens-title-header {
+    padding: 10px 0px;
+    margin : 10px 0px;
+}
+
+.title_under_bar{
+    border-bottom: 7px solid #0ebeff;
+    margin:10px 0px;
+}
+
+
+.jy_page{
+	font-size: 25px;
+	padding: 0px 40%;
+}
+

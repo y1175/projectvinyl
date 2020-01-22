@@ -34,6 +34,7 @@ public class JY_JN_BoardDAO {
 		sql.append("                ,likeno             ");
 		sql.append("                ,readno             ");
 		sql.append("                ,writedate          ");
+		sql.append("                ,file_name          ");
 		sql.append("    from        mboard   b          ");
 		sql.append("                join member m       ");
 		sql.append("    where       b.mem_no = m.mem_no ");
@@ -79,6 +80,7 @@ public class JY_JN_BoardDAO {
 				dto.setReadNo(rs.getInt("readno"));
 				dto.setWritedate(rs.getString("writedate"));
 				dto.setId(rs.getString("id"));
+				dto.setFile_name(rs.getString("file_name"));
 				jn_list.add(dto);
 			}
 		} finally {

@@ -71,7 +71,7 @@ public class JY_JN_Service {
 		DBConnection db = DBConnection.getInstance();
 		try {
 			conn = db.getConnection();
-			conn.setAutoCommit(false);
+			conn.setAutoCommit(true);
 			JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
 			dao.jn_boardUpdate(conn,dto);
 			conn.commit();
