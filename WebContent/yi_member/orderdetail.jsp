@@ -32,6 +32,12 @@
 	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 	crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<style>
+	#imgblock{
+		width: 100px;
+		height:100px;
+	}
+</style>
 </head>
 <body>
 	<div class='container'>
@@ -94,32 +100,32 @@
 					</thead>
 					<tbody>
 
-						<c:forEach items="${items }" varStatus="stat">
+						<c:forEach items="${items }" var="item">
 
 							<c:choose>
-								<c:when test="${order[stat.index].status == 0 }">
+								<c:when test="${order[0].status == 0 }">
 									<c:set var="orderst" value="주문취소"></c:set>
 								</c:when>
-								<c:when test="${order[stat.index].status== 1 }">
+								<c:when test="${order[0].status== 1 }">
 									<c:set var="orderst" value="결제확인"></c:set>
 								</c:when>
-								<c:when test="${order[stat.index].status == 2 }">
+								<c:when test="${order[0].status == 2 }">
 									<c:set var="orderst" value="배송준비중"></c:set>
 								</c:when>
-								<c:when test="${order[stat.index].status == 3 }">
+								<c:when test="${order[0].status == 3 }">
 									<c:set var="orderst" value="배송중"></c:set>
 								</c:when>
-								<c:when test="${order[stat.index].status == 4 }">
+								<c:when test="${order[0].status == 4 }">
 									<c:set var="orderst" value="배송완료"></c:set>
 								</c:when>
 							</c:choose>
 
 							<tr>
 
-								<td><img src="img/${items[status.index].file_name }"
-									alt="${items[status.index].file_name}" /></td>
-								<td><c:out value="${items[stat.index].name }" /></td>
-								<td><c:out value="${items[stat.index].price }" />원</td>
+								<td><img src="img/${item.file_name }"
+									alt="${item.file_name}" id="imgblock" /></td>
+								<td><c:out value="${item.name }" /></td>
+								<td><c:out value="${item.price }" />원</td>
 								<td><c:out value="${orderst }" /></td>
 							</tr>
 						</c:forEach>
