@@ -12,7 +12,10 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <style>
-  
+/* header nav 홈 글씨색상  */
+  .hs_header_nav > a:nth-child(1){
+    color: rgb(0, 153, 255);
+  }
 </style>
 <link rel="stylesheet" href="css/hs_communitycontent.css?ver=1">
 </head>

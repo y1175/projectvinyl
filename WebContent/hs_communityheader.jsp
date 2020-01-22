@@ -75,8 +75,8 @@
   <c:if test="${sessionScope.userId != null}">
     <div>
     <div class="hs_header_top">
-     <a href="hs_communitymain.jsp" id="hs_header_h1">홈드림</a>
-     <a href="hs_communitymain.jsp" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티</a>
+     <a href="homedream.do" id="hs_header_h1">홈드림</a>
+     <a href="homedream.do" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티</a>
      <a href="hs_storemain.jsp" class="hs_header_hc">스토어</a>
      <div class="hs_header_search">
      <form>
