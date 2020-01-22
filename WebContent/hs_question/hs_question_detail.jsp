@@ -23,10 +23,10 @@
 	  if(document.frm.hs_answer.value!="")
 		  document.frm.submit();
   }
-  /*
+  
   function del(a_no,q_no){
 	  location href="hs_answerdelete.do?a_no="+a_no+"&q_no="+q_no
-  }*/
+  }
   
   $(document).ready(function() {
 	let no=${dto.q_no}
@@ -73,7 +73,7 @@
     <div  class="hs_question_detaildiv">
        <ul>
          <li>
-           <p class="hs_question_detail_qa">질문과 답변</p>
+           <a href="hs_hs_questionlist.do"><p class="hs_question_detail_qa">질문과 답변</p></a>
          </li>
          <li style="font-size:18px; font-weight: 800; margin-top: -10px;">
            <c:out value="${dto.title}"/>
@@ -94,13 +94,20 @@
          </li>  
        </ul>
     </div>
+    
     <div class="hs_question_divline"></div> <!-- 라인 -->
-    <div style="float: right;">    
+   
+    <div style="float: right;">  
+      
     <a href="hs_questionupdate.do?no=${dto.q_no}"><button class="hs_question_divbtn" >수정</button></a>           
     <a href="hs_questiondelete.do?no=${dto.q_no}"><button class="hs_question_divbtn" style="margin-left: 5px;" >삭제</button></a>
+   
     </div>
+    
     <a href="hs_questionlist.do"><button class="hs_question_divbtn" style="" >목록</button></a>
+   
     <!-- 댓글  -->
+    
     <p style="font-size:18px; font-weight: 800; margin-top: 20px; ">답변</p>
     <div  style="margin-bottom: 20px;">
         <form method="post" action="hs_answeradd.do" name="frm">         
@@ -111,8 +118,11 @@
               <input type="submit" onclick="send()" value="등록" style="border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;"> 
             </div>          
          </form> 
+         
     </div>
+    
     <div id="hs_answer_result"></div>
+    
  <footer>
    <jsp:include page="/hs_user_footer.jsp"></jsp:include>
  </footer>

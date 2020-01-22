@@ -22,9 +22,11 @@ public class hs_AnswerAddAction implements Action {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 
-		System.out.println(no);
+		System.out.println("화수 댓글 번호"+no);
+		// 번호 들어오는거 확인됨
 		
 		String hs_answer=request.getParameter("hs_answer");
+		System.out.println("화수 댓글 내용"+hs_answer);
 		
 		AnswerDTO dto=new AnswerDTO();
 		
@@ -39,7 +41,7 @@ public class hs_AnswerAddAction implements Action {
 		request.setAttribute("answer", answerid);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_questiondetail.do?no="+no);
+		forward.setUrl("hs_answerdetail.do?no="+no);
 		
 		return forward;
 	}

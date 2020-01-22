@@ -192,6 +192,7 @@ public class QuestionDAO {
 		try {
 			ps=conn.prepareStatement(sql.toString());
 			ps.setInt(1, q_no);
+			ps.executeUpdate();
 		}finally {
 			if(ps!=null) try {ps.close();} catch(SQLException e) {}
 		}

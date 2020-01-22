@@ -21,11 +21,14 @@ public class hs_AnswerDeleteAction implements Action {
 		int a_no=Integer.getInteger(request.getParameter("a_no"));		
 		int q_no=Integer.getInteger(request.getParameter("p_no"));
 		
+		System.out.println("È­¼ö ´ñ±Û"+a_no);
+		System.out.println("È­¼ö ´ñ±Û"+q_no);
+		
 		QuestionService service=QuestionService.getService();
 		service.getAnswerDelete(a_no);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_questiondetail.do?no"+q_no);
+		forward.setUrl("hs_questiondetail.do?no="+q_no);
 		
 		return forward;
 	}

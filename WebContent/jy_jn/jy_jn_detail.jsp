@@ -76,11 +76,13 @@ $(document).ready(function(){
   <div  class="jy_jn_detaildiv">
 <ul>
 <li>
-     <p class="jy_jn_detail_jn">집들이 &amp;노하우</p>
+     <a href="jy_list.do"><p class="jy_jn_detail_jn">집들이 &amp;노하우</p></a>
 </li>
 <li style="font-size:18px; font-weight: 800; margin-top: -10px;">
      <c:out value="${dto.btitle }"/>
+     <br>
 </li>
+     <c:out value="${dto.id }"/>
     
 <li>
 <img src="upload/${dto.file_name}" alt="${file }" class="jy_img">
