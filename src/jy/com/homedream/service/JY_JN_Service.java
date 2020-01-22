@@ -166,17 +166,18 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		return subid;
 	}
 
-	public List<JY_JN_SubBoardDTO> jn_getDetailSubBoard(int num) {
+	public List<JY_JN_SubBoardDTO> jn_getDetailSubBoard(int num,int mem_no) {
 		
 		DBConnection db = DBConnection.getInstance();
 		String subid = new String();
 		Connection conn = null;
 		List<JY_JN_SubBoardDTO> list = new ArrayList<>();
+		
 		try {
 			conn = db.getConnection();
 			conn.setAutoCommit(false);
 			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
-			list = dao.jn_SubBoardDetail(conn, num);
+			list = dao.jn_SubBoardDetail(conn, num,mem_no);
 			conn.commit();
 		}catch(SQLException | NamingException e) {
 			System.out.println(e);

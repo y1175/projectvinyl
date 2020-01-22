@@ -62,7 +62,7 @@ public class JY_JN_SubBoardDAO {
 		}
 		return subid;
 	}
-	public List<JY_JN_SubBoardDTO> jn_SubBoardDetail(Connection conn, int num) throws SQLException {
+	public List<JY_JN_SubBoardDTO> jn_SubBoardDetail(Connection conn, int num,int mem_no) throws SQLException {
 		
 		List<JY_JN_SubBoardDTO> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -80,7 +80,7 @@ public class JY_JN_SubBoardDAO {
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-			subid = jn_SubBoardSubID(conn, 58);
+			subid = jn_SubBoardSubID(conn, mem_no);
 			
 			while(rs.next()) {
 				JY_JN_SubBoardDTO dto = new JY_JN_SubBoardDTO();

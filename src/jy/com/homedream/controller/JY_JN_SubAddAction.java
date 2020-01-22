@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
@@ -21,10 +22,12 @@ public class JY_JN_SubAddAction implements Action {
 		int num = Integer.parseInt(request.getParameter("num"));
 		String subcontent = request.getParameter("subcontent");
 		
+		HttpSession session = request.getSession();
+		int mem_no = (int)session.getAttribute("mem_no");
 		JY_JN_SubBoardDTO subdto = new JY_JN_SubBoardDTO();
 		
 		subdto.setBno(num);
-		subdto.setMem_no(58);
+		subdto.setMem_no(mem_no);
 		subdto.setSubcontent(subcontent);
 		
 		JY_JN_Service service = JY_JN_Service.getService();

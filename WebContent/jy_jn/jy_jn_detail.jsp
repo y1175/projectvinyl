@@ -110,8 +110,6 @@ ${dto.bcontent }
 
 <c:set var="mem_no" value="${dto.mem_no }"/>
 <!--  이렇게 하면 값 비교 > 동일 인물이면 수정, 삭제 가능 -->
-<c:out value="${mem_no }"/>
-<c:out value="${session }"/>
 <c:if test="${session == mem_no}">
 <a href="jy_update.do?num=${dto.bno }"><button class="jy_jn_detaildivbtn" >수정</button></a>
 <a href="jy_delete.do?num=${dto.bno }"><button class="jy_jn_detaildivbtn" style="margin-left: 5px;">삭제</button></a>

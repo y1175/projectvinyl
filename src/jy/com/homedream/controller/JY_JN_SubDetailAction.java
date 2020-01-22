@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -42,8 +43,11 @@ public class JY_JN_SubDetailAction extends HttpServlet {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		
+		HttpSession session = request.getSession();
+		int mem_no = (int)session.getAttribute("mem_no");
+		
 		JY_JN_Service service = JY_JN_Service.getService();
-		List<JY_JN_SubBoardDTO>list = service.jn_getDetailSubBoard(num);
+		List<JY_JN_SubBoardDTO>list = service.jn_getDetailSubBoard(num,mem_no);
 		
 		JSONArray arr = new JSONArray();
 		for(JY_JN_SubBoardDTO dto : list) {
