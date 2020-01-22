@@ -1,0 +1,97 @@
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
+
+.jy_img_list{
+	width:400px;
+	height:200px;
+}
+
+.content{
+	display:inline-block;
+	width:33%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  clear: both;
+  margin: 0 auto;
+}
+
+.skeleton {
+padding:40px;
+  
+}
+.card {
+  margin: 1em;
+  padding-bottom: 0.75em;
+}
+
+.card_header {
+  background: #d8e1e6;
+}
+.card_header img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.card_text {
+  padding: 1em;
+}
+.card_title {
+  font-size: 2rem;
+  margin-bottom: 1em;
+  font-weight: 200;
+  line-height: 1.2;
+}
+.card_title a {
+  text-decoration: none;
+  color: #496776;
+}
+.card_desc {
+  color: #496776;
+}
+
+h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Telefon Black", Sans-Serif;
+    line-height: 1.1;
+    
+}
+
+.pens-title-header {
+    padding: 10px 0px;
+    margin : 10px 0px;
+}
+
+.title_under_bar{
+    border-bottom: 7px solid #0ebeff;
+    margin:10px 0px;
+}
+
+
+.jy_page{
+	font-size: 25px;
+	padding: 0px 40%;
+}
+

@@ -230,7 +230,7 @@ img {
 						<div class="company">
 							<span class="company">${dto.company }</span>
 						</div>
-						<p class="product-description">${dto.content }</p>
+						<pre class="product-description" style="white-spce: pre-wrap">${dto.content }</pre>
 						<h4 class="price">
 							가격 : <span>${dto.price }&#8361;</span>
 						</h4>

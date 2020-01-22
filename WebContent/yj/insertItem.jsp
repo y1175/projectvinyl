@@ -106,7 +106,7 @@
 					</tr>
 					<tr>
 						<th scope="row">상품설명</th>
-						<td colspan="3"><textarea class="form-control" id="content"
+						<td colspan="3"><textarea class="form-control" id="content" rows="10"
 								name="content"></textarea></td>
 					</tr>
 					<tr>

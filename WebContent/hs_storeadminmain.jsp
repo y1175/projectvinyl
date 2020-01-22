@@ -31,8 +31,8 @@
         <c:if test="${hs_admin_store_contentpage!=null}">
          <jsp:include page="${hs_admin_store_contentpage}"></jsp:include>
         </c:if>
-        <c:if test="${hs_admin_store_contentpage==null}">
-         <jsp:include page="${hs_admin_store_contentpage}"></jsp:include>
+        <c:if test="${hs_admin_store_contentpage==null}">       
+         <jsp:include page="yj/itemlist.jsp"></jsp:include>
         </c:if>
      </section>
      <footer>
