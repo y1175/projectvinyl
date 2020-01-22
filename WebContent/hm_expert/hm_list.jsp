@@ -1,4 +1,4 @@
--<%@page import="hm.com.homedream.dto.Hm_ExpertDTO"%>
+<%@page import="hm.com.homedream.dto.Hm_ExpertDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -16,11 +16,14 @@
     color: rgb(0, 153, 255);
   }
 </style>
+</head>
+
+
 <body>
      <c:set var="totalcount" value="${requestScope.totalcount}"></c:set>
 	
      <h1 class="hm_h1">
-     <c:out value="${totalcount}" />  전문가 in 대한민국 서울
+     <c:out value="${totalcount}" /> 전문가 in 대한민국 서울
      </h1>
 	<form method="post" action="hm_list.do">
 		<select class="form-control" id="hmcity" name="hmcity">
@@ -99,6 +102,10 @@
 	%>
 	
 	<!-- for문 닫음 -->
+	
+	
+	
+	<!-- 페이지네이션 하기 -->
  <%
       int currpage = (Integer) request.getAttribute("currpage");
       int startblock = (Integer) request.getAttribute("startblock");
@@ -106,35 +113,56 @@
       int totalpage = (Integer) request.getAttribute("totalpage");
       String hmcity = request.getParameter("hmcity");
 
+      %>
+      
+    <nav aria-label="Page navigation example">
+  <ul class="pagination" style ="padding-left :40%;">
+      
+      <% 
       if (startblock > 1) {
     	  if(hmcity==null||hmcity.equals(""))
     		  
     	  {
     	%>
-    	 <a href="hm_list.do?curr=<%=currpage - 1%>">이전</a>
+
+    	 <li class="page-item">
+    	 <a class="page-link" href="hm_list.do?curr=<%=currpage - 1%>" >이전</a>
+    	 </li> 
     	  <% 
     	  }else{
     	  
    %>
-   <a href="hm_list.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>">이전</a>
+  <li class="page-item">
+   <a  class="page-link" href="hm_list.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>" >이전</a>
+   </li>
    <%
     	  }//currpage -> startblock-1 = 블럭단위로 넘어감   
       }
    %>
-
+   
    <%
+   
       for (int i = startblock; i <= endblock; i++) {
          if (currpage == i) {
    %>
+   <li class="page-item">
+     <a  class="page-link">
    <%=i%>
+     </a>
+   </li>
    <%
+
       } else if(hmcity==null||hmcity.equals("")){
    %>
-   <a href="hm_list.do?curr=<%=i%>"><%=i%></a>
+  <li class="page-item">
+   <a class="page-link" href="hm_list.do?curr=<%=i%>"><%=i%></a>
+   </li>
    <% 
       }else{
    %>
-   <a href="hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
+  <li class="page-item">
+   <a class="page-link" href="hm_list.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
+   </li>
    <%
       }
    %>
@@ -145,18 +173,23 @@
       if (endblock < totalpage) {
     	  if(hmcity==null||hmcity.equals("")){
     		  %>
-    		  <a href="hm_list.do?curr=<%=currpage + 1%>">다음</a>
-    		  
+    		  <li class="page-item">
+    		  <a  class="page-link" href="hm_list.do?curr=<%=currpage + 1%>">다음</a>
+    		  </li>
     		  <% 
     	  }else{
    %>
-   <a href="hm_list.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
+   <li class="page-item">
+   <a class="page-link" href="hm_list.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
+   </li>
    <%
     	  }
       //endblock+1로 할수도있음 -> block단위로 다음
       }
    %>
-
+   
+</ul>
+</nav>
 
 
 

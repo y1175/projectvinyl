@@ -104,7 +104,7 @@
 
 	
 	<div class="card" style="width: 18rem; position: relative; float: right; margin : 50px 100px 0px;">
-  <img src="img/hm_detail.JPG" class="card-img-top" alt="hm_detail.JPG"	>
+  <img src="img/hmdetail.JPG" class="card-img-top" alt="hm_detail.JPG"	>
   <div class="card-body">
     <h5 class="card-title" style ="font-weight : bolder;"><%=place%> 지점</h5>
     <p class="card-text" ><%=addr%></p>

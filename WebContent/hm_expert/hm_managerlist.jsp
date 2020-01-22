@@ -102,8 +102,7 @@
 </table>
 
 
-
-	<!-- for문 닫음 -->
+	<!-- 페이지네이션 하기 -->
  <%
       int currpage = (Integer) request.getAttribute("currpage");
       int startblock = (Integer) request.getAttribute("startblock");
@@ -111,35 +110,56 @@
       int totalpage = (Integer) request.getAttribute("totalpage");
       String hmcity = request.getParameter("hmcity");
 
+      %>
+      
+    <nav aria-label="Page navigation example">
+  <ul class="pagination" style ="padding-left :40%;">
+      
+      <% 
       if (startblock > 1) {
     	  if(hmcity==null||hmcity.equals(""))
     		  
     	  {
     	%>
-    	 <a href="hm_managerlist.do?curr=<%=currpage - 1%>">이전</a>
+
+    	 <li class="page-item">
+    	 <a class="page-link" href="hm_managerlist.do?curr=<%=currpage - 1%>" >이전</a>
+    	 </li> 
     	  <% 
     	  }else{
     	  
    %>
-   <a href="hm_managerlist.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>">이전</a>
+  <li class="page-item">
+   <a  class="page-link" href="hm_managerlist.do?curr=<%=currpage - 1%>&hmcity=<%=hmcity%>" >이전</a>
+   </li>
    <%
     	  }//currpage -> startblock-1 = 블럭단위로 넘어감   
       }
    %>
-
+   
    <%
+   
       for (int i = startblock; i <= endblock; i++) {
          if (currpage == i) {
    %>
+   <li class="page-item">
+     <a  class="page-link">
    <%=i%>
+     </a>
+   </li>
    <%
+
       } else if(hmcity==null||hmcity.equals("")){
    %>
-   <a href="hm_managerlist.do?curr=<%=i%>"><%=i%></a>
+  <li class="page-item">
+   <a class="page-link" href="hm_managerlist.do?curr=<%=i%>"><%=i%></a>
+   </li>
    <% 
       }else{
    %>
-   <a href="hm_managerlist.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
+  <li class="page-item">
+   <a class="page-link" href="hm_managerlist.do?curr=<%=i%>&hmcity=<%=hmcity%>"><%=i%></a>
+   </li>
    <%
       }
    %>
@@ -150,17 +170,23 @@
       if (endblock < totalpage) {
     	  if(hmcity==null||hmcity.equals("")){
     		  %>
-    		  <a href="hm_managerlist.do?curr=<%=currpage + 1%>">다음</a>
-    		  
+    		  <li class="page-item">
+    		  <a  class="page-link" href="hm_managerlist.do?curr=<%=currpage + 1%>">다음</a>
+    		  </li>
     		  <% 
     	  }else{
    %>
-   <a href="hm_managerlist.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
+   <li class="page-item">
+   <a class="page-link" href="hm_managerlist.do?curr=<%=currpage + 1%>&hmcity=<%=hmcity%>">다음</a>
+   </li>
    <%
     	  }
       //endblock+1로 할수도있음 -> block단위로 다음
       }
    %>
+   
+</ul>
+</nav>
 
 <%-- <a href="hm_modify.do?no<%=no%>">수정</a>	 --%>
 </body>
