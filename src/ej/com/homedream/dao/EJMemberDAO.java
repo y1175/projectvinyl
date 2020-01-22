@@ -9,16 +9,16 @@ import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
 
-import ej.com.homedream.dto.MemberDTO;
+import ej.com.homedream.dto.EJMemberDTO;
 
-public class MemberDAO {
+public class EJMemberDAO {
 	
-	private static MemberDAO dao=new MemberDAO();
-	public static MemberDAO getDAO() {
+	private static EJMemberDAO dao=new EJMemberDAO();
+	public static EJMemberDAO getDAO() {
 		
 		return dao;
 	}//½Ì±ÛÅæ
-	private MemberDAO() {}
+	private EJMemberDAO() {}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public int memberCount(Connection conn, String search, String txtsearch
@@ -73,10 +73,10 @@ public class MemberDAO {
 		return count;
 	}
 //////////////////////////////////////////////////////////////////////////////
-	public List<MemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch
+	public List<EJMemberDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch
 			, int stxtsearch1, int stxtsearch2) throws SQLException {//¸®½ºÆ®Ãâ·Â
 		
-		List<MemberDTO> list=new ArrayList<>();
+		List<EJMemberDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
@@ -125,7 +125,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				MemberDTO dto=new MemberDTO();
+				EJMemberDTO dto=new EJMemberDTO();
 				dto.setMemNo(rs.getInt("mem_no"));
 				dto.setId(rs.getString("id"));
 				dto.setPwd(rs.getString("pwd"));

@@ -9,17 +9,17 @@ import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
 
-import ej.com.homedream.dto.MemberDTO;
-import ej.com.homedream.dto.OrderDTO;
+import ej.com.homedream.dto.EJMemberDTO;
+import ej.com.homedream.dto.EJOrderDTO;
 
-public class OrderDAO {
+public class EJOrderDAO {
 	
-	private static OrderDAO dao=new OrderDAO();
-	public static OrderDAO getDAO() {
+	private static EJOrderDAO dao=new EJOrderDAO();
+	public static EJOrderDAO getDAO() {
 		
 		return dao;
 	}//½Ì±ÛÅæ
-	private OrderDAO() {}
+	private EJOrderDAO() {}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public int orderCount(Connection conn, String search, String txtsearch
@@ -73,10 +73,10 @@ public class OrderDAO {
 		return count;
 	}
 //////////////////////////////////////////////////////////////////////////////
-	public List<OrderDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch
+	public List<EJOrderDTO> getlist(Connection conn, int startrow, int endrow, String search, String txtsearch
 			, int stxtsearch1, int stxtsearch2) throws SQLException {//¸®½ºÆ®Ãâ·Â
 		
-		List<OrderDTO> list=new ArrayList<>();
+		List<EJOrderDTO> list=new ArrayList<>();
 		StringBuilder sql=new StringBuilder();
 		ResultSet rs=null;
 		
@@ -122,7 +122,7 @@ public class OrderDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next())
 			{
-				OrderDTO dto=new OrderDTO();
+				EJOrderDTO dto=new EJOrderDTO();
 				dto.setOrderno(rs.getInt("order_no"));
 				dto.setMemno(rs.getInt("mem_no"));
 				dto.setItemno(rs.getInt("item_no"));

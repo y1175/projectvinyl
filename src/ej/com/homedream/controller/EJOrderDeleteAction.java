@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.service.OrderService;
+import ej.com.homedream.service.EJOrderService;
 
 
 
-public class OrderDeleteAction implements Action {
+public class EJOrderDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -25,7 +25,7 @@ public class OrderDeleteAction implements Action {
 		int orderno=Integer.parseInt(orderno1);
 		System.out.println("orderno:"+orderno);
 		
-		OrderService service=OrderService.getService();
+		EJOrderService service=EJOrderService.getService();
 		service.delete(orderno);
 		
 		//forward로 넘기기

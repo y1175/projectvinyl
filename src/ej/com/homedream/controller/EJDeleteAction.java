@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.service.MemberService;
+import ej.com.homedream.service.EJMemberService;
 
-public class DeleteAction implements Action {
+public class EJDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +23,7 @@ public class DeleteAction implements Action {
 		int memno=Integer.parseInt(memno1);
 		System.out.println("memno:"+memno);
 		
-		MemberService service=MemberService.getService();
+		EJMemberService service=EJMemberService.getService();
 		service.delete(memno);
 		
 		//forward로 넘기기

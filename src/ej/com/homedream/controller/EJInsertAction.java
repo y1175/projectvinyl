@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.service.MemberService;
+import ej.com.homedream.service.EJMemberService;
 
-public class  InsertAction implements Action {
+public class  EJInsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,7 @@ public class  InsertAction implements Action {
 			memno=Integer.parseInt(memno1);
 		System.out.println("인설트 액션에서 point"+addpoint);
 		System.out.println(" 인설트 액션에서 memno: "+memno);
-		MemberService service=MemberService.getService();
+		EJMemberService service=EJMemberService.getService();
 		//service.update(memno);
 		service.insert(memno,addpoint);
 		

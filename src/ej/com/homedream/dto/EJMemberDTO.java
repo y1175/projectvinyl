@@ -1,6 +1,6 @@
 package ej.com.homedream.dto;
 
-public class MemberDTO {
+public class EJMemberDTO {
 private int memNo;
 private String id;
 private String pwd;

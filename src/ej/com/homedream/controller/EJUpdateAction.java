@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.service.OrderService;
+import ej.com.homedream.service.EJOrderService;
 
 
 
-public class UpdateAction implements Action {
+public class EJUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +31,7 @@ public class UpdateAction implements Action {
 		if(orderno1!=null&&!"".equals(orderno1))
 			orderno=Integer.parseInt(orderno1);
 		
-		OrderService service=OrderService.getService();
+		EJOrderService service=EJOrderService.getService();
 		
 		service.update(orderno,status);
 		/*

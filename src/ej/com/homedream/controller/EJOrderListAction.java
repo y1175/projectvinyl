@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
 
-import ej.com.homedream.dto.MemberDTO;
-import ej.com.homedream.service.MemberService;
+import ej.com.homedream.dto.EJOrderDTO;
+import ej.com.homedream.service.EJOrderService;
 
-public class ListAction implements Action {
+
+
+public class EJOrderListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +32,7 @@ public class ListAction implements Action {
 		}
 		
 				
-		MemberService service=MemberService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
+		EJOrderService service=EJOrderService.getService();//BoardService에서 싱글톤패턴으로 짯엇음
 		
 		//구매액 상세검색
 		int stxtsearch1=0;
@@ -55,7 +57,9 @@ public class ListAction implements Action {
 							search="";
 						if(txtsearch==null)
 							txtsearch="";
-				//검색끝
+						
+		//주문 섹렉에서 가져오기
+		//검색끝
 		//페이징시작
 		int totalcount=service.getCount(search, txtsearch, stxtsearch1, stxtsearch2);//전체자료
 		System.out.println("totalcount: "+totalcount);
@@ -77,29 +81,12 @@ public class ListAction implements Action {
 		
 		
 		
-		List<MemberDTO> list=service.getList(startrow,endrow,search,txtsearch, stxtsearch1, stxtsearch2);//이건 걍 전체 가져오는거고(페이징으로)
+		List<EJOrderDTO> list=service.getList(startrow,endrow,search,txtsearch, stxtsearch1, stxtsearch2);//이건 걍 전체 가져오는거고(페이징으로)
 		
 		
-///////////////////////////////
-		String addpoint1=request.getParameter("addpoint");//얘는 insert.jsp에서받음
-		String memno1=request.getParameter("what");//list jsp에서 받은거
-		int addpoint=0; 
-		int memno=0;
-		
-		if(addpoint1!=null&&!"".equals(addpoint1))
-			addpoint=Integer.parseInt(addpoint1);
-		if(memno1!=null&&!"".equals(memno1))
-			memno=Integer.parseInt(memno1);
-		
-		
-		//service.update(memno);
-		//service.insert(memno,addpoint);
-		
-		
-		System.out.println("리스트액션에서 addpoint:"+addpoint);
-		System.out.println("리스트액션에서 memno: "+memno);
-		
-		
+		//List<MemberDTO> slist=service.getselectedList();//선택한거 리스트에 넣는건. 2순위
+	/*	String addpoint=request.getParameter("addpoint");
+		System.out.println("addpoint:"+addpoint);*/
 		request.setAttribute("list", list);
 		request.setAttribute("currpage", currpage);
 		request.setAttribute("totalpage", totalpage);
@@ -107,13 +94,13 @@ public class ListAction implements Action {
 		request.setAttribute("endblock", endblock);
 		request.setAttribute("search",search);
 		request.setAttribute("txtsearch", txtsearch);
-
+		//request.setAttribute("slist", slist);//2순위
+		//srequest.setAttribute(arg0, arg1);
 		
-	
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
-		f.setUrl("/ej_member/ej_list.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
+		f.setUrl("/ej_order/ej_orderlist.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
 		
 		return f;
 		

@@ -9,21 +9,21 @@ import javax.naming.NamingException;
 import com.homedream.comm.DBConnection;
 
 
-import ej.com.homedream.dao.OrderDAO;
-import ej.com.homedream.dto.OrderDTO;
+import ej.com.homedream.dao.EJOrderDAO;
+import ej.com.homedream.dto.EJOrderDTO;
 
 
 
 
-public class OrderService {
+public class EJOrderService {
 
-	private static OrderService service=new OrderService();
-	public static OrderService getService() {
+	private static EJOrderService service=new EJOrderService();
+	public static EJOrderService getService() {
 		
 		return service;
 	}//싱글톤
 	
-	private OrderService() {}
+	private EJOrderService() {}
 	//////////////////////////////////////////////////////////////
 	public int getCount(String search, String txtsearch, int txtsearch1, int txtsearch2)
 	{//connection만들어서 dao로 넘겨
@@ -34,7 +34,7 @@ public class OrderService {
 		try{
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			OrderDAO dao=OrderDAO.getDAO();//싱글톤햇으니까 이렇게
+			EJOrderDAO dao=EJOrderDAO.getDAO();//싱글톤햇으니까 이렇게
 			count=dao.orderCount(conn, search, txtsearch, txtsearch1, txtsearch2);
 			//System.out.println("count: "+count);
 			conn.commit();
@@ -48,10 +48,10 @@ public class OrderService {
 		return count;
 	}//전체 자료수
 	
-	public List<OrderDTO> getList(int startrow, int endrow, String search, String txtsearch
+	public List<EJOrderDTO> getList(int startrow, int endrow, String search, String txtsearch
 			, int stxtsearch1, int stxtsearch2) {//출력
 		Connection conn=null;
-		List<OrderDTO> list=null;
+		List<EJOrderDTO> list=null;
 				
 		try {
 			DBConnection db=DBConnection.getInstance();
@@ -59,7 +59,7 @@ public class OrderService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			OrderDAO dao=OrderDAO.getDAO();
+			EJOrderDAO dao=EJOrderDAO.getDAO();
 			list=dao.getlist(conn,startrow, endrow, search, txtsearch, stxtsearch1, stxtsearch2);
 			//list를 리턴을 받아줫을때
 			
@@ -86,7 +86,7 @@ public class OrderService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			OrderDAO dao=OrderDAO.getDAO();
+			EJOrderDAO dao=EJOrderDAO.getDAO();
 			
 			dao.delete(conn,orderno);
 			//list를 리턴을 받아줫을때
@@ -113,7 +113,7 @@ public class OrderService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			OrderDAO dao=OrderDAO.getDAO();
+			EJOrderDAO dao=EJOrderDAO.getDAO();
 			dao.update(conn,orderno, status);
 			//list를 리턴을 받아줫을때
 			

@@ -1,6 +1,6 @@
 package ej.com.homedream.dto;
 
-public class OrderDTO {
+public class EJOrderDTO {
 
 	private int orderno;
 	private int memno;

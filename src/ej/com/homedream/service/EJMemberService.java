@@ -8,20 +8,20 @@ import javax.naming.NamingException;
 
 import com.homedream.comm.DBConnection;
 
-import ej.com.homedream.dao.MemberDAO;
-import ej.com.homedream.dto.MemberDTO;
+import ej.com.homedream.dao.EJMemberDAO;
+import ej.com.homedream.dto.EJMemberDTO;
 
 
 
-public class MemberService {
+public class EJMemberService {
 
-	private static MemberService service=new MemberService();
-	public static MemberService getService() {
+	private static EJMemberService service=new EJMemberService();
+	public static EJMemberService getService() {
 		
 		return service;
 	}//싱글톤
 	
-	private MemberService() {}
+	private EJMemberService() {}
 	//////////////////////////////////////////////////////////////
 	public int getCount(String search, String txtsearch, int txtsearch1, int txtsearch2)
 	{//connection만들어서 dao로 넘겨
@@ -32,7 +32,7 @@ public class MemberService {
 		try{
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
-			MemberDAO dao=MemberDAO.getDAO();//싱글톤햇으니까 이렇게
+			EJMemberDAO dao=EJMemberDAO.getDAO();//싱글톤햇으니까 이렇게
 			count=dao.memberCount(conn, search, txtsearch, txtsearch1, txtsearch2);
 			//System.out.println("count: "+count);
 			conn.commit();
@@ -46,10 +46,10 @@ public class MemberService {
 		return count;
 	}//전체 자료수
 	
-	public List<MemberDTO> getList(int startrow, int endrow, String search, String txtsearch
+	public List<EJMemberDTO> getList(int startrow, int endrow, String search, String txtsearch
 			, int stxtsearch1, int stxtsearch2) {//출력
 		Connection conn=null;
-		List<MemberDTO> list=null;
+		List<EJMemberDTO> list=null;
 				
 		try {
 			DBConnection db=DBConnection.getInstance();
@@ -57,7 +57,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
+			EJMemberDAO dao=EJMemberDAO.getDAO();
 			list=dao.getlist(conn,startrow, endrow, search, txtsearch, stxtsearch1, stxtsearch2);
 			//list를 리턴을 받아줫을때
 			
@@ -84,7 +84,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
+			EJMemberDAO dao=EJMemberDAO.getDAO();
 			dao.delete2(conn,memno);
 			dao.delete(conn,memno);
 			//list를 리턴을 받아줫을때
@@ -111,7 +111,7 @@ public class MemberService {
 			conn=db.getConnection();
 			conn.setAutoCommit(false);
 			
-			MemberDAO dao=MemberDAO.getDAO();
+			EJMemberDAO dao=EJMemberDAO.getDAO();
 			dao.insert(conn, memno, addpoint);
 			//list를 리턴을 받아줫을때
 			
