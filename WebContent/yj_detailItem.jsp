@@ -184,15 +184,17 @@ img {
 .tooltip-inner {
 	padding: 1.3em;
 }
-.img-detail{
-	width : 250px;
-	height : 500px;
+
+.img-detail {
+	width: 250px;
+	height: 500px;
 }
 </style>
 </head>
 <script>
 	function buy(itemNo) {
-		location.href="";
+		//session에 저장되어있는 유저 번호로  mem_no찾기
+		location.href="jy_buypage.do?mem_no=58&item_no=" + itemNo;  
 	}
 </script>
 
@@ -230,7 +232,7 @@ img {
 						</div>
 						<p class="product-description">${dto.content }</p>
 						<h4 class="price">
-							 가격 : <span>${dto.price }&#8361;</span>
+							가격 : <span>${dto.price }&#8361;</span>
 						</h4>
 						<p class="stock">
 							재고 : <strong>${dto.stock }</strong>
@@ -240,9 +242,17 @@ img {
 								data-toggle="tooltip" title="Not In store"></span> <span
 								class="color green"></span> <span class="color blue"></span>
 						</h5>
-						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button" onclick="buy(${dto.itemNo})">구매하기</button>
-						</div>
+						<c:if test="${dto.stock != 0 }">
+							<div class="action">
+								<button class="add-to-cart btn btn-default" type="button"
+									onclick="buy(${dto.itemNo})">구매하기</button>
+							</div>
+						</c:if>
+						<c:if test="${dto.stock == 0 }">
+							<div class="action">
+								<button class="btn btn-secondary btn-lg disabled" type="button" >재입고 대기중</button>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
