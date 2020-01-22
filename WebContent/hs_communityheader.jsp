@@ -42,8 +42,8 @@
 <c:if test="${sessionScope.userId == null}">
   <div>
     <div class="hs_header_top">
-     <a href="hs_communitymain.jsp" id="hs_header_h1">홈드림</a>
-     <a href="hs_communitymain.jsp" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티</a>
+     <a href="homedream.do" id="hs_header_h1">홈드림</a>
+     <a href="homedream.do" class="hs_header_hc" style="color: rgb(0, 153, 255);">커뮤니티</a>
      <a href="hs_storemain.jsp" class="hs_header_hc">스토어</a>
      <div class="hs_header_search">
      <form>
@@ -61,11 +61,11 @@
     <div class="hs_header_line"></div>
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
-         <a href="">홈</a>
+         <a href="homedream.do">홈</a>
          <a href="jy_list.do">집들이 &amp;노하우</a>
          <a href="hm_list.do">전문가찾기</a>
          <a href="hs_questionlist.do">질문과답변</a>
-         <a href="">이벤트</a>
+         <a href="hs_event_main.jsp">이벤트</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 
