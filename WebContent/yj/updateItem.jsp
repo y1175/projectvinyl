@@ -89,7 +89,7 @@
 					</tr>
 					<tr>
 						<th scope="row">상품설명</th>
-						<td colspan="3"><textarea class="form-control" id="content" name="content">${dto.content }</textarea></td>
+						<td colspan="3"><textarea class="form-control" rows="10" id="content" name="content">${dto.content }</textarea></td>
 					</tr>
 					<tr>
 						<th scope="row">가격</th>
