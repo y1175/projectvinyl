@@ -33,7 +33,7 @@ public class YIOrderDetailAction implements Action {
 		request.setAttribute("items", item);
 		request.setAttribute("member", member);
 		request.setAttribute("order", order);
-		
+		System.out.println(item.get(0).getFile_name());
 		
 		
 		ActionForward f=new ActionForward();
