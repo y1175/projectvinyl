@@ -41,7 +41,7 @@ public class hs_AnswerAddAction implements Action {
 		request.setAttribute("answer", answerid);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_answerdetail.do?no="+no);
+		forward.setUrl("hs_questiondetail.do?no="+no);
 		
 		return forward;
 	}
