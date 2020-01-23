@@ -70,7 +70,12 @@
       </li>
       </ul>
       <div>
-         <img src="upload/${item.filename}" alt="${item.filename}"  class="hs_question_ul_li_img">      
+        <c:if test="${item.filename != null}"> 
+           <img src="upload/${item.filename}" alt="${item.filename}"  class="hs_question_ul_li_img">
+        </c:if>
+        <c:if test="${item.filename == null}">
+           <img src="img/hs_noimage.jpg" alt="${item.filename}"  class="hs_question_ul_li_img">      
+        </c:if>
       </div>
   </div>
   </c:forEach>
