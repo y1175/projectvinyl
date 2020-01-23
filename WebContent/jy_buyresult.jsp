@@ -54,14 +54,11 @@ int i = 0;
 
 
 
-
-
-
-
 <c:set var="memberdto" value="${requestScope.memberdto }"/>
 <c:set var="itemdto" value="${requestScope.itemdto}"/>
 
 
+<input type="hidden" id="mem_no" name="mem_no" value="${memberdto.mem_no }"><br>
 
   <div class="row" style ="position : relative; left:23%; margin-top : 100px; ">
         <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
@@ -72,17 +69,20 @@ int i = 0;
                         <br>
                         "${memberdto.mem_no }" "${memerdto.name}" 님의 결제창
                         <br>
-                        <abbr title="Phone">P:</abbr> "${memberdto.phone }"                      
+                        <abbr title="Phone"> P:</abbr> "${memberdto.phone}"                      
                         <br>
-                        "${memberdto.addr}"
+                       우편번호 : "${memberdto.zipcode}"
+                        <br>
+                      주소 : "${memberdto.addr}"
+                        
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                     <p>
-                         <em>Date: 23th January, 2020</em>
+                         <em>Date: 23th January, 2020</em><!-- 나중에 orderlist가 들어오면 orderdate로 넣기 -->
                     </p>
                     <p>
-                        <em>Receipt #: 34522677W</em>
+                        <em>Receipt #: 34522677W</em><!-- orderlist가 들어오면 order_no로 바꾸기 -->
                     </p>
                 </div>
             </div>
@@ -115,22 +115,22 @@ int i = 0;
                             <p>
                                 <strong>Subtotal: </strong>
                             </p>
-                            <p>
+                           <!--  <p>
                                 <strong>Tax: </strong>
-                            </p></td>
+                            </p> --></td>
                             <td class="text-center">
                             <p>
-                                <strong>$6.94</strong>
+                                <strong>"${itemdto.price}"</strong>
                             </p>
-                            <p>
+                            <!-- <p>
                                 <strong>$6.94</strong>
-                            </p></td>
+                            </p> --></td>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>$31.53</strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>"${itemdto.price}"</strong></h4></td>
                         </tr>
                     </tbody>
                 </table>
