@@ -10,6 +10,7 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
+<link href="css/jy_detail.css" rel="stylesheet">
 <style>
 /* header nav 집들이 앤 노하우 글씨색상  */
   .hs_header_nav > a:nth-child(2){
@@ -62,14 +63,16 @@ $(document).ready(function(){
   <div  class="jy_jn_detaildiv">
 <ul>
 <li>
-     <a href="jy_list.do"><p class="jy_jn_detail_jn">집들이 &amp;노하우</p></a>
+     <p class="jy_jn_detail_jn"><a href="jy_list.do">집들이 &amp;노하우</a></p>
 </li>
-<li style="font-size:18px; font-weight: 800; margin-top: -10px;">
+<li style="font-size:18px; font-weight: 800; margin-top: -5px;">
      <c:out value="${dto.btitle }"/>
      <br>
 </li>
+<li style="font-size:15px; font-weight: 700; margin: 20px 0px 30px;;">
+     <i class='fas fa-user-circle' style="font-size: 25px; margin-right: 5px;"></i>
      <c:out value="${dto.id }"/>
-    
+</li>    
 <li>
 <img src="upload/${dto.file_name}" alt="${file }" class="jy_img">
 </li>
@@ -80,7 +83,13 @@ ${dto.bcontent }
 </li>
 <li>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="location.href='jy_likeno.do?num=${dto.bno}'" value="좋아요" ></button>
+
+<div class="jy_jn_likebtn" style="text-align: center; width: 100%; margin-bottom: 20px;">
+<button type="button"data-toggle="modal" data-target="#exampleModal" onclick="location.href='jy_likeno.do?num=${dto.bno}'" style="border: 1px transparent; background-color: white;" >
+   <i class='fas fa-heart' style='font-size:30px; color: red;'></i>
+</button>
+</div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -96,7 +105,6 @@ ${dto.bcontent }
     </div>
   </div>
 </div>
-<input type="button" onclick="location.href='jy_likeno.do?num=${dto.bno}'" value="좋아요">
 </li>
 <li style="text-align: right; font-size: 12px; font-weight: 800; margin-right: 20px;">
 작성일 <c:out value="${dto.writedate}"/>
@@ -129,15 +137,17 @@ ${dto.bcontent }
 
 <!-- Comments Form -->
         <div class="card my-4">
-          <h5 class="card-header">댓글을 입력해주세요.</h5>
+          <h6 class="card-header" style="font-weight: 600;">댓글</h6>
           <div class="card-body">
           <form method="post" action="jy_subadd.do" name="frm">
           <input type="hidden" name="num" value="${dto.bno}">
               <div class="form-group">
                 <textarea class="form-control" rows="3" name="subcontent" id="subcontent"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" onclick="send()" >등록</button>
-              <button type="reset" class="btn btn-primary">취소</button>
+              <div style="text-align: center;">
+              <button type="submit" class="btn btn-primary" onclick="send()" style="background-color: rgba(0, 153, 255, 0.7); border: 1px transparent;" >등록</button>
+              <button type="reset" class="btn btn-primary" style="background-color: rgba(0, 153, 255, 0.7); border: 1px transparent;">취소</button>
+              </div> 
             </form>
           </div>
         </div>

@@ -16,7 +16,7 @@
 </style>
 <script>
 function unno(){
-	location.href="jy_list.do;
+	location.href="jy_list.do";
 }
   </script>
 </head>
