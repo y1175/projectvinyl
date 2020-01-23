@@ -81,8 +81,9 @@ $(document).ready(function(){
 <c:set var="search" value="${requestScope.search }"></c:set>
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
-<form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
-<div class="yi_admin_titlediv">
+  <div style="margin: -10px 0px 50px;">
+   <form method="post" action="yiadminboard.do"><!--처음에 list.do햇음  -->
+     <div class="yi_admin_titlediv">
        <div class="yi_admin_searchbox">
         <select name="search" class="yi_adminsearch_searchop">
         	<option value="id">아이디</option>
@@ -92,10 +93,9 @@ $(document).ready(function(){
         <i class='fas fa-search' style="padding: 5px;"></i>
         <input type="text" id="yi_adminsearchtxt" name="txtsearch" placeholder="검색" >
        </div>
-   
     </div>
-
-
+ </form>
+</div>
 <!-- <input type="submit" value="검색"> -->
 
 
@@ -164,7 +164,7 @@ $(document).ready(function(){
 </div>
 <br>
 <%-- <input type="hidden" name="memno" value="${item.memNo }"> --%>
-</form>
+
 
 
 </body>

@@ -16,6 +16,7 @@
 	}
 	#btnblock{
 		text-align: right;
+		margin-right: 30PX;
 	}
 	.itemimg{
 		height: 100px;
@@ -47,8 +48,9 @@
 	});
 </script>
 <body>
+      <p style="font-size: 22px; font-weight:700; margin: 30px 0px;  text-align: center;">상품관리</p>
 		<form id="frm" method="post" action="yj_deleteAll.do">
-			<table class="table">
+			<table class="table" style="margin-top: 20px;">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col"><img src="https://img.icons8.com/material/16/000000/checked-2--v2.png"></th>
@@ -63,15 +65,15 @@
 				<tbody>
 				<c:forEach var="item" items="${list }">
 					<tr>
-						<td><input type="checkbox" name="num" value="${item.itemNo }"></td>
-						<td><c:out value="${item.itemNo }"/></td>
+						<td style="vertical-align: middle;"><input type="checkbox" name="num" value="${item.itemNo }"></td>
+						<td style="font-size: 17px; vertical-align: middle; font-weight: 600;"><c:out value="${item.itemNo }"/></td>
 						<td><img class="itemimg" src="img/${item.fileName }"></td>
-						<td><h1><c:out value="${item.name }"/></h1></td>
-						<td><h2><c:out value="${item.price }원"/></h2></td>
-						<td><h2><c:out value="${item.stock }개"/></h2></td>
+						<td style="vertical-align: middle; font-size: 17px; font-weight: 600; color: #222;"><c:out value="${item.name }"/></td>
+						<td style="vertical-align: middle; font-size: 17px; font-weight: 600; color: #222;"><c:out value="${item.price }원"/></td>
+						<td style="vertical-align: middle; font-size: 17px; font-weight: 600; color: #222;"><c:out value="${item.stock }개"/></td>
 						<td>
-						<button type="button" class="update btn btn-secondary" onclick="location.href='yj_update.do?itemNo=${item.itemNo}'">수정</button> 
-						<button type="button" class="delete btn btn-danger" onclick="deletemsg(${item.itemNo})">삭제</button></td>
+						<button type="button" class="update btn btn-secondary" style="margin-top: 30px;" onclick="location.href='yj_update.do?itemNo=${item.itemNo}'">수정</button> 
+						<button type="button" class="delete btn btn-danger" style="margin-top: 30px;"  onclick="deletemsg(${item.itemNo})">삭제</button></td>
 					</tr>
 				</c:forEach>
 				</tbody>
