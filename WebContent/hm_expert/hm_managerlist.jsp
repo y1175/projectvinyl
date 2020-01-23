@@ -7,11 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Homedream</title>
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 <link rel="stylesheet" href="css/hm_managerlist.css?ver=2">
+<style>
+/* header nav 업체관리  */
+  .hs_header_nav > a:nth-child(1){
+    color: rgb(0, 153, 255);
+  }
+</style>
 </head>
 <body>
 

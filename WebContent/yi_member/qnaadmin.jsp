@@ -56,8 +56,14 @@ $(document).ready(function(){
 	
 });
 </script>
+<style>
+/* header nav 질문과 답변관리 글씨색상  */
+  .hs_header_nav > a:nth-child(3){
+    color: rgb(0, 153, 255);
+  }
+</style>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Homedream</title>
 </head>
 <body>
 
@@ -72,7 +78,7 @@ $(document).ready(function(){
 <c:set var="txtsearch" value="${requestScope.txtsearch }"></c:set> 
 
 
- 
+  <div style="margin: -10px 0px 50px;">
     <form method="post" action="yiqnaadmin.do">
     <div class="yi_question_titlediv">
        <div class="yi_questionsearch_searchbox">
@@ -84,10 +90,9 @@ $(document).ready(function(){
         <i class='fas fa-search' style="padding: 5px;"></i>
         <input type="text" id="yi_questionsearchtxt" name="txtsearch" placeholder="검색">
        </div>
-   
-    </div>
-
-
+      </div>
+     </form>
+   </div>
 <!-- <input type="submit" value="검색"> -->
 
 
@@ -96,7 +101,7 @@ $(document).ready(function(){
 
 
 <table class='table table-hover'>
-<thead class='thead-dark'><tr><th>선택</th><th>글번호</th><th>아이디</th><th>회원번호</th><th>질문제목</th><th>질문날짜</th><th>답변하기</th><th></th><th>삭제</th></tr>
+<thead class='thead-dark'><tr><th>선택</th><th>글번호</th><th>아이디</th><th>회원번호</th><th>질문제목</th><th>질문날짜</th><th>답변하기</th><th></th><th>삭제</th><th></th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
@@ -160,7 +165,7 @@ $(document).ready(function(){
 
 
 
- </form>
+
 
 </body>
 </html>

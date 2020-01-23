@@ -16,8 +16,8 @@
     <div class="hs_header_top">
      <a href="ej_list.do" id="hs_header_h1">홈드림</a>
      <a href="ej_list.do" class="hs_header_hc" style="color: rgb(0, 153, 255);">회원관리</a>
-     <a href="hs_storeadminmain.jsp" class="hs_header_hc">스토어관리</a>
-     <a href="hs_communityadminmain.jsp" class="hs_header_hc">커뮤니티관리</a>
+     <a href="yj_itemlist.do" class="hs_header_hc">스토어관리</a>
+     <a href="hm_managerlist.do" class="hs_header_hc">커뮤니티관리</a>
      <a href="yilogout.do"  class="hs_header_hc">로그아웃</a>
      <b class="hs_header_admin">관리자모드</b>    
     </div>

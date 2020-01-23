@@ -26,7 +26,6 @@
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
          <a href="yj_itemlist.do" style="color: rgb(0, 153, 255);">상품관리</a>
-         <a href="">주문관리</a>
      </nav>  
     </div> 
     <div class="hs_header_line"></div> 

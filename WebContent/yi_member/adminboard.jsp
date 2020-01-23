@@ -60,8 +60,14 @@ $(document).ready(function(){
 	
 });
 </script>
+<style>
+/* header nav 집들이&노하우 글씨색상  */
+  .hs_header_nav > a:nth-child(2){
+    color: rgb(0, 153, 255);
+  }
+</style>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Homedream</title>
 </head>
 <body>
   
@@ -97,7 +103,7 @@ $(document).ready(function(){
 
 <table class='table table-hover'>
 <thead class='thead-dark'><tr><th>선택</th><th>회원번호</th><th>아이디</th><th>글번호</th><th>글제목</th><th>추천수</th>
-<th>게시글삭제</th></tr>
+<th>게시글삭제</th><th></th></tr>
 </thead>
 <tbody>
 	<!--arraylist니까 foreach  -->
