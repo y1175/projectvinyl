@@ -35,19 +35,10 @@ public class hs_QuestionInsertResultAction implements Action {
 		String content=multi.getParameter("content");
 		
 		//session을 적용하려면 Action에서 수정하면된다.
-
-		HttpSession session=request.getSession();
-				String mem_id = (String) session.getAttribute("id");
-		      int mem_no=(int)session.getAttribute("mem_no");
-		      ActionForward f=new ActionForward();
-		      if(mem_id==null)   //세션이 없으면 로그인화면으로 넘어간다
-		      {
-		         f.setForward(false);
-		         f.setUrl("yilogin.do");
-		         
-		      }
-		      else   //id!=null, 즉 아이디가 있으면..
-		      {
+		
+		HttpSession session = request.getSession();
+		int mem_no = (int) session.getAttribute("mem_no");
+		
 		    	  QuestionDTO dto=new QuestionDTO();
 		    	  dto.setMem_no(mem_no);
 		  		  dto.setTitle(title);
@@ -58,9 +49,9 @@ public class hs_QuestionInsertResultAction implements Action {
 		  		service.getInsertUpload(dto);
 		         
 		         
-		         f.setForward(true);
-		         f.setUrl("hs_questionlist.do");
-		      }
+		  		forward.setForward(true);
+		  		forward.setUrl("hs_questionlist.do");
+		      
 
 
 

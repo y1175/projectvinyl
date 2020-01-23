@@ -90,6 +90,7 @@
      <c:set var="mem_no" value="${dto.mem_no }"/>
 <!--  이렇게 하면 값 비교 > 동일 인물이면 수정, 삭제 가능 -->
     
+    <c:set var="session" value="${sessionScope.mem_no }"/>
      <c:if test="${session == mem_no}">
       <a href="hs_questionupdate.do?no=${dto.q_no}"><button class="hs_question_divbtn" >수정</button></a>           
       <a href="hs_questiondelete.do?no=${dto.q_no}"><button class="hs_question_divbtn" style="margin-left: 5px;" >삭제</button></a>

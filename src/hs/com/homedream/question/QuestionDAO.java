@@ -133,6 +133,7 @@ public class QuestionDAO {
 		StringBuilder sql=new StringBuilder();
 		sql.append("  select  q_no                          ");
 		sql.append("         ,m.name                        "); 
+		sql.append("         ,m.mem_no                      ");
 		sql.append("         ,title                         ");
 		sql.append("         ,content                       ");
 		sql.append("         ,qdate                         ");
@@ -153,6 +154,8 @@ public class QuestionDAO {
 				dto.setQdate(rs.getString("qdate"));
 				dto.setReadno(rs.getInt("readno"));
 				dto.setFilename(rs.getString("file_name"));
+				dto.setMem_no(rs.getInt("mem_no"));
+				System.out.println(  "호도 dao 인간 번호"+dto.getMem_no());
 			}
 		}finally {
 			if(rs!=null) try {rs.close();} catch(SQLException e) {}

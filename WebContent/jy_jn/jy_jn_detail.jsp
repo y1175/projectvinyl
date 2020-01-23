@@ -74,7 +74,7 @@ $(document).ready(function(){
 <img src="upload/${dto.file_name}" alt="${file }" class="jy_img">
 </li>
 <li>
-<p  style="margin: 30px 20px;">
+<p  style="margin: 30px 20px;">s
 ${dto.bcontent }
 <p>
 </li>
