@@ -33,7 +33,7 @@
 				let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>"
 					result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;'>"+item.answerid+"</td>";
 					result+="<td style='font-size: 15px; width : 93%;'>"+item.content+"</td>";
-					result+="<td><input type='button' value='삭제' onclick='del("+item.a_no+","+item.q_no+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;'></td>";
+					result+="<td><input type='button' value='삭제' onclick='del("+item.a_no+","+item.q_no+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 25px; border-radius: 5px'></td>";
 					result+="</tr></tbody>";
 					$('#hs_answer_result').append(result);
 			    })
@@ -51,7 +51,7 @@
     color: rgb(0, 153, 255);
   }
 </style>
-<link rel="stylesheet" href="css/hs_questiondetail.css?ver=1" >
+<link rel="stylesheet" href="css/hs_questiondetail.css?ver=2" >
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
@@ -61,7 +61,7 @@
     <div  class="hs_question_detaildiv">
        <ul>
          <li>
-           <a href="hs_hs_questionlist.do"><p class="hs_question_detail_qa">질문과 답변</p></a>
+           <p class="hs_question_detail_qa"><a href="hs_hs_questionlist.do">질문과 답변</a></p>
          </li>
          <li style="font-size:18px; font-weight: 800; margin-top: -10px;">
            <c:out value="${dto.title}"/>
@@ -70,7 +70,7 @@
            <i class='fas fa-user-circle' style="font-size: 25px; margin-right: 5px;"></i>
            <c:out value="${dto.mem_name}"/>
          </li>
-         <li>
+         <li style="margin-top: 20px; text-align: center;">
            <img src="upload/${dto.filename}" alt="${file}" class="hs_question_detail_qaimg">
          </li>
          <li style="margin: 30px 20px;">
@@ -105,11 +105,11 @@
     <p style="font-size:18px; font-weight: 800; margin-top: 20px; ">답변</p>
     <div  style="margin-bottom: 20px;">
         <form method="post" action="hs_answeradd.do" name="frm">         
-            <label for="hs_answer"><i class='fas fa-user-circle' style="font-size: 30px; margin-right: 5px;"></i></label>
+            <label for="hs_answer"><i class='fas fa-user-circle' style="font-size: 30px;"></i></label>
             <input type="hidden" name="no" value="${dto.q_no}">
             <div class="hs_question_answer">
               <input type="text" name="hs_answer" id="hs_answer">
-              <input type="submit" onclick="send()" value="등록" style="border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;"> 
+              <input type="submit" onclick="send()" value="등록" style="border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 6px 25px; border-radius: 5px;"> 
             </div>          
          </form> 
          

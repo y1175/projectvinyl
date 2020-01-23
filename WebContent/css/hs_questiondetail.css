@@ -22,7 +22,6 @@ body{
 	font-weight: 800;
 }
 .hs_question_detail_qaimg{
-	margin : 0px auto;
 	width: 95%;
 }
 .hs_question_divline{
@@ -43,9 +42,10 @@ body{
 .hs_question_answer{
 	float:right;
 	width :96%;
-	border: 1px solid #757575;	
+	border-radius: 5px;
+	border: 1px solid white;
 }
 #hs_answer{
-	width : 93%;
+	width : 92.7%;
     border: 1px solid white;
 }
