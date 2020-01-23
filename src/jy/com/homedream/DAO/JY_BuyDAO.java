@@ -84,6 +84,7 @@ public class JY_BuyDAO {
 				dto.setMem_no(rs.getInt("mem_no"));
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
+				System.out.println(dto.getName());
 				dto.setPhone(rs.getString("phone"));
 				dto.setAddr(rs.getString("addr"));
 				dto.setZipcode(rs.getInt("zipcode"));

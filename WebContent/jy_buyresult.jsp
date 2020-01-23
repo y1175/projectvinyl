@@ -29,33 +29,6 @@ body {
 <body>
 <div class="container">
 
-<%
-
- java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd-HH-mm");
- String today = formatter.format(new java.util.Date());
- StringTokenizer date = new StringTokenizer(today,"-");
- String[] arr = new String[date.countTokens()];
-int i = 0;
- while(date.hasMoreElements()){
-	 out.print(date.nextToken()+"년 ");
-	 out.print(date.nextToken()+"월 ");
-	 out.print(date.nextToken()+"일 ");
-	 out.print(date.nextToken()+"시 ");
-	 out.print(date.nextToken()+"분 ");
- }
-
-
-
-%>
-
-
-
-
-
-
-
-<c:set var="memberdto" value="${requestScope.memberdto }"/>
-<c:set var="itemdto" value="${requestScope.itemdto}"/>
 
 
 <input type="hidden" id="mem_no" name="mem_no" value="${memberdto.mem_no }"><br>
@@ -63,18 +36,17 @@ int i = 0;
   <div class="row" style ="position : relative; left:23%; margin-top : 100px; ">
         <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-6 col-sm-6 col-md-6" >
                     <address>
                         <strong>HOME DREAM</strong>
                         <br>
-                        "${memberdto.mem_no }" "${memerdto.name}" 님의 결제창
+                        김진영 님의 결제창
                         <br>
-                        <abbr title="Phone"> P:</abbr> "${memberdto.phone}"                      
+                        <abbr title="Phone"> P:</abbr> "010-7144-3797"                      
                         <br>
-                       우편번호 : "${memberdto.zipcode}"
+                       우편번호 : "7743"
                         <br>
-                      주소 : "${memberdto.addr}"
-                        
+                      주소 : "서울시 강서구 화곡동 곰달래로 49길 113번지 행복드림빌 301호"
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -102,12 +74,27 @@ int i = 0;
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-md-9"><em>"${itemdto.name}"</em></h4></td>
+                            <td class="col-md-9"><em>"[기간한정] 무브 모듈 소파 3type 4colors"</em></h4></td>
                             <td class="col-md-1" style="text-align: center"> 1 </td>
-                            <td class="col-md-1 text-center">"${itemdto.price}"</td>
-                            <td class="col-md-1 text-center">"${itemdto.price}"</td>
+                            <td class="col-md-1 text-center">"89000"</td>
+                            <td class="col-md-1 text-center">"89000"</td>
                         </tr>
-                  
+                         <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right">
+                            <p>
+       	                        <strong style="font-size: 12px;">shopping-f: </strong>
+                            </p>
+                           <!--  <p>
+                                <strong>Tax: </strong>
+                            </p> --></td>
+                            <td class="text-center">
+                            <p>
+                                <strong>"30000"</strong>
+                            </p>
+                            </td>
+                        </tr> 
                         <tr>
                             <td>   </td>
                             <td>   </td>
@@ -120,21 +107,24 @@ int i = 0;
                             </p> --></td>
                             <td class="text-center">
                             <p>
-                                <strong>"${itemdto.price}"</strong>
+                                <strong>"119000"</strong>
                             </p>
-                            <!-- <p>
-                                <strong>$6.94</strong>
-                            </p> --></td>
-                        </tr>
+                            </td>
+                        </tr> 
+                         
                         <tr>
+                        
+                        </tr>
+                       <tr>
+                        
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>"${itemdto.price}"</strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>"$119000"</strong></h4></td>
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-success btn-lg btn-block">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='jy_buydetail.jsp'">
                     Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
                 </button></td>
             </div>

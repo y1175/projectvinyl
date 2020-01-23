@@ -18,16 +18,14 @@ public class DetailItemAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
-		
 		ItemService service = ItemService.getInstance();
-		ItemDTO dto = service.getDetail(itemNo);
+		ItemDTO dto = service.getDetail(10);
 		
 		request.setAttribute("dto", dto);
 		
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("/yj_detailItem.jsp");
+		forward.setUrl("yj_itemDetail.do");
 		return forward;
 	}
 

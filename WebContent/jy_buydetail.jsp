@@ -4,11 +4,6 @@
     pageEncoding="UTF-8"%>
 
       
- <%     
-      JY_JN_MemberDTO memberdto = (JY_JN_MemberDTO)request.getAttribute("memberdto");
-      JY_ItemDTO itemdto = (JY_ItemDTO)request.getAttribute("itemdto");
- %>
- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +15,7 @@
 <script>
 $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init('imp65601532'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        IMP.init('imp05359209'); 
         var msg;
         
         IMP.request_pay({
@@ -28,11 +23,11 @@ $(function(){
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : 'HOMEDREADM 결제',
-            amount :"<%=itemdto.getPrice()%>",
-            buyer_name : "<%=memberdto.getName()%>",
-            buyer_tel :  "<%=memberdto.getPhone()%>",
-            buyer_addr : "<%=memberdto.getAddr()%>",
-            buyer_postcode :  "<%=memberdto.getZipcode()%>"
+            amount :"119000",
+            buyer_name : "김진영",
+            buyer_tel :  "01071443797",
+            buyer_addr : "서울시 강서구 화곡동 곰달래로 49길 113번지 행복드림빌 301호",
+            buyer_postcode :  "7743"
             }, function(rsp) {
             if ( rsp.success ) {
                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
@@ -59,7 +54,7 @@ $(function(){
                     }
                 });
                 //성공시 이동할 페이지
-                location.href="success.jsp";
+                location.href="homedream.do";
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;

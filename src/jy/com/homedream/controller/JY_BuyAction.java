@@ -22,8 +22,9 @@ public class JY_BuyAction implements Action {
 		
 		
 		String memno = request.getParameter("mem_no");
+		System.out.println(memno);
 		String itemno = request.getParameter("item_no");
-		
+		System.out.println(itemno);
 		int mem_no = 1;
 		int item_no = 1;
 	

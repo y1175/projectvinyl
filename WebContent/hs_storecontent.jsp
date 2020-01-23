@@ -188,7 +188,7 @@
      <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157959709636059439.JPG?gif=1&w=640&h=640&c=c&webp=1" alt=" 선데이 러그 7size 5colors">
      </a>
      <p class="hs_thumbnail_store_title">에보니아</p>
-     <a href="yj_detailItem.jsp"><b>[기간한정] 무브 모듈 소파 3type 4colors</b></a>
+     <a href="yj_itemDetail.do?item_no=10"><b>[기간한정] 무브 모듈 소파 3type 4colors</b></a>
      <br>
      <b style="color: rgb(0, 153, 255);">36%</b><b>104,000</b>
      <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>
