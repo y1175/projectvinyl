@@ -30,6 +30,7 @@ public class hs_QuestionUpdateResultAction implements Action {
 		request.setAttribute("file", file);
 		
 		String no=multi.getParameter("q_no");
+		System.out.println("입력 받은거임" + no);
 		
 		int q_no=1;
 		if(no!=null && !("".equals(no))) {
@@ -45,11 +46,14 @@ public class hs_QuestionUpdateResultAction implements Action {
 		dto.setTitle(title);
 		dto.setContent(content);
 		dto.setFilename(file);
+		dto.setQ_no(q_no);
+		
+		System.out.println("뭐인 시발" + q_no);
 		
 		service.questionUpdate(dto);
 		
 		forward.setForward(true);
-		forward.setUrl("hs_questiondetail.do?num="+q_no);
+		forward.setUrl("hs_questiondetail.do?no="+q_no);
 		
 		return forward;
 	}
