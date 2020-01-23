@@ -241,42 +241,7 @@ id="ej_search">
 	 
 </tbody>
 </table><br>
-<!-- 
-   <form method="post" action="ej_insert.do">
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header"> 
-        <h4 class="modal-title" id="exampleModalLabel">적립금부여</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-  
-          <div class="form-group">	
-           <ul>
-          <li>
-            <label for="recipient-name" class="ej_control-label" >회원번호:</label>
-            <input type="text" class="ej_form-control" id="recipient-name" name="what"></li></ul>
-          </div>
-       </div>
-        
-          <div class="ej_modalfooter">
-           <ul><li>
-            <input type="text" name="addpoint" id="addpoint"
-            placeholder="포인트적립">
-            <input type="image" 
-src="http://localhost:9080/projectvinyl/img/ej_check.png" alt="check"
-id="ej_check">
-            </li></ul>
-          </div>
-       </div>     
-    </div>
-   </div>
 
-      </form>        
-      </div>
-    
- -->
     <form method="post" action="ej_insert.do">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -303,17 +268,14 @@ id="ej_check">
 src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
 id="ej_check">
             </li></ul></div>
-      </form>        
-      </div>
-    
-
-        
+  
     </div>
    
-  </div>
+    </div>
   
-</div>
-   
+   </div>
+   </form>   
+</div>  
   
 
 

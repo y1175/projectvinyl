@@ -267,7 +267,8 @@ id="ej_search">
 <input type="image" 
 src="http://localhost:9080/projectvinyl/img/ej_check.png" alt="check"
 id="ej_check">
-
+ </div>
+  
       </li> </ul> 
       </div>       
       </div>
@@ -280,9 +281,10 @@ id="ej_check">
         
     </div>
     </form>
-  </div>
-  
-</div>
+    </div>
+    
+ 
+
  
 
 

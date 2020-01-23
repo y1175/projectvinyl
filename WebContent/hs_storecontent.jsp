@@ -225,11 +225,11 @@
   <!-- store_thumbnail 12 -->
    <div class="hs_thumbnail_store">
      <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <p class="hs_thumbnail_store_title">네이처리빙</p>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <p class="hs_thumbnail_store_title">오아</p>
+     <a href=""><b>[오늘의딜] 간편세척 무드등 가습기 2size</b></a>
      <br>
-     <b style="color: rgb(0, 153, 255);">71%</b><b>19.900</b>
-     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span style="color: #757575;"> 리뷰 11,815</span></p>
+     <b style="color: rgb(0, 153, 255);">23%</b><b>26,010</b>
+     <p class="hs_thumbnail_store_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.1<span style="color: #757575;"> 리뷰 6,025</span></p>
    </div>
    <!-- store_thumbnail 13 -->
    <div class="hs_thumbnail_store">
