@@ -49,7 +49,7 @@
 <h4 style="font-weight: 700; margin-bottom: 30px;">질문수정</h4>
   <form method="post" action="hs_questionupdateresult.do" enctype="multipart/form-data">
     <div class="form-group">
-        <input type="hidden" name="bno" id="bno" value="${dto.bno }">
+        <input type="hidden" name="q_no" id="q_no" value="${dto.q_no }">
        <input type="text" class="form-control" name="title" id="hs_question_insert_title" value="${dto.title}">
     </div>    
     <div class="form-group">
