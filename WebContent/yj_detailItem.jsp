@@ -217,7 +217,7 @@ img {
 
 <c:set var="mem_no" value="${sessionScope.mem_no }"/>
 <c:out value="${mem_no }"></c:out>
-	<div class="dtail-container">
+	<div class="dtail-container" style="text-align: center;">
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
@@ -273,8 +273,16 @@ img {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
+		
 	</div>
+	
+	     <div style="width: 100%:">
+		    <img alt="" src="https://exit.ohou.se/dbb3888ffa01502ea593b8f04905e666cc23ef3c/online.ebonia.co.kr/detail/living/relax/intro_relax.jpg" style="width: 100%;">
+		    <img alt="" src="https://exit.ohou.se/b112fa7abd0f40d7052b108d8d37b2c8e17773c3/online.ebonia.co.kr/detail/living/relax/setup_op.jpg" style="width: 100%;">
+		    <img alt="" src="https://exit.ohou.se/84d7fb947d2e6518605082be8f992034bfda8039/online.ebonia.co.kr/detail/living/relax/detail.jpg" style="width: 100%;">
+		    <img alt="" src="https://exit.ohou.se/4c20321c3ba40c4c7e46b393738f1a0eab568458/online.ebonia.co.kr/detail/living/relax/info.jpg" style="width: 100%;">
+		</div>
  <footer>
          <jsp:include page="hs_user_footer.jsp"></jsp:include>
      </footer>
