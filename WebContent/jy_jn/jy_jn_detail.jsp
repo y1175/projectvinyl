@@ -16,6 +16,7 @@
   .hs_header_nav > a:nth-child(2){
     color: rgb(0, 153, 255);
   }
+
 </style>
 <script>
 
@@ -37,8 +38,9 @@ $(document).ready(function(){
 		,method :'post'
 		,success:function(data){
 			$.each(data, function(index,item){
-			let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>"
-				result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;>"+item.subid+"</td>";
+				console.log(item.id);
+			let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>";
+				result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;>"+item.id+"</td>";
 				result+="<td style='font-size: 15px; width : 93%;'>"+item.content+"</td>";
 				result+="<td><input type='button' value='삭제' onclick='del("+item.rno+","+item.bno+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;'></td>";
 				result+="</tr></tbody>";
@@ -145,8 +147,10 @@ ${dto.bcontent }
                 <textarea class="form-control" rows="3" name="subcontent" id="subcontent"></textarea>
               </div>
               <div style="text-align: center;">
+              <c:if test="${session != null }">
               <button type="submit" class="btn btn-primary" onclick="send()" style="background-color: rgba(0, 153, 255, 0.7); border: 1px transparent;" >등록</button>
               <button type="reset" class="btn btn-primary" style="background-color: rgba(0, 153, 255, 0.7); border: 1px transparent;">취소</button>
+              </c:if>
               </div> 
             </form>
           </div>

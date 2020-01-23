@@ -90,6 +90,7 @@ public class JY_JN_SubBoardDAO {
 				dto.setSubcontent(rs.getString("content"));
 				dto.setSubid(subid);
 				list.add(dto);
+				System.out.println("댓글 디테일"+dto.getSubid());
 			}
 		}finally {
 			if(rs!=null) try {rs.close();} catch(SQLException e) {}

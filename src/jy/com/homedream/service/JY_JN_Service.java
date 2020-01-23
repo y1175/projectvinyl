@@ -152,6 +152,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		Connection conn = null;
 		String subid = new String();
 		int memno = subdto.getMem_no();
+		System.out.println("넘어간 댓글 인간 번호" + memno);
 		try {
 			conn= db.getConnection();
 			conn.setAutoCommit(false);
@@ -178,7 +179,7 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 			conn = db.getConnection();
 			conn.setAutoCommit(false);
 			JY_JN_SubBoardDAO dao = JY_JN_SubBoardDAO.getDAO();
-			list = dao.jn_SubBoardDetail(conn, num,mem_no);
+			list = dao.jn_SubBoardDetail(conn, num, mem_no);
 			conn.commit();
 		}catch(SQLException | NamingException e) {
 			System.out.println(e);

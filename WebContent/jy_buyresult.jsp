@@ -1,3 +1,4 @@
+<%@page import="java.util.StringTokenizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
@@ -27,6 +28,26 @@ body {
 </head>
 <body>
 <div class="container">
+
+<%
+
+ java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd-HH-mm");
+ String today = formatter.format(new java.util.Date());
+ StringTokenizer date = new StringTokenizer(today,"-");
+ String[] arr = new String[date.countTokens()];
+int i = 0;
+ while(date.hasMoreElements()){
+	 out.print(date.nextToken()+"년 ");
+	 out.print(date.nextToken()+"월 ");
+	 out.print(date.nextToken()+"일 ");
+	 out.print(date.nextToken()+"시 ");
+	 out.print(date.nextToken()+"분 ");
+ }
+
+
+
+%>
+
 
 
 
@@ -58,7 +79,7 @@ body {
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                     <p>
-                        <em>Date: 23th January, 2020</em>
+                         <em>Date: 23th January, 2020</em>
                     </p>
                     <p>
                         <em>Receipt #: 34522677W</em>

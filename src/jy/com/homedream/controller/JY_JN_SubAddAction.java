@@ -22,6 +22,7 @@ public class JY_JN_SubAddAction implements Action {
 		int num = Integer.parseInt(request.getParameter("num"));
 		HttpSession session=request.getSession();
 		int mem_no = (int) session.getAttribute("mem_no");
+		System.out.println("댓글 넘어가는 인간번호" + mem_no);
 		String subcontent = request.getParameter("subcontent");
 		JY_JN_SubBoardDTO subdto = new JY_JN_SubBoardDTO();
 		
@@ -32,7 +33,9 @@ public class JY_JN_SubAddAction implements Action {
 		JY_JN_Service service = JY_JN_Service.getService();
 		String subid = service.jn_getAddSubBoard(subdto);
 		
-		request.setAttribute("subid", subid);
+		subdto.setSubid(subid);
+		
+		request.setAttribute("subdto", subdto);
 		
 		ActionForward forward =	new ActionForward();
 		forward.setForward(true);

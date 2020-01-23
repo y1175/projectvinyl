@@ -49,6 +49,8 @@ public class JY_JN_SubDetailAction extends HttpServlet {
 		JY_JN_Service service = JY_JN_Service.getService();
 		List<JY_JN_SubBoardDTO>list = service.jn_getDetailSubBoard(num,mem_no);
 		
+		System.out.println(mem_no);
+		
 		JSONArray arr = new JSONArray();
 		for(JY_JN_SubBoardDTO dto : list) {
 			JSONObject o = new JSONObject();
@@ -56,7 +58,7 @@ public class JY_JN_SubDetailAction extends HttpServlet {
 			o.put("bno", dto.getBno());
 			o.put("content", dto.getSubcontent());
 			o.put("mem_no", dto.getMem_no());
-			o.put("subid", dto.getSubid());
+			o.put("id", dto.getSubid());
 			arr.add(o);
 			// dto를 풀어서 다시 o로 만듬 > 그다음에 그걸 arr에 넘김
 		}
