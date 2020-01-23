@@ -7,28 +7,16 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-<!-- viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-<!-- viewport / shrink-to-fit=no 사파리 브라우저에 영향을 미치는 속성 -->
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
 <!--icon-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!--icon-->
 <style>
-/* input#ej_submit {
-background:url("./ej_search.png");
-background-repeat: no-repeat;
-width:40px;
-height:40px;
-border: 0;
-} */
+/* header nav 전문가찾기 글씨색상  */
+  .hs_header_nav > a:nth-child(2){
+    color: rgb(0, 153, 255);
+  }
+/* 건들이지 마 */
+
 #ej_orderbutton{
 width:110px;
 }
@@ -59,12 +47,7 @@ border: 1px transparent;}
 	position:relative;
 	right:5px;
 }
-/* .ej_stxtsearch1{
-border-radius:5px;
-}
-.ej_stxtsearch2{
-border-radius:5px;
-} */
+
 #ej_search{
 width:29px;
 height:29px;
@@ -155,10 +138,6 @@ $(document).ready(function(){
 </head>
 <body>
 <%request.setCharacterEncoding("UTF-8");%>
-<div class="container">
-     <header>
-         <jsp:include page="/hs_memberadminheader.jsp"></jsp:include>
-     </header>
      <div class="ej_all">
 <img src="http://localhost:9080/projectvinyl/ej_order/ej_delivery.png" alt="delivery"
  class="ej_deliveryimage"><h3>주문배송관리</h3>
@@ -332,10 +311,6 @@ id="ej_check">
 
 
 </div> <!--div class=ej_all  -->
-     <footer>
-         <jsp:include page="/hs_admin_footer.jsp"></jsp:include>
-     </footer>
-  </div>
 
 </body>
 </html>

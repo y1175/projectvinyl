@@ -100,7 +100,7 @@ public class EJOrderListAction implements Action {
 		//forward로 넘기기
 		ActionForward f=new ActionForward();
 		f.setForward(true);//forward로 페이지이동
-		f.setUrl("/ej_order/ej_orderlist.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
+		f.setUrl("/hs_memberadminmain.jsp?page=ej_order/ej_orderlist.jsp");//ej_list.jsp로 넘김. 근데 얜 왜 jsp인지 모르겟음. 슬래시 써야함
 		
 		return f;
 		

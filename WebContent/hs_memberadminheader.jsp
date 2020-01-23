@@ -14,8 +14,8 @@
 <body>
   <div>
     <div class="hs_header_top">
-     <a href="hs_memberadminmain.jsp" id="hs_header_h1">홈드림</a>
-     <a href="hs_memberadminmain.jsp" class="hs_header_hc" style="color: rgb(0, 153, 255);">회원관리</a>
+     <a href="ej_list.do" id="hs_header_h1">홈드림</a>
+     <a href="ej_list.do" class="hs_header_hc" style="color: rgb(0, 153, 255);">회원관리</a>
      <a href="hs_storeadminmain.jsp" class="hs_header_hc">스토어관리</a>
      <a href="hs_communityadminmain.jsp" class="hs_header_hc">커뮤니티관리</a>
      <a href="yilogout.do"  class="hs_header_hc">로그아웃</a>
@@ -25,7 +25,7 @@
     <div class="hs_header_line"></div>
     <div class="hs_header_cg">
      <nav class="hs_header_nav">
-         <a href="ej_list.do" style="color: rgb(0, 153, 255);">조회 및 삭제</a>
+         <a href="ej_list.do">조회 및 삭제</a>
          <a href="ej_orderlist.do">주문배송관리</a>
      </nav>  
     </div> 
