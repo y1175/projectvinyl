@@ -16,6 +16,7 @@ public class JY_JN_SubDeleteAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		int num = Integer.parseInt(request.getParameter("bno"));
 		

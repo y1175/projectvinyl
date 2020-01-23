@@ -17,6 +17,7 @@
     color: rgb(0, 153, 255);
   }
 
+
 </style>
 <script>
 
@@ -25,8 +26,8 @@ function send(){
 		document.frm.submit();
 }
 
-function del(sno,bno){
-	location.href="jy_subdelete.do?rno="+sno+"&bno="+bno
+function del(rno,bno){
+	  location.href="jy_subdelete.do?rno="+rno+"&bno="+bno;
 }
 
 $(document).ready(function(){
@@ -40,7 +41,7 @@ $(document).ready(function(){
 			$.each(data, function(index,item){
 				console.log(item.id);
 			let result ="<tbody><tr style='padding-bottom : 10px;'><td><i class='fas fa-user-circle'style='font-size: 30px; margin-right: 20px;'></i></td>";
-				result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;>"+item.id+"</td>";
+				result+="<td style='font-size: 17px; font-weight : 500; padding-right:20px;'>"+item.id+"</td>";
 				result+="<td style='font-size: 15px; width : 93%;'>"+item.content+"</td>";
 				result+="<td><input type='button' value='삭제' onclick='del("+item.rno+","+item.bno+")' style='border: 1px transparent; font-weight : 900; font-size : 13px; background-color: rgba(0, 153, 255, 0.7); color : white; padding: 5px 22px;'></td>";
 				result+="</tr></tbody>";
