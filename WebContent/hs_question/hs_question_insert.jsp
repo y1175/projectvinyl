@@ -45,16 +45,17 @@
   <h4 style="font-weight: 700; margin-bottom: 30px;">질문하기</h4>
   <form method="post" action="hs_questioninsertresult.do" enctype="multipart/form-data">
     <div class="form-group">
-       <input type="text" name="title" class="form-control" id="hs_question_insert_title" placeholder="제목을 적어주세요.">
+       <input type="text" name="title" class="form-control" id="hs_question_insert_title" placeholder="제목을 적어주세요." required="required">
     </div>   
     <div class="form-group">
-       <textarea rows="30"name="content" class="form-control" placeholder="내용을적어주세요.
-          
+       <textarea rows="30"name="content" class="form-control" placeholder="
+내용을 적어주세요.      
+
 참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.
 
  ※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하여, 답변이 달린 질문글은 삭제할 수 없습니다.
- ※ 인테리어와 관련이 없는 질문은 숨김 및 삭제 될 수 있습니다.">
-       </textarea>
+ ※ 인테리어와 관련이 없는 질문은 숨김 및 삭제 될 수 있습니다." required="required">
+</textarea>
          <div class="hs_question_insert_file">
             <i class="material-icons">&#xe439;</i>
             <input type="file" name="uploadfile" class="custom-file-input" id="hs_question_insert_uploadfile">
