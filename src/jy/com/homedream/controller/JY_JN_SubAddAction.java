@@ -20,10 +20,9 @@ public class JY_JN_SubAddAction implements Action {
 			throws ServletException, IOException {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
+		HttpSession session=request.getSession();
+		int mem_no = (int) session.getAttribute("mem_no");
 		String subcontent = request.getParameter("subcontent");
-		
-		HttpSession session = request.getSession();
-		int mem_no = (int)session.getAttribute("mem_no");
 		JY_JN_SubBoardDTO subdto = new JY_JN_SubBoardDTO();
 		
 		subdto.setBno(num);

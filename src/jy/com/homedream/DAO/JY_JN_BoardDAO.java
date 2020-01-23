@@ -146,9 +146,11 @@ public class JY_JN_BoardDAO {
 		}
 	}
 	
-	public void jn_boardUpdate(Connection conn, JY_JN_BoardDTO dto) throws SQLException {
+	public int jn_boardUpdate(Connection conn, JY_JN_BoardDTO dto) throws SQLException {
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
+		int result = 0;
+		
 		sql.append("      update       mboard             ");
 		sql.append("      set          btitle    =  ?     ");
 		sql.append("                   ,bcontent =  ?     ");
@@ -161,10 +163,11 @@ public class JY_JN_BoardDAO {
 			pstmt.setString(2, dto.getBcontent());
 			pstmt.setString(3, dto.getFile_name());
 			pstmt.setInt(4, dto.getBno());
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} finally {
 			if(pstmt!=null) try {pstmt.close();} catch(SQLException e) {}
 		}
+		return result;
 	}
 
 
@@ -197,13 +200,14 @@ public void jn_boardUpload(Connection conn, JY_JN_BoardDTO dto) throws SQLExcept
 		sql.append("                      ,readno         ");
 		sql.append("                      ,writedate      ");
 		sql.append("                      ,file_name)     ");
-		sql.append("      values ( 2,? , ?, 0, 0, now(), ?) ");
+		sql.append("      values ( ?,? , ?, 0, 0, now(), ?) ");
 	
 		try {
 			pstmt= conn.prepareStatement(sql.toString());
-			pstmt.setString(1, dto.getBtitle());
-			pstmt.setString(2, dto.getBcontent());
-			pstmt.setString(3, dto.getFile_name());
+			pstmt.setInt(1, dto.getMem_no());
+			pstmt.setString(2, dto.getBtitle());
+			pstmt.setString(3, dto.getBcontent());
+			pstmt.setString(4, dto.getFile_name());
 			pstmt.executeUpdate();
 		} finally {
 			if(pstmt!=null) try {pstmt.close();} catch(SQLException e) {}

@@ -14,6 +14,11 @@
     color: rgb(0, 153, 255);
   }
 </style>
+<script>
+function unno(){
+	location.href="jy_list.do;
+}
+  </script>
 </head>
 <body>
 
@@ -31,7 +36,7 @@
     <input type="file" class="form-control-file" id="uploadfile" name="uploadfile">
   </div>
    <button type="submit" class="btn btn-primary">업로드</button>
-   <button type="reset" class="btn btn-secondary">취소</button>
+   <button type="button" class="btn btn-secondary" onclick="unno()">취소</button>
    <a href="jy_list.do">목록으로</a>
 </form>
 

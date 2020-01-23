@@ -103,9 +103,11 @@
   <input type="submit" value="검색" style="border: 1px transparent; padding: 5px; width :10%; font-size:14px; font-weight: 800; background-color: white;">
  </form>
  </div>
+ <c:if test="${sessionScope.mem_no != null }">
    <a href="jy_upload.do">
      <button type="button" class="btn btn-outline-info" style="font-size: 15px; float: right; height:34px; margin-top: -35px;">글쓰기</button>
    </a>
+   </c:if>
 <br>
 
 <c:set var ="currpage" value = "${requestScope.currpage }"/>

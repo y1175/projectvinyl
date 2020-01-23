@@ -5,9 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.homedream.comm.Action;
 import com.homedream.comm.ActionForward;
+import com.mysql.cj.Session;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -36,16 +38,20 @@ public class JY_JN_UploadResultAction implements Action {
 
 		System.out.println(uploadpath + "/" + file);
 		
+		HttpSession session=request.getSession();
+		int mem_no = (Integer) session.getAttribute("mem_no");
 		
 		String btitle = multi.getParameter("btitle");
 		String bcontent = multi.getParameter("bcontent");
 		System.out.println(btitle);
 		System.out.println(bcontent);
+		System.out.println(mem_no);
 		
 		JY_JN_BoardDTO dto = new JY_JN_BoardDTO();
 		dto.setBtitle(btitle);
 		dto.setBcontent(bcontent);
 		dto.setFile_name(file);
+		dto.setMem_no(mem_no);
 		
 		JY_JN_Service service = JY_JN_Service.getService();
 		service.jn_getUpload(dto);

@@ -62,11 +62,12 @@ public class JY_JN_UpdateResultAction implements Action {
 		dto.setBcontent(bcontent);
 		dto.setFile_name(file);
 		
-		service.jn_getUpdate(dto);
+		int result = service.jn_getUpdate(dto);
 	
+		request.setAttribute("result", result);
 		ActionForward forward = new ActionForward();
 		forward.setForward(true);
-		forward.setUrl("jy_detail.do?num="+bno);
+		forward.setUrl("/jy_jn/jy_jn_updateresult.jsp");
 		
 		return forward;
 	}

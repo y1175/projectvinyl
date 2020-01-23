@@ -66,14 +66,15 @@ public class JY_JN_Service {
 		return dto;
 	}
 	
-	public void jn_getUpdate(JY_JN_BoardDTO dto) {
+	public int jn_getUpdate(JY_JN_BoardDTO dto) {
 		Connection conn = null;
 		DBConnection db = DBConnection.getInstance();
+		int result = 0;
 		try {
 			conn = db.getConnection();
 			conn.setAutoCommit(false);
 			JY_JN_BoardDAO dao = JY_JN_BoardDAO.getDAO();
-			dao.jn_boardUpdate(conn,dto);
+			result = dao.jn_boardUpdate(conn,dto);
 			conn.commit();
 		}catch(SQLException | NamingException e) {
 			System.out.println(e);
@@ -81,6 +82,7 @@ public class JY_JN_Service {
 		}finally {
 			if(conn!=null) try {conn.close();} catch(SQLException e) {}
 		}
+		return result;
 	}
 	
 	public void jn_getDelete(int bno) {
@@ -172,7 +174,6 @@ public void jn_getUpload(JY_JN_BoardDTO dto) {
 		String subid = new String();
 		Connection conn = null;
 		List<JY_JN_SubBoardDTO> list = new ArrayList<>();
-		
 		try {
 			conn = db.getConnection();
 			conn.setAutoCommit(false);
