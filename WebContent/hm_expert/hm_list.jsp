@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/hm_list.css?ver=1">
+<link rel="stylesheet" href="css/hm_list.css?ver=2">
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic+Coding|Noto+Serif+KR&display=swap" rel="stylesheet">
 <style>
 /* header nav 전문가찾기 글씨색상  */
@@ -91,7 +91,7 @@
 			<p>
 					<a href="hm_detail.do?no=<%=dto.getNo()%>">
 					<button type="button" class="btn btn-outline-info" 
-					style ="margin: 40px 40px 0px 0px; font-weight:bolder; ">상세보기</button></a>	
+					style ="margin: 15px 40px 0px 0px; font-weight:bolder; ">상세보기</button></a>	
 			</p>
 		</div>
 	</div> 

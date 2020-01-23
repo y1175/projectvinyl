@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face{
+	font-family: NanumGothic;
+	src : local("NanumGothic"),
+	url("./font/NanumGothic.woff");
+	
+}
 body{
 	margin: 0px auto;
 }
@@ -28,17 +34,23 @@ body{
 
 
 .hm_expertmain{
-	background-color:rgba(255,255,251);
+	background-color:rgba(212,244,250,0.6);
 	border-radius: 20px;
 	width: 80%;
 	height:250px;
 	margin : 40px auto 20px;
 }
 .hm_expertmain_1 h2{
+	padding:20px 0px 0px 20px;
 	margin : 0px 0px 20px 0px;
 	font-family: 'Do Hyeon', sans-serif; 
 }
-
+.hm_expertmain p{
+	padding:20px 0px 0px 20px;
+	font-family : 'NanumGothic' , sans-serif; 
+	font-weight: 500;
+	
+}
 .hm_expertmain p a{
 	text-decoration: none;
 }
