@@ -20,6 +20,23 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
+<style>
+
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:8080/projectvinyl/font/10X10_1.woff");
+   
+}
+
+body{
+	
+	font-family:"10X10";
+}
+
+</style>
+
+
+
 </head>
 <body>
   <div class="container">

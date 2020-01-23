@@ -20,13 +20,22 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <style>
+
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:8080/projectvinyl/font/10X10_1.woff");
+   
+}
+body{
+    margin: 0px auto;
+    font-family:"10X10";
+}
+
 /* header nav 홈 글씨색상  */
   .hs_header_nav > a:nth-child(5){
     color: rgb(0, 153, 255);
   }
-body{
-    margin: 0px auto;
-}
+
 .hs_event_thumbnail {
    width: 100%;
    text-align: center;
