@@ -8,8 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- jQuery -->
-<link rel ="stylesheet" href="css/hm_modify.css?ver=2">
+<link rel ="stylesheet" href="css/hm_modify.css?ver=1">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Sans+KR&display=swap" rel="stylesheet">
 <!-- jQuery -->
 <script>
 function send(){
