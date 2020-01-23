@@ -117,27 +117,27 @@
    </div>
   <!-- thumbnail_deal 1 -->
    <div class="hs_thumbnail_deal">
-     <a href=""><img src="https://shop-phinf.pstatic.net/20180603_129/plabe_1528026135942tIdrv_JPEG/10744994790530730_1296510235.jpg?type=f500_500" alt="플라비"></a>
+     <a href="yj_detailItem.jsp"><img src="https://shop-phinf.pstatic.net/20180603_129/plabe_1528026135942tIdrv_JPEG/10744994790530730_1296510235.jpg?type=f500_500" alt="플라비"></a>
      <p class="hs_thumbnail_deal_p">플라비</p>
-     <a href=""><b>룬(RU:NE) 메쉬 사무용의자</b></a>
+     <a href="yj_detailItem.jsp"><b>룬(RU:NE) 메쉬 사무용의자</b></a>
      <br>
      <b style="color: red;">42%</b><b>180,900</b>
      <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.2<span>리뷰 421</span></p>
    </div>
   <!-- thumbnail_deal 2 -->
    <div class="hs_thumbnail_deal">
-     <a href=""><img src="https://shop-phinf.pstatic.net/20190316_111/plabe_1552673947954b3F22_JPEG/75981127595535293_645896033.jpg?type=f500_500" alt="플라비2"></a>
+     <a href="yj_detailItem.jsp"><img src="https://shop-phinf.pstatic.net/20190316_111/plabe_1552673947954b3F22_JPEG/75981127595535293_645896033.jpg?type=f500_500" alt="플라비2"></a>
      <p class="hs_thumbnail_deal_p">리바트</p>
-     <a href=""><b>하움 1000G 멀티 스토리지</b></a>
+     <a href="yj_detailItem.jsp"><b>하움 1000G 멀티 스토리지</b></a>
      <br>
      <b style="color: red;">11%</b><b>210,000</b>
      <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.1<span>리뷰 646</span></p>
    </div>
   <!-- thumbnail_deal 3 -->
    <div class="hs_thumbnail_deal">
-     <a href=""><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542094133046_6h.jpg?gif=1&w=480&h=480&c=c" alt="이지은행거"></a>
+     <a href="yj_detailItem.jsp"><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542094133046_6h.jpg?gif=1&w=480&h=480&c=c" alt="이지은행거"></a>
      <p class="hs_thumbnail_deal_p">이지은행거</p>
-     <a href=""><b>이중지지대 이지 폴행거 모음전</b></a>
+     <a href="yj_detailItem.jsp"><b>이중지지대 이지 폴행거 모음전</b></a>
      <br>
      <b style="color: red;">26%</b><b>47,900</b>
      <p class="hs_thumbnail_deal_star" style="font-weight: 600;"><i class='fas fa-star' style="color: rgb(0, 153, 255);"></i>4.5<span>리뷰 11,815</span></p>
@@ -170,22 +170,22 @@
   </div>
   <!-- thumbnail_best 1 -->
    <div class="hs_thumbnail_best">
-     <a href=""><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542012969745_4k8.jpg?gif=1&w=480&h=480&c=c" alt="지누스 "></a>
-     <a href=""><b>롤팩 메모리폼 매트리스(S/SS/Q/K)</b></a>
+     <a href="yj_detailItem.jsp"><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542012969745_4k8.jpg?gif=1&w=480&h=480&c=c" alt="지누스 "></a>
+     <a href="yj_detailItem.jsp"><b>롤팩 메모리폼 매트리스(S/SS/Q/K)</b></a>
      <br>
      <b style="color: rgb(0, 153, 255);">15%</b><b>129,000</b>
    </div>
   <!-- thumbnail_best 2 -->
    <div class="hs_thumbnail_best">
-     <a href=""><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542170756922_E.jpg?gif=1&w=512&h=512&c=c" alt="샤오미"></a>
-     <a href=""><b>샤오미 정식수입 로봇청소기 2세대 한글판</b></a>
+     <a href="yj_detailItem.jsp"><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1542170756922_E.jpg?gif=1&w=512&h=512&c=c" alt="샤오미"></a>
+     <a href="yj_detailItem.jsp"><b>샤오미 정식수입 로봇청소기 2세대 한글판</b></a>
      <br>
      <b style="color: rgb(0, 153, 255);">16%</b><b>499,000</b>
    </div>
   <!-- thumbnail_best 3 -->
    <div class="hs_thumbnail_best">
-     <a href=""><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
-     <a href=""><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
+     <a href="yj_detailItem.jsp"><img src="https://cdn.wadiz.kr/wwwwadiz/green001/2019/1129/20191129101256068_54277.jpg" alt="집사의반격"></a>
+     <a href="yj_detailItem.jsp"><b>패브릭으로 꾸며진 따뜻하고 아늑한 캣휠입니다.</b></a>
      <br>
      <b style="color: rgb(0, 153, 255);">27%</b><b>178,400</b>
    </div>
