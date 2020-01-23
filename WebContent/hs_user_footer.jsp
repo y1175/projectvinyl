@@ -59,7 +59,7 @@
  <div id="hs_footer_wrap">
     <a href="" class="hs_footer_cc">고객센터</a> 
     <div>     
-      <b class="hs_footer_tel">1588-1588</b>
+      <b class="hs_footer_tel">010-9988-2728</b>
       <img alt="snimg" src="img/hs_footer_sn.png"  class="hs_footer_sn">   
     </div>
   <div class="hs_footer_content1">

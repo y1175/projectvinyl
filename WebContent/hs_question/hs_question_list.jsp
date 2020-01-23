@@ -43,7 +43,12 @@
            <option value="readno">인기순</option>
         </select>
     </form>
-    <a href="hs_questioninsert.do"><button class="hs_question_btn">질문하기</button></a>
+     <c:if test="${sessionScope.mem_no != null }">
+     <a href="hs_questioninsert.do"><button class="hs_question_btn">질문하기</button></a>
+      </c:if>
+    
+    
+    
   </div>
   <c:set var="list" value="${requestScope.list}"></c:set>
   <c:forEach var="item" items="${list}">
