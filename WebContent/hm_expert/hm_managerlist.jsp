@@ -11,12 +11,19 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
-<link rel="stylesheet" href="css/hm_managerlist.css?ver=2">
+<link rel="stylesheet" href="css/hm_managerlist.css?ver=1">
 <style>
 /* header nav 업체관리  */
   .hs_header_nav > a:nth-child(1){
     color: rgb(0, 153, 255);
   }
+  
+  @font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
+  
 </style>
 </head>
 <body>
@@ -58,7 +65,7 @@
 
 	<a href = "hm_upload.do">
       <button type="button" class="btn btn-outline-info"
-      style ="width:100px; margin : 0px 0px 20px 0px; float:right;">업체등록</button></a>
+      style ="width:100px; margin : 0px 0px 20px 0px; float:right;  font-family: '10X10'; ">업체등록</button></a>
 
 <table class="table"  >
   <thead>
@@ -91,12 +98,12 @@
       <td>  
       <a href = "hm_managerdetail.do?no=<%=no%>">
       <button type="button" class="btn btn-outline-info"
-      style ="width:65px;height:40px; ">보기</button></a>
+      style ="width:65px;height:40px;font-family: '10X10'; ">보기</button></a>
       </td>
       <td>
       <a href ="hm_delete.do?no=<%=no%>">
       <button type="button" class="btn btn-outline-info" 
-      style ="width:65px;height:40px;" >삭제</button></a>
+      style ="width:65px;height:40px; font-family: '10X10';" >삭제</button></a>
       </td>
     </tr>
 	<%

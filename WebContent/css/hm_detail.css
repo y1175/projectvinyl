@@ -2,6 +2,11 @@ body
 {
  margin : 0px auto;
 }
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
 .hm_detailfirst h1{
 	margin : 20px 0px 40px 0px;
 	text-align: center;
@@ -12,7 +17,7 @@ body
 .hm_detailfirst h6{
 	text-align: center;
 	font-weight: bolder;
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family:"10X10";
 }
 .hm_wrap
 {
@@ -84,9 +89,11 @@ body
 }
 .hm_animate-text
 {
+	
   opacity:0;
   transition: all 0.6s ease-in-out;
 }
+
 .hm_tile:hover
 {
   background-color:#99aeff;
@@ -153,6 +160,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 .hm_detailtwice h3{
 	margin : 100px 0px 0px 165px;
 	font-weight: bolder;
+		font-family:"10X10";
 }
 .hm_detailtwice h3:hover{
 	color:rgba(0,153,255,0.6);
@@ -163,6 +171,16 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 .card-title{
 	text-align: center;
 }
+.card-title{
+   font-family: '10X10';
+	
+}
 .card-text{
 	text-align: center;
+	   font-family: '10X10';
 } 
+.card-body a{
+	   font-family: '10X10';
+}
+
+

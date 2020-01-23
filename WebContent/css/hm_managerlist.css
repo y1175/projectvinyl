@@ -2,11 +2,15 @@
 body{
 	margin: 0px auto;
 }
-
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
 .hm_h1mg{
 	text-align: center;
 	margin : 40px;
-
+	font-family: '10X10';
 }
 
 .hm_searchmg{
@@ -14,13 +18,16 @@ body{
 	left: 500px;
 	background-color: rgba(0,153,255,0.6);
 	color:rgb(255,255,255);
-	font-size : 13px;
+	font-size : 18px;
 	padding:5px 15px;
 	border: 1px  transparent;
 	border-radius: 15px;
+	font-family: '10X10';
 	margin : 20px;s
 	
+	
 }
+
 .form-control{
 	width:200px;
 	margin : 20px auto;

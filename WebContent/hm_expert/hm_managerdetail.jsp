@@ -11,9 +11,15 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 
-<link rel="stylesheet" href="css/hm_managerdetail.css?ver=2">
+<link rel="stylesheet" href="css/hm_managerdetail.css?ver=1">
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic+Coding|Noto+Serif+KR&display=swap" rel="stylesheet">
-
+<style>
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
+</style>
 
 </head>
 <body>
@@ -53,10 +59,10 @@
 
 
 <a href="hm_managerlist.do"><button type="button" class="btn btn-outline-info"
-style = "margin:20px 20px 0px 0px;"
+style = "margin:20px 20px 0px 0px;    font-family: '10X10';"
 >리스트보기</button></a>
 <a href="hm_modify.do?no=<%=no%>"><button type="button" class="btn btn-outline-info"
-style = "margin:20px 20px 0px 0px;">수정</button></a>
+style = "margin:20px 20px 0px 0px; font-family: '10X10';">수정</button></a>
 
 </body>
 </html>
