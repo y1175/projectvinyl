@@ -81,7 +81,7 @@ img {
 }
 
 .card {
-	margin-top: 50px;
+	margin-top: 20px;
 	background: #eee;
 	padding: 3em;
 	line-height: 1.5em;
@@ -216,7 +216,6 @@ img {
      </header>
 
 <c:set var="mem_no" value="${sessionScope.mem_no }"/>
-<c:out value="${mem_no }"></c:out>
 	<div class="dtail-container" style="text-align: center;">
 		<div class="card">
 			<div class="container-fliud">
