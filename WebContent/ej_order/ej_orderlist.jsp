@@ -139,7 +139,7 @@ $(document).ready(function(){
 <body>
 <%request.setCharacterEncoding("UTF-8");%>
      <div class="ej_all">
-<img src="http://localhost:9080/projectvinyl/ej_order/ej_delivery.png" alt="delivery"
+<img src="http://localhost:9080/projectvinyl/img/ej_delivery.png" alt="delivery"
  class="ej_deliveryimage"><h3>주문배송관리</h3>
 <form method="post" action="ej_orderlist.do">
 <c:set var="list" value="${requestScope.list }"/>
@@ -168,7 +168,7 @@ class="ej_txtsearch" placeholder="주문 배송을 검색해보세요">
 <input type="text" name="stxtsearch1" class="ej_stxtsearch1" placeholder="원">~
 <input type="text" name="stxtsearch2" class="ej_stxtsearch2" placeholder="원">
 <input type="image" 
-src="http://localhost:9080/projectvinyl/ej_order/ej_search.png" alt="search"
+src="http://localhost:9080/projectvinyl/img/ej_search.png" alt="search"
 id="ej_search">
 <!-- <input  type="submit" value="상세검색" id="ej_submit" alt="submit"> -->
 <!--class="btn btn-primary" 상세검색에 이거 썻엇음 -->
@@ -265,7 +265,7 @@ id="ej_search">
 	<option value=5>취소승인</option>
 </select>
 <input type="image" 
-src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
+src="http://localhost:9080/projectvinyl/img/ej_check.png" alt="check"
 id="ej_check">
 
       </li> </ul> 

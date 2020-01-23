@@ -23,7 +23,7 @@
 <style>
 @font-face{
    font-family: '10X10';
-   src: url("http://localhost:8080/projectvinyl/font/10X10_1.woff");
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
    
 }
 

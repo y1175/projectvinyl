@@ -8,7 +8,11 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 <!-- jQuery -->
 <style>
-
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
 
 /* header nav 전문가찾기 글씨색상  */
   .hs_header_nav > a:nth-child(1){
@@ -33,12 +37,15 @@ position:relative;
     background-color:white;
     border: 1px solid #757575;
     border-radius: 5px;
+    font-family:10X10;
 }
 .ej_txtsearch{
 width:72%;
 border: 1px transparent;}
 
 .ej_searchop{
+font-family:"10X10";
+font-weight:bolder;
 	width :24%;
 	border: 1px transparent;
 	padding: 5px;
@@ -62,6 +69,7 @@ top:13px;
 }
 
 .ej_selectbox{
+font-family:"10X10";
 width:150px;
 margin:6px;
 border-radius: 5px;
@@ -80,6 +88,8 @@ text-align: center;
 }
 table{
 /* width:80%; */
+font-family:"10X10";
+
 margin: auto;
 text-align: center;}
 .ej_page{
@@ -113,6 +123,8 @@ padding:20px 0px 0px 0px;
 }
 .ej_modalfooter{
 padding: 0px 0px 15px 0px;}
+
+
 </style>
 
 
@@ -163,7 +175,7 @@ $(document).ready(function(){
 
  <div class="ej_all">
  <ul><li>
-<img src="http://localhost:9080/projectvinyl/ej_member/ej_user.png" alt="user"
+<img src="http://localhost:9080/projectvinyl/img/ej_user.png" alt="user"
  class="ej_userimage"><h3>회원조회</h3></li>
  </ul>
 <form method="post" action="ej_list.do">
@@ -193,7 +205,7 @@ class="ej_txtsearch" placeholder="회원 정보를 검색해보세요">
 <input type="text" name="stxtsearch1">원~<input type="text" name="stxtsearch2">원
 <!-- <input type="submit" value="상세검색">  -->
 <input type="image" 
-src="http://localhost:9080/projectvinyl/ej_order/ej_search.png" alt="search"
+src="http://localhost:9080/projectvinyl/img/ej_search.png" alt="search"
 id="ej_search">
 </div>
 
@@ -229,7 +241,7 @@ id="ej_search">
 	 
 </tbody>
 </table><br>
-
+<!-- 
    <form method="post" action="ej_insert.do">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -253,7 +265,7 @@ id="ej_search">
             <input type="text" name="addpoint" id="addpoint"
             placeholder="포인트적립">
             <input type="image" 
-src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
+src="http://localhost:9080/projectvinyl/img/ej_check.png" alt="check"
 id="ej_check">
             </li></ul>
           </div>
@@ -264,7 +276,43 @@ id="ej_check">
       </form>        
       </div>
     
+ -->
+    <form method="post" action="ej_insert.do">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"> 
+        <h4 class="modal-title" id="exampleModalLabel">적립금부여</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+  
+          <div class="form-group">	
+           <ul>
+          <li>
+            <label for="recipient-name" class="ej_control-label" >회원번호:</label>
+            <input type="text" class="ej_form-control" id="recipient-name" name="what"></li></ul>
+          </div>
+       </div>
+        
+           <div class="ej_modalfooter">
+           <ul><li>
+            <input type="text" name="addpoint" id="addpoint"
+            placeholder="포인트적립">
+            <input type="image" 
+src="http://localhost:9080/projectvinyl/ej_order/ej_check.png" alt="check"
+id="ej_check">
+            </li></ul></div>
+      </form>        
+      </div>
+    
 
+        
+    </div>
+   
+  </div>
+  
+</div>
    
   
 
