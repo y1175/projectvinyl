@@ -1,25 +1,33 @@
 @charset "UTF-8";
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
 body{
 	margin: 0px auto;
 }
 
-.h1{
+.hm_h1{
 	text-align: center;
 	margin : 40px;
-	font-family: 'Do Hyeon', sans-serif; 
-
+	font-family:"10X10";
+	/* font-family: 'Do Hyeon', sans-serif; */
 }
 
-.search{
+
+.hm_search{
 	position: relative;
 	left: 505px;
 	background-color: rgba(0,153,255,0.6);
 	color:rgb(255,255,255);
-	font-size : 13px;
+	font-size : 18px;
 	padding:5px 15px;
 	border: 1px  transparent;
 	border-radius: 15px;
+	 font-family: '10X10';
 	margin : 20px;s
+
 	}
 .form-control{
 	width:200px;
@@ -27,25 +35,31 @@ body{
 }
 
 
-.expertmain{
-	background-color:rgba(255,255,251);
+.hm_expertmain{
+	background-color:rgba(212,244,250,0.6);
 	border-radius: 20px;
 	width: 80%;
 	height:250px;
 	margin : 40px auto 20px;
 }
-.expertmain_1 h2{
+.hm_expertmain_1 h2{
+	padding:20px 0px 0px 20px;
 	margin : 0px 0px 20px 0px;
 	font-family: 'Do Hyeon', sans-serif; 
 }
-
-.expertmain p a{
+.hm_expertmain p{
+	padding:20px 10px 0px 20px;
+font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	
+}
+.hm_expertmain p a{
 	text-decoration: none;
 }
-.expertmain p a:hover{
+.hm_expertmain p a:hover{
 	color: rgb(255,255,255);
 }
-.img{
+.hm_img{
 	width:80%;
 	height:360px;
 	border-radius: 20px;

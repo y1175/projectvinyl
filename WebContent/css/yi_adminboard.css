@@ -1,8 +1,19 @@
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
+
+body{
+	
+	font-family:"10X10";
+}
+
 .table{
 	text-align:center;
 }
 
-._admin_titlediv{
+.yi_admin_titlediv{
 	margin-top:0px;
 	width: 100%;
 	background-color: rgba(224,224,224,0.5);
@@ -10,7 +21,7 @@
 	margin-bottom: 30px;
 }	
 
-._admin_searchbox{	position:relative;
+.yi_admin_searchbox{	position:relative;
 	left:202px;
     width: 60%;	
     background-color:white;
@@ -18,37 +29,37 @@
     border-radius: 5px;
     }
     
-._adminsearch_searchop{
+.yi_adminsearch_searchop{
 	width :13%;
 	border: 1px transparent;
 	padding: 5px;
 	border-radius: 5px;
 }
-#_adminsearchtxt{
+#yi_adminsearchtxt{
 	width :81%;
 	padding: 5px;
 	border: 1px transparent;
 	border-radius: 5px;	
 }
 
-._modifybtn{
+.yi_modifybtn{
 	margin-right:5%;
 	margin-bottom:3%;
     float:right;
 }
 
 
-._mypagelogo{
+.yi_mypagelogo{
 	font-weight: 600;
 }
 
-._accordion-inside-title{
+.yi_accordion-inside-title{
 	font-weight: 600;
 	margin-left: 3%;
 	margin-top: 2%;
 	
 }
-._orderguide{
+.yi_orderguide{
 	padding-left:3%;
 	padding-right:3%
 	padding-top:5%;
@@ -58,38 +69,38 @@
  
 }
 
-._orderdetailTitle{
+.yi_orderdetailTitle{
 	margin-top:-2%;
 	font-weight:600;
 }
 
-._orderdetail-location{
+.yi_orderdetail-location{
 	margin-left:10%;
 	font-weight:600;
 	
 }
 
-._orderdetail-item{
+.yi_orderdetail-item{
 	text-align:center;
 	font-weight:600;
 	
 }
 
-._ordercancelbtn{
+.yi_ordercancelbtn{
 	margin-top:1%;
 	margin-left:45%;
 }
 
-._backToOrderlist a{
+.yi_backToOrderlist a{
     font-weight : 700;
     font-size: 15px;
     text-decoration: none;
     color: #222;
     float:right;
     margin-right:5%;
-    margin-top:-3%;
+    margin-top: 1%;
 }
-._backToOrderlist a:hover{
+.yi_backToOrderlist a:hover{
     color: rgb(0, 153, 255);
     text-decoration: none;
 }

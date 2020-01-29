@@ -2,29 +2,34 @@
 body{
 margin : 0px auto;
 }
-.managerdetail{
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
+.hm_managerdetail{
 	width:100%;
 	border:1px solid silver;
 	border-radius: 20px;
 	margin-top:30px;
 }
-img.managerdetailimg{
+img.hm_managerdetailimg{
 	
 	width:80%;
 	height:360px;
 	border-radius: 20px;
 	
 } 	
-.managerdetail p{
+.hm_managerdetail p{
 	margin : 20px 0px 30px 20px;
 	font-size : 20px;
-	font-family: 'Do Hyeon', sans-serif; 
+	font-family: '10X10';
 	/* font-family: 'Nanum Gothic Coding', monospace */
 	/* font-family: 'Noto Serif KR', serif; */
 }
 
-.managerdetail .text p{
-	font-family: 'Do Hyeon', sans-serif; 
+.hm_managerdetail .hm_text p{
+	font-family: '10X10';
 	margin : 0px 0px 30px;
 	text-align: center;
 	font-size : 26px;
@@ -32,22 +37,23 @@ img.managerdetailimg{
 
 
 
-.managerdetail h2{
+.hm_managerdetail h2{
 	text-align: center;
 	/* font-weight: bolder; */
 	margin-bottom : 40px;
-	font-family: 'Do Hyeon', sans-serif; 
+	font-family: '10X10';
 	
 	/*폰트 설정하기*/
 }
-.managerdetail h6{
+.hm_managerdetail h6{
 	width:90%;
 	margin : 50px auto 60px;
 	text-align: center;
+	font-family: '10X10';
 	/* font-weight: lighter; */
 }
 
-.managerdetail .text{
+.hm_managerdetail .hm_text{
 	padding:30px;
 	width:90%;
 	margin: 0px auto;

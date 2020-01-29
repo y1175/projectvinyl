@@ -1,14 +1,25 @@
+@font-face{
+   font-family: '10X10';
+   src: url("http://localhost:9080/projectvinyl/font/10X10_1.woff");
+   
+}
+
+body{
+	
+	font-family:"10X10";
+}
+
 .loginform{
 	margin-top: 20%;
 	
 }
-._label{
+.yi_label{
 	
 	font-weight: bold;
 	color:rgb(255,255,230);
 }
 
-._form {
+.yi_form {
     width: 320px;
     padding: 60px 25px 80px;
     display: flex;
@@ -93,15 +104,15 @@ input {
     transform: rotate3d(-.2, 0, 0, 20deg) !important;    
 }
 
-.look-away.plang.up .ears,
-.look-away.plang.up .eyes,
-.look-away.plang.up .muzzle {
+.look-away.playing.up .ears,
+.look-away.playing.up .eyes,
+.look-away.playing.up .muzzle {
     animation-name: lookaway-up;
 }
 
-.look-away.plang.down .ears,
-.look-away.plang.down .eyes,
-.look-away.plang.down .muzzle {
+.look-away.playing.down .ears,
+.look-away.playing.down .eyes,
+.look-away.playing.down .muzzle {
     animation-name: lookaway-down;
 }
 
