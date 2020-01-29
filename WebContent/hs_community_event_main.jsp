@@ -125,7 +125,7 @@ body{
         <a>
            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/contests/mobile_banner/157915533688124688.png?gif=1&w=640" class="hs_event_b" alt="사진3">
         </a>
-         <p><span class="hs_event_end">종료</span><span class="hs_event_ingd">20/01/01 ~ 20/01/20</span></p>  
+         <p><span class="hs_event_end">종료</span><span class="hs_event_ingd">20/01/01 ~ 20/01/22</span></p>  
      </div>
   
      <footer>
